@@ -48,26 +48,27 @@ export default {
       this.btnY = this.$refs.container.offsetTop;
       this.padWidth = this.$refs.keys.clientWidth;
       this.padHeight = this.$refs.keys.clientHeight;
+      this.margin = 10;
     },
     setStyle() {
       this.$refs.numBtn.style.backgroundColor = this.Data.color;
 
       switch (this.Data.padPosition) {
         case "upperRight":
-          this.padStyle.left = this.btnX + this.btnWidth + "px";
+          this.padStyle.left = this.btnX + this.btnWidth + this.margin + "px";
           this.padStyle.top =
             this.btnY - this.padHeight + this.btnHeight + "px";
           break;
         case "lowerRight":
-          this.padStyle.left = this.btnX + this.btnWidth + "px";
+          this.padStyle.left = this.btnX + this.btnWidth + this.margin + "px";
           this.padStyle.top = this.btnY + "px";
           break;
         case "lowerLeft":
-          this.padStyle.left = this.btnX - this.padWidth + "px";
+          this.padStyle.left = this.btnX - this.padWidth - this.margin + "px";
           this.padStyle.top = this.btnY + "px";
           break;
         case "upperLeft":
-          this.padStyle.left = this.btnX - this.padWidth + "px";
+          this.padStyle.left = this.btnX - this.padWidth - this.margin + "px";
           this.padStyle.top =
             this.btnY - this.padHeight + this.btnHeight + "px";
           break;
@@ -91,6 +92,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
+  padding: 0;
   width: 100%;
   height: 100%;
 }
@@ -103,18 +105,21 @@ export default {
   position: absolute;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  width: 25%;
+  width: fit-content;
+  height: fit-content;
   background-color: #9b8c7c;
   padding: 10px;
   border-radius: 20px;
   z-index: 1;
 }
 .keysBtn {
-  aspect-ratio: 1;
+  width: 5vw;
+  height: 5vw;
 }
 
 .clearBtn {
   grid-column: 2/4;
+  height: 5vw;
 }
 button {
   border: none;
