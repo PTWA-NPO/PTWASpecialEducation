@@ -33,7 +33,7 @@ export default {
     },
   },
 
-  emits: ["replyAnswer", "ReplyAnswer"],
+  emits: ["replyAnswer"],
 
   mounted() {
     this.getPositionInfo();
@@ -77,7 +77,6 @@ export default {
     setNum(i) {
       this.input = i;
       this.$emit("replyAnswer", i);
-      this.$emit("ReplyAnswer", i);
       this.padStyle.visibility = "hidden";
     },
     showPad() {
