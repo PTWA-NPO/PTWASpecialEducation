@@ -123,6 +123,6 @@ export default {
 }
 button {
   border: none;
-  font-size: 300%;
+  font-size: 250%;
 }
 </style>
