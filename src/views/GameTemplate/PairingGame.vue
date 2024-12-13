@@ -12,11 +12,7 @@
           >
             <template #item="{ element }">
               <div class="dragable">
-                <component
-                  :is="element.Name"
-                  :Data="element.Data"
-                  :ID="this.id"
-                ></component>
+                <component :is="element.Name" :Data="element.Data" :ID="ID" />
               </div>
             </template>
           </draggable>
@@ -24,7 +20,7 @@
       </div>
       <div class="QuestionArea">
         <p class="Title">答案區</p>
-        <div class="Pair" v-for="(pair, index) in GameData.Pairs">
+        <div v-for="(pair, index) in GameData.Pairs" class="Pair">
           <div class="Answer" :class="{ False: FalseOption[index] == true }">
             <draggable
               :list="AnswersNew[index]"
@@ -34,11 +30,7 @@
             >
               <template #item="{ element }">
                 <div class="dragable">
-                  <component
-                    :is="element.Name"
-                    :Data="element.Data"
-                    :ID="this.id"
-                  ></component>
+                  <component :is="element.Name" :Data="element.Data" :ID="ID" />
                 </div>
               </template>
             </draggable>
@@ -82,11 +74,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       Selections: [],
@@ -95,9 +88,6 @@ export default {
       AnswersNew: [],
       FalseOption: [],
     };
-  },
-  methods: {
-    // Your methods go here
   },
   created() {
     this.Selections = this.GameData.Properties;
@@ -109,6 +99,9 @@ export default {
   },
   mounted() {
     // Code to run when the component is mounted goes here
+  },
+  methods: {
+    // Your methods go here
   },
   methods: {
     PoplastAdd(index) {

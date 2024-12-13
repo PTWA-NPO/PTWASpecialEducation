@@ -5,8 +5,8 @@
     </div>
     <div class="game-area">
       <WaterScrollable
-        :Data="this.GameData.waterContainer"
-        @updateML="recordAnswer"
+        :Data="GameData.waterContainer"
+        @update-m-l="recordAnswer"
       />
       <button class="submit-btn" @click="checkAnswer">檢查答案</button>
     </div>
@@ -28,11 +28,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "next-question", "add-record"],
   data() {
     return {
       // Add your component data here

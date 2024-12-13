@@ -1,15 +1,17 @@
 <template>
   <div class="OutterContainer">
-    <p v-if="this.Data.Text != undefined">
-      {{ this.Data.Text }}{{ this.Data.Unit }}
-    </p>
-    <div class="Number" v-else>
+    <p v-if="configs.Text != undefined">{{ configs.Text }}{{ configs.Unit }}</p>
+    <div v-else class="Number">
       <div class="Division">
-        <p class="Child">{{ this.Data.Child }}</p>
+        <p class="Child">
+          {{ configs.Child }}
+        </p>
         <hr class="fraction-line" />
-        <p class="Mother">{{ this.Data.Mother }}</p>
+        <p class="Mother">
+          {{ configs.Mother }}
+        </p>
       </div>
-      <p>{{ Data.Unit }}</p>
+      <p>{{ configs.Unit }}</p>
     </div>
     <table class="OddBorderOutline">
       <tr v-for="(items, index1) in Drawed">
@@ -17,7 +19,7 @@
           v-for="(item, index2) in items"
           class="table"
           @click="handleClick($event, index1, index2)"
-        ></td>
+        />
       </tr>
     </table>
     <!-- <button @click="GetAnswer1">GetAnswer</button> -->
@@ -28,12 +30,6 @@
 import TextOnly from "./TextOnly.vue";
 export default {
   name: "CoulorBarChart",
-  data() {
-    return {
-      Drawed: [],
-      container: null,
-    };
-  },
   props: {
     Data: {
       type: Object,
@@ -44,16 +40,22 @@ export default {
       required: true,
     },
   },
-  methods: {
-    // Your component's methods go here
+  emits: ["replyAnswer"],
+  data() {
+    return {
+      Drawed: [],
+      container: null,
+      configs: {},
+    };
   },
   created() {
-    this.Data.Total = this.Data.Mother;
+    this.configs = this.Data;
+    this.configs.Total = this.configs.Mother;
     this.Drawed = [];
-    if (this.Data.Total % 2 != 0) {
+    if (this.configs.Total % 2 != 0) {
       //奇數
       let temp = [];
-      for (var i = 0; i < this.Data.Total; i++) {
+      for (var i = 0; i < this.configs.Total; i++) {
         temp.push(true);
       }
       console.log(temp);
@@ -61,7 +63,7 @@ export default {
     } else {
       //偶數
       let temp = [];
-      let div = this.Data.Total / 2;
+      let div = this.configs.Total / 2;
       for (var i = 0; i < 2; i++) {
         let temp = [];
         for (var x = 0; x < div; x++) {
@@ -76,12 +78,12 @@ export default {
     let tableData = document.getElementsByClassName("table");
     let container = document.getElementsByClassName("OutterContainer");
     container = container[0].getBoundingClientRect();
-    let width = container.width / this.Data.Total - 10;
+    let width = container.width / this.configs.Total - 10;
     for (var i = 0; i < tableData.length; i++) {
       tableData[i].style.width = width + "px";
     }
-    if (this.Data.Coulor == undefined) {
-      this.Data.Coulor = "#bde0fe";
+    if (this.configs.Coulor == undefined) {
+      this.configs.Coulor = "#bde0fe";
     }
   },
   methods: {
@@ -90,7 +92,7 @@ export default {
       if (this.Drawed[index1][index2]) {
         $event.target.style.backgroundColor = "white";
       } else {
-        $event.target.style.backgroundColor = this.Data.Coulor;
+        $event.target.style.backgroundColor = this.configs.Coulor;
       }
       this.GetAnswer();
     },
@@ -103,10 +105,10 @@ export default {
           }
         }
       }
-      if (TempAnswer == this.Data.Child) {
-        this.$emit("ReplyAnswer", true);
+      if (TempAnswer == this.configs.Child) {
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
     GetAnswer1() {
@@ -118,10 +120,10 @@ export default {
           }
         }
       }
-      if (TempAnswer == this.Data.Child) {
-        alert("Correct" + TempAnswer + this.Data.Child);
+      if (TempAnswer == this.configs.Child) {
+        alert("Correct" + TempAnswer + this.configs.Child);
       } else {
-        alert("Incorrect" + TempAnswer + this.Data.Child);
+        alert("Incorrect" + TempAnswer + this.configs.Child);
       }
     },
   },

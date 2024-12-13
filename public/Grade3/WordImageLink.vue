@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg></svg>
+    <svg />
   </div>
 </template>
 
@@ -12,11 +12,11 @@ export default {
       // Your data properties go here
     };
   },
-  methods: {
-    // Your methods go here
-  },
   mounted() {
     // Code to run when the component is mounted goes here
+  },
+  methods: {
+    // Your methods go here
   },
 };
 </script>

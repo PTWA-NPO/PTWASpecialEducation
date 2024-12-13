@@ -7,7 +7,7 @@
           :Data="questionLeftTerm"
           class="math-expression__fraction"
         ></FractionDisplay>
-        <span class="question__math-symbol" v-html="operation"></span>
+        <span class="question__math-symbol">{{ operation }}</span>
         <FractionDisplay
           :Data="questionRightTerm"
           class="math-expression__fraction"
@@ -17,7 +17,7 @@
           ref="fractionsComponent"
           :Data="answerData"
           @validation="handleValidation"
-          @record-answer="handleRecordAnswer"
+          @recordAnswer="handleRecordAnswer"
         ></FractionForAnswer>
       </div>
     </div>
@@ -26,7 +26,7 @@
         :Data="checkCalculationData"
         class="check-calculation-components"
       ></DragFraction>
-      <button @click="triggerValidation" class="check-answer-btn">
+      <button class="check-answer-btn" @click="triggerValidation">
         送出答案
       </button>
     </div>
@@ -39,6 +39,15 @@ import FractionForAnswer from "@/components/FractionForAnswer.vue";
 
 export default {
   name: "FractionArithmetic",
+  components: {
+    FractionDisplay: defineAsyncComponent(() =>
+      import("@/components/FractionDisplay.vue")
+    ),
+    DragFraction: defineAsyncComponent(() =>
+      import("@/components/DragFraction.vue")
+    ),
+    FractionForAnswer,
+  },
   props: {
     GameData: {
       type: Object,
@@ -53,15 +62,7 @@ export default {
       required: true,
     },
   },
-  components: {
-    FractionDisplay: defineAsyncComponent(() =>
-      import("@/components/FractionDisplay.vue")
-    ),
-    DragFraction: defineAsyncComponent(() =>
-      import("@/components/DragFraction.vue")
-    ),
-    FractionForAnswer,
-  },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       recordedAnswer: null,

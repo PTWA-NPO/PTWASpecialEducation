@@ -3,19 +3,23 @@
     <!-- 控制区 -->
     <div class="controls">
       <input
-        type="file"
         ref="fileInput"
-        @change="handleImageUpload"
+        type="file"
         accept="image/*"
-      />
-      <button @click="startRecording" :disabled="!image">開始紀錄</button>
-      <button @click="deleteLastPoint" :disabled="points.length === 0">
+        @change="handleImageUpload"
+      >
+      <button :disabled="!image" @click="startRecording">
+        開始紀錄
+      </button>
+      <button :disabled="points.length === 0" @click="deleteLastPoint">
         刪除上一個點
       </button>
-      <button @click="deleteAllPoints" :disabled="points.length === 0">
+      <button :disabled="points.length === 0" @click="deleteAllPoints">
         刪除所有的點
       </button>
-      <button @click="reuploadImage" :disabled="!image">重新上傳圖片</button>
+      <button :disabled="!image" @click="reuploadImage">
+        重新上傳圖片
+      </button>
     </div>
 
     <!-- 舞台区域 -->
@@ -29,8 +33,8 @@
 
           <!-- 图片 -->
           <v-image
-            :config="imageConfig"
             v-if="image"
+            :config="imageConfig"
             @click="handleImageClick"
           />
 

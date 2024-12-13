@@ -7,6 +7,9 @@ let usegameStore = defineStore('game Store', {
         transitionName: 'slide-right',
         GameStatus: 'NotStart',
         Nowlevel:1,
+        gameName: "",
+        gameID: "",
+        gameType: "",
     }),
     actions: {
         

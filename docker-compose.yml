@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  vue-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      # 可根據需要設定環境變量，例如 API_URL 等
+      NODE_ENV: production
+    command: ["npm", "run", "build"]

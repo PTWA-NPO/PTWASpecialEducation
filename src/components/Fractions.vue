@@ -15,6 +15,7 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       // Your data properties here
@@ -30,6 +31,9 @@ export default {
       // }
     };
   },
+  mounted() {
+    // Code to run when the component is mounted
+  },
   methods: {
     // Your methods here
     Reply(index) {
@@ -41,14 +45,11 @@ export default {
       console.log(this.Num[0], this.Num[1]);
       console.log(this.Data.Son, this.Data.Mother);
       if (this.Data.Mother == this.Num[1] && this.Data.Son == this.Num[0]) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
-  },
-  mounted() {
-    // Code to run when the component is mounted
   },
 };
 </script>

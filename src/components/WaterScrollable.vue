@@ -1,6 +1,6 @@
 <template>
-  <div class="Outter" ref="Outter">
-    <div class="cup" ref="cup">
+  <div ref="Outter" class="Outter">
+    <div ref="cup" class="cup">
       <v-stage :config="stageSize" @wheel="handleWheel">
         <v-layer ref="layer">
           <!-- Water rectangle -->
@@ -18,10 +18,17 @@
 </template>
 
 <script>
-import { GetSlotComponentData } from "../utilitys/get_assets";
+import { getSlotComponentAssets } from "../utilitys/get_assets";
 
 export default {
   name: "Water",
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+  },
+  emits: ["updateML"],
   data() {
     return {
       stageSize: {
@@ -32,13 +39,8 @@ export default {
       CupData: [],
       containVloume: 0,
       dpr: window.devicePixelRatio || 1,
+      configs: {},
     };
-  },
-  props: {
-    Data: {
-      type: Object,
-      required: true,
-    },
   },
   computed: {
     cupImageConfig() {
@@ -52,8 +54,8 @@ export default {
     },
     waterRectConfig() {
       const [StartX, StartY, EndX, EndY] = this.ContDrawInfo(
-        this.Data.Scale,
-        this.Data.containVloume
+        this.configs.Scale,
+        this.configs.containVloume
       );
       return {
         x: StartX,
@@ -63,6 +65,32 @@ export default {
         fill: "#bde0fe",
       };
     },
+  },
+  watch: {
+    // 監聽 Data 的變化
+    "Data.Scale"() {
+      this.loadImage();
+    },
+  },
+  created() {
+    this.configs = this.Data;
+  },
+  mounted() {
+    // 初始化尺寸
+    this.updateSize();
+
+    // 添加視窗大小變化監聽
+    window.addEventListener("resize", this.updateSize);
+
+    // 載入圖片
+    this.loadImage();
+
+    // 初始化容量
+    this.configs.containVloume = this.configs.Ml;
+  },
+  beforeUnmount() {
+    // 清理監聽器
+    window.removeEventListener("resize", this.updateSize);
   },
   methods: {
     ContDrawInfo(Scale, ML) {
@@ -96,7 +124,7 @@ export default {
     },
     loadImage() {
       const image = new window.Image();
-      image.src = GetSlotComponentData("Water", `${this.Data.Scale}.png`);
+      image.src = getSlotComponentAssets("Water", `${this.configs.Scale}.png`);
       image.onload = () => {
         this.image = image;
       };
@@ -110,20 +138,20 @@ export default {
       }
     },
     addML() {
-      const increment = this.Data.Scale == 250 ? 10 : 100;
-      this.Data.containVloume = Math.min(
-        this.Data.containVloume + increment,
-        this.Data.Scale
+      const increment = this.configs.Scale == 250 ? 10 : 100;
+      this.configs.containVloume = Math.min(
+        this.configs.containVloume + increment,
+        this.configs.Scale
       );
-      this.$emit("updateML", this.Data.containVloume);
+      this.$emit("updateML", this.configs.containVloume);
     },
     minusML() {
-      const decrement = this.Data.Scale == 250 ? 10 : 100;
-      this.Data.containVloume = Math.max(
-        this.Data.containVloume - decrement,
+      const decrement = this.configs.Scale == 250 ? 10 : 100;
+      this.configs.containVloume = Math.max(
+        this.configs.containVloume - decrement,
         0
       );
-      this.$emit("updateML", this.Data.containVloume);
+      this.$emit("updateML", this.configs.containVloume);
     },
     updateSize() {
       const Outter = this.$refs.cup;
@@ -137,29 +165,6 @@ export default {
         height: border,
         pixelRatio: this.dpr, // 使用 Konva 的 pixelRatio 屬性
       };
-    },
-  },
-  mounted() {
-    // 初始化尺寸
-    this.updateSize();
-
-    // 添加視窗大小變化監聽
-    window.addEventListener("resize", this.updateSize);
-
-    // 載入圖片
-    this.loadImage();
-
-    // 初始化容量
-    this.Data.containVloume = this.Data.Ml;
-  },
-  beforeDestroy() {
-    // 清理監聽器
-    window.removeEventListener("resize", this.updateSize);
-  },
-  watch: {
-    // 監聽 Data 的變化
-    "Data.Scale"() {
-      this.loadImage();
     },
   },
 };

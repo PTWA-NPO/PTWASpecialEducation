@@ -7,33 +7,37 @@
         width="600"
         height="400"
         style="border: 1px solid #000"
-        v-on:click="judge_position($event)"
-      ></canvas>
+        @click="judge_position($event)"
+      />
     </div>
-    <input type="file" id="fileInput" />
+    <input id="fileInput" type="file">
     <div>
-      <input type="text" v-model="inputNumber" />
-      <button @click="Start">開始計算</button>
+      <input v-model="inputNumber" type="text">
+      <button @click="Start">
+        開始計算
+      </button>
     </div>
-    <div class="" v-if="this.counter2 - 1 == parseInt(inputNumber)">
-      <p style="color: red; font-size: 2rem">紀錄完成</p>
+    <div v-if="counter2 - 1 == parseInt(inputNumber)" class="">
+      <p style="color: red; font-size: 2rem">
+        紀錄完成
+      </p>
     </div>
     <div class="">
       <div>
         <button
           v-for="(item, index) in btn"
-          :class="{ actbtn: this.drawed[index + 1] }"
+          :class="{ actbtn: drawed[index + 1] }"
         >
           {{ item }}
         </button>
       </div>
-      <hr />
+      <hr>
       <div>
         <p>正在紀錄</p>
         <p>請做: {{ command[counter - 1] }}</p>
         {{ drawingprototype }}
       </div>
-      <hr />
+      <hr>
       <div class="">
         <p>紀錄</p>
         {{ location }}
@@ -42,7 +46,6 @@
   </div>
 </template>
 <script>
-import gamepic from "@/assets/GamePic/FindItemGameSample1.jpg";
 export default {
   name: "FindTheItem",
   data() {

@@ -1,19 +1,21 @@
 <template>
-  <div class="gameContainer" ref="container">
-    <v-stage :config="configKonva" ref="stage">
+  <div ref="container" class="gameContainer">
+    <v-stage ref="stage" :config="configKonva">
       <v-layer>
         <v-line
-          v-for="line in configNumberLine"
+          v-for="(line, index) in configNumberLine"
+          :key="index"
           :config="line"
-          :key="line.points"
-        ></v-line>
+        />
+        <!-- <v-circle v-for="circle in configCircle" :config="circle"></v-circle> -->
         <v-text
-          v-for="number in configNumber"
+          v-for="(number, index) in configNumber"
+          :key="index"
           :config="number"
-          :key="number.id"
-        ></v-text>
+        />
         <v-rect
           v-for="(rect, id) in configRect"
+          :key="id"
           :config="{
             x: rect.x,
             y: rect.y,
@@ -26,23 +28,20 @@
           }"
           @click="rectClicked(id, rect)"
           @touchstart="rectClicked(id, rect)"
-          :key="id"
         ></v-rect>
       </v-layer>
     </v-stage>
     <FloatingNumPad
       v-if="virtualNumpadSwitch"
       :Data="{ top: menuPosition.top + 'px', left: menuPosition.left + 'px' }"
-      @button-clicked="numPadButtonClicked"
+      @buttonClicked="numPadButtonClicked"
     />
   </div>
 </template>
 
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
 export default {
-  emits: ["replyAnswer", "ReplyAnswer"],
   components: {
     FloatingNumPad: defineAsyncComponent(() =>
       import("@/components/FloatNumPad.vue")
@@ -58,6 +57,7 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       configKonva: {},
@@ -301,7 +301,7 @@ export default {
         (content, index) =>
           content.toString() === this.Data.blank_pos[index].toString()
       );
-      this.$emit("ReplyAnswer", isCorrect);
+      this.$emit("replyAnswer", isCorrect);
     },
     deselectAllRects() {
       this.rectClickedList = this.rectClickedList.map(() => false);

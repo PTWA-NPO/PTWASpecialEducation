@@ -1,19 +1,29 @@
 <template>
   <div>
-    <p class="h3">{{ this.GameData.Question.text }}</p>
+    <p class="h3">
+      {{ GameData.Question.text }}
+    </p>
     <div class="container">
       <div class="component1">
         <component
-          :is="this.slotcomponent.Name"
-          :Data="this.slotcomponent.Data"
-          :ID="this.id"
-        ></component>
+          :is="slotcomponent.Name"
+          :Data="slotcomponent.Data"
+          :ID="ID"
+        />
       </div>
       <div class="optionbar">
-        <p class="h5">{{ this.GameData.Question.SubQuestion }}</p>
-        <div id="error_msg">{{ errorMsg }}</div>
+        <p class="h5">
+          {{ GameData.Question.SubQuestion }}
+        </p>
+        <div id="error_msg">
+          {{ errorMsg }}
+        </div>
         <div class="Buttons">
-          <button v-for="(items, index) in btn" @click="judgeAnswer(items)">
+          <button
+            v-for="(items, index) in btn"
+            :key="index"
+            @click="judgeAnswer(items)"
+          >
             {{ items }}
           </button>
         </div>
@@ -39,18 +49,14 @@
         }
  * 
  */
-import Desribepng from "@/assets/GamePic/Source/description.png";
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
 export default {
   Name: "NumberingGame",
-  data() {
-    return {
-      imageUrl: "",
-      btn: [],
-      errorMsg: "",
-      slotcomponent: {},
-    };
+  components: {
+    ImageContainer: defineAsyncComponent(() =>
+      import("@/components/ImageContainer.vue")
+    ),
   },
   props: {
     GameData: {
@@ -61,17 +67,26 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
+  },
+  emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      imageUrl: "",
+      btn: [],
+      errorMsg: "",
+      slotcomponent: {},
+    };
   },
   created() {
     this.slotcomponent.Name = this.GameData.SlotComponents[0].Name;
     this.slotcomponent.Data = this.GameData.SlotComponents[0].Data;
   },
   mounted() {
-    this.imageUrl = GamesGetAssetsFile(this.id, this.GameData.img);
+    this.imageUrl = getGameAssets(this.ID, this.GameData.img);
     for (
       var i = this.GameData.Question.Range[0];
       i <= this.GameData.Question.Range[1];
@@ -91,11 +106,6 @@ export default {
         this.$emit("add-record", [this.GameData.Answer, answer, "錯誤"]);
       }
     },
-  },
-  components: {
-    ImageContainer: defineAsyncComponent(() =>
-      import("@/components/ImageContainer.vue")
-    ),
   },
 };
 </script>

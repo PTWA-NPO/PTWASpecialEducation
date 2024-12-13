@@ -1,5 +1,5 @@
 <template>
-  <div class="fraction-for-answer" ref="container">
+  <div ref="container" class="fraction-for-answer">
     <input
       ref="numerator"
       class="fraction-input numerator"
@@ -17,7 +17,7 @@
   <FloatNumPad
     v-if="virtualNumpadSwitch"
     :Data="numPadPosition"
-    @button-clicked="numPadButtonClicked"
+    @buttonClicked="numPadButtonClicked"
   />
 </template>
 
@@ -26,18 +26,18 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   name: "FractionForAnswer",
+  components: {
+    FloatNumPad: defineAsyncComponent(() =>
+      import("@/components/FloatNumPad.vue")
+    ),
+  },
   props: {
     Data: {
       type: Object,
       required: true,
     },
   },
-  emits: ["validation", "record-answer"],
-  components: {
-    FloatNumPad: defineAsyncComponent(() =>
-      import("@/components/FloatNumPad.vue")
-    ),
-  },
+  emits: ["validation", "recordAnswer"],
   data() {
     return {
       virtualNumpadSwitch: false,
@@ -91,7 +91,7 @@ export default {
         parseInt(userDenominator, 10) || null
       }`;
       this.$emit("validation", isCorrect);
-      this.$emit("record-answer", [
+      this.$emit("recordAnswer", [
         correctAnswer,
         userAnswer,
         isCorrect ? "正確" : "錯誤",

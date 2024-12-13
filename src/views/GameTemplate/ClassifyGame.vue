@@ -27,18 +27,18 @@
               <component
                 :is="element['Name']"
                 :Data="element['Data']"
-                :ID="id"
-              ></component>
+                :ID="ID"
+              />
             </div>
           </template>
         </draggable>
       </div>
       <div class="answer-area__drop">
         <div
-          v-for="(draggableItems, index) in groupedItems"
+          v-for="(items, index) in groupedItems"
           class="drop-area__container"
         >
-          <p class="drop-area__title">{{ GameData.Answer[index].GroupName }}</p>
+          <p class="drop-area__title">{{ items.GroupName }}</p>
           <draggable
             :list="groupedItems[index]"
             item-key="Tag"
@@ -51,8 +51,8 @@
                 <component
                   :is="element['Name']"
                   :Data="element['Data']"
-                  :ID="id"
-                ></component>
+                  :ID="ID"
+                />
               </div>
             </template>
           </draggable>
@@ -75,7 +75,6 @@ export default {
     Clock: getComponents("Clock"),
     Water: getComponents("Water"),
   },
-  emits: ["play-effect", "add-record", "next-level"],
   props: {
     GameData: {
       type: Object,
@@ -85,11 +84,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       questionText: this.GameData.Text,

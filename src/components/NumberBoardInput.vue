@@ -2,15 +2,17 @@
   <!-- Your component's HTML template goes here -->
   <table class="NumberBoard">
     <tr class="EachRow">
-      <td v-for="unit in this.Unit" class="UnitEachBlanket">{{ unit }}</td>
+      <td v-for="unit in Unit" class="UnitEachBlanket">
+        {{ unit }}
+      </td>
     </tr>
     <tr class="EachRow">
-      <td v-for="(number, index) in this.Number" class="EachBlanket">
+      <td v-for="(number, index) in Number" class="EachBlanket">
         <input
+          v-model="Number[index]"
           class="inside-input"
-          @input="checkAnswer"
           type="text"
-          v-model="this.Number[index]"
+          @input="checkAnswer"
         />
       </td>
     </tr>
@@ -21,17 +23,18 @@
 import { set } from "@vueuse/core";
 export default {
   name: "NumberBoard",
-  data() {
-    return {
-      Number: null,
-      Unit: null,
-    };
-  },
   props: {
     Data: {
       type: Object,
       required: true,
     },
+  },
+  emits: ["replyAnswer"],
+  data() {
+    return {
+      Number: null,
+      Unit: null,
+    };
   },
   created() {
     // 如果單位和數字的長度不一樣，則補齊。
@@ -67,9 +70,9 @@ export default {
         }
       }
       if (check) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
   },

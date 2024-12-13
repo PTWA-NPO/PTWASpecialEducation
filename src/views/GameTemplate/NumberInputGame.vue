@@ -1,36 +1,34 @@
 <template>
   <div class="container">
     <!-- v-if -->
-    <div class="ImageCard" v-if="this.GameData.SlotComponents != undefined">
+    <div v-if="GameData.SlotComponents != undefined" class="ImageCard">
       <component
+        :is="SlotComponent"
         class="component"
-        :ID="this.id"
-        :Data="this.SlotData"
-        :is="this.SlotComponent"
-      ></component>
+        :ID="ID"
+        :Data="SlotData"
+      />
     </div>
     <div class="AnswerArea">
-      <p>{{ this.GameData.Question }}</p>
-      <VirtualNumPad
-        v-on:submit="GetSubmitData"
-        ref="VirtualNumPad"
-      ></VirtualNumPad>
+      <p>{{ GameData.Question }}</p>
+      <VirtualNumPad ref="VirtualNumPad" @submit="GetSubmitData" />
     </div>
   </div>
 </template>
 <script>
 import VirtualNumPad from "@/components/VirtualNumPad.vue";
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
 export default {
   name: "NumberInputGame",
-  data() {
-    return {
-      imageUrl: "",
-      SlotComponentSwitch: false,
-      SlotComponent: "",
-      SlotData: {},
-    };
+  components: {
+    VirtualNumPad,
+    ImageContainer: defineAsyncComponent(() =>
+      import("@/components/ImageContainer.vue")
+    ),
+    FreeDrag: defineAsyncComponent(() => import("@/components/FreeDrag.vue")),
+    NumberLine: defineAsyncComponent(() =>
+      import("@/components/NumberLine.vue")
+    ),
   },
   props: {
     GameData: {
@@ -41,10 +39,26 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
+  },
+  emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      imageUrl: "",
+      SlotComponentSwitch: false,
+      SlotComponent: "",
+      SlotData: {},
+    };
+  },
+  created() {
+    if (this.GameData.SlotComponents != undefined) {
+      this.SlotComponentSwitch = true;
+      this.SlotComponent = this.GameData.SlotComponents[0].Name;
+      this.SlotData = this.GameData.SlotComponents[0].Data;
+    }
   },
   methods: {
     GetSubmitData(data) {
@@ -70,23 +84,6 @@ export default {
         this.$refs.VirtualNumPad.delete_num();
       }
     },
-  },
-  created() {
-    if (this.GameData.SlotComponents != undefined) {
-      this.SlotComponentSwitch = true;
-      this.SlotComponent = this.GameData.SlotComponents[0].Name;
-      this.SlotData = this.GameData.SlotComponents[0].Data;
-    }
-  },
-  components: {
-    VirtualNumPad,
-    ImageContainer: defineAsyncComponent(() =>
-      import("@/components/ImageContainer.vue")
-    ),
-    FreeDrag: defineAsyncComponent(() => import("@/components/FreeDrag.vue")),
-    NumberLine: defineAsyncComponent(() =>
-      import("@/components/NumberLine.vue")
-    ),
   },
 };
 </script>

@@ -1,12 +1,20 @@
 <template>
   <div class="Container">
-    <p v-if="this.Data.Text != undefined">{{ this.Data.Text }}</p>
+    <p v-if="Data.Text != undefined">
+      {{ Data.Text }}
+    </p>
     <div class="Division">
-      <p class="Child">{{ Data.Child }}</p>
+      <p class="Child">
+        {{ Data.Child }}
+      </p>
       <hr class="Fraction-line" />
-      <p class="Mother">{{ Data.Mother }}</p>
+      <p class="Mother">
+        {{ Data.Mother }}
+      </p>
     </div>
-    <p class="Unit">{{ Data.Unit }}</p>
+    <p class="Unit">
+      {{ Data.Unit }}
+    </p>
     <div class="table-container">
       <div
         v-for="(item, index) in Items"
@@ -21,8 +29,8 @@
 </template>
 
 <script>
-import { GetSlotComponentData } from "@/utilitys/get_assets.js";
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "DrawImage",
   props: {
@@ -35,6 +43,7 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       Items: [],
@@ -54,22 +63,22 @@ export default {
   created() {
     if (this.Data.Object != undefined) {
       if (this.Data.Object in this.DataBase) {
-        this.image1 = GetSlotComponentData(
+        this.image1 = getSlotComponentAssets(
           "DrawOnImage",
           this.DataBase[this.Data.Object].First
         );
-        this.image2 = GetSlotComponentData(
+        this.image2 = getSlotComponentAssets(
           "DrawOnImage",
           this.DataBase[this.Data.Object].Second
         );
         this.Alt = this.DataBase[this.Data.Object].Alt;
       } else if (this.Data.Src && this.Data.Src.First && this.Data.Src.Second) {
-        this.image1 = GamesGetAssetsFile(this.ID, this.Data.Src.First);
-        this.image2 = GamesGetAssetsFile(this.ID, this.Data.Src.Second);
+        this.image1 = getGameAssets(this.ID, this.Data.Src.First);
+        this.image2 = getGameAssets(this.ID, this.Data.Src.Second);
         this.Alt = this.Data.Alt;
       } else {
-        this.image1 = GetSlotComponentData("DrawOnImage", "apple1.png");
-        this.image2 = GetSlotComponentData("DrawOnImage", "apple2.png");
+        this.image1 = getSlotComponentAssets("DrawOnImage", "apple1.png");
+        this.image2 = getSlotComponentAssets("DrawOnImage", "apple2.png");
         this.Alt = "apple";
       }
     }
@@ -97,9 +106,9 @@ export default {
         }
       }
       if (temp == this.Data.Child) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
   },

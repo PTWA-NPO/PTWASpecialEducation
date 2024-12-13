@@ -8,17 +8,20 @@
 
 <script>
 export default {
+  props: {
+    Data: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       numerator: null,
       denominator: null,
     };
   },
-  props: {
-    Data: {
-      type: String,
-      required: true,
-    },
+  created() {
+    this.parseFraction();
   },
   methods: {
     parseFraction() {
@@ -30,10 +33,6 @@ export default {
       this.denominator = parseInt(match[2], 10);
     },
   },
-  created() {
-    this.parseFraction();
-  },
-  watch: {},
 };
 </script>
 

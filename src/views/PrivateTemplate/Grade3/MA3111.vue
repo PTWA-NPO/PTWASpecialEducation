@@ -11,8 +11,8 @@
         ></FractionDisplay>
         <FractionChart
           :Data="chartData"
-          @mounted="calculateChartSize"
           class="game__chart-container"
+          @mounted="calculateChartSize"
         ></FractionChart>
         <button class="game__check-answer-btn" @click="checkAnswer">
           確認答案
@@ -21,9 +21,9 @@
       <DragFraction
         :Data="configFraction"
         :ID="id"
-        @replyAnswer="drag"
-        @record-answer="handleRecordAnswer"
         class="game__answer-area"
+        @replyAnswer="drag"
+        @recordAnswer="handleRecordAnswer"
       ></DragFraction>
     </div>
   </div>
@@ -33,6 +33,15 @@
 import { defineAsyncComponent } from "vue";
 import FractionChart from "@/components/FractionChart.vue";
 export default {
+  components: {
+    FractionChart,
+    FractionDisplay: defineAsyncComponent(() =>
+      import("@/components/FractionDisplay.vue")
+    ),
+    DragFraction: defineAsyncComponent(() =>
+      import("@/components/DragFraction.vue")
+    ),
+  },
   props: {
     GameData: {
       type: Object,
@@ -47,15 +56,7 @@ export default {
       required: true,
     },
   },
-  components: {
-    FractionChart,
-    FractionDisplay: defineAsyncComponent(() =>
-      import("@/components/FractionDisplay.vue")
-    ),
-    DragFraction: defineAsyncComponent(() =>
-      import("@/components/DragFraction.vue")
-    ),
-  },
+  emits: ["add-record", "play-effect", "next-question"],
   data() {
     return {
       configFraction: this.GameData.answerData,

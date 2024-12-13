@@ -1,5 +1,5 @@
 <template>
-  <div class="clock-container" ref="konvaContainer"></div>
+  <div ref="konvaContainer" class="clock-container"></div>
 </template>
 
 <script>
@@ -8,26 +8,28 @@ import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
 
 export default {
   name: "ElectronicClock",
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       stage: null,
       layer: null,
       width: 100, // 預設寬度
       height: 100, // 預設高度
-      inputTime: this.Data.time, // 默認時間
+      inputTime: this.Data.time == undefined ? "00:00" : this.Data.time, // 默認時間
       scaledImage: { width: 0, height: 0 }, // 儲存縮放後圖片的大小
-      inputTime: this.Data?.time || "00:00", // 默認時間
     };
   },
-  props: {
-    Data: {
-      type: Object,
-      required: false,
-    },
-    ID: {
-      type: String,
-      required: true,
-    },
+  mounted() {
+    this.drawClock();
   },
   methods: {
     drawClock() {
@@ -249,9 +251,6 @@ export default {
         y: (containerHeight - scaledHeight) / 2,
       };
     },
-  },
-  mounted() {
-    this.drawClock();
   },
 };
 </script>

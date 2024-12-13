@@ -25,18 +25,8 @@ export default {
     DragToAlign: defineAsyncComponent(() =>
       import("@/components/DragToAlign.vue")
     ),
-    DragImages: defineAsyncComponent(() =>
-      import("@/components/DragImages.vue")
-    ),
     Markdown,
   },
-  emits: [
-    "add-record",
-    "play-effect",
-    "next-question",
-    "WrongSound",
-    "CorrectSound",
-  ],
   props: {
     GameData: {
       type: Object,
@@ -51,6 +41,13 @@ export default {
       required: true,
     },
   },
+  emits: [
+    "add-record",
+    "play-effect",
+    "next-question",
+    "WrongSound",
+    "CorrectSound",
+  ],
   data() {
     return {
       configDragToAlign: this.GameData.DragToAlign,

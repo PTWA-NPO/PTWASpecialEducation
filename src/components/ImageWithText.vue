@@ -1,14 +1,16 @@
 <template>
   <div class="image-with-text">
     <ImageContainer
-      :ID="this.ID"
-      :Data="{ Src: this.Data.Src, Alt: this.Data.Alt }"
-    ></ImageContainer>
-    <p class="h1">{{ text }}</p>
+      :ID="ID"
+      :Data="{ Src: Data.Src, Alt: Data.Alt }"
+    />
+    <p class="h1">
+      {{ text }}
+    </p>
   </div>
 </template>
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 import ImageContainer from "@/components/ImageContainer.vue";
 export default {
   name: "ImageWithText",
@@ -33,7 +35,7 @@ export default {
   },
   mounted() {
     // Your code here
-    this.imageUrl = GamesGetAssetsFile(this.ID, this.Data.Src);
+    this.imageUrl = getGameAssets(this.ID, this.Data.Src);
     this.text = this.Data.Text;
   },
 };

@@ -32,4 +32,5 @@
     align-items: center;
     // border: $border--normal solid black;
     border-radius: $border-radius;
+    transition: transform $transition-time ease;
 }

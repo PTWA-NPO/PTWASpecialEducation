@@ -1,34 +1,32 @@
 <template>
   <div class="outter-container">
     <div class="left-column">
-      <div class="game-area--top game-area" v-if="this.GameConfig.layout.top">
+      <div v-if="GameConfig.layout.top" class="game-area--top game-area">
         <component
           :is="GameData.topComponent.Name"
           :Data="GameData.topComponent.Data"
-          :ID="this.ID"
-          @ReplyAnswer="topReply"
+          :ID="ID"
           @replyAnswer="topReply"
         ></component>
       </div>
-      <div class="game-area--down game-area" v-if="this.GameConfig.layout.down">
+      <div v-if="GameConfig.layout.down" class="game-area--down game-area">
         <component
           :is="GameData.downComponent.Name"
           :Data="GameData.downComponent.Data"
-          :ID="this.ID"
-          @ReplyAnswer="downReply"
+          :ID="ID"
           @replyAnswer="downReply"
         ></component>
       </div>
     </div>
     <div class="right-column">
-      <div class="number-pad" v-if="ShowPad && this.GameConfig.layout.pad">
+      <div v-if="ShowPad && GameConfig.layout.pad" class="number-pad">
         <VirtualNumPad
-          @virtualpadinput-Input="Input"
-          @virtualpadinput-delete="Delete"
+          @virtualpadinputInput="Input"
+          @virtualpadinputDelete="Delete"
           @virtualpadinput-pop="Pop"
-        ></VirtualNumPad>
+        />
       </div>
-      <button @click="CheckAnswer" class="button--submit">檢查答案</button>
+      <button class="button--submit" @click="CheckAnswer">檢查答案</button>
     </div>
     {{ NowSelect }}
   </div>
@@ -36,8 +34,8 @@
 
 <script>
 import VirtualNumPad from "@/components/VirtualNumPadInput.vue";
-import { defineAsyncComponent, Text, toHandlerKey } from "vue";
-import { GetSlotComponentData } from "@/utilitys/get_assets.js";
+import { defineAsyncComponent } from "vue";
+import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "NumberLock",
   components: {
@@ -67,16 +65,16 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       NowSelect: null,
       ShowPad: false,
-      ID: this.id,
       topComponentsAnswer: false,
       downComponentsAnswer: false,
       // GameData: {
@@ -141,6 +139,11 @@ export default {
       // },
     };
   },
+  computed: {
+    Arrow() {
+      return getSlotComponentAssets("NumberLineV2", "ArrowRight.svg"); //FIXME
+    },
+  },
   created() {
     let NewArr = [];
     let cnt = 0;
@@ -160,10 +163,12 @@ export default {
     }
     this.FinalData = NewArr;
   },
-  computed: {
-    Arrow() {
-      return GetSlotComponentData("NumberLineV2", "ArrowRight.svg"); //FIXME
-    },
+  mounted() {
+    if (this.GameConfig.NumberPadAutoDisappear == false) {
+      this.SlidAnimation("in");
+      this.ShowPad = true;
+    }
+    document.addEventListener("click", this.NowClick);
   },
   methods: {
     downReply(result) {
@@ -232,13 +237,6 @@ export default {
         this.$emit("add-record", ["不支援顯示", "不支援顯示", `錯誤`]);
       }
     },
-  },
-  mounted() {
-    if (this.GameConfig.NumberPadAutoDisappear == false) {
-      this.SlidAnimation("in");
-      this.ShowPad = true;
-    }
-    document.addEventListener("click", this.NowClick);
   },
 };
 </script>

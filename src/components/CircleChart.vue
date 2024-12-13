@@ -1,70 +1,25 @@
 <template>
   <div class="OutterContainer">
-    <div class="TextOnly" v-if="this.Data.Text != undefined">
-      <p class="Division">{{ this.Data.Text }}{{ this.Data.Unit }}</p>
+    <div v-if="Data.Text != undefined" class="TextOnly">
+      <p class="Division">{{ Data.Text }}{{ Data.Unit }}</p>
     </div>
-    <div class="Division" v-else>
-      <p class="Child">{{ this.childScore }}</p>
+    <div v-else class="Division">
+      <p class="Child">
+        {{ childScore }}
+      </p>
       <hr class="Fraction-line" />
-      <p class="Mother">{{ this.motherScore }}</p>
+      <p class="Mother">
+        {{ motherScore }}
+      </p>
     </div>
-    <p v-if="this.Data.Text == undefined">{{ this.Data.Unit }}</p>
-    <div class="container" ref="container">
-      <canvas ref="canvas" @click="handleClick"></canvas>
+    <p v-if="Data.Text == undefined">
+      {{ Data.Unit }}
+    </p>
+    <div ref="container" class="container">
+      <canvas ref="canvas" @click="handleClick" />
     </div>
   </div>
 </template>
-<style scoped lang="scss">
-.TextOnly {
-  grid-column: 1 / 3;
-}
-.OutterContainer {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  font-size: x-large;
-  grid-template-columns: 1fr 1fr 4fr;
-}
-.container {
-  display: flex;
-  flex-direction: row;
-  grid-column: 3 / 4;
-  gap: 1rem;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.Division {
-  display: inline-block;
-  text-align: center;
-  font-size: 2rem;
-  line-height: 2; /* 設置行高 */
-  vertical-align: middle; /* 垂直對齊 */
-  .Child {
-    margin: 0;
-  }
-  .Mother {
-    margin: 0;
-  }
-  .Fraction-line {
-    margin: 0;
-    border: none;
-    border-top: 2px solid black;
-    width: 2em;
-  }
-}
-canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-}
-</style>
-
 <script>
 export default {
   name: "CircleChart",
@@ -74,6 +29,7 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       colors: Array(this.Data.Mother).fill(null), // 儲存每個部分的顏色
@@ -92,7 +48,7 @@ export default {
     this.drawPieChart();
     this.AnswerRecord = [];
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("resize", this.resizeCanvas);
   },
   methods: {
@@ -160,11 +116,62 @@ export default {
         }
       });
       if (temp == this.childScore) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
   },
 };
 </script>
+
+<style scoped lang="scss">
+.TextOnly {
+  grid-column: 1 / 3;
+}
+.OutterContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  font-size: x-large;
+  grid-template-columns: 1fr 1fr 4fr;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  grid-column: 3 / 4;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Division {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2; /* 設置行高 */
+  vertical-align: middle; /* 垂直對齊 */
+  .Child {
+    margin: 0;
+  }
+  .Mother {
+    margin: 0;
+  }
+  .Fraction-line {
+    margin: 0;
+    border: none;
+    border-top: 2px solid black;
+    width: 2em;
+  }
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+</style>

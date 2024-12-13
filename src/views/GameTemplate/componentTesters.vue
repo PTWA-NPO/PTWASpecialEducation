@@ -7,41 +7,43 @@
       <option>dragToAlign</option>
       <option>dragImages</option>
       <option>scale</option>
-      <option selected>drawingBroad</option>
+      <option selected>
+        drawingBroad
+      </option>
     </select>
   </div>
   <div v-if="tester == 'fraction'">
     <dragFraction
       :Data="configFraction"
       :ID="id"
-      @replyAnswer="printAns"
-    ></dragFraction>
+      @reply-answer="printAns"
+    />
   </div>
   <div v-if="tester == 'numberLine'">
     <numberLine
       :Data="configNumberLine"
       :ID="id"
-      @getDragPosition="printAns"
-    ></numberLine>
+      @get-drag-position="printAns"
+    />
   </div>
   <div v-if="tester == 'drawShapes'">
     <drawShapes
       :Data="configDrawShapes"
       :ID="id"
-      @replyAnswer="printAns"
-    ></drawShapes>
+      @reply-answer="printAns"
+    />
   </div>
   <div v-if="tester == 'dragToAlign'">
-    <dragToAlign :Data="configDragToAlign" :ID="id"></dragToAlign>
+    <dragToAlign :Data="configDragToAlign" :ID="id" />
   </div>
   <div v-if="tester == 'dragImages'">
-    <dragImages :Data="configDragImages" :ID="id"></dragImages>
+    <dragImages :Data="configDragImages" :ID="id" />
   </div>
   <div v-if="tester == 'scale'">
-    <scale :Data="configScale" :ID="id" @replyAnswer="printAns"></scale>
+    <scale :Data="configScale" :ID="id" @reply-answer="printAns" />
   </div>
   <div v-if="tester == 'drawingBroad'">
-    <drawingBroad :Data="configBrush"></drawingBroad>
+    <drawingBroad :Data="configBrush" />
     <div class="btnContainer">
       <button
         @click="

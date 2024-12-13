@@ -3,11 +3,12 @@
     <v-stage :config="configKonva">
       <v-layer>
         <v-line
-          v-for="pointSet in configGrid"
+          v-for="(pointSet, index) in configGrid"
+          :key="index"
           :points="pointSet"
           :stroke="'black'"
-        ></v-line>
-        <v-image :config="configImage" @dragmove="keepInBound"></v-image>
+        />
+        <v-image :config="configImage" @dragmove="keepInBound" />
       </v-layer>
     </v-stage>
   </div>
@@ -19,6 +20,17 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {},
+
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       configKonva: {},
@@ -36,8 +48,6 @@ export default {
       configGrid: [],
     };
   },
-
-  props: ["Data", "ID"],
 
   mounted() {
     this.initializeScene();

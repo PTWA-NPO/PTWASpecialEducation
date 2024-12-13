@@ -2,36 +2,37 @@
   <div ref="container">
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
-        <v-rect :config="configSideBar"></v-rect>
+        <v-rect :config="configBG" />
+        <v-rect :config="configSideBar" />
       </v-layer>
       <v-layer v-if="Data.shape == 'circle'">
         <circleFraction
-          :gameWidth="gameWidth"
-          :gameHeight="gameHeight"
+          :game-width="gameWidth"
+          :game-height="gameHeight"
           :numerator="numerator"
           :denominator="denominator"
-          @addFill="addFill"
-        ></circleFraction>
+          @add-fill="addFill"
+        />
       </v-layer>
 
       <v-layer v-if="Data.shape == 'rect'">
         <rectFraction
-          :gameWidth="gameWidth"
-          :gameHeight="gameHeight"
+          :game-width="gameWidth"
+          :game-height="gameHeight"
           :numerator="numerator"
           :denominator="denominator"
-          @addFill="addFill"
-        ></rectFraction>
+          @add-fill="addFill"
+        />
       </v-layer>
       <v-layer>
         <v-shape
-          v-for="arrow in configArrow"
+          v-for="(arrow, index) in configArrow"
+          :key="index"
           :config="arrow"
           @pointerdown="adjustNumber"
-        ></v-shape>
-        <v-text :config="configNumeratorNumber"></v-text>
-        <v-text :config="configDenominatorNumber"></v-text>
+        />
+        <v-text :config="configNumeratorNumber" />
+        <v-text :config="configDenominatorNumber" />
       </v-layer>
     </v-stage>
   </div>
@@ -41,6 +42,7 @@
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
+import { identity } from "@vueuse/core";
 export default {
   components: {
     circleFraction: defineAsyncComponent(() =>
@@ -54,6 +56,19 @@ export default {
       )
     ),
   },
+
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+
+  emits: ["replyAnswer", "recordAnswer"],
   data() {
     return {
       configKonva: {},
@@ -78,10 +93,6 @@ export default {
       denominator: 3,
     };
   },
-
-  props: ["Data", "ID"],
-
-  emits: ["replyAnswer", "record-answer"],
 
   mounted() {
     this.initializeScene();
@@ -218,7 +229,7 @@ export default {
         let answer = this.Data.answer.numerator / this.Data.answer.denominator;
         let isCorrect = answer.toFixed(2) == total.toFixed(2);
         this.$emit("replyAnswer", isCorrect);
-        this.$emit("record-answer", [
+        this.$emit("recordAnswer", [
           answer.toFixed(2),
           total.toFixed(2),
           isCorrect ? "正確" : "錯誤",

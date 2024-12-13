@@ -1,11 +1,12 @@
 <template>
   <!-- 大於0的話 -->
-  <div class="Content" :class="{ progressShake: this.Shake }">
+  <div class="Content" :class="{ progressShake: Shake }">
     <!-- <p class="h3">生命值:  {{ (this.HintInfo.MaxWrongTimes - this.HintInfo.WrongTimes) > 0 ? this.HintInfo.MaxWrongTimes - this.HintInfo.WrongTimes: 0}}</p> -->
     <div class="Heart">
+      <!-- eslint-disable vue/no-unused-vars-->
       <p
-        v-for="i in this.HintInfo.MaxWrongTimes - this.HintInfo.WrongTimes > 0
-          ? this.HintInfo.MaxWrongTimes - this.HintInfo.WrongTimes
+        v-for="i in HintInfo.MaxWrongTimes - HintInfo.WrongTimes > 0
+          ? HintInfo.MaxWrongTimes - HintInfo.WrongTimes
           : 0"
       >
         ❤
@@ -18,11 +19,11 @@
         </div> -->
 
     <button
+      v-if="showhint"
       class="btn btn-primary text-nowrap img-hover-zoom"
       data-bs-toggle="modal"
       data-bs-target="#hint"
       @click="gethint()"
-      v-if="showhint"
     >
       <div class="d-flex align-items-center">
         <div class="">
@@ -47,7 +48,13 @@
 <script>
 export default {
   name: "HintButton",
-  emits: ["open-teaching-modal"],
+  props: {
+    HintInfo: {
+      type: Object,
+      required: true,
+    },
+  },
+  emits: ["openHintModal"],
   data() {
     return {
       showhint: false,
@@ -55,37 +62,29 @@ export default {
       Shake: false,
     };
   },
-  props: {
-    HintInfo: {
-      type: Object,
-      required: true,
+  computed: {
+    hint_percentage() {
+      return `${this.percentage}%`;
     },
   },
   watch: {
     HintInfo: {
       handler: function () {
         this.updated_hint_status();
-        this.ShrinkHint();
+        this.shrinkHint();
         console.log(this.HintInfo.WrongTimes);
       },
       deep: true,
     },
   },
-  computed: {
-    hint_percentage() {
-      return `${this.percentage}%`;
-    },
+  mounted() {
+    // Code to run when the component is mounted goes here
+    this.updated_hint_status();
   },
   methods: {
-    PauseIntroVideo() {
-      try {
-        let video = document.getElementById("introvideo");
-        video.pause();
-      } catch {}
-    },
     gethint() {
       const mediaType = "hint";
-      this.$emit("open-teaching-modal", mediaType);
+      this.$emit("openHintModal", mediaType);
     },
     updated_hint_status() {
       let temp =
@@ -99,15 +98,11 @@ export default {
         this.showhint = true;
       }
     },
-    async ShrinkHint() {
+    async shrinkHint() {
       this.Shake = true;
       await new Promise((r) => setTimeout(r, 300));
       this.Shake = false;
     },
-  },
-  mounted() {
-    // Code to run when the component is mounted goes here
-    this.updated_hint_status();
   },
 };
 </script>

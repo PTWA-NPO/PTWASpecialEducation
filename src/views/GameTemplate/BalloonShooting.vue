@@ -8,20 +8,30 @@
       @pointerup="shoot"
     >
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
+        <v-rect :config="configBG" />
       </v-layer>
 
       <v-layer>
-        <v-circle v-for="balloon in configBalloon" :config="balloon"></v-circle>
-        <v-text v-for="option in configOptions" :config="option"></v-text>
+        <v-circle
+          v-for="(balloon, index) in configBalloon"
+          :key="index"
+          :config="balloon"
+        />
+        <v-text
+          v-for="(option, index) in configOptions"
+          :key="index"
+          :config="option"
+        />
       </v-layer>
       <v-layer>
-        <v-circle v-if="isAiming" :config="configScope"></v-circle>
-        <v-line
-          v-if="isAiming"
-          v-for="line in configCross"
-          :config="line"
-        ></v-line>
+        <v-circle v-if="isAiming" :config="configScope" />
+        <template v-if="isAiming">
+          <v-line
+            v-for="(line, index) in configCross"
+            :key="index"
+            :config="line"
+          />
+        </template>
       </v-layer>
     </v-stage>
   </div>
@@ -34,6 +44,23 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {},
+
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       configKonva: {},
@@ -59,19 +86,6 @@ export default {
       trueOptions: [],
     };
   },
-
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
-  },
-
-  emits: ["play-effect", "add-record", "next-question"],
 
   mounted() {
     this.initializeScene();

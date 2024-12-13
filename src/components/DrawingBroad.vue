@@ -6,7 +6,7 @@
       @pointermove="handlePointer"
       @pointerup="handlePointer"
       @pointerout="handlePointer"
-    ></canvas>
+    />
   </div>
 </template>
 
@@ -16,12 +16,6 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent, handleError } from "vue";
 export default {
   components: {},
-  data() {
-    return {
-      drawing: false,
-      previousPos: { x: 0, y: 0 },
-    };
-  },
 
   props: {
     Data: {
@@ -31,6 +25,12 @@ export default {
   },
 
   emits: [],
+  data() {
+    return {
+      drawing: false,
+      previousPos: { x: 0, y: 0 },
+    };
+  },
 
   mounted() {
     this.initializeScene();

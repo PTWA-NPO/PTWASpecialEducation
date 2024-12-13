@@ -32,6 +32,12 @@ const SHAPE_CONFIGS = {
 
 export default {
   name: "FractionChart",
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       gameWidth: 150,
@@ -40,12 +46,6 @@ export default {
       denominator: this.Data.denominator,
       shape: this.Data.shape,
     };
-  },
-  props: {
-    Data: {
-      type: Object,
-      required: true,
-    },
   },
   computed: {
     configNumerator() {

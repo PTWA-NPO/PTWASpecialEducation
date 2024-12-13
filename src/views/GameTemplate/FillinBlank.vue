@@ -1,18 +1,23 @@
 <template>
   <div class="Container container">
     <div class="index">
-      <p class="MainQuestion">{{ this.GameData.Question_Text }}</p>
+      <p class="MainQuestion">
+        {{ GameData.Question_Text }}
+      </p>
       <div class="SlotArea">
         <component
-          class="SlotItem"
-          :ID="this.id"
-          v-for="slot in GameData.SlotComponents"
           :is="slot.Name"
+          v-for="(slot, index) in GameData.SlotComponents"
+          :key="index"
+          class="SlotItem"
+          :ID="ID"
           :Data="slot.Data"
-        ></component>
+        />
       </div>
       <div class="QuestionArea card">
-        <p class="SubQuestion">{{ this.GameData.SubQuestionTitle }}</p>
+        <p class="SubQuestion">
+          {{ GameData.SubQuestionTitle }}
+        </p>
         <hr />
         <div
           v-for="(item, index1) in GameData.Question"
@@ -20,18 +25,20 @@
           class="QuestionRow"
         >
           <div
-            class="Question"
             v-for="(question, index2) in GameData.Question[index1]"
+            class="Question"
           >
             <input
               v-if="question == '$input'"
+              v-model="Value[index1][index2]"
               type="text"
               class="input form-control"
               @focus="focusInput(index1, index2)"
-              v-model="Value[index1][index2]"
             />
-            <div class="gap" v-else-if="question == '$gap'"></div>
-            <p v-else>{{ question }}</p>
+            <div v-else-if="question == '$gap'" class="gap" />
+            <p v-else>
+              {{ question }}
+            </p>
           </div>
         </div>
       </div>
@@ -43,29 +50,28 @@
       <div v-for="slot in GameData.AssistiveComponent">
         <component
           :is="slot"
-          @virtualpadinput-Input="VNInput"
-          @virtualpadinput-delete="VNDelete"
+          @virtualpadinputInput="VNInput"
+          @virtualpadinputDelete="VNDelete"
           @virtualpadinput-pop="VNPop"
-        ></component>
+        />
       </div>
     </div>
   </div>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getComponents } from "@/utilitys/get-components";
 export default {
   name: "FillinBlank",
-  data() {
-    return {
-      InputId: 0,
-      ImgSrc: "",
-      WithImage: false,
-      // id: "MA3023",
-      Value: [],
-      focuslocation: null,
-    };
+  components: {
+    Numpad: defineAsyncComponent(() =>
+      import("@/components/VirtualNumPadInput.vue")
+    ),
+    Calculator: defineAsyncComponent(() =>
+      import("@/components/Calculator.vue")
+    ),
+    Clock: getComponents("Clock"),
   },
   props: {
     GameData: {
@@ -76,10 +82,41 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
+  },
+
+  emits: ["play-effect", "next-question", "add-record"],
+  data() {
+    return {
+      InputId: 0,
+      ImgSrc: "",
+      WithImage: false,
+      // id: "MA3023",
+      Value: [],
+      focuslocation: null,
+    };
+  },
+  created() {
+    for (var i in this.GameData.Question) {
+      let temp = [];
+      for (var j in this.GameData.Question[i]) {
+        temp.push("");
+      }
+      this.Value.push(temp);
+    }
+  },
+  mounted() {
+    if (this.GameConfig.WithImage) {
+      this.WithImage = true;
+      this.ImgSrc = getGameAssets(this.ID, this.GameData.Img);
+      const patten = /undefined/;
+      if (patten.test(this.ImgSrc)) {
+        this.WithImage = false;
+      }
+    }
   },
   methods: {
     focusInput(id1, id2) {
@@ -131,34 +168,6 @@ export default {
         this.$emit("add-record", [ReAnswer, ReMesseage, "錯誤"]);
       }
     },
-  },
-  created() {
-    for (var i in this.GameData.Question) {
-      let temp = [];
-      for (var j in this.GameData.Question[i]) {
-        temp.push("");
-      }
-      this.Value.push(temp);
-    }
-  },
-  mounted() {
-    if (this.GameConfig.WithImage) {
-      this.WithImage = true;
-      this.ImgSrc = GamesGetAssetsFile(this.id, this.GameData.Img);
-      const patten = /undefined/;
-      if (patten.test(this.ImgSrc)) {
-        this.WithImage = false;
-      }
-    }
-  },
-  components: {
-    Numpad: defineAsyncComponent(() =>
-      import("@/components/VirtualNumPadInput.vue")
-    ),
-    Calculator: defineAsyncComponent(() =>
-      import("@/components/calculator.vue")
-    ),
-    Clock: getComponents("Clock"),
   },
 };
 </script>

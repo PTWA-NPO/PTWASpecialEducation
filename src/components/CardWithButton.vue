@@ -1,34 +1,35 @@
 <template>
   <div class="OutterContainer">
     <img
+      v-if="imageURL != undefined && imageURL != ''"
       :src="imageURL"
       class=""
       :alt="altText"
-      v-if="this.imageURL != undefined && this.imageURL != ''"
     />
-    <p class="h3">{{ Text }}</p>
+    <p class="h3">
+      {{ Text }}
+    </p>
   </div>
 </template>
 <script>
-import ImageContainer from "./ImageContainer.vue";
 export default {
   name: "CardWithButton",
-  data() {
-    return {};
-  },
-  components: {
-    ImageContainer,
-  },
   props: {
     Text: {
       type: String,
+      required: true,
     },
     altText: {
       type: String,
+      required: true,
     },
     imageURL: {
       type: String,
+      required: true,
     },
+  },
+  data() {
+    return {};
   },
   computed: {
     SentData() {

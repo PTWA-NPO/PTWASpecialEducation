@@ -1,35 +1,35 @@
 <template>
   <div
-    class="Container"
     ref="Container"
+    class="Container"
     :style="{
       width: containerSize.width + 'px',
       height: containerSize.height + 'px',
     }"
   >
     <div
-      class="Up MoneyContainer papaer-money"
+      v-if="Data.Thousands || Data.FiveHundreds"
       :key="containerRef"
-      v-if="this.Data.Thousands || this.Data.FiveHundreds"
+      class="Up MoneyContainer papaer-money"
     >
       <img v-for="item in UpContainer" :src="item" />
     </div>
     <div
-      class="Middle MoneyContainer papaer-money"
+      v-if="Data.Hundreds"
       :key="containerRef"
-      v-if="this.Data.Hundreds"
+      class="Middle MoneyContainer papaer-money"
     >
       <img v-for="item in MiddleContainer" :src="item" />
     </div>
-    <div class="Down CoinContainer" v-for="item in DownContainer">
-      <div class="PerCoin" v-for="coin in item">
-        <img :src="coin" v-if="coin != ''" />
+    <div v-for="item in DownContainer" class="Down CoinContainer">
+      <div v-for="coin in item" class="PerCoin">
+        <img v-if="coin != ''" :src="coin" />
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { GetSlotComponentData } from "../utilitys/get_assets";
+import { getSlotComponentAssets } from "../utilitys/get_assets";
 import { ref, onMounted, nextTick } from "vue";
 
 const props = defineProps({
@@ -39,7 +39,7 @@ const props = defineProps({
   },
   ID: {
     type: String,
-    required: false,
+    required: true,
   },
 });
 
@@ -55,20 +55,22 @@ const loadData = () => {
   if (Data.value.Thousands) {
     for (let i = 0; i < Data.value.Thousands; i++) {
       UpContainer.value.push(
-        GetSlotComponentData("MoneyGenerator", "1000.png")
+        getSlotComponentAssets("MoneyGenerator", "1000.png")
       );
     }
   }
   if (Data.value.FiveHundreds) {
     for (let i = 0; i < Data.value.FiveHundreds; i++) {
-      UpContainer.value.push(GetSlotComponentData("MoneyGenerator", "500.png"));
+      UpContainer.value.push(
+        getSlotComponentAssets("MoneyGenerator", "500.png")
+      );
     }
   }
 
   if (Data.value.Hundreds) {
     for (let i = 0; i < Data.value.Hundreds; i++) {
       MiddleContainer.value.push(
-        GetSlotComponentData("MoneyGenerator", "100.png")
+        getSlotComponentAssets("MoneyGenerator", "100.png")
       );
     }
   }
@@ -80,10 +82,10 @@ const loadData = () => {
       if (Cnt > 10) {
         DownContainer.value.push(TempContainer);
         TempContainer = [];
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "50.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "50.png"));
         Cnt = 0;
       } else {
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "50.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "50.png"));
         Cnt++;
       }
     }
@@ -93,10 +95,10 @@ const loadData = () => {
       if (Cnt > 10) {
         DownContainer.value.push(TempContainer);
         TempContainer = [];
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "10.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "10.png"));
         Cnt = 0;
       } else {
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "10.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "10.png"));
         Cnt++;
       }
     }
@@ -106,10 +108,10 @@ const loadData = () => {
       if (Cnt > 10) {
         DownContainer.value.push(TempContainer);
         TempContainer = [];
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "5.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "5.png"));
         Cnt = 0;
       } else {
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "5.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "5.png"));
         Cnt++;
       }
     }
@@ -119,10 +121,10 @@ const loadData = () => {
       if (Cnt > 10) {
         DownContainer.value.push(TempContainer);
         TempContainer = [];
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "1.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "1.png"));
         Cnt = 0;
       } else {
-        TempContainer.push(GetSlotComponentData("MoneyGenerator", "1.png"));
+        TempContainer.push(getSlotComponentAssets("MoneyGenerator", "1.png"));
         Cnt++;
       }
     }
@@ -135,7 +137,7 @@ const loadData = () => {
   }
 };
 function updateContainerSize() {
-  if (Container) {
+  if (Container.value) {
     const { width, height } = Container.value.getBoundingClientRect();
     console.log(width, height);
     containerSize.value = { width, height };

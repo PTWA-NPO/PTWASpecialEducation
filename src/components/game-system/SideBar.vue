@@ -3,9 +3,9 @@
     <p class="Title">功能區</p>
     <div class="Buttons">
       <button
+        v-if="GameStatus == 'Progressing'"
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="previousQuestion()"
-        v-if="GameStatus == 'Progressing'"
       >
         <div class="d-flex align-items-center">
           <div class="">
@@ -27,9 +27,9 @@
         </div>
       </button>
       <button
+        v-if="GameStatus == 'Progressing'"
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="nextQuestion()"
-        v-if="GameStatus == 'Progressing'"
       >
         <div class="d-flex align-items-center">
           <div class="">
@@ -51,13 +51,13 @@
         </div>
       </button>
       <button
+        v-if="GameStatus == 'NotStart'"
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="startGame()"
-        v-if="GameStatus == 'NotStart'"
       >
         <div class="d-flex align-items-center">
           <div class="">
-            <img src="@/assets/images/side_bar/start.png" />
+            <img :src="startGameIconSrc" />
           </div>
           <div class="mx-auto">開始</div>
         </div>
@@ -68,15 +68,15 @@
       >
         <div class="d-flex align-items-center">
           <div class="">
-            <img src="@/assets/images/side_bar/restart.png" />
+            <img :src="restartIconSrc" />
           </div>
           <div class="mx-auto">重新開始</div>
         </div>
       </button>
       <button
+        v-if="GameStatus == 'Done'"
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="toCSV()"
-        v-if="GameStatus == 'Done'"
       >
         <div class="d-flex align-items-center">
           <div class="">
@@ -150,21 +150,21 @@
         </div>
       </button>
       <button
-        class="btn btn-primary text-nowrap img-hover-zoom"
         v-if="GameStatus == 'NotStart'"
+        class="btn btn-primary text-nowrap img-hover-zoom"
         data-bs-toggle="modal"
         data-bs-target="#reappear"
       >
         <div class="d-flex align-items-center">
           <div class="">
-            <img src="@/assets/images/side_bar/reappear-code.png" />
+            <img :src="reappearIconSrc" />
           </div>
           <div class="mx-auto">重現代碼</div>
         </div>
       </button>
       <button
-        class="btn btn-primary text-nowrap img-hover-zoom"
         v-if="GameStatus == 'Done'"
+        class="btn btn-primary text-nowrap img-hover-zoom"
       >
         <div class="d-flex align-items-center">
           <div class="">
@@ -186,64 +186,64 @@
         </div>
       </button>
       <button
-        class="btn btn-primary text-nowrap img-hover-zoom"
         v-if="!isFullScreen"
+        class="btn btn-primary text-nowrap img-hover-zoom"
       >
         <div class="d-flex align-items-center">
           <div class="">
-            <i class="bi bi-zoom-in"></i>
+            <i class="bi bi-zoom-in" />
           </div>
           <div class="mx-auto" @click="handleEnterFullScreen">全螢幕</div>
         </div>
       </button>
       <button
-        class="btn btn-primary text-nowrap img-hover-zoom"
         v-if="isFullScreen"
+        class="btn btn-primary text-nowrap img-hover-zoom"
       >
         <div class="d-flex align-items-center">
           <div class="">
-            <i class="bi bi-zoom -out"></i>
+            <i class="bi bi-zoom -out" />
           </div>
           <div class="mx-auto" @click="handleEnterFullScreen">退出全螢幕</div>
         </div>
       </button>
-      <slot name="hint"></slot>
+      <slot name="hint" />
     </div>
 
     <!-- 重現代碼 -->
     <div
-      class="modal fade"
       id="reappear"
+      class="modal fade"
       tabindex="-1"
       aria-labelledby="reappearLabel"
     >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="reappearLabel">重現代碼</h1>
+            <h1 id="reappearLabel" class="modal-title fs-5">重現代碼</h1>
             <button
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-            ></button>
+            />
           </div>
           <div class="modal-body">
             <p>請將csv檔中的重現代碼貼到此處</p>
             <div class="input-group flex-nowrap">
               <input
+                v-model="code"
                 type="text"
                 class="form-control"
                 placeholder="重現代碼"
                 aria-label="number"
                 aria-describedby="addon-wrapping"
-                v-model="code"
               />
             </div>
             <p v-if="!checkformat" style="color: red">
               請貼上正確的重現代碼，若確認代碼沒有錯卻無法送出，可能是遊戲已更新，代碼會自動失效
             </p>
-            {{ this.gameCode }}
+            {{ gameCode }}
             <button class="btn btn-primary text-nowrap img-hover-zoom">
               <div class="d-flex align-items-center">
                 <div class="">
@@ -278,9 +278,9 @@
             <button
               type="button"
               class="btn btn-primary"
-              @click="reappearCode"
               data-bs-dismiss="modal"
               :disabled="!checkformat"
+              @click="reappearCode"
             >
               套用代碼
             </button>
@@ -294,6 +294,7 @@
 <script>
 import gameStore from "@/stores/game";
 import { mapWritableState } from "pinia";
+import { getSystemAssets } from "@/utilitys/get_assets";
 
 export default {
   name: "SideBar",
@@ -319,6 +320,24 @@ export default {
       default: 0,
     },
   },
+  emits: [
+    "previousQuestion",
+    "next-question",
+    "startGame",
+    "toCsv",
+    "scratchSheet",
+    "reappearCode",
+  ],
+  data() {
+    return {
+      CalculatorSwitch: false,
+      code: "",
+      isFullScreen: false,
+      startGameIconSrc: getSystemAssets("start.png", "side_bar"),
+      restartIconSrc: getSystemAssets("restart.png", "side_bar"),
+      reappearIconSrc: getSystemAssets("reappear-code.png", "side_bar"),
+    };
+  },
   computed: {
     ...mapWritableState(gameStore, ["gameCode"]),
     checkformat() {
@@ -335,35 +354,28 @@ export default {
       this.isFullScreen = true;
     }
   },
-  data() {
-    return {
-      CalculatorSwitch: false,
-      code: "",
-      isFullScreen: false,
-    };
-  },
   methods: {
     previousQuestion() {
-      this.$emit("previous-question");
+      this.$emit("previousQuestion");
     },
     nextQuestion() {
       this.$emit("next-question");
     },
     startGame() {
-      this.$emit("start-game");
+      this.$emit("startGame");
     },
     reloadPage() {
       location.reload();
     },
     toCSV(data) {
-      this.$emit("to-csv", data);
+      this.$emit("toCsv", data);
     },
     scratchSheet() {
-      this.$emit("scratch-sheet");
+      this.$emit("scratchSheet");
     },
     reappearCode() {
       this.gameCode = this.code;
-      this.$emit("reappear-code");
+      this.$emit("reappearCode");
     },
     copyReappearCode() {
       // 檢查瀏覽器是否支援 Clipboard API

@@ -1,33 +1,30 @@
 <template>
   <div class="outter-container">
     <div class="title">
-      <a>{{ this.GameData.questionText }}</a>
+      <a>{{ GameData.questionText }}</a>
     </div>
     <div class="game-area">
       <div class="left-component">
-        <MoneyGenerator
-          class="money-generator"
-          :Data="moneyGeneratorData"
-        ></MoneyGenerator>
+        <MoneyGenerator class="money-generator" :Data="moneyGeneratorData" />
         <Markdown
           class="markdown"
           :Data="markdownData"
-          @ReplyAnswer="markdownReplyAnswer"
-        ></Markdown>
+          @reply-answer="markdownReplyAnswer"
+        />
       </div>
       <div class="right-component">
         <NumberBoardInput
           class="number-board"
           :Data="numberInputData"
-          @ReplyAnswer="numberBoardReply"
-        ></NumberBoardInput>
+          @reply-answer="numberBoardReply"
+        />
         <VirtualNumPad
-          @virtualpadinput-Input="push"
-          @virtualpadinput-delete="clear"
+          @virtualpadinputInputt="push"
+          @virtualpadinputDelete="clear"
           @virtualpadinput-pop="pop"
-        ></VirtualNumPad>
-        <button @click="checkAnswer" class="btn-submit">檢查答案</button>
-        <button @click="openScratchSheet" class="btn-submit">開啟畫筆</button>
+        />
+        <button class="btn-submit" @click="checkAnswer">檢查答案</button>
+        <button class="btn-submit" @click="openScratchSheet">開啟畫筆</button>
       </div>
     </div>
   </div>
@@ -57,11 +54,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "next-question", "add-record", "scratchSheet"],
   data() {
     return {
       moneyGeneratorData: {},
@@ -78,6 +76,9 @@ export default {
       answerArr: [],
       nowSelect: undefined,
     };
+  },
+  computed: {
+    // Add your computed properties here
   },
   created() {
     this.markdownData.Render = this.GameData.markdownIndex;
@@ -100,6 +101,9 @@ export default {
       Ones: this.answerArr[3],
     };
     document.addEventListener("click", this.nowClicked);
+  },
+  mounted() {
+    // Lifecycle hook when the component is mounted
   },
   methods: {
     // Add your component methods here
@@ -164,14 +168,8 @@ export default {
       }
     },
     openScratchSheet() {
-      this.$emit("scratch-sheet");
+      this.$emit("scratchSheet");
     },
-  },
-  computed: {
-    // Add your computed properties here
-  },
-  mounted() {
-    // Lifecycle hook when the component is mounted
   },
 };
 </script>

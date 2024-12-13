@@ -1,22 +1,13 @@
 <template>
-  <div class="image-container" id="ImageContainer" ref="ImageContainer">
-    <img ref="Image" id="Img" :src="this.imageUrl" :alt="this.Data.Alt" />
+  <div id="ImageContainer" ref="ImageContainer" class="image-container">
+    <img id="Img" ref="Image" :src="imageUrl" :alt="Data.Alt" />
   </div>
 </template>
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 
 export default {
   name: "ImageContainer",
-  data() {
-    return {
-      imageUrl: "",
-      ContainerSize: {
-        width: 0,
-        height: 0,
-      },
-    };
-  },
   props: {
     ID: {
       type: String,
@@ -26,6 +17,19 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      imageUrl: "",
+      ContainerSize: {
+        width: 0,
+        height: 0,
+      },
+    };
+  },
+  mounted() {
+    this.imageUrl = getGameAssets(this.ID, this.Data.Src);
+    console.log(this.imageUrl, this.Data.Alt, this.ID, this.Data.Src);
   },
   methods: {
     Init() {
@@ -70,10 +74,6 @@ export default {
 
       return { width: scaledWidth, height: scaledHeight };
     },
-  },
-  mounted() {
-    this.imageUrl = GamesGetAssetsFile(this.ID, this.Data.Src);
-    console.log(this.imageUrl, this.Data.Alt, this.ID, this.Data.Src);
   },
 };
 </script>

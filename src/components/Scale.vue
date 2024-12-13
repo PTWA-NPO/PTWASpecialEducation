@@ -7,10 +7,10 @@
           @pointerdown="handleDrag"
           @pointermove="handleDrag"
           @pointerup="dragEnd"
-        ></v-image>
-        <v-shape :config="configHand"></v-shape>
-        <v-shape :config="configTextBox"></v-shape>
-        <v-shape :config="configWeight"></v-shape>
+        />
+        <v-shape :config="configHand" />
+        <v-shape :config="configTextBox" />
+        <v-shape :config="configWeight" />
       </v-layer>
     </v-stage>
   </div>
@@ -22,6 +22,19 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {},
+
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+
+  emits: ["ReplyAnswer", "replyAnswer"],
   data() {
     return {
       configKonva: {},
@@ -46,19 +59,6 @@ export default {
       answer: 0,
     };
   },
-
-  props: {
-    Data: {
-      type: Object,
-      required: true,
-    },
-    ID: {
-      type: String,
-      required: false,
-    },
-  },
-
-  emits: ["ReplyAnswer", "replyAnswer"],
 
   mounted() {
     this.initializeScene();
@@ -216,7 +216,6 @@ export default {
         if (this.getAnswer() != this.answer) {
           this.answer = this.getAnswer();
           this.configWeight.text = this.getAnswer();
-          this.$emit("ReplyAnswer", this.answer);
           this.$emit("replyAnswer", this.answer);
         }
       }

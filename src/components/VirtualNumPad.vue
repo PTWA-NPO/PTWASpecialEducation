@@ -6,10 +6,10 @@
       <div class="row">
         <div class="col-12 mb-2">
           <input
-            type="text"
-            class="form-control rtl-input"
             id="keyboardInput"
             v-model="Num"
+            type="text"
+            class="form-control rtl-input"
             readonly
           />
         </div>
@@ -17,27 +17,27 @@
       <div class="row">
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num1"
-            v-on:click="input('1')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('1')"
           >
             1
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num2"
-            v-on:click="input('2')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('2')"
           >
             2
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num3"
-            v-on:click="input('3')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('3')"
           >
             3
           </button>
@@ -46,27 +46,27 @@
       <div class="row">
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num4"
-            v-on:click="input('4')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('4')"
           >
             4
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num5"
-            v-on:click="input('5')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('5')"
           >
             5
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num6"
-            v-on:click="input('6')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('6')"
           >
             6
           </button>
@@ -75,27 +75,27 @@
       <div class="row">
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num7"
-            v-on:click="input('7')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('7')"
           >
             7
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num8"
-            v-on:click="input('8')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('8')"
           >
             8
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-secondary w-100 responsive-width"
             id="num9"
-            v-on:click="input('9')"
+            class="btn btn-secondary w-100 responsive-width"
+            @click="input('9')"
           >
             9
           </button>
@@ -104,27 +104,23 @@
       <div class="row">
         <div class="col-4 mb-2">
           <button
-            class="btn btn-danger w-100 responsive-width text-nowrap"
             id="backspace"
-            v-on:click="delete_num()"
+            class="btn btn-danger w-100 responsive-width text-nowrap"
+            @click="delete_num()"
           >
             清除
           </button>
         </div>
         <div class="col-4 mb-2">
-          <button
-            class="btn btn-secondary w-100"
-            id="num0"
-            v-on:click="input('0')"
-          >
+          <button id="num0" class="btn btn-secondary w-100" @click="input('0')">
             0
           </button>
         </div>
         <div class="col-4 mb-2">
           <button
-            class="btn btn-success w-100 responsive-width text-nowrap"
             id="submit"
-            v-on:click="submit()"
+            class="btn btn-success w-100 responsive-width text-nowrap"
+            @click="submit()"
           >
             送出
           </button>
@@ -137,6 +133,7 @@
 <script>
 export default {
   name: "VirtualNumPad",
+  emits: ["submit"],
   data() {
     return {
       Num: "",
