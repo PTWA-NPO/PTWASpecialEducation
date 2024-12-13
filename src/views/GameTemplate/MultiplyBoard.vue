@@ -1,14 +1,48 @@
 <template>
   <div class="container">
     <div class="board">
-      <div class="question">
-        <numBtn :Data="test"></numBtn>
-        <numBtn :Data="test2"></numBtn>
+      <div class="row" :style="rowStyle[0].style">
+        <div
+          class="numBtn"
+          v-for="i in GameData.digitsOfEachRow[0]"
+          :style="rowStyle[0].button[i - 1]"
+        >
+          <numBtn :Data="test"></numBtn>
+        </div>
+      </div>
+      <div class="row" :style="rowStyle[1].style">
+        <div
+          class="numBtn"
+          v-for="i in GameData.digitsOfEachRow[1]"
+          :style="rowStyle[0].button[i]"
+        >
+          <numBtn :Data="test"></numBtn>
+        </div>
       </div>
       <hr />
-      <div class="calculation"></div>
+      <div
+        class="row"
+        v-for="i in GameData.digitsOfEachRow.length - 3"
+        :style="rowStyle[i + 1].style"
+      >
+        <div class="numBtn" v-for="j in GameData.digitsOfEachRow[i + 1]">
+          <numBtn :Data="test"></numBtn>
+        </div>
+      </div>
       <hr />
-      <div class="answer"></div>
+      <div
+        class="row"
+        :style="rowStyle[GameData.digitsOfEachRow.length - 1].style"
+      >
+        <div
+          class="numBtn"
+          v-for="i in GameData.digitsOfEachRow[
+            GameData.digitsOfEachRow.length - 1
+          ]"
+        >
+          <numBtn :Data="test"></numBtn>
+        </div>
+      </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
       <drawingBoard :Data="configBrush" ref="canvas"></drawingBoard>
@@ -37,14 +71,12 @@ export default {
   },
   data() {
     return {
+      rowStyle: [],
       test: {
-        color: "red",
+        color: "gray",
         padPosition: "lowerRight",
       },
-      test2: {
-        color: "blue",
-        padPosition: "lowerRight",
-      },
+
       brushStatusBtn: "brush",
       drawingBoardStatusBtn: "hide",
       brush: {
@@ -77,6 +109,7 @@ export default {
 
   beforeMount() {
     this.configBrush = this.brush;
+    this.setStyles();
   },
 
   mounted() {},
@@ -114,6 +147,29 @@ export default {
           break;
       }
     },
+    setStyles() {
+      for (let i in this.GameData.digitsOfEachRow) {
+        let rowStyle = {
+          style: {
+            height: 100 / this.GameData.digitsOfEachRow.length + "%",
+          },
+          button: [],
+        };
+        if (i < 2) {
+          for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
+            let btnStyle = {
+              gridColumn: j + 10 - this.GameData.digitsOfEachRow[i],
+              gridRow: 1,
+            };
+            rowStyle.button.push(btnStyle);
+          }
+        } else if (i < this.GameData.digitsOfEachRow.length - 1) {
+        } else {
+        }
+        this.rowStyle.push(rowStyle);
+      }
+      console.log(this.rowStyle);
+    },
   },
 };
 </script>
@@ -129,33 +185,22 @@ export default {
   width: 90%;
   margin: auto;
 }
-.question {
-  height: 35%;
-  width: 100%;
+.row {
+  width: fit-content;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   padding: 10px;
+  margin: auto;
 }
-.calculation {
-  height: 35%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  padding: 10px;
-}
-.answer {
-  height: 17.5%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 10px;
-  padding: 10px;
+.numBtn {
+  aspect-ratio: 2/3;
+  width: fit-content;
+  padding: 0;
 }
 hr {
+  margin: 0;
+  padding: 0;
   opacity: 100;
   border: 1px solid black;
 }
@@ -169,10 +214,11 @@ hr {
   display: flex;
   justify-content: space-evenly;
   margin: auto;
+  border-radius: 10px;
 }
 .function button {
   border: none;
-  margin: 2%;
+  margin: 15px;
   width: 20%;
 }
 

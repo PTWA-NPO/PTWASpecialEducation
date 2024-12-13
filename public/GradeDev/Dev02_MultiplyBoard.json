@@ -16,7 +16,11 @@
     "Questions": [
         {
             "unit": "Length",
-            "carryAmount": 2
+            "digitsOfEachRow":[4,3,5,5,5,7],
+            "customUnit": null,
+            "decimalPoint": 0,
+            "preset": null,
+            "answers": [1,2,3,4,5]
         }
     ]
 }
