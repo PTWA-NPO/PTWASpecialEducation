@@ -1,0 +1,19 @@
+{
+  "id": "MA3142",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "QuestionData": { "Text": "fgjidosgjiops", "Size": "Large" },
+        "Answer": 123,
+        "ImgData": { "Src": "1-1.png" }
+      }
+    ]
+  ]
+}
