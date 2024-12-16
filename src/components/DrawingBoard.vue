@@ -11,9 +11,6 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
-import { defineAsyncComponent, handleError } from "vue";
 export default {
   components: {},
 
@@ -103,7 +100,20 @@ export default {
         this.Data.size,
         this.Data.size
       );
+      this.ctx.closePath();
+    },
+    clear() {
+      this.ctx.beginPath();
+      this.ctx.clearRect(0, 0, this.gameWidth, this.gameHeight);
+      this.ctx.closePath();
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+div {
+  width: 100%;
+  height: 100%;
+}
+</style>

@@ -1,0 +1,22 @@
+{
+    "id": "Dev02_MultiplyBoard",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "[Insert question.]"
+    },
+    "TotalLevel": 2,
+    "GameType": "MultiplyBoard",
+    "GameConfig": {
+        "GlobalTitle": "[Insert title.]"
+    },
+    "Hint":{
+        
+    },
+    "Questions": [
+        {
+            "unit": "Length",
+            "carryAmount": 2
+        }
+    ]
+}

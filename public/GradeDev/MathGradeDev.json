@@ -58,56 +58,62 @@
     ]
   },
   {
-    "Title": "Ray的工作區",
-    "Section": [
-      {
         "Title": "Ray的工作區",
-        "Games": [
-          {
-            "id": "Dev02_RacingCar",
-            "Name": "賽車遊戲",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "Dev02_WhackaMole",
-            "Name": "打地鼠",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "Dev02_Maze",
-            "Name": "迷宮遊戲",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "Dev02_Airplane",
-            "Name": "開飛機",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "Dev02_BalloonShooting",
-            "Name": "射飛標",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "Dev02_ComponentTesters",
-            "Name": "元件測試",
-            "Description": "#",
-            "Img": "MA3011.png"
-          },
-          {
-            "id": "ScaleGame",
-            "Name": "磅秤",
-            "Description": "#",
-            "Img": "MA3011.png"
-          }
+        "Section": [
+            {
+                "Title": "Ray的工作區",
+                "Games": [
+                    {
+                        "id": "Dev02_RacingCar",
+                        "Name": "賽車遊戲",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev02_WhackaMole",
+                        "Name": "打地鼠",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev02_Maze",
+                        "Name": "迷宮遊戲",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev02_Airplane",
+                        "Name": "開飛機",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev02_BalloonShooting",
+                        "Name": "射飛標",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                        "id": "Dev02_ComponentTesters",
+                        "Name": "元件測試",
+                        "Description": "#",
+                        "Img": "MA3011.png"
+                    },
+                    {
+                      "id": "ScaleGame",
+                      "Name": "磅秤",
+                      "Description": "#",
+                      "Img": "MA3011.png"
+                  },
+                  {
+                    "id": "Dev02_MultiplyBoard",
+                    "Name": "乘法計算版",
+                    "Description": "#",
+                    "Img": "MA3011.png"
+                }
+                ]
+            }
         ]
-      }
-    ]
   },
   {
     "Title": "智鈺的工作區",
