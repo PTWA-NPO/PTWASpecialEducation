@@ -1,0 +1,385 @@
+{
+  "id": "MA3143",
+  "GameType": "SelectGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "選擇適當的重量單位"
+  },
+  "GameConfig": {
+    "GlobalTitle": "請選擇合適的單位",
+    "RandomMode": true
+  },
+  "Hint": {
+    "ShowAs": "Single",
+    "Rule": {
+      "RuleType": "WrongTimes"
+    },
+    "Data": {
+      "MaxWrongTimes": 2,
+      "SourceType": "video",
+      "FilePath": "hint1.mp4"
+    }
+  },
+  "Questions": [
+    [
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "書包大約700()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "school-bag.png",
+              "Alt": "書包的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "鞋子大約500()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "shoes.png",
+              "Alt": "鞋子的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "腳踏車大約5()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "bicycle.png",
+              "Alt": "腳踏車的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "水壺大約300()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "water-bottle.png",
+              "Alt": "水壺的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "汽車輪胎大約10()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "wheel.png",
+              "Alt": "汽車輪胎的圖示"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "電風扇大約600()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "electric-fan.png",
+              "Alt": "電風扇的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "電視大約3()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "television.png",
+              "Alt": "電視的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "筆記型電腦大約1()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "laptop.png",
+              "Alt": "筆記型電腦的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "橘子大約200()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "tangerine.png",
+              "Alt": "橘子的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "冰箱大約12()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "refrigerator.png",
+              "Alt": "冰箱的圖示"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "口香糖大約20()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "chewing-gum.png",
+              "Alt": "口香糖的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "母雞大約2()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "hen.png",
+              "Alt": "母雞的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "一瓶礦泉水大約400()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "water.png",
+              "Alt": "一瓶礦泉水的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "遙控車大約800()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "car.png",
+              "Alt": "遙控車的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "柯基大約15()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "corgi.png",
+              "Alt": "柯基的圖示"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "果汁大約350()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "orange-juice.png",
+              "Alt": "果汁的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "小狗大約3()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "dog.png",
+              "Alt": "小狗的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "故事書大約500()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "storybook.png",
+              "Alt": "故事書的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "板擦大約100()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "blackboard-eraser.png",
+              "Alt": "板擦的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "椅子大約1()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "dining.png",
+              "Alt": "椅子的圖示"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "鉛筆盒大約200()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "pencil-box.png",
+              "Alt": "鉛筆盒的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "一顆西瓜大約4()",
+        "Answer": "公斤",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "watermelon.png",
+              "Alt": "一顆西瓜的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "一顆棒球大約150()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "baseball.png",
+              "Alt": "一顆棒球的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "橡皮擦大約50()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "eraser.png",
+              "Alt": "橡皮擦的圖示"
+            }
+          }
+        ]
+      },
+      {
+        "Question": ["公斤", "公克"],
+        "Question_Text": "足球大約300()",
+        "Answer": "公克",
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "football.png",
+              "Alt": "足球的圖示"
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}
