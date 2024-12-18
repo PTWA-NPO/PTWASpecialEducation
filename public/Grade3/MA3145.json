@@ -1,0 +1,626 @@
+{
+  "id": "MA3141",
+  "GameType": "CompareGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "請比較兩邊重量大小，並拖曳>、<或=到框框中"
+  },
+  "GameConfig": {
+    "CustomeSymbol": true,
+    "SystemSymbol": "BigSmall",
+    "WithImage": false,
+    "CheckAnswerMode": "Button"
+  },
+  "Questions": [
+    [
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4公斤",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4002公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2005公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2公斤",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3公斤",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3000公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5010公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5公斤",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8公斤",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8006公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      }
+    ],
+    [
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "1公斤100公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "1010公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3公斤100公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3010公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2公斤50公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2005公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4005公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4公斤500公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5010公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5公斤10公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      }
+    ],
+    [
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2003公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2公斤300公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3公斤300公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3003公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5公斤500公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5500公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6005公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6公斤500公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8035公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8公斤350公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      }
+    ],
+    [
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6700公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6公斤700公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2750公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "2公斤75公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3850公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3公斤860公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8880公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "8公斤880公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "7公斤22公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "7202公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      }
+    ],
+    [
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3公斤9公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "3090公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5公斤9公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "5900公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Small"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6公斤3公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "6003公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Equal"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "1公斤256公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "1206公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      },
+      {
+        "QuestionText": "重量比大小",
+        "Description": "把>、<或=拖曳到框框中",
+        "SlotComponentVerifycation": false,
+        "Datas": [
+          [
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4公斤890公克",
+                "Size": "title-medium"
+              }
+            },
+            {
+              "Name": "TextOnly",
+              "Data": {
+                "Text": "4089公克",
+                "Size": "title-medium"
+              }
+            }
+          ]
+        ],
+        "Answer": ["Big"]
+      }
+    ]
+  ]
+}

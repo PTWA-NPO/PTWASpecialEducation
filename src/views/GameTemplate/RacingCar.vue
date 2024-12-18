@@ -1,20 +1,36 @@
 <template>
-  <div class="gameContainer" ref="container">
+  <div ref="container" class="gameContainer">
     <div>
       <h2>{{ GameData.Question }}</h2>
       <v-stage :config="configKonva">
         <v-layer>
-          <v-image v-for="road in configRoad" :config="road"></v-image>
+          <v-image
+            v-for="(road, index) in configRoad"
+            :key="index"
+            :config="road"
+          />
         </v-layer>
 
         <v-layer>
-          <v-image :config="configCar"></v-image>
+          <v-image :config="configCar" />
         </v-layer>
 
         <v-layer>
-          <v-image v-for="tunnel in configTunnel" :config="tunnel"></v-image>
-          <v-rect v-for="box in configTextBox" :config="box"></v-rect>
-          <v-text v-for="option in configOption" :config="option"></v-text>
+          <v-image
+            v-for="(tunnel, index) in configTunnel"
+            :key="index"
+            :config="tunnel"
+          />
+          <v-rect
+            v-for="(box, index) in configTextBox"
+            :key="index"
+            :config="box"
+          />
+          <v-text
+            v-for="(option, index) in configOption"
+            :key="index"
+            :config="option"
+          />
         </v-layer>
       </v-stage>
     </div>
@@ -37,11 +53,27 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets, getGameStaticAssets } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 
 export default {
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       configKonva: {},
@@ -56,24 +88,11 @@ export default {
       movement: "idle",
       currentOptionId: 0,
 
-      upBtn: getSystemAssets("arrowUp.jpg", "racingCar"),
-      rightBtn: getSystemAssets("arrowRight.jpg", "racingCar"),
-      downBtn: getSystemAssets("arrowDown.jpg", "racingCar"),
+      upBtn: getGameStaticAssets("RacingCar", "arrowUp.jpg"),
+      rightBtn: getGameStaticAssets("RacingCar", "arrowRight.jpg"),
+      downBtn: getGameStaticAssets("RacingCar", "arrowDown.jpg"),
     };
   },
-
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
-  },
-
-  emits: ["play-effect", "add-record", "next-question"],
 
   mounted() {
     this.options = canvasTools.shuffleOptions(this.GameData.Options);
@@ -98,7 +117,7 @@ export default {
     },
     drawRoad() {
       const roadImg = new window.Image();
-      roadImg.src = getSystemAssets("road.png", "racingCar");
+      roadImg.src = getGameStaticAssets("RacingCar", "road.png");
       this.laneWidth = this.gameWidth / 2 / this.options.length;
       this.roadX = 0;
       for (var i = 0; i < this.options.length; i++) {
@@ -114,7 +133,7 @@ export default {
     },
     drawTunnel() {
       const tunnelImg = new window.Image();
-      tunnelImg.src = getSystemAssets("tunnel.png", "racingCar");
+      tunnelImg.src = getGameStaticAssets("RacingCar", "tunnel.png");
       this.tunnelOffset = {
         x: this.gameWidth,
         y: 0,
@@ -165,7 +184,7 @@ export default {
     },
     drawCar() {
       const carImg = new window.Image();
-      carImg.src = getSystemAssets("car.png", "racingCar");
+      carImg.src = getGameStaticAssets("RacingCar", "car.png");
       this.configCar.image = carImg;
       this.configCar.height = this.laneWidth * 0.8;
       this.configCar.width = this.laneWidth * 0.8;

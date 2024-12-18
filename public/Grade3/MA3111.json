@@ -1,296 +1,370 @@
 {
-  "id": "MA3017",
+  "id": "MA3111",
+  "introvideo": "hint1.mp4",
   "IntroText": {
     "Type": "PlainText",
-    "Content": "請點擊數線上的空格，並使用數字鍵盤填入正確的數字。"
+    "Content": "用分數板排排看"
   },
-  "TotalLevel": 3,
-  "GameType": "NumberLock",
-  "GameConfig": {
-    "NumberPadAutoDisappear": false,
-    "layout": {
-      "top": true,
-      "down": true,
-      "pad": false
-    },
-    "checkAnswer": {
-      "top": false,
-      "down": true
-    }
-  },
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
   "Questions": [
     [
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{2}{2}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 50,
-            "max": 300,
-            "min": 0,
-            "init_pos": 0,
-            "blank_pos": [200, 300]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 2,
+            "denominator": 2
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{3}{3}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 2,
-            "max": 18,
-            "min": 0,
-            "blank_pos": [6, 10, 12, 18]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 3,
+            "denominator": 3
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{4}{4}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 5,
-            "max": 45,
-            "min": 0,
-            "blank_pos": [15, 25, 30, 45]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 4,
+            "denominator": 4
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{2}{2}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 3,
-            "max": 27,
-            "min": 0,
-            "blank_pos": [9, 15, 18, 27]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 2,
+            "denominator": 2
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{3}{3}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 2,
-            "max": 18,
-            "min": 0,
-            "blank_pos": [4, 6, 12, 16]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 3,
+            "denominator": 3
           }
         }
       }
     ],
     [
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{4}{4}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 10,
-            "max": 90,
-            "min": 0,
-            "blank_pos": [30, 50, 70, 80]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 4,
+            "denominator": 4
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{5}{5}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 100,
-            "max": 1000,
-            "min": 0,
-            "blank_pos": [300, 500, 900, 1000]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 5,
+            "denominator": 5
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{6}{6}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 1000,
-            "max": 9000,
-            "min": 0,
-            "blank_pos": [2000, 4000, 6000, 8000]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 6,
+            "denominator": 6
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{4}{4}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 100,
-            "max": 900,
-            "min": 0,
-            "blank_pos": [200, 300, 600, 800]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 4,
+            "denominator": 4
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{5}{5}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 10,
-            "max": 100,
-            "min": 0,
-            "blank_pos": [40, 50, 70, 100]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 5,
+            "denominator": 5
           }
         }
       }
     ],
     [
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{6}{6}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 10,
-            "max": 90,
-            "min": 0,
-            "blank_pos": [30, 50, 70, 80]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 6,
+            "denominator": 6
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{7}{7}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 100,
-            "max": 1000,
-            "min": 0,
-            "blank_pos": [300, 500, 900, 1000]
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 7,
+            "denominator": 7
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{4}{4}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 1000,
-            "max": 9000,
-            "min": 0,
-            "blank_pos": [2000, 4000, 6000, 8000]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 4,
+            "denominator": 4
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{7}{7}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 100,
-            "max": 900,
-            "min": 0,
-            "blank_pos": [200, 300, 600, 800]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 7,
+            "denominator": 7
           }
         }
       },
       {
-        "topComponent": {
-          "Name": "TextOnly",
-          "Data": {
-            "Text": "請在框框中填入正確的數字"
-          }
+        "question": {
+          "fraction": "\\frac{8}{8}",
+          "description": "用分數板排排看，並回答問題"
         },
-        "NumberPadAutoDisappear": false,
-        "downComponent": {
-          "Name": "NumberLineWithBlank",
-          "Data": {
-            "spacing": 10,
-            "max": 100,
-            "min": 0,
-            "blank_pos": [40, 50, 70, 100]
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 8,
+            "denominator": 8
+          }
+        }
+      }
+    ],
+    [
+      {
+        "question": {
+          "fraction": "\\frac{10}{10}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 10,
+            "denominator": 10
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{9}{9}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 9,
+            "denominator": 9
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{9}{9}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 9,
+            "denominator": 9
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{9}{9}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 9,
+            "denominator": 9
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{8}{8}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 8,
+            "denominator": 8
+          }
+        }
+      }
+    ],
+    [
+      {
+        "question": {
+          "fraction": "\\frac{11}{11}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 11,
+            "denominator": 11
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{12}{12}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 12,
+            "denominator": 12
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{10}{10}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 10,
+            "denominator": 10
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{12}{12}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 12,
+            "denominator": 12
+          }
+        }
+      },
+      {
+        "question": {
+          "fraction": "\\frac{11}{11}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "rect",
+          "verifyOption": "answer",
+          "answer": {
+            "numerator": 11,
+            "denominator": 11
           }
         }
       }

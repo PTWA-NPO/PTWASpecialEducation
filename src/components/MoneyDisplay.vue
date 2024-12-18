@@ -1,12 +1,18 @@
 <template>
-    <div class="image-container">
-        <img :src="this.imgUrl" class="monay-image">
-    </div>
+  <div class="image-container">
+    <img :src="imgUrl" class="monay-image">
+  </div>
 </template>
 
 <script>
 import { getSlotComponentAssets } from '@/utilitys/get_assets.js';
 export default {
+    props: {
+        Data: {
+            type: Object,
+            required: true
+        }
+    },
     data() {
         return {
             moneyImgFile:"MoneyGenerator",
@@ -15,19 +21,13 @@ export default {
             fileExtension:'.png'
         }
     },
-    props: {
-        Data: {
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-
-    },
     mounted() {
         this.denomination = this.Data.denomination.toString();
         this.denomination = this.denomination + this.fileExtension;
         this.imgUrl = getSlotComponentAssets(this.moneyImgFile, this.denomination);
+    },
+    methods: {
+
     }
 }
 </script>

@@ -8,10 +8,10 @@
         {{ element.content }}
       </component>
       <input
-        ref="inputRefs"
         v-else-if="element.el === 'input'"
-        type="text"
+        ref="inputRefs"
         v-model="element.content"
+        type="text"
         @input="checkAnswer($event)"
         @click="
           (event) => {
@@ -24,9 +24,9 @@
       <span v-else-if="element.el === 'space'">&nbsp;</span>
       <br v-else-if="element.el === 'br'" />
       <FloatNumPad
-        :Data="floatNumPadLocation"
-        @button-clicked="fillToInput"
         v-if="isShowNumPad"
+        :Data="floatNumPadLocation"
+        @buttonClicked="fillToInput"
       />
     </template>
   </div>
@@ -39,6 +39,17 @@ export default {
   components: {
     FloatNumPad,
   },
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ["replyAnswer"],
   data() {
     return {
       markdownContent: ``,
@@ -49,16 +60,6 @@ export default {
       clickedEvent: null,
       wrongInputIndex: [],
     };
-  },
-  props: {
-    Data: {
-      type: Object,
-      required: true,
-    },
-    ID: {
-      type: String,
-      required: false,
-    },
   },
   created() {
     this.markdownContent = this.Data.Render;
@@ -129,9 +130,9 @@ export default {
         }
       }
       if (check) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
     disableKeyboardOnMobile($event) {

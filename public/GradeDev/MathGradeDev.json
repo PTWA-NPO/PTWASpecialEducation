@@ -150,6 +150,24 @@
             "Name": "連連看(高年級)",
             "Description": "",
             "Img": ""
+          },
+          {
+            "id": "Dev0306",
+            "Name": "NumberLock",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "Dev0307",
+            "Name": "和1一樣大的分數",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "Dev0308",
+            "Name": "分數加減",
+            "Description": "",
+            "Img": ""
           }
         ]
       }

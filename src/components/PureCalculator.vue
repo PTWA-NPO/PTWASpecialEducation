@@ -2,16 +2,16 @@
   <div class="Container">
     <div class="CalculatorBody">
       <div class="unit btn-group" style="flex-direction: row-reverse">
-        <div class="units" v-for="item in Title">
-          <button type="button" class="btn btn-primary" v-if="item != null">
+        <div v-for="item in Title" class="units">
+          <button v-if="item != null" type="button" class="btn btn-primary">
             {{ item }}
           </button>
-          <div class="space" v-if="item == null"></div>
+          <div v-if="item == null" class="space" />
         </div>
       </div>
       <div class="Carry btn-group">
-        <div class="Carrys" v-for="(items, cnt) in Carry">
-          <button ref="Carry" :class="{ 'on-line': this.CarryLine[cnt] }">
+        <div v-for="(items, cnt) in Carry" class="Carrys">
+          <button ref="Carry" :class="{ 'on-line': CarryLine[cnt] }">
             {{ items }}
             <q-menu anchor="top left" self="bottom left" class="q-menu">
               <div class="Btns">
@@ -24,7 +24,7 @@
                 </button>
                 <button @click="CarryInput(cnt, '/')">/</button>
                 <button @click="CarryInput(cnt, 'delete')">
-                  <q-icon name="bi-trash"></q-icon>
+                  <q-icon name="bi-trash" />
                 </button>
               </div>
             </q-menu>
@@ -33,7 +33,7 @@
       </div>
       <hr />
       <div class="NumberArea">
-        <div class="NumberRow btn-group" v-for="(items, Row) in Num_list">
+        <div v-for="(items, Row) in Num_list" class="NumberRow btn-group">
           <button v-if="Row != 0">
             {{ Sy_list[Row] }}
             <q-menu anchor="top left" self="bottom left" class="q-menu">
@@ -43,11 +43,11 @@
               </div>
             </q-menu>
           </button>
-          <div class="space"></div>
+          <div class="space" />
           <div class="NumbersContainer btn-group">
             <button
               v-for="(item, Col) in items"
-              :class="{ 'on-line': this.ButtonLine[Row][Col] }"
+              :class="{ 'on-line': ButtonLine[Row][Col] }"
             >
               {{ item }}
               <q-menu anchor="top left" self="bottom left" class="q-menu">
@@ -64,7 +64,7 @@
                   </button>
                   <button @click="NumInput(Row, Col, '/')">/</button>
                   <button @click="NumInput(Row, Col, 'delete')">
-                    <q-icon name="bi-trash"></q-icon>
+                    <q-icon name="bi-trash" />
                   </button>
                 </div>
               </q-menu>
@@ -74,8 +74,8 @@
       </div>
       <hr />
       <div class="Answer btn-group">
-        <div class="AnswerContainer" v-for="(item, Col) in Ans">
-          <button :class="{ 'on-line': this.AnswerLine[Col] }">
+        <div v-for="(item, Col) in Ans" class="AnswerContainer">
+          <button :class="{ 'on-line': AnswerLine[Col] }">
             {{ item }}
             <q-menu anchor="top left" self="bottom left" class="q-menu">
               <div class="Btns">
@@ -87,7 +87,7 @@
                   {{ index + 5 }}
                 </button>
                 <button @click="AnsInput(Col, 'delete')">
-                  <q-icon name="bi-trash"></q-icon>
+                  <q-icon name="bi-trash" />
                 </button>
               </div>
             </q-menu>
@@ -104,13 +104,9 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
 export default {
-  name: "calculator",
+  name: "Calculator",
   display: "calculator",
-  components: {
-    draggable,
-  },
   data() {
     return {
       Num_list: [],

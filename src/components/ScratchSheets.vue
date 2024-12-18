@@ -1,7 +1,7 @@
 <template>
   <div class="scratchsheet-overlay">
     <div class="sheet-container">
-      <div class="canvas-container" ref="con">
+      <div ref="con" class="canvas-container">
         <canvas
           ref="canvas"
           @mousedown="handleMouseDown"
@@ -11,8 +11,7 @@
           @touchstart="handleTouchStart"
           @touchmove="handleTouchMove"
           @touchend="handleTouchEnd"
-        >
-        </canvas>
+        />
       </div>
 
       <div class="option-menu">
@@ -20,14 +19,14 @@
           <div class="btn-title">筆刷大小</div>
           <div class="brush-size-option">
             <!--&#9679-->
-            <button @click="changeLineWidth(5)" style="font-size: 10px">
-              &#9679
+            <button style="font-size: 10px" @click="changeLineWidth(5)">
+              &#9679;
             </button>
-            <button @click="changeLineWidth(10)" style="font-size: 20px">
-              &#9679
+            <button style="font-size: 20px" @click="changeLineWidth(10)">
+              &#9679;
             </button>
-            <button @click="changeLineWidth(15)" style="font-size: 30px">
-              &#9679
+            <button style="font-size: 30px" @click="changeLineWidth(15)">
+              &#9679;
             </button>
           </div>
         </div>
@@ -37,42 +36,42 @@
             <button
               class="black-btn"
               @click.prevent="setcolor('#000000')"
-              @touchend="this.brushColor = '#000000'"
+              @touchend="brushColor = '#000000'"
             >
               黑色
             </button>
             <button
               class="white-btn"
               @click.prevent="setcolor('#ffffff')"
-              @touchend="this.brushColor = '#ffffff'"
+              @touchend="brushColor = '#ffffff'"
             >
               白色
             </button>
             <button
               class="green-btn"
               @click="setcolor('#09814A')"
-              @touchend="this.brushColor = '#09814A'"
+              @touchend="brushColor = '#09814A'"
             >
               綠色
             </button>
             <button
               class="red-btn"
               @click="setcolor('#F13030')"
-              @touchstart="this.brushColor = '#F13030'"
+              @touchstart="brushColor = '#F13030'"
             >
               紅色
             </button>
             <button
               class="blue-btn"
               @click="setcolor('#0D21A1')"
-              @touchend="this.brushColor = '#0D21A1'"
+              @touchend="brushColor = '#0D21A1'"
             >
               藍色
             </button>
             <button
               class="yellow-btn"
               @click="setcolor('#FFD166')"
-              @touchend="this.brushColor = '#FFD166'"
+              @touchend="brushColor = '#FFD166'"
             >
               黃色
             </button>
@@ -84,9 +83,9 @@
         </div>
         <button
           class="exit-btn"
+          data-bs-dismiss="modal"
           @click="closeCanvas"
           @touchend="closeCanvas"
-          data-bs-dismiss="modal"
         >
           關閉
         </button>
@@ -97,6 +96,7 @@
 <script>
 export default {
   name: "CanvasDrawing",
+  emits: ["closeSheet"],
   data() {
     return {
       brushSize: 5,

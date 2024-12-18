@@ -1,37 +1,61 @@
 <template>
   <bin
     :config="configBin"
-    @getBinPos="
+    @get-bin-pos="
       (e) => {
-        this.binPosition = e;
+        binPosition = e;
       }
     "
-  ></bin>
+  />
   <v-rect
-    v-for="frame in configDenominator.frame"
+    v-for="(frame, index) in configDenominator.frame"
+    :key="index"
     :config="frame"
     @dragmove="denominatorDragMove"
     @dragend="denominatorDragEnd"
-  ></v-rect>
+  />
   <v-rect
-    v-for="rect in configDenominator.rect"
+    v-for="(rect, index) in configDenominator.rect"
+    :key="index"
     :config="rect"
     @dragmove="denominatorDragMove"
     @dragend="denominatorDragEnd"
-  ></v-rect>
-  <v-shape v-for="slice in configDenominator.slice" :config="slice"></v-shape>
-
-  <v-rect :config="configNumerator" @dragend="numeratorDragEnd"></v-rect>
+  />
+  <v-shape
+    v-for="(slice, index) in configDenominator.slice"
+    :key="index"
+    :config="slice"
+  />
+  <v-rect :config="configNumerator" @dragend="numeratorDragEnd" />
 </template>
 
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {
     bin: defineAsyncComponent(() => import("@/components/interactiveBin.vue")),
   },
+
+  props: {
+    numerator: {
+      type: Object,
+      required: true,
+    },
+    denominator: {
+      type: Object,
+      required: true,
+    },
+    gameWidth: {
+      type: Number,
+      required: true,
+    },
+    gameHeight: {
+      type: Number,
+      required: true,
+    },
+  },
+  emits: ["addFill"],
   data() {
     return {
       numeratorSnapTo: {},
@@ -55,10 +79,6 @@ export default {
       fill: [],
     };
   },
-
-  props: ["gameWidth", "gameHeight", "numerator", "denominator"],
-
-  emits: ["addFill"],
 
   beforeMount() {
     this.setAttributes();

@@ -1,28 +1,25 @@
 <template>
   <div class="outter-container">
-    <div class="head-container" v-if="this.GameData.headQuestion">
-      <p>{{ this.GameData.headQuestion }}</p>
+    <div v-if="GameData.headQuestion" class="head-container">
+      <p>{{ GameData.headQuestion }}</p>
     </div>
     <div class="word-problem">
       <div class="left-container">
         <Markdown
           class="markdown"
           :Data="markdownData"
-          @ReplyAnswer="this.markdownAnswer"
-        ></Markdown>
+          @reply-answer="markdownAnswer"
+        />
         <button class="submit" @click="checkAnswer">檢查答案</button>
       </div>
       <div class="right-container">
-        <Calculator
-          :Data="calculatorData"
-          @ReplyAnswer="this.calculatorAnswer"
-        ></Calculator>
+        <Calculator :Data="calculatorData" @reply-answer="calculatorAnswer" />
       </div>
     </div>
   </div>
 </template>
 <script>
-import Calculator from "@/components/calculator.vue";
+import Calculator from "@/components/Calculator.vue";
 import Markdown from "@/components/Markdown.vue";
 import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
 export default {
@@ -40,12 +37,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
-  emits: ["addRecord", "playEffect", "nextQuestion"],
+  emits: ["play-effect", "next-question", "add-record"],
   data() {
     return {
       // GameData: {
@@ -96,40 +93,6 @@ export default {
       calculatorAnswerStatus: false,
     };
   },
-  methods: {
-    checkAnswer() {
-      if ((this.GameConfig.calculatorVerify = false))
-        this.calculatorAnswerStatus = true;
-      if ((this.GameConfig.markdownVerify = false))
-        this.markdownAnswerStatus = true;
-
-      emitter.emit("checkAnswer");
-      if (this.markdownAnswerStatus && this.calculatorAnswerStatus) {
-        this.$emit("play-effect", "CorrectSound");
-        this.$emit("addRecord", ["答案全對", "", "正確"]);
-        this.$emit("next-question");
-      } else if (
-        this.markdownAnswerStatus == false &&
-        this.calculatorAnswerStatus == false
-      ) {
-        this.$emit("addRecord", ["答案全錯", "", "錯誤"]);
-        this.$emit("playEffect", "WrongSound");
-      } else if (this.calculatorAnswerStatus == false) {
-        this.$emit("addRecord", ["計算機答案錯誤", "", "錯誤"]);
-        this.$emit("playEffect", "WrongSound");
-      } else if (this.markdownAnswerStatus == false) {
-        this.$emit("addRecord", ["填空部分出現錯誤", "", "錯誤"]);
-        this.$emit("playEffect", "WrongSound");
-      }
-    },
-    calculatorAnswer(answer) {
-      this.calculatorAnswerStatus = answer;
-    },
-    markdownAnswer(answer) {
-      console.log(answer);
-      this.markdownAnswerStatus = answer;
-    },
-  },
   computed: {
     // Add your computed properties here
   },
@@ -139,6 +102,40 @@ export default {
   },
   mounted() {
     // Lifecycle hook when component is mounted
+  },
+  methods: {
+    checkAnswer() {
+      if (this.GameConfig.calculatorVerify == false)
+        this.calculatorAnswerStatus = true;
+      if (this.GameConfig.markdownVerify == false)
+        this.markdownAnswerStatus = true;
+
+      emitter.emit("checkAnswer");
+      if (this.markdownAnswerStatus && this.calculatorAnswerStatus) {
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", ["答案全對", "", "正確"]);
+        this.$emit("next-question");
+      } else if (
+        this.markdownAnswerStatus == false &&
+        this.calculatorAnswerStatus == false
+      ) {
+        this.$emit("add-record", ["答案全錯", "", "錯誤"]);
+        this.$emit("play-effect", "WrongSound");
+      } else if (this.calculatorAnswerStatus == false) {
+        this.$emit("add-record", ["計算機答案錯誤", "", "錯誤"]);
+        this.$emit("play-effect", "WrongSound");
+      } else if (this.markdownAnswerStatus == false) {
+        this.$emit("add-record", ["填空部分出現錯誤", "", "錯誤"]);
+        this.$emit("play-effect", "WrongSound");
+      }
+    },
+    calculatorAnswer(answer) {
+      this.calculatorAnswerStatus = answer;
+    },
+    markdownAnswer(answer) {
+      console.log(answer);
+      this.markdownAnswerStatus = answer;
+    },
   },
 };
 </script>

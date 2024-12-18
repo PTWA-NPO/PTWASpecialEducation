@@ -1,12 +1,14 @@
 <template>
   <div class="Container">
-    <p class="h1">{{ GameData.Question.text }}</p>
-    <div class="Index" ref="Index">
-      <div class="Konva-container" ref="KonvaContainer">
+    <p class="h1">
+      {{ GameData.Question.text }}
+    </p>
+    <div ref="Index" class="Index">
+      <div ref="KonvaContainer" class="Konva-container">
         <v-stage
+          ref="stage"
           :config="configStage"
           class="Stage"
-          ref="stage"
           @mousemove="MouseMove"
           @touchmove="MouseMove"
           @mouseup="MouseUpAtDot"
@@ -19,48 +21,50 @@
               v-for="(Object, index) in DotLocation"
               :key="index"
               :config="{ x: Object.X, y: Object.Y, radius: 10, fill: 'black' }"
-            ></v-circle>
+            />
           </v-layer>
           <v-layer ref="LineLayer">
-            <v-line v-for="Line in Lines" :config="Line"></v-line>
+            <v-line
+              v-for="(Line, index) in Lines"
+              :key="index"
+              :config="Line"
+            />
           </v-layer>
           <v-layer ref="OnDrawLineLayer">
-            <v-line :config="OnDrawingLine"></v-line>
+            <v-line :config="OnDrawingLine" />
           </v-layer>
         </v-stage>
       </div>
       <div
-        class="ObjectContainer"
-        ref="ObjectContainer"
         v-for="(Object, index) in ComponentConfig"
+        :key="index"
+        ref="ObjectContainer"
+        class="ObjectContainer"
         :style="{
           position: 'absolute',
           top: Object.Y + 'px',
           left: Object.X + 'px',
-          width: this.ComponentPositionConfig.ObjectWidth + 'px',
-          height: this.ComponentPositionConfig.ObjectHeight + 'px',
+          width: ComponentPositionConfig.ObjectWidth + 'px',
+          height: ComponentPositionConfig.ObjectHeight + 'px',
         }"
       >
         <component
           :is="Object.Name"
-          :Data="Object.Data"
-          :ID="this.id"
-          class="Component"
           :key="ComponentConfig"
-        ></component>
+          :Data="Object.Data"
+          :ID="ID"
+          class="Component"
+        />
       </div>
     </div>
     <div class="Buttons">
       <h3 v-if="NotFinished">請連完所有的線段</h3>
-      <button
-        @click="CheckAll"
-        v-if="this.GameConfig.CheckingMode == 'OnSubmit'"
-      >
+      <button v-if="GameConfig.CheckingMode == 'OnSubmit'" @click="CheckAll">
         檢查答案
       </button>
       <button
+        v-if="GameConfig.CheckingMode == 'OnSubmit'"
         @click="ClearAllLine"
-        v-if="this.GameConfig.CheckingMode == 'OnSubmit'"
       >
         清除所有的線
       </button>
@@ -91,12 +95,12 @@ export default {
     NumberBoard: defineAsyncComponent(() =>
       import("@/components/NumberBoard.vue")
     ),
+    ElectronicClock: defineAsyncComponent(() =>
+      import("@/components/ElectronicClock.vue")
+    ),
+    Clock: defineAsyncComponent(() => import("@/components/Clock.vue")),
   },
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
     GameData: {
       type: Object,
       required: true,
@@ -105,7 +109,12 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       // id: "MA4008",
@@ -176,10 +185,11 @@ export default {
   },
   created() {
     if (this.GameConfig.CheckingMode == undefined) {
+      // eslint-disable-next-line vue/no-mutating-props
       this.GameConfig.CheckingMode = "OnSubmit";
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener("resize", this.Init);
     window.removeEventListener("resize", this.ReLinktheLine);
   },
@@ -563,7 +573,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss"> 
+<style scoped lang="scss">
 /* Your component-specific styles go here */
 .Container {
   width: 100%;

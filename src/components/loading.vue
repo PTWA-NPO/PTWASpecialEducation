@@ -1,7 +1,7 @@
 <template>
   <div
-    class="container d-flex flex-column justify-content-center align-content-center"
     id="main"
+    class="container d-flex flex-column justify-content-center align-content-center"
   >
     <div class="row">
       <div
@@ -12,7 +12,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <br />
+    <br>
     <div class="row">
       <h2>頁面加載中....</h2>
     </div>

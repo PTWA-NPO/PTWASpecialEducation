@@ -1,17 +1,12 @@
 <template>
-  <div class="Outter" id="Outter" ref="Outter">
-    <canvas id="clock" ref="Clock"></canvas>
+  <div id="Outter" ref="Outter" class="Outter">
+    <canvas id="clock" ref="Clock" />
   </div>
 </template>
 <script>
 import { getSlotComponentAssets } from "../utilitys/get_assets";
 export default {
   name: "Clock",
-  data() {
-    return {
-      // Your data properties go here
-    };
-  },
   props: {
     ID: {
       type: String,
@@ -19,13 +14,25 @@ export default {
     },
     Data: {
       type: Object,
-      required: false,
+      required: true,
     },
+  },
+  data() {
+    return {
+      // Your data properties go here
+    };
+  },
+  mounted() {
+    this.drawClock();
+    window.addEventListener("resize", this.drawClock);
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.drawClock);
   },
 
   methods: {
     drawClock() {
-      let canvas = document.getElementById("clock");
+      let canvas = this.$refs.Clock;
       let ctx = canvas.getContext("2d");
       let border = Math.min(
         this.$refs.Outter.clientWidth,
@@ -99,13 +106,6 @@ export default {
         ctx.closePath();
       }
     },
-  },
-  mounted() {
-    this.drawClock();
-    window.addEventListener("resize", this.drawClock);
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.drawClock);
   },
 };
 </script>

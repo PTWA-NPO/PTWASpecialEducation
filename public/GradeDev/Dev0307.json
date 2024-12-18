@@ -1,0 +1,30 @@
+{
+  "id": "MA3111",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "MA3111",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "question": {
+          "fraction": "\\frac{2}{2}",
+          "description": "用分數板排排看，並回答問題"
+        },
+        "answerData": {
+          "shape": "circle",
+          "verifyOption": "answer",
+
+          "answer": {
+            "numerator": 2,
+            "denominator": 2
+          }
+        }
+      }
+    ]
+  ]
+}

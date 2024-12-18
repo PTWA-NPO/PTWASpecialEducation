@@ -1,7 +1,9 @@
 <template>
   <div>
     <h1>Supported Speech Synthesis Voices</h1>
-    <button @click="speak">Speak</button>
+    <button @click="speak">
+      Speak
+    </button>
     <ul>
       <li v-for="(voice, index) in voices" :key="index">
         {{ index + 1 }}: {{ voice.name }} ({{ voice.lang }}) -
@@ -17,6 +19,12 @@ export default {
     return {
       voices: [],
     };
+  },
+  mounted() {
+    // Attach the populate function to the voiceschanged event
+    speechSynthesis.onvoiceschanged = this.populateVoiceList;
+    // Also call it immediately in case voices are already available
+    this.populateVoiceList();
   },
   methods: {
     speak() {
@@ -42,12 +50,6 @@ export default {
         }
       }
     },
-  },
-  mounted() {
-    // Attach the populate function to the voiceschanged event
-    speechSynthesis.onvoiceschanged = this.populateVoiceList;
-    // Also call it immediately in case voices are already available
-    this.populateVoiceList();
   },
 };
 </script>

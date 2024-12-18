@@ -1,6 +1,6 @@
 <template>
   <div class="Outter">
-    <input :type="Data.Type" @input="Reply2Parent" v-model="ReplyDatas" />
+    <input v-model="ReplyDatas" :type="configs.Type" @input="Reply2Parent" />
   </div>
 </template>
 <script>
@@ -12,20 +12,23 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       ReplyDatas: "",
+      configs: {},
     };
   },
   created() {
-    if (this.Data.Type == undefined) {
-      this.Data.Type = "Text";
+    this.configs = this.Data;
+    if (this.configs.Type == undefined) {
+      this.configs.Type = "Text";
     }
   },
   methods: {
     Reply2Parent() {
-      let ans = this.ReplyDatas == this.Data.Text ? true : false;
-      this.$emit("ReplyAnswer", ans);
+      let ans = this.ReplyDatas == this.configs.Text ? true : false;
+      this.$emit("replyAnswer", ans);
     },
   },
 };

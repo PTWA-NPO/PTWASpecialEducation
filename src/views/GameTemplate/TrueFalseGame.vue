@@ -1,41 +1,41 @@
 <template>
   <div class="container">
     <div class="card">
-      <p class="h3">{{ this.GameConfig.GlobalTitle }}</p>
-      <p class="h5">{{ GameData.Question }}</p>
+      <p class="h3">
+        {{ GameConfig.GlobalTitle }}
+      </p>
+      <p class="h5">
+        {{ GameData.Question }}
+      </p>
     </div>
     <div class="Content">
       <div class="QuestionView">
-        <component
-          :is="this.SlotComponent"
-          :Data="this.SlotData"
-          :ID="this.id"
-        ></component>
+        <component :is="SlotComponent" :Data="SlotData" :ID="ID" />
       </div>
       <div class="SelectArea">
         <div class="TFArea">
           <button
             type="button"
             class="TF Circle"
-            v-on:click="Select(0)"
             :class="{ SelectedTF: TFSelect[0] }"
+            @click="Select(0)"
           >
-            <i class="bi bi-circle"></i>
+            <i class="bi bi-circle" />
           </button>
           <button
             type="button"
             class="TF Crosss"
-            v-on:click="Select(1)"
             :class="{ SelectedTF: TFSelect[1] }"
+            @click="Select(1)"
           >
-            <i class="bi bi-x-lg"></i>
+            <i class="bi bi-x-lg" />
           </button>
         </div>
         <button
           type="button"
           class="Submit"
-          :class="{ OnSubmit: this.Answer != null }"
-          v-on:click="CheckAnswer"
+          :class="{ OnSubmit: Answer != null }"
+          @click="CheckAnswer"
         >
           送出答案
         </button>
@@ -49,16 +49,11 @@ import { getComponents } from "@/utilitys/get-components.js";
 import Water from "../../components/Water.vue";
 export default {
   name: "TrueFalseGame",
-  data() {
-    return {
-      imageUrl: "",
-      SlotComponent: "",
-      SlotData: null,
-      TFSelect: [false, false],
-      Answer: null,
-    };
+  components: {
+    ImageContainer: getComponents("ImageContainer"),
+    Water: getComponents("Water"),
+    Clock: getComponents("Clock"),
   },
-  emits: ["play-effect", "add-record", "next-question"],
   props: {
     GameData: {
       type: Object,
@@ -68,10 +63,25 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
+  },
+  emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      imageUrl: "",
+      SlotComponent: "",
+      SlotData: null,
+      TFSelect: [false, false],
+      Answer: null,
+    };
+  },
+  created() {
+    this.imageUrl = getGameAssets(this.ID, this.GameData.img);
+    this.SlotComponent = this.GameData.SlotComponents[0].Name;
+    this.SlotData = this.GameData.SlotComponents[0].Data;
   },
   methods: {
     Select(index) {
@@ -98,16 +108,6 @@ export default {
         console.log("check answer : False");
       }
     },
-  },
-  created() {
-    this.imageUrl = getGameAssets(this.id, this.GameData.img);
-    this.SlotComponent = this.GameData.SlotComponents[0].Name;
-    this.SlotData = this.GameData.SlotComponents[0].Data;
-  },
-  components: {
-    ImageContainer: getComponents("ImageContainer"),
-    Water: getComponents("Water"),
-    Clock: getComponents("Clock"),
   },
 };
 </script>

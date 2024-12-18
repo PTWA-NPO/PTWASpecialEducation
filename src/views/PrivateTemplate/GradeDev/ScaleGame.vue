@@ -4,15 +4,19 @@
       <h2>{{ GameData.question }}</h2>
     </div>
     <div class="gameArea">
-      <div class="gameImage"><img :src="questionImg" /></div>
+      <div class="gameImage">
+        <img :src="questionImg">
+      </div>
       <div class="scaleArea">
         <div class="scaleContainer">
           <div class="scale">
-            <scale :Data="scaleData" :ID="id" @replyAnswer="getAnswer"></scale>
+            <scale :Data="scaleData" :ID="id" @reply-answer="getAnswer" />
           </div>
         </div>
         <div class="btnContainer">
-          <button @click="checkAnswer"><h3>確認答案</h3></button>
+          <button @click="checkAnswer">
+            <h3>確認答案</h3>
+          </button>
         </div>
       </div>
     </div>
@@ -25,13 +29,6 @@ import { defineAsyncComponent } from "vue";
 export default {
   components: {
     scale: defineAsyncComponent(() => import("@/components/Scale.vue")),
-  },
-  data() {
-    return {
-      scaleData: {},
-      questionImg: null,
-      answer: 0,
-    };
   },
 
   props: {
@@ -50,6 +47,13 @@ export default {
   },
 
   emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      scaleData: {},
+      questionImg: null,
+      answer: 0,
+    };
+  },
 
   mounted() {
     this.questionImg = getGameAssets(this.id, this.GameData.imageSrc);

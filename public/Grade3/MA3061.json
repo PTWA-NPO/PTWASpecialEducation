@@ -1,0 +1,50 @@
+{
+  "id": "MA3061",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "請拉方格圖去對，對完後回答是幾平方公分"
+  },
+  "TotalLevel": 1,
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "DragToAlign": { "imageRatio": [3, 2], "image": "1-1.png" },
+        "markdown": {
+          "Render": "這個圖形是$i$平方公分",
+          "Answer": [6]
+        }
+      },
+      {
+        "DragToAlign": { "imageRatio": [4, 3], "image": "1-2.png" },
+        "markdown": {
+          "Render": "這個圖形是$i$平方公分",
+          "Answer": [7]
+        }
+      },
+      {
+        "DragToAlign": { "imageRatio": [4, 2], "image": "1-3.png" },
+        "markdown": {
+          "Render": "這個圖形是$i$平方公分",
+          "Answer": [6]
+        }
+      },
+      {
+        "DragToAlign": { "imageRatio": [4, 2], "image": "1-4.png" },
+        "markdown": {
+          "Render": "這個圖形是$i$平方公分",
+          "Answer": [6]
+        }
+      },
+      {
+        "DragToAlign": { "imageRatio": [3, 4], "image": "1-5.png" },
+        "markdown": {
+          "Render": "這個圖形是$i$平方公分",
+          "Answer": [6]
+        }
+      }
+    ]
+  ]
+}

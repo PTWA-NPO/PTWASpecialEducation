@@ -1,9 +1,9 @@
 <template>
-  <v-image v-if="config.open && cat" :config="configBinCat"></v-image>
-  <v-image v-else-if="config.open && !cat" :config="configBinOpen"></v-image>
-  <v-image v-else :config="configBin"></v-image>
+  <v-image v-if="config.open && cat" :config="configBinCat" />
+  <v-image v-else-if="config.open && !cat" :config="configBinOpen" />
+  <v-image v-else :config="configBin" />
 
-  <v-image v-if="cat && config.open" :config="configFace"></v-image>
+  <v-image v-if="cat && config.open" :config="configFace" />
 </template>
 
 <script>
@@ -12,6 +12,15 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {},
+
+  props: {
+    config: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  emits: ["getBinPos"],
   data() {
     return {
       configBin: {},
@@ -24,10 +33,6 @@ export default {
       images: {},
     };
   },
-
-  props: ["config"],
-
-  emits: ["getBinPos"],
 
   beforeMount() {
     this.setImages();

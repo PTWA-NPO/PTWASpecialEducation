@@ -2,59 +2,58 @@
   <div class="outter">
     <div class="calculator">
       <div class="unit btn-group" style="flex-direction: row-reverse">
-        <div class="units" v-for="item in Title">
-          <button type="button" v-if="item != null">{{ item }}</button>
-          <div class="space" v-if="item == null"></div>
+        <div v-for="item in Title" class="units">
+          <button v-if="item != null" type="button">
+            {{ item }}
+          </button>
+          <div v-if="item == null" class="space" />
         </div>
       </div>
-      <div class="carry btn-group" v-for="(carries, Row) in Carry">
-        <div class="carrys" v-for="(items, cnt) in carries">
-          <button
-            ref="Carry"
-            :class="{ 'btn--line': this.CarryLine[Row][cnt] }"
-          >
+      <div v-for="(carries, Row) in Carry" class="carry btn-group">
+        <div v-for="(items, cnt) in carries" class="carrys">
+          <button ref="Carry" :class="{ 'btn--line': CarryLine[Row][cnt] }">
             {{ items }}
             <q-menu anchor="top left" self="bottom left" class="q-menu">
               <div class="btns">
-                <button @click="CarryInput(Row, cnt, 0)" v-close-popup>
+                <button v-close-popup @click="CarryInput(Row, cnt, 0)">
                   0
                 </button>
                 <button
                   v-for="index in 5"
-                  @click="CarryInput(Row, cnt, index)"
                   v-close-popup
+                  @click="CarryInput(Row, cnt, index)"
                 >
                   {{ index }}
                 </button>
                 <button
                   v-for="index in 5"
-                  @click="CarryInput(Row, cnt, index + 5)"
                   v-close-popup
+                  @click="CarryInput(Row, cnt, index + 5)"
                 >
                   {{ index + 5 }}
                 </button>
-                <button @click="CarryInput(Row, cnt, '/')" v-close-popup>
+                <button v-close-popup @click="CarryInput(Row, cnt, '/')">
                   /
                 </button>
-                <button @click="CarryInput(Row, cnt, 'delete')" v-close-popup>
-                  <q-icon name="bi-trash"></q-icon>
+                <button v-close-popup @click="CarryInput(Row, cnt, 'delete')">
+                  <q-icon name="bi-trash" />
                 </button>
               </div>
             </q-menu>
           </button>
-          <button v-if="this.Num_list[0][cnt] == '.'">.</button>
+          <button v-if="Num_list[0][cnt] == '.'">.</button>
         </div>
       </div>
       <hr />
       <div class="number-area">
-        <div class="NumberRow btn-group" v-for="(items, Row) in Num_list">
+        <div v-for="(items, Row) in Num_list" class="NumberRow btn-group">
           <button v-if="Row != 0">
             {{ Sy_list[Row] }}
             <q-menu
+              v-if="SymbolEditable[Row]"
               anchor="top left"
               self="bottom left"
               class="q-menu"
-              v-if="this.SymbolEditable[Row]"
             >
               <div class="btns">
                 <button @click="SymbolInput(Row, '+')">+</button>
@@ -62,46 +61,45 @@
               </div>
             </q-menu>
           </button>
-          <div class="space"></div>
+          <div class="space" />
           <div class="NumbersContainer btn-group">
             <div
               v-for="(item, Col) in items"
               style="display: flex; justify-content: center"
             >
-              <button v-if="this.Num_list[0][Col] == '.'">.</button>
-              <button
-                :class="{ 'btn--line': this.ButtonLine[Row][Col] }"
-                v-else
-              >
+              <button v-if="Num_list[0][Col] == '.'">.</button>
+              <button v-else :class="{ 'btn--line': ButtonLine[Row][Col] }">
                 {{ item }}
                 <q-menu anchor="top left" self="bottom left" class="q-menu">
                   <div class="btns">
                     <button
+                      v-if="NumberEditable[Row][Col]"
                       @click="NumInput(Row, Col, 0)"
-                      v-if="this.NumberEditable[Row][Col]"
                     >
                       0
                     </button>
-                    <button
-                      v-for="index in 5"
-                      @click="NumInput(Row, Col, index)"
-                      v-if="this.NumberEditable[Row][Col]"
-                    >
-                      {{ index }}
-                    </button>
-                    <button
-                      v-for="index in 4"
-                      @click="NumInput(Row, Col, index + 5)"
-                      v-if="this.NumberEditable[Row][Col]"
-                    >
-                      {{ index + 5 }}
-                    </button>
+                    <template v-for="index in 5" :key="index">
+                      <button
+                        v-if="NumberEditable[Row][Col]"
+                        @click="NumInput(Row, Col, index)"
+                      >
+                        {{ index }}
+                      </button>
+                    </template>
+                    <template v-for="index in 5" :key="index">
+                      <button
+                        v-if="NumberEditable[Row][Col]"
+                        @click="NumInput(Row, Col, index + 5)"
+                      >
+                        {{ index + 5 }}
+                      </button>
+                    </template>
                     <button @click="NumInput(Row, Col, '/')">/</button>
                     <button
+                      v-if="NumberEditable[Row][Col]"
                       @click="NumInput(Row, Col, 'delete')"
-                      v-if="this.NumberEditable[Row][Col]"
                     >
-                      <q-icon name="bi-trash"></q-icon>
+                      <q-icon name="bi-trash" />
                     </button>
                   </div>
                 </q-menu>
@@ -112,39 +110,39 @@
       </div>
       <hr />
       <div class="answer btn-group">
-        <div class="AnswerContainer" v-for="(item, col) in Ans">
+        <div v-for="(item, col) in Ans" class="AnswerContainer">
           <button
             :class="{
-              'btn-wrong': this.WrongAnswerMarkup[col],
-              'btn-normal': this.WrongAnswerMarkup[col] == false,
+              'btn-wrong': WrongAnswerMarkup[col],
+              'btn-normal': WrongAnswerMarkup[col] == false,
             }"
             class="answers"
           >
             {{ item }}
             <q-menu anchor="top left" self="bottom left" class="q-menu">
               <div class="btns">
-                <button @click="AnsInput(col, 0)" v-close-popup>0</button>
+                <button v-close-popup @click="AnsInput(col, 0)">0</button>
                 <button
                   v-for="index in 5"
-                  @click="AnsInput(col, index)"
                   v-close-popup
+                  @click="AnsInput(col, index)"
                 >
                   {{ index }}
                 </button>
                 <button
                   v-for="index in 5"
-                  @click="AnsInput(col, index + 5)"
                   v-close-popup
+                  @click="AnsInput(col, index + 5)"
                 >
                   {{ index + 5 }}
                 </button>
-                <button @click="AnsInput(col, 'delete')" v-close-popup>
-                  <q-icon name="bi-trash"></q-icon>
+                <button v-close-popup @click="AnsInput(col, 'delete')">
+                  <q-icon name="bi-trash" />
                 </button>
               </div>
             </q-menu>
           </button>
-          <button v-if="this.Num_list[0][col - 1] == '.'">.</button>
+          <button v-if="Num_list[0][col - 1] == '.'">.</button>
         </div>
       </div>
       <div class="buttons">
@@ -155,13 +153,9 @@
 </template>
 
 <script>
-import draggable from "vuedraggable";
 export default {
-  name: "calculator",
+  name: "Calculator",
   display: "calculator",
-  components: {
-    draggable,
-  },
   props: {
     GameData: {
       type: Object,
@@ -171,11 +165,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       Num_list: [],
@@ -221,7 +216,6 @@ export default {
       },
     };
   },
-  emits: ["play-effect", "add-record", "next-question"],
   created() {
     this.Data = this.GameData;
     this.NumberAmount = this.Data.NumberAmount;

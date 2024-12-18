@@ -8,19 +8,25 @@
     >
       <v-layer>
         <v-line
-          v-for="pointSet in configGrid"
+          v-for="(pointSet, index) in configGrid"
+          :key="index"
           :points="pointSet"
           :stroke="'#aaa'"
-        ></v-line>
-        <v-image :config="configReturnBtn" @pointerdown="deleteLine"></v-image>
+        />
+        <v-image :config="configReturnBtn" @pointerdown="deleteLine" />
       </v-layer>
       <v-layer>
         <v-line
-          v-for="line in configLine"
+          v-for="(line, index) in configLine"
+          :key="index"
           :config="line"
-          :strokeWidth="5"
-        ></v-line>
-        <v-circle v-for="point in configGivenPoint" :config="point"></v-circle>
+          :stroke-width="5"
+        />
+        <v-circle
+          v-for="(point, index) in configGivenPoint"
+          :key="index"
+          :config="point"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -32,6 +38,19 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {},
+
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+
+  emits: ["replyAnswer"],
   data() {
     return {
       configKonva: {},
@@ -53,10 +72,6 @@ export default {
       sides: [],
     };
   },
-
-  props: ["Data", "ID"],
-
-  emits: ["ReplyAnswer", "replyAnswer"],
 
   mounted() {
     this.getData();
@@ -415,25 +430,20 @@ export default {
     },
     verify() {
       if (this.isIntersected()) {
-        this.$emit("ReplyAnswer", false);
         this.$emit("replyAnswer", false);
         return;
       } else if (this.Data.verifyOption == "shape") {
         switch (this.Data.answer) {
           case "triangle":
-            this.$emit("ReplyAnswer", this.isTriangle());
             this.$emit("replyAnswer", this.isTriangle());
             break;
           case "rectangle":
-            this.$emit("ReplyAnswer", this.isRectangle());
             this.$emit("replyAnswer", this.isRectangle());
             break;
           case "trapezium":
-            this.$emit("ReplyAnswer", this.isTrapezium());
             this.$emit("replyAnswer", this.isTrapezium());
             break;
           case "parallelogram":
-            this.$emit("ReplyAnswer", this.isParallelogram());
             this.$emit("replyAnswer", this.isParallelogram());
             break;
         }
@@ -447,12 +457,10 @@ export default {
           (this.Data.answer[0] == height && this.Data.answer[1] == width) ||
           (this.Data.answer[0] == width && this.Data.answer[1] == height)
         ) {
-          this.$emit("ReplyAnswer", true);
           this.$emit("replyAnswer", true);
           return;
         }
       }
-      this.$emit("ReplyAnswer", false);
       this.$emit("replyAnswer", false);
     },
   },

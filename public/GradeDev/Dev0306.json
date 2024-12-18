@@ -1,0 +1,43 @@
+{
+  "id": "Dev0306",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "TotalLevel": 1,
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Hint": {},
+  "Questions": [
+    {
+      "topComponent": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "Hello"
+        }
+      },
+      "downComponent": {
+        "Name": "NumberLineWithBlank",
+        "Data": {
+          "spacing": 50,
+          "max": 300,
+          "min": 0,
+          "init_pos": 0,
+          "blank_pos": [200, 300]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "MA3161",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "將圓形的各部位名稱拉到對應位置"
+  },
+  "TotalLevel": 1,
+  "GameType": "LinkToImage",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "將圓形的各部位名稱拉到對應位置",
+        "BGSrc": "1.png",
+        "SelectionType": "Text",
+        "Selections": ["圓心", "半徑", "直徑", "圓周"],
+        "MountPoint": [
+          {
+            "Connect2": "圓心",
+            "x": 119.2297564186965,
+            "y": 89
+          },
+          {
+            "Connect2": "半徑",
+            "x": 256.2297564186965,
+            "y": 126
+          },
+          {
+            "Connect2": "直徑",
+            "x": 169.2297564186965,
+            "y": 223
+          },
+          {
+            "Connect2": "圓周",
+            "x": 373.2297564186965,
+            "y": 331
+          }
+        ]
+      },
+      {
+        "Question": "將圓形的各部位名稱拉到對應位置",
+        "BGSrc": "2.png",
+        "SelectionType": "Text",
+        "Selections": ["圓心", "半徑", "直徑", "圓周"],
+        "MountPoint": [
+          {
+            "Connect2": "圓心",
+            "x": 246,
+            "y": 83
+          },
+          {
+            "Connect2": "半徑",
+            "x": 286,
+            "y": 214
+          },
+          {
+            "Connect2": "直徑",
+            "x": 144,
+            "y": 223
+          },
+          {
+            "Connect2": "圓周",
+            "x": 70,
+            "y": 259
+          }
+        ]
+      },
+      {
+        "Question": "將圓形的各部位名稱拉到對應位置",
+        "BGSrc": "3.png",
+        "SelectionType": "Text",
+        "Selections": ["圓心", "半徑", "直徑", "圓周"],
+        "MountPoint": [
+          {
+            "Connect2": "圓心",
+            "x": 113.98928571428573,
+            "y": 72
+          },
+          {
+            "Connect2": "半徑",
+            "x": 97.98928571428573,
+            "y": 190
+          },
+          {
+            "Connect2": "直徑",
+            "x": 241.98928571428573,
+            "y": 209
+          },
+          {
+            "Connect2": "圓周",
+            "x": 424.98928571428576,
+            "y": 187
+          }
+        ]
+      }
+    ]
+  ]
+}

@@ -2,9 +2,9 @@
   <div class="Container">
     <p>Do not use this, this will be no longer to maintains</p>
     <div class="division">
-      <p>{{ this.Data.Child }}</p>
+      <p>{{ configs.Child }}</p>
       <hr />
-      <p>{{ this.Data.Mother }}</p>
+      <p>{{ configs.Mother }}</p>
     </div>
     <div class="table-container">
       <div
@@ -13,14 +13,14 @@
         :class="['table-cell', { colored: coloredCells.includes(index - 1) }]"
         @click="toggleColor(index - 1)"
       >
-        <img v-if="index <= Data.length" :src="Src" :alt="Data.Alt" />
+        <img v-if="index <= configs.length" :src="Src" :alt="configs.Alt" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "DrawImageTable",
   props: {
@@ -37,18 +37,20 @@ export default {
     return {
       coloredCells: [],
       Src: "",
+      configs: {},
     };
-  },
-  created() {
-    this.Data.length = this.Data.Mother;
-    this.Src = GamesGetAssetsFile(this.ID, this.Data.Src);
   },
   computed: {
     totalCells() {
       // 確保總格子數量是 4 的倍數
-      const rows = Math.ceil(this.Data.length / 4);
+      const rows = Math.ceil(this.configs.length / 4);
       return rows * 4;
     },
+  },
+  created() {
+    this.configs = this.Data;
+    this.configs.length = this.configs.Mother;
+    this.Src = getGameAssets(this.ID, this.configs.Src);
   },
   methods: {
     toggleColor(index) {

@@ -12,11 +12,7 @@
           >
             <template #item="{ element }">
               <div class="dragable">
-                <component
-                  :is="element.Name"
-                  :Data="element.Data"
-                  :ID="this.id"
-                ></component>
+                <component :is="element.Name" :Data="element.Data" :ID="ID" />
               </div>
             </template>
           </draggable>
@@ -24,7 +20,7 @@
       </div>
       <div class="QuestionArea">
         <p class="Title">答案區</p>
-        <div class="Pair" v-for="(pair, index) in GameData.Pairs">
+        <div v-for="(pair, index) in GameData.Pairs" class="Pair">
           <div class="Answer" :class="{ False: FalseOption[index] == true }">
             <draggable
               :list="AnswersNew[index]"
@@ -34,11 +30,7 @@
             >
               <template #item="{ element }">
                 <div class="dragable">
-                  <component
-                    :is="element.Name"
-                    :Data="element.Data"
-                    :ID="this.id"
-                  ></component>
+                  <component :is="element.Name" :Data="element.Data" :ID="ID" />
                 </div>
               </template>
             </draggable>
@@ -69,6 +61,9 @@ export default {
     TextOnly: defineAsyncComponent(() => import("@/components/TextOnly.vue")),
     Clock: getComponents("Clock"),
     Water: defineAsyncComponent(() => import("@/components/Water.vue")),
+    ElectronicClock: defineAsyncComponent(() =>
+      import("@/components/ElectronicClock.vue")
+    ),
   },
   props: {
     GameData: {
@@ -79,11 +74,12 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       Selections: [],
@@ -92,9 +88,6 @@ export default {
       AnswersNew: [],
       FalseOption: [],
     };
-  },
-  methods: {
-    // Your methods go here
   },
   created() {
     this.Selections = this.GameData.Properties;
@@ -106,6 +99,9 @@ export default {
   },
   mounted() {
     // Code to run when the component is mounted goes here
+  },
+  methods: {
+    // Your methods go here
   },
   methods: {
     PoplastAdd(index) {
@@ -172,11 +168,11 @@ export default {
 }
 .Outter {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 2rem 0;
   .Submit {
-    margin: 1rem 1rem;
+    margin: 0.8rem 0;
     padding: 1rem 1rem;
     border: solid;
     border-radius: 15px;
@@ -195,12 +191,14 @@ export default {
   top: -1.5rem;
   left: 1rem;
   background-color: white;
+  margin: 0;
 }
 .Container {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-top: 1.8rem;
   .Selection {
     border: solid 3px #aaa;
     width: 20%;
@@ -212,11 +210,14 @@ export default {
       flex-direction: column;
       align-items: center;
       .InnerComponent {
-        display: grid;
-        grid-template-rows: 1fr;
+        display: flex;
+        flex-direction: column;
+        // display: grid;
+        // grid-template-rows: 1fr;
         gap: 0.5rem;
         width: 100%;
         .dragable {
+          flex: 1;
           max-height: 100px;
           border: solid 3px #aaa;
           border-radius: 15px;
@@ -241,7 +242,7 @@ export default {
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
-      margin: 1rem 0;
+      // margin: 1rem 0;
       .Answer {
         width: 25%;
         border: solid 3px #000;

@@ -19,6 +19,7 @@ const currentParams = computed(() => route.params);
 </script>
 
 <template>
+  <!-- eslint-disable-next-line vue/no-template-shadow -->
   <router-view v-slot="{ route }">
     <transition :name="route.meta.transition || 'fade'">
       <!-- 動態渲染組件，並傳遞路由參數 -->

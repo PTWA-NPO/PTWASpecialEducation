@@ -1,4 +1,4 @@
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from "vue";
 
 const componentsMapping = {
     ImageContainer: defineAsyncComponent(() => import('@/components/ImageContainer.vue')),
@@ -10,7 +10,7 @@ const componentsMapping = {
     DrawImage: defineAsyncComponent(() => import('@/components/DrawImage.vue')),
     NumberBoard: defineAsyncComponent(() => import('@/components/NumberBoard.vue')),
     Numpad: defineAsyncComponent(() => import('@/components/VirtualNumPadInput.vue')),
-    Calculator: defineAsyncComponent(() => import('@/components/calculator.vue')),
+    Calculator: defineAsyncComponent(() => import('@/components/Calculator.vue')),
     Clock: defineAsyncComponent(() => import('@/components/Clock.vue')),
     VirtualNumPad: defineAsyncComponent(() => import('@/components/VirtualNumPad.vue')),
     Input: defineAsyncComponent(() => import('@/components/ReplyInput.vue')),
@@ -22,9 +22,9 @@ const componentsMapping = {
 }
 
 export function GetComponents(name) {
-    return componentsMapping[name] || null
+  return componentsMapping[name] || null;
 }
 
 export function getComponents(name) {
-    return componentsMapping[name] || null
+  return componentsMapping[name] || null;
 }

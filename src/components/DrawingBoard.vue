@@ -6,19 +6,13 @@
       @pointermove="handlePointer"
       @pointerup="handlePointer"
       @pointerout="handlePointer"
-    ></canvas>
+    />
   </div>
 </template>
 
 <script>
 export default {
   components: {},
-  data() {
-    return {
-      drawing: false,
-      previousPos: { x: 0, y: 0 },
-    };
-  },
 
   props: {
     Data: {
@@ -28,6 +22,12 @@ export default {
   },
 
   emits: [],
+  data() {
+    return {
+      drawing: false,
+      previousPos: { x: 0, y: 0 },
+    };
+  },
 
   mounted() {
     this.initializeScene();

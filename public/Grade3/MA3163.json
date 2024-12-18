@@ -1,0 +1,263 @@
+{
+  "id": "MA6163",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "算算看，有多少小動物在圖片中，並且圈出正確的答案吧！"
+  },
+  "GameType": "SelectGameMulti",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    {
+      "SelectionType": "TextOnly",
+      "TopContainer": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "看圖回答問題",
+          "Size": "title-medium"
+        }
+      },
+      "SlotComponent": {
+        "Name": "ImageContainer",
+        "Data": {
+          "Src": "1-1.png",
+          "Alt": ""
+        }
+      },
+      "Questions": [
+        {
+          "Question": "樹到$question$的距離和小公園的半徑一樣長",
+          "Selection": [
+            { "Text": "皮球", "Size": "medium" },
+            { "Text": "小花", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "樹到皮球的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "樹到盪鞦韆的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "從小花開始，經過樹再到$question$的距離剛好會是小公園的直徑",
+          "Selection": [
+            { "Text": "蝴蝶", "Size": "medium" },
+            { "Text": "盪鞦韆", "Size": "medium" }
+          ],
+          "Answer": 0
+        }
+      ]
+    },
+    {
+      "SelectionType": "TextOnly",
+      "TopContainer": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "看圖回答問題"
+        }
+      },
+      "SlotComponent": {
+        "Name": "ImageContainer",
+        "Data": {
+          "Src": "1-2.png",
+          "Alt": ""
+        }
+      },
+      "Questions": [
+        {
+          "Question": "樹到$question$的距離，和小公園的半徑一樣長",
+          "Selection": [
+            { "Text": "皮球", "Size": "medium" },
+            { "Text": "蹺蹺板", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到小狗的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到蹺蹺板的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "從皮球開始，經過樹再到$question$的距離剛好會是小公園的直徑",
+          "Selection": [
+            { "Text": "蝴蝶", "Size": "medium" },
+            { "Text": "盪鞦韆", "Size": "medium" }
+          ],
+          "Answer": 1
+        }
+      ]
+    },
+    {
+      "SelectionType": "TextOnly",
+      "TopContainer": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "看圖回答問題"
+        }
+      },
+      "SlotComponent": {
+        "Name": "ImageContainer",
+        "Data": {
+          "Src": "1-3.png",
+          "Alt": ""
+        }
+      },
+      "Questions": [
+        {
+          "Question": "樹到$question$的距離，和小公園的半徑一樣長",
+          "Selection": [
+            { "Text": "小狗", "Size": "medium" },
+            { "Text": "蹺蹺板", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到盪鞦韆的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "樹到蹺蹺板的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "從小狗開始，經過樹再到$question$的距離剛好會是小公園的直徑",
+          "Selection": [
+            { "Text": "盪鞦韆", "Size": "medium" },
+            { "Text": "蝴蝶", "Size": "medium" }
+          ],
+          "Answer": 1
+        }
+      ]
+    },
+    {
+      "SelectionType": "TextOnly",
+      "TopContainer": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "看圖回答問題"
+        }
+      },
+      "SlotComponent": {
+        "Name": "ImageContainer",
+        "Data": {
+          "Src": "1-4.png",
+          "Alt": ""
+        }
+      },
+      "Questions": [
+        {
+          "Question": "樹到$question$的距離，和小公園的半徑一樣長",
+          "Selection": [
+            { "Text": "小花", "Size": "medium" },
+            { "Text": "皮球", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到盪鞦韆的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到皮球的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "從小花開始，經過樹再到$question$的距離剛好會是小公園的直徑",
+          "Selection": [
+            { "Text": "蝴蝶", "Size": "medium" },
+            { "Text": "皮球", "Size": "medium" }
+          ],
+          "Answer": 0
+        }
+      ]
+    },
+    {
+      "SelectionType": "TextOnly",
+      "TopContainer": {
+        "Name": "TextOnly",
+        "Data": {
+          "Text": "看圖回答問題"
+        }
+      },
+      "SlotComponent": {
+        "Name": "ImageContainer",
+        "Data": {
+          "Src": "1-5.png",
+          "Alt": ""
+        }
+      },
+      "Questions": [
+        {
+          "Question": "樹到$question$的距離，和小公園的半徑一樣長",
+          "Selection": [
+            { "Text": "蝴蝶", "Size": "medium" },
+            { "Text": "蹺蹺板", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "樹到小狗的距離，比小公園的半徑$question$",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 1
+        },
+        {
+          "Question": "樹到蹺蹺板的距離，比小公園的半徑$question",
+          "Selection": [
+            { "Text": "長", "Size": "medium" },
+            { "Text": "短", "Size": "medium" }
+          ],
+          "Answer": 0
+        },
+        {
+          "Question": "從蝴蝶開始，經過樹再到$question$的距離剛好會是小公園的直徑",
+          "Selection": [
+            { "Text": "蹺蹺板", "Size": "medium" },
+            { "Text": "皮球", "Size": "medium" }
+          ],
+          "Answer": 1
+        }
+      ]
+    }
+  ]
+}

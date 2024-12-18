@@ -2,33 +2,26 @@
   <div class="outter-container">
     <div class="head-container">
       <p style="font-weight: bold">
-        {{ this.GameConfig.GlobalTitle }}
+        {{ GameConfig.GlobalTitle }}
       </p>
     </div>
     <div class="down-container">
       <div
+        v-if="GameData.SlotComponents != undefined"
         class="component-container"
-        v-if="this.GameData.SlotComponents != undefined"
       >
-        <component
-          :is="this.SlotComponent"
-          :ID="this.id"
-          :Data="this.SlotData"
-        ></component>
+        <component :is="SlotComponent" :ID="ID" :Data="SlotData" />
       </div>
-      <div
-        class="container__right"
-        v-if="this.GameData.SlotComponents != undefined"
-      >
+      <div v-if="GameData.SlotComponents != undefined" class="container__right">
         <div class="info__card">
-          <p>{{ this.GameData.Question_Text }}</p>
+          <p>{{ GameData.Question_Text }}</p>
         </div>
         <div class="select-button__group">
           <button
-            type="button"
             v-for="i in question"
-            :class="{ 'button--onclick': this.Select[i] }"
-            v-on:click="SelectItem(i)"
+            type="button"
+            :class="{ 'button--onclick': Select[i] }"
+            @click="SelectItem(i)"
           >
             {{ i }}
           </button>
@@ -36,23 +29,25 @@
         <button
           type="button"
           class="button--submit"
-          :class="{ 'button--onsubmit': this.Answer != null }"
-          v-on:click="CheckAnswer"
+          :class="{ 'button--onsubmit': Answer != null }"
+          @click="CheckAnswer"
         >
           送出答案
         </button>
       </div>
-      <div class="container__buttom" v-else>
+      <div v-else class="container__buttom">
         <div class="info__card">
-          <p class="h2">{{ this.GameData.Question_Text }}</p>
+          <p class="h2">
+            {{ GameData.Question_Text }}
+          </p>
         </div>
         <div class="right--container">
           <div class="select-button__group">
             <button
-              type="button"
               v-for="i in question"
-              :class="{ 'button--onclick': this.Select[i] }"
-              v-on:click="SelectItem(i)"
+              type="button"
+              :class="{ 'button--onclick': Select[i] }"
+              @click="SelectItem(i)"
             >
               {{ i }}
             </button>
@@ -60,8 +55,8 @@
             <button
               type="button"
               class="button--submit"
-              :class="{ 'button--onsubmit': this.Answer != null }"
-              v-on:click="CheckAnswer"
+              :class="{ 'button--onsubmit': Answer != null }"
+              @click="CheckAnswer"
             >
               送出答案
             </button>
@@ -72,19 +67,12 @@
   </div>
 </template>
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getComponents } from "@/utilitys/get-components.js";
 export default {
   name: "SelectGame",
-  data() {
-    return {
-      imageUrl: "",
-      question: [],
-      SlotComponent: null,
-      comp: null,
-      Answer: null,
-      Select: [],
-    };
+  components: {
+    ImageContainer: getComponents("ImageContainer"),
   },
   props: {
     GameData: {
@@ -95,12 +83,39 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
-
-    //Other Game Methods
+  },
+  emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      imageUrl: "",
+      question: [],
+      SlotComponent: null,
+      comp: null,
+      Answer: null,
+      Select: [],
+    };
+  },
+  created() {
+    for (var i in this.GameData.Question) {
+      this.question.push(this.GameData.Question[i]);
+      this.Select.push(false);
+    }
+    this.imageUrl = getGameAssets(this.ID, this.GameData.img);
+    if (this.GameData.SlotComponents != undefined) {
+      let SlotComponentData = this.GameData.SlotComponents[0];
+      this.SlotData = SlotComponentData.Data;
+      this.SlotComponent = SlotComponentData.Name;
+    }
+    console.log(this.imageUrl);
+  },
+  mounted() {
+    // let selection = document.getElementsByClassName('selection')[0];
+    // selection.style.width = '100%';
+    // selection.flexDirection = 'row';
   },
   methods: {
     SelectItem(index) {
@@ -123,27 +138,6 @@ export default {
         console.log("check answer : False");
       }
     },
-  },
-  created() {
-    for (var i in this.GameData.Question) {
-      this.question.push(this.GameData.Question[i]);
-      this.Select.push(false);
-    }
-    this.imageUrl = GamesGetAssetsFile(this.id, this.GameData.img);
-    if (this.GameData.SlotComponents != undefined) {
-      let SlotComponentData = this.GameData.SlotComponents[0];
-      this.SlotData = SlotComponentData.Data;
-      this.SlotComponent = SlotComponentData.Name;
-    }
-    console.log(this.imageUrl);
-  },
-  mounted() {
-    // let selection = document.getElementsByClassName('selection')[0];
-    // selection.style.width = '100%';
-    // selection.flexDirection = 'row';
-  },
-  components: {
-    ImageContainer: getComponents("ImageContainer"),
   },
 };
 </script>

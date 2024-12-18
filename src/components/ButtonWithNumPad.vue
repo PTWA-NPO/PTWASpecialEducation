@@ -1,7 +1,7 @@
 <template>
-  <div class="container" ref="container">
-    <button class="numBtn" ref="numBtn" @click="showPad">{{ input }}</button>
-    <div class="keys" ref="keys" :style="padStyle">
+  <div ref="container" class="container">
+    <button ref="numBtn" class="numBtn" @click="showPad">{{ input }}</button>
+    <div ref="keys" class="keys" :style="padStyle">
       <button v-for="i in 3" class="keysBtn" @click="setNum(i + 6)">
         {{ i + 6 }}
       </button>
@@ -17,6 +17,15 @@
 
 <script>
 export default {
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  emits: ["replyAnswer"],
+
   data() {
     return {
       input: null,

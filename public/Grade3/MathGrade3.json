@@ -151,6 +151,67 @@
     ]
   },
   {
+    "Title": "9 - 分數",
+    "Section": [
+      {
+        "Title": "幾分之幾(一)",
+        "Games": [
+          {
+            "id": "MA3091",
+            "Name": "幾分之幾(連續量情境的分數概念)",
+            "Description": "",
+            "Img": "MA3091.png"
+          },
+          {
+            "id": "MA3092",
+            "Name": "分數連連看",
+            "Description": "",
+            "Img": "MA3092.png"
+          }
+        ]
+      },
+      {
+        "Title": "幾分之幾(二)",
+        "Games": [
+          {
+            "id": "MA3093",
+            "Name": "幾分之幾(離散量情境的分數概念)",
+            "Description": "",
+            "Img": "MA3093.png"
+          }
+        ]
+      },
+      {
+        "Title": "幾分之幾(二)",
+        "Games": [
+          {
+            "id": "MA3094",
+            "Name": "分數數詞序列一",
+            "Description": "",
+            "Img": "MA3094.png"
+          },
+          {
+            "id": "MA3095",
+            "Name": "分數數詞序列二",
+            "Description": "",
+            "Img": "MA3095.png"
+          }
+        ]
+      },
+      {
+        "Title": "分數的大小比較",
+        "Games": [
+          {
+            "id": "MA3096",
+            "Name": "分數的大小比較",
+            "Description": "",
+            "Img": "MA3096.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "Title": "3 - 毫米",
     "Section": [
       {
@@ -190,6 +251,122 @@
             "Name": "長度的計算(應用題)",
             "Description": "將量杯填滿至指定的公升數",
             "Img": "MA3035.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Title": "1 - 分數的加減",
+    "Section": [
+      {
+        "Title": "和1一樣大的分數",
+        "Games": [
+          {
+            "id": "MA3111",
+            "Name": "和1一樣大的分數",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "分數的加法",
+        "Games": [
+          {
+            "id": "MA3112",
+            "Name": "分數的加法(計算題)",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "MA3113",
+            "Name": "分數的加法(應用題)",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "分數的減法",
+        "Games": [
+          {
+            "id": "MA3114",
+            "Name": "分數的減法(計算題)",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "MA3115",
+            "Name": "分數的減法(應用題)",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Title": "4 - 公斤和公克",
+    "Section": [
+      {
+        "Title": "認識1公斤秤",
+        "Games": [
+          {
+            "id": "MA3141",
+            "Name": "認識1公斤秤",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "認識3公斤秤",
+        "Games": [
+          {
+            "id": "MA3142",
+            "Name": "認識3公斤秤",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "重量的量感與估測",
+        "Games": [
+          {
+            "id": "MA3143",
+            "Name": "重量的量感與估測",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "公斤和公克的換算",
+        "Games": [
+          {
+            "id": "MA3144",
+            "Name": "公斤和公克的換算",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "MA3145",
+            "Name": "比大小",
+            "Description": "",
+            "Img": ""
+          }
+        ]
+      },
+      {
+        "Title": "重量的加減計算",
+        "Games": [
+          {
+            "id": "MA3146",
+            "Name": "重量的加減(應用題)",
+            "Description": "",
+            "Img": ""
           }
         ]
       }
@@ -264,6 +441,44 @@
     ]
   },
   {
+    "Title": "6 - 面積",
+    "Section": [
+      {
+        "Title": "認識平方公分",
+        "Games": [
+          {
+            "id": "MA3061",
+            "Name": "認識平方公分",
+            "Description": "下面圖形的面積各是多少平方公分?",
+            "Img": "MA3061.png"
+          }
+        ]
+      },
+      {
+        "Title": "切割拼湊算面積",
+        "Games": [
+          {
+            "id": "MA3062",
+            "Name": "切割拼湊算面積",
+            "Description": "下面圖形的面積各是多少平方公分?",
+            "Img": "MA3062.png"
+          }
+        ]
+      },
+      {
+        "Title": "估估看面積有多大",
+        "Games": [
+          {
+            "id": "MA3063",
+            "Name": "估估看面積有多大",
+            "Description": "估估看，下面圖形的面積大約有多少",
+            "Img": "MA3063.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "Title": "8 - 時間",
     "Section": [
       {
@@ -314,6 +529,40 @@
             "Name": "時分的加減(應用題)",
             "Description": "",
             "Img": "MA3186.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Title": "6 - 圓",
+    "Section": [
+      {
+        "Title": "認識圓",
+        "Games": [
+          {
+            "id": "MA3161",
+            "Name": "認識圓",
+            "Description": "將圓形的各部位名稱拉到對應位置",
+            "Img": ""
+          },
+          {
+            "id": "MA3162",
+            "Name": "直徑與半徑",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "MA3163",
+            "Name": "直徑、半徑、圓心",
+            "Description": "",
+            "Img": ""
+          },
+          {
+            "id": "MA3164",
+            "Name": "判斷半徑是直徑的一半",
+            "Description": "",
+            "Img": ""
           }
         ]
       }

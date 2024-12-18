@@ -1,0 +1,317 @@
+{
+  "id": "MA3181",
+  "GameType": "PairingGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "把一樣的時間連起來"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "06:00"
+            }
+          },
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "02:37"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "09:15"
+            }
+          },
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "07:30"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "上午7時30分",
+            "Answer": "1"
+          },
+          {
+            "Question": "上午6時",
+            "Answer": "2"
+          },
+          {
+            "Question": "上午9時15分",
+            "Answer": "3"
+          },
+          {
+            "Question": "上午2時37分",
+            "Answer": "4"
+          }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "10:05"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "03:25"
+            }
+          },
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "04:00"
+            }
+          },
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "01:42"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "上午10時5分",
+            "Answer": "1"
+          },
+          {
+            "Question": "上午4時",
+            "Answer": "2"
+          },
+          {
+            "Question": "上午3時25分",
+            "Answer": "3"
+          },
+          {
+            "Question": "上午1時42分",
+            "Answer": "4"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "14:37"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "21:10"
+            }
+          },
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "18:00"
+            }
+          },
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "13:30"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "下午1時30分",
+            "Answer": "1"
+          },
+          {
+            "Question": "下午6時",
+            "Answer": "2"
+          },
+          {
+            "Question": "下午9時10分",
+            "Answer": "3"
+          },
+          {
+            "Question": "下午2時37分",
+            "Answer": "4"
+          }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "22:03"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "15:23"
+            }
+          },
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "13:41"
+            }
+          },
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "16:00"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "下午10時3分",
+            "Answer": "1"
+          },
+          {
+            "Question": "下午4時",
+            "Answer": "2"
+          },
+          {
+            "Question": "下午3時23分",
+            "Answer": "3"
+          },
+          {
+            "Question": "下午1時41分",
+            "Answer": "4"
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "20:30"
+            }
+          },
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "14:57"
+            }
+          },
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "05:00"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "11:01"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "下午8時30分",
+            "Answer": "1"
+          },
+          {
+            "Question": "上午5時",
+            "Answer": "2"
+          },
+          {
+            "Question": "上午11時1分",
+            "Answer": "3"
+          },
+          {
+            "Question": "下午2時57分",
+            "Answer": "4"
+          }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "09:03"
+            }
+          },
+          {
+            "Tag": "3",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "18:53"
+            }
+          },
+          {
+            "Tag": "2",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "19:00"
+            }
+          },
+          {
+            "Tag": "4",
+            "Name": "ElectronicClock",
+            "Data": {
+              "time": "04:40"
+            }
+          }
+        ],
+        "Pairs": [
+          {
+            "Question": "上午9時3分",
+            "Answer": "1"
+          },
+          {
+            "Question": "下午7時",
+            "Answer": "2"
+          },
+          {
+            "Question": "下午6時53分",
+            "Answer": "3"
+          },
+          {
+            "Question": "上午4時40分",
+            "Answer": "4"
+          }
+        ]
+      }
+    ]
+  ]
+}

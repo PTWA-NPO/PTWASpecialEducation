@@ -1,7 +1,9 @@
 <template>
   <div class="game">
     <div class="game__target-section">
-      <h1 class="game__title">{{ GameData.title }}</h1>
+      <h1 class="game__title">
+        {{ GameData.title }}
+      </h1>
       <draggable
         class="game__drop-area"
         :list="answerList"
@@ -12,6 +14,7 @@
         <template #item="{ element }">
           <component
             :is="element.name"
+            :ID="ID"
             :Data="element.Data"
             @touchstart="startTrashMode"
             @mousedown="startTrashMode"
@@ -22,7 +25,7 @@
 
     <div class="game__action-section">
       <div class="game__quation">
-        <component :is="slotComponent" :Data="slotData" :ID="id" />
+        <component :is="slotComponent" :Data="slotData" :ID="ID" />
       </div>
 
       <draggable
@@ -31,8 +34,8 @@
         :group="dragGroupForClone"
         class="game__drag-area"
         item-key="dragItemId"
-        @end="stopTrashMode"
         :sort="false"
+        @end="stopTrashMode"
       >
         <template #item="{ element }">
           <div>
@@ -41,9 +44,10 @@
           </div>
         </template>
       </draggable>
-
+      <!-- eslint-disable vue/no-unused-vars -->
       <draggable
         v-show="isTrashMode"
+        ref="deleteArea"
         :group="dragGroupForDelete"
         class="game__delete-area--trash-mode"
         item-key="dragItemId"
@@ -64,6 +68,7 @@
 <script>
 import draggable from "vuedraggable";
 import { getComponents } from "@/utilitys/get-components.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 
 export default {
   components: {
@@ -71,6 +76,20 @@ export default {
     TextOnly: getComponents("TextOnly"),
     ImageContainer: getComponents("ImageContainer"),
     MoneyDisplay: getComponents("MoneyDisplay"),
+  },
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
   emits: ["add-record", "play-effect", "next-question", "WrongSound"],
   data() {
@@ -83,21 +102,16 @@ export default {
       dragGroup: { name: "money", pull: true, put: true },
       dragGroupForClone: { name: "money", pull: "clone", put: false },
       dragGroupForDelete: { name: "money", pull: false, put: true },
+      trashBin: getSystemAssets("delete.png", "icon"),
     };
   },
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
+  created() {
+    this.init();
+    this.slotComponent = this.GameData.upperComponent.Name;
+    this.slotData = this.GameData.upperComponent.Data;
+  },
+  mounted() {
+    this.$refs.deleteArea.$el.style.backgroundImage = `url(${this.GameConfig.trashBin})`;
   },
   methods: {
     init() {
@@ -143,12 +157,6 @@ export default {
       this.$emit("add-record", [correctAnswer, userAnswer, result]);
     },
   },
-  created() {
-    this.init();
-    this.slotComponent = this.GameData.upperComponent.Name;
-    this.slotData = this.GameData.upperComponent.Data;
-  },
-  mounted() {},
 };
 </script>
 
@@ -213,7 +221,6 @@ export default {
   height: 45vh;
   padding: $padding--small;
   background-color: red;
-  background-image: url("@/assets/System/icon/delete.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30%;

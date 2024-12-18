@@ -3,21 +3,31 @@
     <h2>{{ GameData.Question }}</h2>
     <v-stage :config="configKonva">
       <v-layer>
-        <v-image :config="configBG"></v-image>
+        <v-image :config="configBG" />
       </v-layer>
 
       <v-layer>
-        <v-image v-for="board in configObjects.board" :config="board"></v-image>
-        <v-text
-          v-for="option in configObjects.option"
-          :config="option"
-        ></v-text>
         <v-image
-          v-for="mole in configObjects.mole"
+          v-for="(board, index) in configObjects.board"
+          :key="index"
+          :config="board"
+        />
+        <v-text
+          v-for="(option, index) in configObjects.option"
+          :key="index"
+          :config="option"
+        />
+        <v-image
+          v-for="(mole, index) in configObjects.mole"
+          :key="index"
           :config="mole"
           @pointerdown="whacked"
-        ></v-image>
-        <v-image v-for="hole in configObjects.hole" :config="hole"></v-image>
+        />
+        <v-image
+          v-for="(hole, index) in configObjects.hole"
+          :key="index"
+          :config="hole"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -29,6 +39,21 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 
 export default {
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       configKonva: {},
@@ -48,17 +73,6 @@ export default {
       startId: 0,
     };
   },
-
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
-  },
   mounted() {
     this.initializeScene();
     this.initializeOption();
@@ -76,19 +90,22 @@ export default {
     },
     setAttributes() {
       this.images.bg = new window.Image();
-      this.images.bg.src = getSystemAssets("background.png", "whackAMole");
+      this.images.bg.src = getGameStaticAssets("WhackaMole", "background.png");
       this.images.board = new window.Image();
-      this.images.board.src = getSystemAssets("answerBoard.png", "whackAMole");
+      this.images.board.src = getGameStaticAssets(
+        "WhackaMole",
+        "answerBoard.png"
+      );
       this.images.hole = new window.Image();
-      this.images.hole.src = getSystemAssets("hole.png", "whackAMole");
+      this.images.hole.src = getGameStaticAssets("WhackaMole", "hole.png");
       this.images.holeup = new window.Image();
-      this.images.holeup.src = getSystemAssets("holeup.png", "whackAMole");
+      this.images.holeup.src = getGameStaticAssets("WhackaMole", "holeup.png");
       this.images.mole = new window.Image();
-      this.images.mole.src = getSystemAssets("mole.png", "whackAMole");
+      this.images.mole.src = getGameStaticAssets("WhackaMole", "mole.png");
       this.images.moleWhacked = new window.Image();
-      this.images.moleWhacked.src = getSystemAssets(
-        "moleWhacked.png",
-        "whackAMole"
+      this.images.moleWhacked.src = getGameStaticAssets(
+        "WhackaMole",
+        "moleWhacked.png"
       );
 
       this.offsets.board = {

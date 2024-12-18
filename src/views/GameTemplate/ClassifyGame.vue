@@ -1,62 +1,69 @@
 <template>
-  <div class="container">
-    <div class="Header">
-      <p class="h2">{{ QuestionWord }}</p>
+  <div class="custom-container">
+    <div class="custom-container__header">
+      <p class="custom-container__question">
+        {{ questionText }}
+      </p>
+      <button
+        type="button"
+        class="custom-container__submit-btn"
+        @click="checkAnswer()"
+      >
+        送出答案
+      </button>
     </div>
-    <div class="QuestionArea">
-      <div class="Selection">
-        <p class="h2">{{ this.GameData.InitBox }}</p>
+    <div class="custom-container__answer-area answer-area">
+      <div class="answer-area__drag">
+        <p class="answer-area__title">{{ GameData.InitBox }}</p>
         <draggable
-          :list="this.Items"
+          :list="draggableItems"
           item-key="Tag"
           :sort="false"
-          :group="{ name: 'SelectItem' }"
-          class="Draggroup"
+          group="SelectItem"
+          class="answer-area__drag--list"
         >
           <template #item="{ element }">
-            <div class="DragItem">
+            <div class="answer-area__drag--item">
               <component
                 :is="element['Name']"
                 :Data="element['Data']"
-                :ID="this.id"
-              ></component>
+                :ID="ID"
+              />
             </div>
           </template>
         </draggable>
       </div>
-      <div class="PutGroup" ref="putGroup">
-        <div v-for="(items, index) in Groups" class="Group" :key="index">
-          <p class="h2">{{ this.GameData.Answer[index].GroupName }}</p>
+      <div class="answer-area__drop">
+        <div
+          v-for="(items, index) in groupedItems"
+          class="drop-area__container"
+        >
+          <p class="drop-area__title">{{ items.GroupName }}</p>
           <draggable
-            :list="Groups[index]"
+            :list="groupedItems[index]"
             item-key="Tag"
             :sort="false"
-            :group="{ name: 'SelectItem', put: true }"
-            class="ItemContainer"
+            group="SelectItem"
+            class="drop-area__list"
           >
             <template #item="{ element }">
-              <div class="DragItem">
+              <div class="drop-area__item">
                 <component
                   :is="element['Name']"
                   :Data="element['Data']"
-                  :ID="this.id"
-                ></component>
+                  :ID="ID"
+                />
               </div>
             </template>
           </draggable>
         </div>
       </div>
     </div>
-    <button type="button" class="Submit" @click="checkAnswer()">
-      送出答案
-    </button>
   </div>
 </template>
 <script>
 import draggable from "vuedraggable";
 import CardWithButton from "@/components/CardWithButton.vue";
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
-import { defineAsyncComponent } from "vue";
 import { getComponents } from "@/utilitys/get_components";
 export default {
   name: "ClassifyGame",
@@ -68,7 +75,6 @@ export default {
     Clock: getComponents("Clock"),
     Water: getComponents("Water"),
   },
-  emits: ["play-effect", "add-record", "next-level"],
   props: {
     GameData: {
       type: Object,
@@ -78,136 +84,175 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
   },
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      QuestionWord: "",
+      questionText: this.GameData.Text,
       GroupID: 0,
-      Groups: [],
-      Items: [],
+      groupedItems: this.GameData.Answer.map(() => []),
+      draggableItems: this.GameData.Question,
     };
   },
-  created() {
-    // this.icon= icon1;
-    this.QuestionWord = this.GameData.Text;
-    for (var i in this.GameData.Answer) {
-      this.Groups.push([]);
-    }
-    this.Items = this.GameData.Question;
-  },
+  created() {},
   methods: {
     checkAnswer() {
-      // This code will walk through all the groups and check if the answer is right
-      // Only when all the groups are right, the game will return true.
-      let isCorrect = true;
-
-      for (var i in this.Group) {
-        if (this.Groups[i].length != this.GameData.Answer[i]["Items"].length) {
-          console.log("ClassifyGame CheckAnswer :Wrong");
-          this.$emit("play-effect", "WrongSound");
-          this.$emit("add-record", [
-            this.Groups[i],
-            this.GameData.Answer[i]["Items"],
-            "未完成作答",
-          ]);
-          console.log("here");
+      for (let groupIndex in this.groupedItems) {
+        if (!this.isGroupSizeCorrect(groupIndex)) {
+          this.handleIncorrectAnswer(groupIndex);
           return;
         }
-        for (var z in this.Groups[i]) {
-          if (
-            this.GameData.Answer[i]["Items"].includes(this.Groups[i][z].Tag)
-          ) {
-            isCorrect = true;
-          } else {
-            isCorrect = false;
-            break;
-          }
+
+        if (!this.isGroupContentCorrect(groupIndex)) {
+          this.handleIncorrectAnswer(groupIndex);
+          return;
         }
       }
-      if (isCorrect) {
-        this.$emit("play-effect", "CorrectSound");
-        this.$emit("add-record", ["", "", "正確"]);
-        this.$emit("next-question");
-      } else {
-        this.$emit("play-effect", "WrongSound");
-        this.$emit("add-record", ["", "", "答案有誤"]);
-      }
+      this.handleCorrectAnswer();
+      this.$emit("next-question");
+    },
+
+    isGroupSizeCorrect(index) {
+      return (
+        this.groupedItems[index].length ===
+        this.GameData.Answer[index].Items.length
+      );
+    },
+
+    countCorrectItems(index) {
+      return this.groupedItems[index].reduce((matchingItemCount, item) => {
+        return this.GameData.Answer[index].Items.includes(item.Tag)
+          ? matchingItemCount + 1
+          : matchingItemCount;
+      }, 0);
+    },
+
+    handleIncorrectAnswer(index) {
+      this.$emit("play-effect", "WrongSound");
+
+      this.$emit("add-record", [
+        this.groupedItems[index],
+        this.GameData.Answer[index].Items,
+        "錯誤",
+      ]);
+    },
+
+    handleCorrectAnswer() {
+      this.$emit("add-record", [
+        this.groupedItems,
+        this.GameData.Answer,
+        "正確",
+      ]);
+      this.$emit("play-effect", "CorrectSound");
+    },
+    isGroupContentCorrect(groupIndex) {
+      const correctItems = this.GameData.Answer[groupIndex].Items;
+      return this.groupedItems[groupIndex].every((item) =>
+        correctItems.includes(item.Tag)
+      );
     },
   },
 };
 </script>
 <style scoped lang="scss">
-.DragItem {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-}
-.container {
+.custom-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 0.5rem;
   align-items: start;
-  .Header {
-    border: solid 1px #aaa;
-    border-radius: 15px;
-    padding: $gap--small;
-    align-self: stretch;
-    margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  &__header {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    width: 100%;
   }
-  .Submit {
-    @extend .button--animation;
-    border: solid 1px #aaa;
-    border-radius: 15px;
-    background-color: $submit-color;
-    align-self: flex-end;
-    height: 3rem;
-    width: 10rem;
-    margin-top: 0.5rem;
-  }
-  .QuestionArea {
-    display: grid;
-    grid-template-columns: 2fr 7fr;
+  &__answer-area {
+    display: flex;
     gap: 1rem;
     width: 100%;
-    height: 60vh;
-    .Selection {
-      border: solid 1px;
-      border-radius: 15px;
-      padding: 1rem;
-      .Draggroup {
-        height: 90%;
-        padding: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border: solid 3px red;
-        border-radius: 15px;
-        gap: 1rem;
+    height: 65vh;
+  }
+  &--title {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  &__question {
+    flex: 3;
+    border: solid 1px #aaa;
+    border-radius: 15px;
+    padding: 0.5rem;
+    align-self: stretch;
+    font-size: 2rem;
+    margin: 0;
+  }
+  &__submit-btn {
+    flex: 1;
+    height: 100%;
+    border: none;
+    background-color: #faf3ed;
+    align-self: flex-end;
+    width: 10rem;
+  }
+}
+
+.answer-area {
+  &__drag {
+    flex: 1;
+    border: solid 1px;
+    border-radius: 15px;
+    padding: 1rem;
+
+    &--list {
+      @extend .drag-section;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      border: solid 3px red;
+    }
+
+    &--item {
+      cursor: pointer;
+    }
+  }
+
+  &__drop {
+    flex: 3;
+    border: solid 1px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1rem;
+
+    .drop-area__container {
+      flex: 1;
+
+      .drop-area__list {
+        @extend .drag-section;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        border: solid 3px blue;
       }
     }
-    .PutGroup {
-      border: solid 1px;
-      border-radius: 15px;
-      display: grid;
-      padding: 1rem;
-      grid-template-columns: 1fr 1fr;
-      .Group {
-        margin: 0 1rem;
-        padding: 0 1rem;
-        .ItemContainer {
-          border: solid 3px green;
-          border-radius: 15px;
-          height: 90%;
-          display: grid;
-          grid-template-rows: 1fr 1fr 1fr;
-          grid-template-columns: 1fr 1fr;
-          max-height: 60vh;
-          padding: $gap--small;
-        }
-      }
+  }
+
+  .drag-section {
+    height: 90%;
+    padding: 0.5rem;
+    display: grid;
+    border-radius: 15px;
+    gap: 0.5rem;
+
+    .drop-area__item {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
     }
   }
 }

@@ -3,20 +3,27 @@
     <br />
     <br />
     <div class="container">
-      <p class="h1">{{ this.GameData.Question.Text }}</p>
-      <div class="d-flex justify-content-between flex-row" id="MainContainer">
+      <p class="h1">
+        {{ GameData.Question.Text }}
+      </p>
+      <div id="MainContainer" class="d-flex justify-content-between flex-row">
         <div class="canvascontainer">
-          <canvas ref="canvas" width="700" height="400"></canvas>
+          <canvas ref="canvas" width="700" height="400" />
         </div>
         <div
           class="optionbar d-flex flex-column justify-content-center align-self-center"
           style="width: 100%"
         >
-          <p class="h5">{{ this.GameConfig.OptionBarText }}</p>
-          <div id="error_msg">{{ errorMsg }}</div>
+          <p class="h5">
+            {{ GameConfig.OptionBarText }}
+          </p>
+          <div id="error_msg">
+            {{ errorMsg }}
+          </div>
           <div class="Buttons" style="width: 100%">
             <button
               v-for="(items, index) in btn"
+              :key="index"
               class="Button"
               @click="judgeAnswer(items)"
             >
@@ -57,9 +64,24 @@
     },
 **/
 
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "AutoNumberingGame",
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ["play-effect", "next-question", "add-record"],
   data() {
     return {
       picture_total: 0,
@@ -78,20 +100,6 @@ export default {
       errorMsg: "",
       btn: [],
     };
-  },
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
   },
   created() {
     // this.picture_type="sth"//FIXME
@@ -136,10 +144,9 @@ export default {
       const num =
         Math.floor(Math.random() * this.GameData.Question.ObjImgList.length) +
         0; //Random number(Range: 0~picture_total-1)
-      // var b = new URL(`../../assets/Games/`+this.id+`/S_${this.GameData.Question.ObjImgList[num]}${this.picture_type}`, import.meta.url).href; //load picture
       var name =
         "S_" + this.GameData.Question.ObjImgList[num] + this.picture_type;
-      var b = GamesGetAssetsFile(this.id, name);
+      var b = getGameAssets(this.ID, name);
 
       console.log(b);
       return b;

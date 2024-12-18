@@ -3,58 +3,58 @@
     <div class="row NumberContainer">
       <p>數字輸入鍵盤</p>
       <div class="NumRow">
-        <button type="button" class="btn btn-primary" v-on:click="input('+')">
+        <button type="button" class="btn btn-primary" @click="input('+')">
           +
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('1')">
+        <button type="button" class="btn btn-primary" @click="input('1')">
           1
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('2')">
+        <button type="button" class="btn btn-primary" @click="input('2')">
           2
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('3')">
+        <button type="button" class="btn btn-primary" @click="input('3')">
           3
         </button>
       </div>
       <div class="NumRow">
-        <button type="button" class="btn btn-primary" v-on:click="input('-')">
+        <button type="button" class="btn btn-primary" @click="input('-')">
           -
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('4')">
+        <button type="button" class="btn btn-primary" @click="input('4')">
           4
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('5')">
+        <button type="button" class="btn btn-primary" @click="input('5')">
           5
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('6')">
+        <button type="button" class="btn btn-primary" @click="input('6')">
           6
         </button>
       </div>
       <div class="NumRow">
-        <button type="button" class="btn btn-primary" v-on:click="input('x')">
+        <button type="button" class="btn btn-primary" @click="input('x')">
           x
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('7')">
+        <button type="button" class="btn btn-primary" @click="input('7')">
           7
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('8')">
+        <button type="button" class="btn btn-primary" @click="input('8')">
           8
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('9')">
+        <button type="button" class="btn btn-primary" @click="input('9')">
           9
         </button>
       </div>
       <div class="NumRow">
-        <button type="button" class="btn btn-primary" v-on:click="input('÷')">
+        <button type="button" class="btn btn-primary" @click="input('÷')">
           ÷
         </button>
-        <button type="button" class="btn btn-danger" v-on:click="delete_num()">
+        <button type="button" class="btn btn-danger" @click="delete_num()">
           清除
         </button>
-        <button type="button" class="btn btn-primary" v-on:click="input('0')">
+        <button type="button" class="btn btn-primary" @click="input('0')">
           0
         </button>
-        <button type="button" class="btn btn-success" v-on:click="back()">
+        <button type="button" class="btn btn-success" @click="back()">
           倒退
         </button>
       </div>
@@ -64,22 +64,26 @@
 <script>
 export default {
   name: "VirtualNumPad",
+  emits: [
+    "virtualpadinputInput",
+    "virtualpadinputDelete",
+    "virtualpadinputPop",
+  ],
   data() {
     return {
       Num: "",
     };
   },
-  emits: ["virtualpadinput-Input", "virtualpadinput-delete"],
   methods: {
     input(num) {
       console.log("VirtualNumPad input:" + num);
-      this.$emit("virtualpadinput-Input", num);
+      this.$emit("virtualpadinputInput", num);
     },
     delete_num() {
-      this.$emit("virtualpadinput-delete");
+      this.$emit("virtualpadinputDelete");
     },
     back() {
-      this.$emit("virtualpadinput-pop");
+      this.$emit("virtualpadinputPop");
     },
   },
 };

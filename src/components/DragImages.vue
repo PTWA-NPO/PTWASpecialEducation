@@ -2,14 +2,15 @@
   <div ref="container">
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
+        <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
         <v-image
-          v-for="image in configImage"
+          v-for="(image, index) in configImage"
+          :key="index"
           :config="image"
           @dragmove="keepInBound"
-        ></v-image>
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -21,6 +22,16 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {},
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       configKonva: {},
@@ -33,8 +44,6 @@ export default {
       images: [],
     };
   },
-
-  props: ["Data", "ID"],
 
   mounted() {
     this.initializeScene();

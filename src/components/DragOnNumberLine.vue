@@ -2,18 +2,29 @@
   <div ref="container" class="container">
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
+        <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
-        <v-line v-for="line in configNumberLine" :config="line"></v-line>
-        <v-text v-for="number in configNumber" :config="number"></v-text>
+        <v-line
+          v-for="(line, index) in configNumberLine"
+          :key="index"
+          :config="line"
+        />
+        <v-text
+          v-for="(number, index) in configNumber"
+          :key="index"
+          :config="number"
+        />
         <v-circle
           v-if="!isImage"
           :config="configCircle"
           @dragend="handleDragend"
-        ></v-circle>
-        <v-image v-if="isImage" :config="configImage" @dragend="handleDragend">
-        </v-image>
+        />
+        <v-image
+          v-if="isImage"
+          :config="configImage"
+          @dragend="handleDragend"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -26,6 +37,20 @@ import { defineAsyncComponent } from "vue";
 
 export default {
   components: {},
+
+  props: {
+    Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
+  },
+  //{spacing, max, min, image, init_pos, finalPositon}
+
+  emits: ["replyAnswer"],
   data() {
     return {
       configKonva: {},
@@ -46,10 +71,6 @@ export default {
       isImage: false,
     };
   },
-
-  props: ["Data", "ID"], //{spacing, max, min, image, init_pos, finalPositon}
-
-  emits: ["ReplyAnswer"],
 
   mounted() {
     this.initializeScene();
@@ -217,9 +238,9 @@ export default {
     checkAnswer(output) {
       console.log(output, this.Data.finalPosition);
       if (output == this.Data.finalPosition) {
-        this.$emit("ReplyAnswer", true);
+        this.$emit("replyAnswer", true);
       } else {
-        this.$emit("ReplyAnswer", false);
+        this.$emit("replyAnswer", false);
       }
     },
     horizontalBound(pos) {

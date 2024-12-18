@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
-      <drawingBoard :Data="configBrush" ref="canvas"></drawingBoard>
+      <drawingBoard ref="canvas" :Data="configBrush"></drawingBoard>
     </div>
     <div class="function">
       <button @click="drawingFunc('brush')">{{ brushStatusBtn }}</button>
@@ -69,6 +69,19 @@ export default {
       import("@/components/ButtonWithNumPad.vue")
     ),
   },
+
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
       rowStyle: [],
@@ -93,20 +106,6 @@ export default {
       },
     };
   },
-
-  props: {
-    GameData: {
-      type: Object,
-      required: true,
-    },
-    GameConfig: {
-      type: Object,
-      required: true,
-    },
-  },
-
-  emits: ["play-effect", "add-record", "next-question"],
-
   beforeMount() {
     this.configBrush = this.brush;
     this.setStyles();

@@ -1,0 +1,31 @@
+{
+  "id": "Dev0308",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "FractionArithmetic",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "question": {
+          "leftTerm": "\\frac{2}{4}",
+          "rightTerm": "\\frac{1}{4}",
+          "operationType": "&#43;",
+          "description": "哥哥想做蛋糕，第一次用了1/5公斤的糖，第二次再加了一些糖，總共用了4/5公斤的糖，哥哥第二次加了公斤的糖?"
+        },
+        "acheckCalculationData": {
+          "shape": "circle",
+          "verifyOption": "value"
+        },
+        "answer": {
+          "numerator": 3,
+          "denominator": 4
+        }
+      }
+    ]
+  ]
+}

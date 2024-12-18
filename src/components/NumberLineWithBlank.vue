@@ -1,55 +1,50 @@
 <template>
-  <div class="gameContainer" ref="container">
-    <v-stage :config="configKonva">
+  <div ref="container" class="gameContainer">
+    <v-stage ref="stage" :config="configKonva">
       <v-layer>
-        <v-line v-for="line in configNumberLine" :config="line"></v-line>
+        <v-line
+          v-for="(line, index) in configNumberLine"
+          :key="index"
+          :config="line"
+        />
         <!-- <v-circle v-for="circle in configCircle" :config="circle"></v-circle> -->
-        <v-text v-for="number in configNumber" :config="number"></v-text>
+        <v-text
+          v-for="(number, index) in configNumber"
+          :key="index"
+          :config="number"
+        />
         <v-rect
           v-for="(rect, id) in configRect"
+          :key="id"
           :config="{
             x: rect.x,
             y: rect.y,
             width: rect.width,
             height: rect.height,
             fill: rect.fill,
-            cornerRadius: rect.conerRadius,
-            stroke: this.rectClickedList[id] ? 'blue' : 'black',
-            strokeWidth: this.rectClickedList[id] ? 3 : 1,
+            cornerRadius: rect.cornerRadius,
+            stroke: rectClickedList[id] ? 'blue' : 'black',
+            strokeWidth: rectClickedList[id] ? 3 : 1,
           }"
-          @click="rectClicked(id)"
-          @touchstart="rectClicked(id)"
+          @click="rectClicked(id, rect)"
+          @touchstart="rectClicked(id, rect)"
         ></v-rect>
       </v-layer>
     </v-stage>
-    <div
-      class="virtualNumpad-modal"
+    <FloatingNumPad
       v-if="virtualNumpadSwitch"
-      @click="this.virtualNumpadSwitch = false"
-      @touchstart="this.virtualNumpadSwitch = false"
-    >
-      <div class="modal__body" @click.stop @touchstart.stop>
-        <p>請輸入數字</p>
-        <VirtualNumpad @submit="updateRactNumber"></VirtualNumpad>
-        <button
-          @click="this.virtualNumpadSwitch = false"
-          @touchstart="this.virtualNumpadSwitch = false"
-          class="button__close-modal"
-        >
-          關閉視窗
-        </button>
-      </div>
-    </div>
+      :Data="{ top: menuPosition.top + 'px', left: menuPosition.left + 'px' }"
+      @buttonClicked="numPadButtonClicked"
+    />
   </div>
 </template>
 
 <script>
-import { GamesGetAssetsFile } from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {
-    VirtualNumpad: defineAsyncComponent(() =>
-      import("@/components/VirtualNumPad.vue")
+    FloatingNumPad: defineAsyncComponent(() =>
+      import("@/components/FloatNumPad.vue")
     ),
   },
   props: {
@@ -62,16 +57,10 @@ export default {
       required: true,
     },
   },
+  emits: ["replyAnswer"],
   data() {
     return {
       configKonva: {},
-      configBG: {
-        x: 0,
-        y: 0,
-        fill: "gray",
-        stroke: "gray",
-        visible: false,
-      },
       configCircle: [],
 
       configNumberLine: [],
@@ -91,12 +80,21 @@ export default {
       endNum: 300,
 
       isImage: true,
+      menuAnchor: null,
+      menuPosition: { top: 0, left: 0 },
+      maxDigits: 3,
+      currentInput: "",
+
+      NUMBER_LINE_Y_RATIO: 0.15,
+      LINE_X_START_RATIO: 0.05,
+      LINE_X_END_RATIO: 0.95,
+      ARROW_OFFSET_RATIO: 0.01,
+      RECT_PADDING: 5,
+      FONT_SIZE_RATIO: 0.03,
+      DIGIT_OFFSET_RATIO: 0.0085,
+      RECT_CORNER_RADIUS: 15,
     };
   },
-
-  // props: ["config"], //{spacing, max, min, image, init_pos}
-
-  beforeMount() {},
   mounted() {
     this.initializeScene();
     this.initializeNumberLine();
@@ -110,136 +108,215 @@ export default {
       this.gameWidth = this.$refs.container.clientWidth;
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameWidth / 4;
-      this.configBG.width = this.gameWidth;
-      this.configBG.height = this.gameWidth / 4;
     },
     initializeNumberLine() {
-      this.drawBaseLine();
-      this.drawNumberLine();
-      this.drawNumbers();
+      this.drawBaseLine(); // 繪製數線的主線條
+      this.drawNumberLine(); // 繪製數線上的標記
+      this.drawNumbers(); // 繪製數線上的數字
     },
     drawBaseLine() {
       this.numberLineY = this.gameWidth * 0.15;
-      let points = [
+
+      const baseLinePoints = [
+        [this.LINE_X_START_RATIO, 0, this.LINE_X_END_RATIO, 0],
         [
-          this.gameWidth * 0.05,
-          this.numberLineY,
-          this.gameWidth * 0.95,
-          this.numberLineY,
+          this.LINE_X_END_RATIO - this.ARROW_OFFSET_RATIO,
+          -this.ARROW_OFFSET_RATIO,
+          this.LINE_X_END_RATIO,
+          0,
         ],
         [
-          this.gameWidth * 0.94,
-          this.numberLineY - this.gameWidth * 0.01,
-          this.gameWidth * 0.95,
-          this.numberLineY,
-        ],
-        [
-          this.gameWidth * 0.94,
-          this.numberLineY + this.gameWidth * 0.01,
-          this.gameWidth * 0.95,
-          this.numberLineY,
+          this.LINE_X_END_RATIO - this.ARROW_OFFSET_RATIO,
+          this.ARROW_OFFSET_RATIO,
+          this.LINE_X_END_RATIO,
+          0,
         ],
       ];
-      for (let p in points) {
-        let line = {};
-        line.stroke = "black";
-        line.points = points[p];
-        this.configNumberLine.push(line);
-      }
+
+      this.configNumberLine = baseLinePoints.map((relativePoints) => ({
+        stroke: "black",
+        points: this.convertRelativeToAbsolute(relativePoints),
+      }));
+    },
+    convertRelativeToAbsolute(relativePoints) {
+      return relativePoints.map((relativePoint, index) => {
+        const isYAxis = index % 2 === 1;
+        const baseValue = relativePoint * this.gameWidth;
+        return isYAxis ? baseValue + this.numberLineY : baseValue;
+      });
     },
     drawNumberLine() {
-      this.intervalLength =
-        (this.gameWidth * 0.9) /
-        ((this.Data.max - this.Data.min) / this.Data.spacing + 1);
-      let tempX = this.gameWidth * 0.05 + this.intervalLength * 0.5;
-      for (let i = this.Data.min; i <= this.Data.max; i += this.Data.spacing) {
-        let line = {};
-        line.stroke = "black";
-        line.points = [
-          tempX,
-          this.numberLineY - this.gameWidth * 0.01,
-          tempX,
-          this.numberLineY + this.gameWidth * 0.01,
-        ];
-        this.configNumberLine.push(line);
-        this.numberX.push(tempX);
-        tempX += this.intervalLength;
+      const intervalLength = this.calculateIntervalLength();
+      const markerCount =
+        (this.Data.max - this.Data.min) / this.Data.spacing + 1;
+
+      for (let index = 0; index < markerCount; index++) {
+        const xPosition = this.getMarkerPosition(index, intervalLength);
+        this.numberX.push(xPosition);
+
+        this.configNumberLine.push({
+          stroke: "black",
+          points: [
+            xPosition,
+            this.numberLineY - this.gameWidth * this.ARROW_OFFSET_RATIO,
+            xPosition,
+            this.numberLineY + this.gameWidth * this.ARROW_OFFSET_RATIO,
+          ],
+        });
       }
+    },
+    getMarkerPosition(index, intervalLength) {
+      return (
+        this.gameWidth * this.LINE_X_START_RATIO +
+        intervalLength * (index + 0.5)
+      );
+    },
+    calculateIntervalLength() {
+      return (
+        (this.gameWidth * 0.9) /
+        ((this.Data.max - this.Data.min) / this.Data.spacing + 1)
+      );
     },
     drawNumbers() {
-      this.numberY = this.gameWidth * 0.175;
-      let rectID = 0;
-      let numberID = 0;
-      for (
-        let i = this.Data.min, j = 0;
-        i <= this.Data.max;
-        i += this.Data.spacing, ++j
-      ) {
-        let number = {};
-        let offset;
+      this.numberY = this.calculateNumberY();
 
-        if (i == 0) offset = this.gameWidth * 0.0085;
-        else
-          offset =
-            Math.ceil(Math.log(i + 1) / Math.log(10)) * this.gameWidth * 0.0085;
+      Array.from(
+        { length: (this.Data.max - this.Data.min) / this.Data.spacing + 1 },
+        (_, j) => {
+          const currentValue = this.Data.min + j * this.Data.spacing;
+          const offset = this.calculateDigitOffset(currentValue);
 
-        if (this.Data.blank_pos.find((element) => element == i)) {
-          this.rectClickedList.push(false);
-          let rect = {};
-          rect.x = this.numberX[j] - offset - this.rectPadding; //Magic Number Inside
-          rect.y = this.numberY - this.rectPadding; //Magic Number Inside
-          rect.width =
-            this.gameWidth *
-              0.02 *
-              (Math.floor(Math.log10(Math.abs(this.Data.max))) + 1) + // Calculate the number of digits
-            this.rectPadding; //Magic Number Inside
-          rect.height = this.gameWidth * 0.03 + this.rectPadding; //Magic Number Inside
-          rect.fill = "rgba(255, 255, 255, 0)";
-          rect.conerRadius = 15;
-          rect.textID = numberID;
-
-          this.configRect.push(rect);
-          number.text = "";
-          this.blankContent.push("");
-
-          rectID++;
-        } else {
-          number.text = i;
+          if (this.isBlankPosition(currentValue)) {
+            this.configRect.push(this.createRectConfig(j, offset));
+            this.blankContent.push("");
+            this.configNumber.push(this.createNumberConfig("", j, offset));
+          } else {
+            this.configNumber.push(
+              this.createNumberConfig(currentValue, j, offset)
+            );
+          }
         }
-        number.fontSize = this.gameWidth * 0.03;
-        number.x = this.numberX[j] - offset;
-        number.y = this.numberY;
-        this.configNumber.push(number);
-        numberID++;
-      }
+      );
     },
-    rectClicked(id) {
+    calculateNumberY() {
+      return this.gameWidth * 0.175;
+    },
+    isBlankPosition(value) {
+      return this.Data.blank_pos.includes(value);
+    },
+    calculateDigitOffset(value) {
+      return value === 0
+        ? this.gameWidth * 0.0085
+        : Math.ceil(Math.log10(Math.abs(value))) * this.gameWidth * 0.0085;
+    },
+    createNumberConfig(value, index, offset) {
+      return {
+        text: value.toString(),
+        fontSize: this.gameWidth * 0.03,
+        x: this.numberX[index] - offset,
+        y: this.numberY,
+      };
+    },
+
+    createRectConfig(index, offset) {
+      return {
+        x: this.numberX[index] - offset - this.rectPadding,
+        y: this.numberY - this.rectPadding,
+        width:
+          this.gameWidth * 0.02 * (Math.floor(Math.log10(this.Data.max)) + 1) +
+          this.rectPadding,
+        height: this.gameWidth * 0.03 + this.rectPadding,
+        fill: "rgba(255, 255, 255, 0)",
+        cornerRadius: 15,
+        textID: index,
+      };
+    },
+    rectClicked(id, rect) {
       this.isClickRectID = id;
-      this.rectDeselcted();
+      this.deselectAllRects();
       this.rectClickedList[id] = true;
+
+      this.updateMenuPosition(rect);
+      this.openNumPad();
+    },
+    updateMenuPosition(rect) {
+      const stage = this.$refs.stage.getStage();
+      const pointerPos = stage.getPointerPosition();
+
+      const containerRect = this.$refs.container.getBoundingClientRect();
+      const rectTop = containerRect.top + rect.y + rect.height;
+      const rectLeft = containerRect.left + rect.x;
+
+      this.menuPosition = {
+        top: rectTop + 10,
+        left: rectLeft,
+        id: this.isClickRectID,
+      };
+    },
+    openNumPad() {
+      this.currentInput = "";
       this.virtualNumpadSwitch = true;
     },
-    rectDeselcted() {
-      for (let i in this.rectClickedList) {
-        this.rectClickedList[i] = false;
-      }
-    },
-    updateRactNumber(num) {
-      if (this.isClickRectID == undefined) return;
-      this.configNumber[this.configRect[this.isClickRectID].textID].text = num;
-      this.blankContent[this.isClickRectID] = num;
-      this.virtualNumpadSwitch = false;
+    updateRectNumber(num) {
+      if (!this.validateSelectedRect()) return;
+
+      const textID = this.configRect[this.isClickRectID].textID;
+      this.currentInput += num.toString();
+      this.configNumber[textID].text = this.currentInput;
+      this.blankContent[this.isClickRectID] = this.currentInput;
+
       this.checkAnswer();
     },
-    checkAnswer() {
-      let isCorrect = true;
-      for (let i in this.blankContent) {
-        if (this.blankContent[i] == "") return false;
-        if (this.blankContent[i] != this.Data.blank_pos[i]) return false;
+    validateSelectedRect() {
+      if (
+        this.isClickRectID === undefined ||
+        !this.configRect[this.isClickRectID]
+      ) {
+        console.error("無法更新，因為選中的方框 ID 無效");
+        return false;
       }
-      isCorrect == true
-        ? this.$emit("ReplyAnswer", true)
-        : this.$emit("ReplyAnswer", false);
+      const textID = this.configRect[this.isClickRectID].textID;
+      if (textID === undefined || !this.configNumber[textID]) {
+        console.error("無法更新，因為 configNumber 中沒有相應的 textID");
+        return false;
+      }
+      return true;
+    },
+    closeNumpad() {
+      if (this.isClickRectID !== undefined) {
+        this.blankContent[this.isClickRectID] = this.currentInput;
+      }
+      this.virtualNumpadSwitch = false;
+      this.deselectAllRects();
+      this.checkAnswer();
+    },
+    clearInput() {
+      this.currentInput = "";
+      if (this.isClickRectID !== undefined) {
+        this.configNumber[this.configRect[this.isClickRectID].textID].text = "";
+      }
+    },
+    checkAnswer() {
+      const isCorrect = this.blankContent.every(
+        (content, index) =>
+          content.toString() === this.Data.blank_pos[index].toString()
+      );
+      this.$emit("replyAnswer", isCorrect);
+    },
+    deselectAllRects() {
+      this.rectClickedList = this.rectClickedList.map(() => false);
+    },
+    numPadButtonClicked(buttonLabel) {
+      switch (buttonLabel) {
+        case "清除":
+          this.clearInput();
+          break;
+        case "關閉":
+          this.closeNumpad();
+          break;
+        default:
+          this.updateRectNumber(buttonLabel);
+      }
     },
   },
 };
@@ -248,34 +325,5 @@ export default {
 .gameContainer {
   width: 100%;
   height: 100%;
-}
-.virtualNumpad-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: $gap--small;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
-  .modal__body {
-    display: flex;
-    flex-direction: column;
-    gap: $gap--small;
-    width: 50%;
-    background-color: white;
-    padding: $gap--small;
-    border-radius: $border-radius;
-    .button__close-modal {
-      @extend .button--animation;
-      width: 100%;
-      background-color: $error-color;
-      min-height: 40px;
-    }
-  }
 }
 </style>

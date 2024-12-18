@@ -1,0 +1,1431 @@
+{
+  "id": "MA3182",
+  "GameType": "LinkGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "把一樣的時間連起來"
+  },
+  "GameConfig": {
+    "CheckingMode": "OnSubmit",
+    "_THE_OTHER_IS_OnSubmit": "OnAnswered"
+  },
+  "Questions": [
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 2,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 10,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "10:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "02:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 3,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "03:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 30,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 7,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "07:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 5,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 10,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "10:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "05:30"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 0,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:30"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 25,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 55,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 7,
+                  "min": 10,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:55"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:25"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "07:10"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 35,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 5,
+                  "min": 20,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 5,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "05:20"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:35"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:05"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 45,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 15,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 25,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:45"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:15"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:25"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 2,
+                  "min": 40,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 5,
+                  "min": 50,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 10,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:10"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "05:50"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "02:40"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 28,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 3,
+                  "min": 45,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "03:45"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:28"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:00"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 10,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 5,
+                  "min": 25,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 39,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:10"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "05:25"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:39"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 2,
+                  "min": 24,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 30,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 5,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:05"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "02:24"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:30"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 3,
+                  "min": 48,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 20,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 7,
+                  "min": 10,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "07:10"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "03:48"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:20"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 0,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 6,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 3,
+                  "min": 30,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:00"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "03:30"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:06"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 41,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 2,
+                  "min": 13,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 5,
+                  "min": 22,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "05:22"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "02:13"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:41"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 7,
+                  "min": 49,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 1,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 6,
+                  "min": 8,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:01"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "07:49"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "06:08"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 9,
+                  "min": 31,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 4,
+                  "min": 58,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 24,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:24"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "09:31"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "04:58"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 3,
+                  "min": 42,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 12,
+                  "min": 22,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 18,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "12:22"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "03:42"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:18"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 1,
+                  "min": 48,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 11,
+                  "min": 6,
+                  "sec": 0
+                }
+              },
+              {
+                "Name": "Clock",
+                "Data": {
+                  "hour": 8,
+                  "min": 12,
+                  "sec": 0
+                }
+              }
+            ],
+            [
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "08:12"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "11:06"
+                }
+              },
+              {
+                "Name": "ElectronicClock",
+                "Data": {
+                  "time": "01:48"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      }
+    ]
+  ]
+}
