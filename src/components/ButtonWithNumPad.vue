@@ -45,11 +45,15 @@ export default {
   emits: ["replyAnswer"],
 
   mounted() {
+    this.getPreset();
     this.getPositionInfo();
     this.setStyle();
   },
 
   methods: {
+    getPreset() {
+      if (this.Data.preset) this.input = this.Data.preset;
+    },
     getPositionInfo() {
       this.btnWidth = this.$refs.container.clientWidth;
       this.btnHeight = this.$refs.container.clientHeight;
@@ -89,10 +93,12 @@ export default {
       this.padStyle.visibility = "hidden";
     },
     showPad() {
-      if (this.padStyle.visibility == "hidden")
-        this.padStyle.visibility = "visible";
-      else if (this.padStyle.visibility == "visible")
-        this.padStyle.visibility = "hidden";
+      if (this.Data.adjustable != false) {
+        if (this.padStyle.visibility == "hidden")
+          this.padStyle.visibility = "visible";
+        else if (this.padStyle.visibility == "visible")
+          this.padStyle.visibility = "hidden";
+      }
     },
   },
 };
