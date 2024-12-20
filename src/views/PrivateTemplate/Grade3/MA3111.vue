@@ -20,7 +20,7 @@
       </div>
       <DragFraction
         :Data="configFraction"
-        :ID="id"
+        :ID="ID"
         class="game__answer-area"
         @replyAnswer="drag"
         @recordAnswer="handleRecordAnswer"
@@ -47,7 +47,7 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
