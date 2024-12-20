@@ -14,7 +14,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{1}{3}" },
           "rightTerm": { "Content": "\\frac{1}{3}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒蘋果有3顆，媽媽先吃了1/3盒，又吃了1/3盒，媽媽一共吃了幾盒蘋果?"
         },
         "acheckCalculationData": {
@@ -30,7 +30,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{4}" },
           "rightTerm": { "Content": "\\frac{1}{4}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒水蜜桃有4顆，媽媽先吃了2/4盒，又吃了1/4盒，媽媽一共吃了幾盒水蜜桃?"
         },
         "acheckCalculationData": {
@@ -46,7 +46,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{3}" },
           "rightTerm": { "Content": "\\frac{1}{3}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒水蜜桃有3顆，媽媽先吃了2/3盒，又吃了1/3盒，媽媽一共吃了幾盒水蜜桃?"
         },
         "acheckCalculationData": {
@@ -62,7 +62,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{1}{4}" },
           "rightTerm": { "Content": "\\frac{1}{4}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒蘋果有4顆，媽媽先吃了1/4盒，又吃了1/4盒，媽媽一共吃了幾盒蘋果?"
         },
         "acheckCalculationData": {
@@ -78,7 +78,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{4}" },
           "rightTerm": { "Content": "\\frac{1}{4}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒蘋果有4顆，媽媽先吃了2/4盒，又吃了1/4盒，媽媽一共吃了幾盒蘋果?"
         },
         "acheckCalculationData": {
@@ -96,7 +96,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{5}" },
           "rightTerm": { "Content": "\\frac{1}{5}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "爸爸買了一個披薩，先吃了2/5個後，又吃了1/5個，爸爸一共吃了幾個披薩?"
         },
         "acheckCalculationData": {
@@ -112,7 +112,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{6}" },
           "rightTerm": { "Content": "\\frac{3}{6}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "爸爸買了一個蛋糕，先吃了3/6個後，又吃了3/6個，爸爸一共吃了幾個蛋糕?"
         },
         "acheckCalculationData": {
@@ -128,7 +128,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{5}" },
           "rightTerm": { "Content": "\\frac{1}{5}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "爸爸買了一個披薩，先吃了3/5個後，又吃了1/5個，爸爸一共吃了幾個披薩?"
         },
         "acheckCalculationData": {
@@ -144,7 +144,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{5}" },
           "rightTerm": { "Content": "\\frac{2}{5}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "爸爸買了一個蛋糕，先吃了2/5個後，又吃了2/5個，爸爸一共吃了幾個蛋糕?"
         },
         "acheckCalculationData": {
@@ -160,7 +160,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{6}" },
           "rightTerm": { "Content": "\\frac{3}{6}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "爸爸買了一個披薩，先吃了2/6個後，又吃了3/6個，爸爸一共吃了幾個披薩?"
         },
         "acheckCalculationData": {
@@ -178,7 +178,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{7}" },
           "rightTerm": { "Content": "\\frac{4}{7}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "媽媽把2/7公升的牛奶，混合4/7公升的紅茶做成奶茶，奶茶一共多少公升?"
         },
         "acheckCalculationData": {
@@ -194,7 +194,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{4}{8}" },
           "rightTerm": { "Content": "\\frac{2}{8}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "媽媽把4/8公升的冬瓜茶，混合2/8公升的檸檬汁做成冬瓜檸檬，冬瓜檸檬一共多少公升?"
         },
         "acheckCalculationData": {
@@ -210,7 +210,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{5}{7}" },
           "rightTerm": { "Content": "\\frac{2}{7}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "媽媽把5/7公升的牛奶，混合2/7公升的紅茶做成奶茶，奶茶一共多少公升?"
         },
         "acheckCalculationData": {
@@ -226,7 +226,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{6}{8}" },
           "rightTerm": { "Content": "\\frac{1}{8}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "媽媽把6/8公升的冬瓜茶，混合1/8公升的檸檬汁做成冬瓜檸檬，冬瓜檸檬一共多少公升?"
         },
         "acheckCalculationData": {
@@ -242,7 +242,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{8}" },
           "rightTerm": { "Content": "\\frac{2}{8}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "媽媽把3/8公升的牛奶，混合2/8公升的紅茶做成奶茶，奶茶一共多少公升?"
         },
         "acheckCalculationData": {
@@ -260,7 +260,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{4}{10}" },
           "rightTerm": { "Content": "\\frac{2}{10}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒甜甜圈有10個，姐姐吃了4/10盒，弟弟吃了2/10盒，兩人共吃了幾盒甜甜圈?"
         },
         "acheckCalculationData": {
@@ -276,7 +276,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{9}" },
           "rightTerm": { "Content": "\\frac{1}{9}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒巧克力有9個，姐姐吃了3/9盒，弟弟吃了1/9盒，兩人共吃了幾盒巧克力?"
         },
         "acheckCalculationData": {
@@ -292,7 +292,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{2}{9}" },
           "rightTerm": { "Content": "\\frac{4}{9}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒巧克力有9個，姐姐吃了2/9盒，弟弟吃了4/9盒，兩人共吃了幾盒巧克力?"
         },
         "acheckCalculationData": {
@@ -308,7 +308,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{7}{9}" },
           "rightTerm": { "Content": "\\frac{2}{9}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒巧克力有9個，姐姐吃了7/9盒，弟弟吃了2/9盒，兩人共吃了幾盒巧克力?"
         },
         "acheckCalculationData": {
@@ -324,7 +324,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{4}{10}" },
           "rightTerm": { "Content": "\\frac{3}{10}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "一盒甜甜圈有10個，姐姐吃了4/10盒，弟弟吃了3/10盒，兩人共吃了幾盒甜甜圈?"
         },
         "acheckCalculationData": {
@@ -342,7 +342,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{10}" },
           "rightTerm": { "Content": "\\frac{5}{10}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "家裡有一些雞蛋，做蛋糕用掉3/10盒的雞蛋，剩下5/10盒，家裡原本有幾盒的雞蛋?"
         },
         "acheckCalculationData": {
@@ -358,7 +358,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{3}{12}" },
           "rightTerm": { "Content": "\\frac{5}{12}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "家裡有一些米，煮飯用掉3/12公斤的米，剩下5/12公斤，家裡原來有幾公斤的米?"
         },
         "acheckCalculationData": {
@@ -374,7 +374,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{6}{10}" },
           "rightTerm": { "Content": "\\frac{3}{10}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "家裡有一些雞蛋，做蛋糕用掉6/10盒的雞蛋，剩下3/10盒，家裡原本有幾盒的雞蛋?"
         },
         "acheckCalculationData": {
@@ -390,7 +390,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{7}{12}" },
           "rightTerm": { "Content": "\\frac{4}{12}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "家裡有一些米，煮飯用掉7/12公斤的米，剩下4/12公斤，家裡原來有幾公斤的米?"
         },
         "acheckCalculationData": {
@@ -406,7 +406,7 @@
         "question": {
           "leftTerm": { "Content": "\\frac{7}{10}" },
           "rightTerm": { "Content": "\\frac{3}{10}" },
-          "operationType": "&#43;",
+          "operationType": "+",
           "description": "家裡有一些雞蛋，做蛋糕用掉7/10盒的雞蛋，剩下3/10盒，家裡原本有幾盒的雞蛋?"
         },
         "acheckCalculationData": {
