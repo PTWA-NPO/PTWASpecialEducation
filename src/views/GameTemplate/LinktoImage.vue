@@ -69,17 +69,19 @@
 import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "LinktoImageGame",
-  GameData: {
-    type: Object,
-    required: true,
-  },
-  GameConfig: {
-    type: Object,
-    required: true,
-  },
-  ID: {
-    type: String,
-    required: true,
+  props: {
+    GameData: {
+      type: Object,
+      required: true,
+    },
+    GameConfig: {
+      type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
   emits: ["play-effect", "add-record", "next-question"],
   data() {
