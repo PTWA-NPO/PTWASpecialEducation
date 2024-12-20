@@ -12,7 +12,7 @@
     [
       {
         "question": {
-          "fraction": "\\frac{2}{2}",
+          "fraction": { "Content": "\\frac{2}{2}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -26,7 +26,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{3}",
+          "fraction": { "Content": "\\frac{3}{3}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -40,7 +40,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{4}{4}",
+          "fraction": { "Content": "\\frac{4}{4}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -54,7 +54,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{2}{2}",
+          "fraction": { "Content": "\\frac{2}{2}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -68,7 +68,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{3}",
+          "fraction": { "Content": "\\frac{3}{3}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -84,7 +84,7 @@
     [
       {
         "question": {
-          "fraction": "\\frac{4}{4}",
+          "fraction": { "Content": "\\frac{4}{4}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -98,7 +98,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{5}{5}",
+          "fraction": { "Content": "\\frac{5}{5}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -112,7 +112,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{6}{6}",
+          "fraction": { "Content": "\\frac{6}{6}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -126,7 +126,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{4}{4}",
+          "fraction": { "Content": "\\frac{4}{4}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -140,7 +140,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{5}{5}",
+          "fraction": { "Content": "\\frac{5}{5}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -156,7 +156,7 @@
     [
       {
         "question": {
-          "fraction": "\\frac{6}{6}",
+          "fraction": { "Content": "\\frac{6}{6}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -170,7 +170,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{7}{7}",
+          "fraction": { "Content": "\\frac{7}{7}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -184,7 +184,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{4}{4}",
+          "fraction": { "Content": "\\frac{4}{4}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -198,7 +198,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{7}{7}",
+          "fraction": { "Content": "\\frac{7}{7}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -212,7 +212,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{8}{8}",
+          "fraction": { "Content": "\\frac{8}{8}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -228,7 +228,7 @@
     [
       {
         "question": {
-          "fraction": "\\frac{10}{10}",
+          "fraction": { "Content": "\\frac{10}{10}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -242,7 +242,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{9}{9}",
+          "fraction": { "Content": "\\frac{9}{9}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -256,7 +256,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{9}{9}",
+          "fraction": { "Content": "\\frac{9}{9}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -270,7 +270,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{9}{9}",
+          "fraction": { "Content": "\\frac{9}{9}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -284,7 +284,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{8}{8}",
+          "fraction": { "Content": "\\frac{8}{8}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -300,7 +300,7 @@
     [
       {
         "question": {
-          "fraction": "\\frac{11}{11}",
+          "fraction": { "Content": "\\frac{11}{11}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -314,7 +314,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{12}{12}",
+          "fraction": { "Content": "\\frac{12}{12}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -328,7 +328,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{10}{10}",
+          "fraction": { "Content": "\\frac{10}{10}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -342,7 +342,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{12}{12}",
+          "fraction": { "Content": "\\frac{12}{12}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {
@@ -356,7 +356,7 @@
       },
       {
         "question": {
-          "fraction": "\\frac{11}{11}",
+          "fraction": { "Content": "\\frac{11}{11}" },
           "description": "用分數板排排看，並回答問題"
         },
         "answerData": {

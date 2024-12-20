@@ -12,8 +12,8 @@
     [
       {
         "question": {
-          "leftTerm": "\\frac{4}{4}",
-          "rightTerm": "\\frac{2}{4}",
+          "leftTerm": { "Content": "\\frac{4}{4}" },
+          "rightTerm": { "Content": "\\frac{2}{4}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -28,8 +28,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{3}{4}",
-          "rightTerm": "\\frac{1}{4}",
+          "leftTerm": { "Content": "\\frac{3}{4}" },
+          "rightTerm": { "Content": "\\frac{1}{4}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -44,8 +44,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{3}{3}",
-          "rightTerm": "\\frac{1}{3}",
+          "leftTerm": { "Content": "\\frac{3}{3}" },
+          "rightTerm": { "Content": "\\frac{1}{3}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -60,8 +60,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{2}{3}",
-          "rightTerm": "\\frac{1}{3}",
+          "leftTerm": { "Content": "\\frac{2}{3}" },
+          "rightTerm": { "Content": "\\frac{1}{3}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -76,8 +76,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{4}{4}",
-          "rightTerm": "\\frac{3}{4}",
+          "leftTerm": { "Content": "\\frac{4}{4}" },
+          "rightTerm": { "Content": "\\frac{3}{4}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -94,8 +94,8 @@
     [
       {
         "question": {
-          "leftTerm": "\\frac{5}{5}",
-          "rightTerm": "\\frac{1}{5}",
+          "leftTerm": { "Content": "\\frac{5}{5}" },
+          "rightTerm": { "Content": "\\frac{1}{5}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -110,8 +110,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{5}{6}",
-          "rightTerm": "\\frac{1}{6}",
+          "leftTerm": { "Content": "\\frac{5}{6}" },
+          "rightTerm": { "Content": "\\frac{1}{6}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -126,8 +126,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{3}{5}",
-          "rightTerm": "\\frac{2}{5}",
+          "leftTerm": { "Content": "\\frac{3}{5}" },
+          "rightTerm": { "Content": "\\frac{2}{5}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -142,8 +142,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{4}{5}",
-          "rightTerm": "\\frac{2}{5}",
+          "leftTerm": { "Content": "\\frac{4}{5}" },
+          "rightTerm": { "Content": "\\frac{2}{5}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -158,8 +158,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{6}{6}",
-          "rightTerm": "\\frac{3}{6}",
+          "leftTerm": { "Content": "\\frac{6}{6}" },
+          "rightTerm": { "Content": "\\frac{3}{6}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -176,8 +176,8 @@
     [
       {
         "question": {
-          "leftTerm": "\\frac{6}{7}",
-          "rightTerm": "\\frac{3}{7}",
+          "leftTerm": { "Content": "\\frac{6}{7}" },
+          "rightTerm": { "Content": "\\frac{3}{7}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -192,8 +192,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{8}{8}",
-          "rightTerm": "\\frac{2}{8}",
+          "leftTerm": { "Content": "\\frac{8}{8}" },
+          "rightTerm": { "Content": "\\frac{2}{8}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -208,8 +208,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{4}{7}",
-          "rightTerm": "\\frac{3}{7}",
+          "leftTerm": { "Content": "\\frac{4}{7}" },
+          "rightTerm": { "Content": "\\frac{3}{7}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -224,8 +224,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{7}{8}",
-          "rightTerm": "\\frac{2}{8}",
+          "leftTerm": { "Content": "\\frac{7}{8}" },
+          "rightTerm": { "Content": "\\frac{2}{8}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -240,8 +240,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{5}{7}",
-          "rightTerm": "\\frac{1}{7}",
+          "leftTerm": { "Content": "\\frac{5}{7}" },
+          "rightTerm": { "Content": "\\frac{1}{7}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -258,8 +258,8 @@
     [
       {
         "question": {
-          "leftTerm": "\\frac{9}{9}",
-          "rightTerm": "\\frac{5}{9}",
+          "leftTerm": { "Content": "\\frac{9}{9}" },
+          "rightTerm": { "Content": "\\frac{5}{9}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -274,8 +274,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{6}{9}",
-          "rightTerm": "\\frac{3}{9}",
+          "leftTerm": { "Content": "\\frac{6}{9}" },
+          "rightTerm": { "Content": "\\frac{3}{9}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -290,8 +290,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{6}{10}",
-          "rightTerm": "\\frac{2}{10}",
+          "leftTerm": { "Content": "\\frac{6}{10}" },
+          "rightTerm": { "Content": "\\frac{2}{10}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -306,8 +306,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{9}{10}",
-          "rightTerm": "\\frac{2}{10}",
+          "leftTerm": { "Content": "\\frac{9}{10}" },
+          "rightTerm": { "Content": "\\frac{2}{10}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -322,8 +322,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{7}{9}",
-          "rightTerm": "\\frac{1}{9}",
+          "leftTerm": { "Content": "\\frac{7}{9}" },
+          "rightTerm": { "Content": "\\frac{1}{9}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -340,8 +340,8 @@
     [
       {
         "question": {
-          "leftTerm": "\\frac{10}{12}",
-          "rightTerm": "\\frac{3}{12}",
+          "leftTerm": { "Content": "\\frac{10}{12}" },
+          "rightTerm": { "Content": "\\frac{3}{12}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -356,8 +356,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{8}{12}",
-          "rightTerm": "\\frac{4}{12}",
+          "leftTerm": { "Content": "\\frac{8}{12}" },
+          "rightTerm": { "Content": "\\frac{4}{12}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -372,8 +372,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{8}{11}",
-          "rightTerm": "\\frac{2}{11}",
+          "leftTerm": { "Content": "\\frac{8}{11}" },
+          "rightTerm": { "Content": "\\frac{2}{11}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -388,8 +388,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{12}{12}",
-          "rightTerm": "\\frac{2}{12}",
+          "leftTerm": { "Content": "\\frac{12}{12}" },
+          "rightTerm": { "Content": "\\frac{2}{12}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
@@ -404,8 +404,8 @@
       },
       {
         "question": {
-          "leftTerm": "\\frac{11}{11}",
-          "rightTerm": "\\frac{4}{11}",
+          "leftTerm": { "Content": "\\frac{11}{11}" },
+          "rightTerm": { "Content": "\\frac{4}{11}" },
           "operationType": "&#45;",
           "description": "先用分數板排排看，再算算看"
         },
