@@ -94,6 +94,7 @@ export default {
       this.input = i;
       this.$emit("replyAnswer", i);
       this.padStyle.visibility = "hidden";
+      this.btnStyle.filter = "sepia(0%) brightness(100%)";
     },
     showPad() {
       if (this.Data.adjustable != false) {
