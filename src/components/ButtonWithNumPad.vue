@@ -1,6 +1,8 @@
 <template>
   <div ref="container" class="container">
-    <button ref="numBtn" class="numBtn" @click="showPad">{{ input }}</button>
+    <button ref="numBtn" class="numBtn" @click="showPad" :style="btnStyle">
+      {{ input }}
+    </button>
     <div ref="keys" class="keys" :style="padStyle">
       <button v-for="i in 3" class="keysBtn" @click="setNum(i + 6)">
         {{ i + 6 }}
@@ -32,6 +34,7 @@ export default {
       padStyle: {
         visibility: "hidden",
       },
+      btnStyle: {},
     };
   },
 
@@ -94,10 +97,13 @@ export default {
     },
     showPad() {
       if (this.Data.adjustable != false) {
-        if (this.padStyle.visibility == "hidden")
+        if (this.padStyle.visibility == "hidden") {
           this.padStyle.visibility = "visible";
-        else if (this.padStyle.visibility == "visible")
+          this.btnStyle.filter = "sepia(30%) brightness(80%)";
+        } else if (this.padStyle.visibility == "visible") {
           this.padStyle.visibility = "hidden";
+          this.btnStyle.filter = "sepia(0%) brightness(100%)";
+        }
       }
     },
   },
