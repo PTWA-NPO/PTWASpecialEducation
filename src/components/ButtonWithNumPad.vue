@@ -83,7 +83,7 @@ export default {
     },
     setNum(i) {
       this.input = i;
-      this.$emit("replyAnswer", i, $event.target);
+      this.$emit("replyAnswer", i);
       this.padStyle.visibility = "hidden";
       this.btnStyle.filter = "sepia(0%) brightness(100%)";
     },
