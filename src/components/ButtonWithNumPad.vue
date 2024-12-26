@@ -38,15 +38,6 @@ export default {
     };
   },
 
-  props: {
-    Data: {
-      type: Object,
-      required: true,
-    },
-  },
-
-  emits: ["replyAnswer"],
-
   mounted() {
     this.getPreset();
     this.getPositionInfo();
@@ -92,7 +83,7 @@ export default {
     },
     setNum(i) {
       this.input = i;
-      this.$emit("replyAnswer", i);
+      this.$emit("replyAnswer", i, $event.target);
       this.padStyle.visibility = "hidden";
       this.btnStyle.filter = "sepia(0%) brightness(100%)";
     },
