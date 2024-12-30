@@ -1,0 +1,8 @@
+{
+  "unit": {
+    "Length":["毫米", "公分",null,"公尺",null,null,"公里"],
+    "Time":["秒鐘",null,"分鐘",null,"小時"],
+    "Volume":["毫升",null,null,"公升"],
+    "Weight":["公克",null,null,"公斤"]
+  }
+}
