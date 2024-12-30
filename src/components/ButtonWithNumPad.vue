@@ -24,6 +24,9 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      required: false,
+    },
   },
 
   emits: ["replyAnswer"],
@@ -83,7 +86,7 @@ export default {
     },
     setNum(i) {
       this.input = i;
-      this.$emit("replyAnswer", i);
+      this.$emit("replyAnswer", i, this.ID);
       this.padStyle.visibility = "hidden";
       this.btnStyle.filter = "sepia(0%) brightness(100%)";
     },
@@ -97,6 +100,9 @@ export default {
           this.btnStyle.filter = "sepia(0%) brightness(100%)";
         }
       }
+    },
+    updateColor(color) {
+      this.$refs.numBtn.style.backgroundColor = color;
     },
   },
 };
