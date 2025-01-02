@@ -4,10 +4,10 @@
       <div class="unit" :style="unitRowStyle">
         <button v-for="i in unitStyle" :style="i">{{ i.text }}</button>
       </div>
-      <div class="row" :style="btnRowStyle" ref="row">
+      <div ref="row" class="row" :style="btnRowStyle">
         <div
-          class="numBtn"
           v-for="i in rowStyle[0].btnStyle.length"
+          class="numBtn"
           :style="rowStyle[0].btnStyle[i - 1]"
         >
           <numBtn :Data="rowStyle[0].btnData[i - 1]"></numBtn>
@@ -15,8 +15,8 @@
       </div>
       <div class="row" :style="btnRowStyle">
         <div
-          class="numBtn"
           v-for="i in rowStyle[1].btnStyle.length"
+          class="numBtn"
           :style="rowStyle[1].btnStyle[i - 1]"
         >
           <numBtn :Data="rowStyle[1].btnData[i - 1]"></numBtn>
@@ -24,13 +24,13 @@
       </div>
       <hr />
       <div
-        class="row"
         v-for="i in GameData.digitsOfEachRow.length - 3"
+        class="row"
         :style="btnRowStyle"
       >
         <div
-          class="numBtn"
           v-for="j in rowStyle[i + 1].btnStyle.length"
+          class="numBtn"
           :style="rowStyle[i + 1].btnStyle[j - 1]"
         >
           <numBtn :Data="rowStyle[i + 1].btnData[j - 1]"></numBtn>
@@ -39,16 +39,16 @@
       <hr />
       <div class="row" :style="btnRowStyle">
         <div
-          class="numBtn"
           v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle
             .length"
+          class="numBtn"
           :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
         >
           <numBtn
+            :ref="setRef"
             :Data="rowStyle[GameData.digitsOfEachRow.length - 1].btnData[i - 1]"
             :ID="i"
             @replyAnswer="getAnswer"
-            :ref="setRef"
           ></numBtn>
         </div>
       </div>
