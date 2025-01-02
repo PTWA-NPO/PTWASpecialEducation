@@ -5,22 +5,18 @@
         <button v-for="i in unitStyle" :style="i">{{ i.text }}</button>
       </div>
       <div ref="row" class="row" :style="btnRowStyle">
-        <div
+        <button
           v-for="i in rowStyle[0].btnStyle.length"
           class="numBtn"
           :style="rowStyle[0].btnStyle[i - 1]"
-        >
-          <numBtn :Data="rowStyle[0].btnData[i - 1]"></numBtn>
-        </div>
+        ></button>
       </div>
       <div class="row" :style="btnRowStyle">
-        <div
+        <button
           v-for="i in rowStyle[1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[1].btnStyle[i - 1]"
-        >
-          <numBtn :Data="rowStyle[1].btnData[i - 1]"></numBtn>
-        </div>
+        ></button>
       </div>
       <hr />
       <div
@@ -28,29 +24,20 @@
         class="row"
         :style="btnRowStyle"
       >
-        <div
+        <button
           v-for="j in rowStyle[i + 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[i + 1].btnStyle[j - 1]"
-        >
-          <numBtn :Data="rowStyle[i + 1].btnData[j - 1]"></numBtn>
-        </div>
+        ></button>
       </div>
       <hr />
       <div class="row" :style="btnRowStyle">
-        <div
+        <button
           v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle
             .length"
           class="numBtn"
           :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
-        >
-          <numBtn
-            :ref="setRef"
-            :Data="rowStyle[GameData.digitsOfEachRow.length - 1].btnData[i - 1]"
-            :ID="i"
-            @replyAnswer="getAnswer"
-          ></numBtn>
-        </div>
+        ></button>
       </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
@@ -77,9 +64,9 @@ export default {
     drawingBoard: defineAsyncComponent(() =>
       import("@/components/DrawingBoard.vue")
     ),
-    numBtn: defineAsyncComponent(() =>
-      import("@/components/ButtonWithNumPad.vue")
-    ),
+    //numBtn: defineAsyncComponent(() =>
+    //  import("@/components/ButtonWithNumPad.vue")
+    //),
   },
 
   props: {
