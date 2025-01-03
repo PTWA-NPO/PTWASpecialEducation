@@ -7,10 +7,12 @@
       <div class="game__fraction-panel">
         <FractionDisplay
           :Data="questionFraction"
+          :ID="ID"
           class="game__fraction-display"
         ></FractionDisplay>
         <FractionChart
           :Data="chartData"
+          :ID="ID"
           class="game__chart-container"
           @mounted="calculateChartSize"
         ></FractionChart>
