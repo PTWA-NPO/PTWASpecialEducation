@@ -1,22 +1,34 @@
 <template>
   <div class="MA3142__container">
     <!-- <component :is="componentName" :Data="componentsData" :ID="ID" @replyAnswer="replyAnswerFunc"/> -->
-    <TextOnly></TextOnly>
-    <ImageContainer></ImageContainer>
-    <Scale :Data="componentsData" :ID="ID"></Scale>
+    <ImageContainer
+      class="MA3142__question-img"
+      :Data="imgData"
+      :ID="ID"
+    ></ImageContainer>
+    <TextOnly
+      class="MA3142__question-description"
+      :Data="textData"
+      :ID="ID"
+    ></TextOnly>
+    <Scale
+      class="MA3142__scale"
+      :Data="scaleData"
+      :ID="ID"
+      @replyAnswer="userAnswerUpdate"
+    ></Scale>
+    <button class="MA3142__submit" @click="checkAnswer">送出答案</button>
   </div>
 </template>
 <script>
-import { defineAsyncComponent } from "vue";
-import { getGameStaticAssets } from "@/utilitys/get_assets.js"; // Feel free to change your the method to get assets.
-import { GetComponents } from "@/utilitys/get-components.js";
+import { getComponents } from "@/utilitys/get-components.js";
 export default {
   name: "MA3142",
   components: {
     // Import your components here, use defineAsyncComponent for lazy loading
-    Scale: GetComponents("Scale"),
-    ImageContainer: GetComponents("ImageContainer"),
-    TextOnly: GetComponents("TextOnly"),
+    Scale: getComponents("Scale"),
+    ImageContainer: getComponents("ImageContainer"),
+    TextOnly: getComponents("TextOnly"),
   },
   props: {
     GameData: {
@@ -35,22 +47,65 @@ export default {
   emits: ["add-record", "next-question", "play-effect"],
   data() {
     return {
-      // Your data here
+      textData: this.GameData.TextData,
+      imgData: this.GameData.ImageData,
+      scaleData: this.GameData.ScaleData,
+      userAnswer: null,
+      correctAnswer: this.GameData.Answer,
     };
-  },
-  computed: {
-    // Your computed properties here
-  },
-  created() {
-    // Your created hook here
-  },
-  mounted() {
-    // Your mounted hook here
   },
   methods: {
     // Your methods here
+    userAnswerUpdate(userAnswer) {
+      this.userAnswer = userAnswer;
+    },
+    checkAnswer() {
+      const isCorrect = this.userAnswer === this.correctAnswer;
+      this.$emit("play-effect", isCorrect ? "CorrectSound" : "WrongSound");
+      this.$emit("add-record", [
+        this.correctAnswer,
+        this.userAnswer,
+        isCorrect ? "正確" : "錯誤",
+      ]);
+
+      if (isCorrect) {
+        this.$emit("next-question");
+      }
+    },
   },
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.MA3142 {
+  &__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $gap--tiny;
+    align-items: center;
+  }
+  &__question-img {
+    flex: 2;
+    max-height: 30%;
+  }
+  &__question-description {
+    flex: 1;
+  }
+  &__scale {
+    flex: 3;
+    min-width: 30%;
+    max-width: 300px;
+  }
+  &__submit {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    width: 10rem;
+    height: 5rem;
+    background-color: #a6a6a6;
+    border: none;
+  }
+}
+</style>
