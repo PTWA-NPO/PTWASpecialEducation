@@ -35,7 +35,7 @@
       </div>
       <div class="answer-area__drop">
         <div
-          v-for="(items, index) in groupedItems"
+          v-for="(items, index) in GameData.Answer"
           class="drop-area__container"
         >
           <p class="drop-area__title">{{ items.GroupName }}</p>
