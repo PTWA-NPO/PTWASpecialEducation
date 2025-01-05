@@ -1,6 +1,8 @@
 <template>
   <div ref="container" class="container">
-    <button ref="numBtn" class="numBtn" @click="showPad">{{ input }}</button>
+    <button ref="numBtn" class="numBtn" @click="showPad" :style="btnStyle">
+      {{ input }}
+    </button>
     <div ref="keys" class="keys" :style="padStyle">
       <button v-for="i in 3" class="keysBtn" @click="setNum(i + 6)">
         {{ i + 6 }}
@@ -22,6 +24,9 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      required: false,
+    },
   },
 
   emits: ["replyAnswer"],
@@ -32,15 +37,20 @@ export default {
       padStyle: {
         visibility: "hidden",
       },
+      btnStyle: {},
     };
   },
 
   mounted() {
+    this.getPreset();
     this.getPositionInfo();
     this.setStyle();
   },
 
   methods: {
+    getPreset() {
+      if (this.Data.preset) this.input = this.Data.preset;
+    },
     getPositionInfo() {
       this.btnWidth = this.$refs.container.clientWidth;
       this.btnHeight = this.$refs.container.clientHeight;
@@ -48,26 +58,27 @@ export default {
       this.btnY = this.$refs.container.offsetTop;
       this.padWidth = this.$refs.keys.clientWidth;
       this.padHeight = this.$refs.keys.clientHeight;
+      this.margin = 10;
     },
     setStyle() {
       this.$refs.numBtn.style.backgroundColor = this.Data.color;
 
       switch (this.Data.padPosition) {
         case "upperRight":
-          this.padStyle.left = this.btnX + this.btnWidth + "px";
+          this.padStyle.left = this.btnX + this.btnWidth + this.margin + "px";
           this.padStyle.top =
             this.btnY - this.padHeight + this.btnHeight + "px";
           break;
         case "lowerRight":
-          this.padStyle.left = this.btnX + this.btnWidth + "px";
+          this.padStyle.left = this.btnX + this.btnWidth + this.margin + "px";
           this.padStyle.top = this.btnY + "px";
           break;
         case "lowerLeft":
-          this.padStyle.left = this.btnX - this.padWidth + "px";
+          this.padStyle.left = this.btnX - this.padWidth - this.margin + "px";
           this.padStyle.top = this.btnY + "px";
           break;
         case "upperLeft":
-          this.padStyle.left = this.btnX - this.padWidth + "px";
+          this.padStyle.left = this.btnX - this.padWidth - this.margin + "px";
           this.padStyle.top =
             this.btnY - this.padHeight + this.btnHeight + "px";
           break;
@@ -75,14 +86,23 @@ export default {
     },
     setNum(i) {
       this.input = i;
-      this.$emit("replyAnswer", i);
+      this.$emit("replyAnswer", i, this.ID);
       this.padStyle.visibility = "hidden";
+      this.btnStyle.filter = "sepia(0%) brightness(100%)";
     },
     showPad() {
-      if (this.padStyle.visibility == "hidden")
-        this.padStyle.visibility = "visible";
-      else if (this.padStyle.visibility == "visible")
-        this.padStyle.visibility = "hidden";
+      if (this.Data.adjustable != false) {
+        if (this.padStyle.visibility == "hidden") {
+          this.padStyle.visibility = "visible";
+          this.btnStyle.filter = "sepia(30%) brightness(80%)";
+        } else if (this.padStyle.visibility == "visible") {
+          this.padStyle.visibility = "hidden";
+          this.btnStyle.filter = "sepia(0%) brightness(100%)";
+        }
+      }
+    },
+    updateColor(color) {
+      this.$refs.numBtn.style.backgroundColor = color;
     },
   },
 };
@@ -90,6 +110,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
+  padding: 0;
   width: 100%;
   height: 100%;
 }
@@ -102,21 +123,24 @@ export default {
   position: absolute;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  width: 25%;
+  width: fit-content;
+  height: fit-content;
   background-color: #9b8c7c;
   padding: 10px;
   border-radius: 20px;
   z-index: 1;
 }
 .keysBtn {
-  aspect-ratio: 1;
+  width: 5vw;
+  height: 5vw;
 }
 
 .clearBtn {
   grid-column: 2/4;
+  height: 5vw;
 }
 button {
   border: none;
-  font-size: 300%;
+  font-size: 250%;
 }
 </style>

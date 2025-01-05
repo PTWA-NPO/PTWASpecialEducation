@@ -1,31 +1,77 @@
 <template>
   <div class="container">
     <div class="board">
-      <div class="question">
-        <numBtn :Data="test"></numBtn>
-        <numBtn :Data="test2"></numBtn>
+      <div class="unit" :style="unitRowStyle">
+        <button v-for="i in unitStyle" :style="i">{{ i.text }}</button>
+      </div>
+      <div class="row" :style="btnRowStyle" ref="row">
+        <div
+          class="numBtn"
+          v-for="i in rowStyle[0].btnStyle.length"
+          :style="rowStyle[0].btnStyle[i - 1]"
+        >
+          <numBtn :Data="rowStyle[0].btnData[i - 1]"></numBtn>
+        </div>
+      </div>
+      <div class="row" :style="btnRowStyle">
+        <div
+          class="numBtn"
+          v-for="i in rowStyle[1].btnStyle.length"
+          :style="rowStyle[1].btnStyle[i - 1]"
+        >
+          <numBtn :Data="rowStyle[1].btnData[i - 1]"></numBtn>
+        </div>
       </div>
       <hr />
-      <div class="calculation"></div>
+      <div
+        class="row"
+        v-for="i in GameData.digitsOfEachRow.length - 3"
+        :style="btnRowStyle"
+      >
+        <div
+          class="numBtn"
+          v-for="j in rowStyle[i + 1].btnStyle.length"
+          :style="rowStyle[i + 1].btnStyle[j - 1]"
+        >
+          <numBtn :Data="rowStyle[i + 1].btnData[j - 1]"></numBtn>
+        </div>
+      </div>
       <hr />
-      <div class="answer"></div>
+      <div class="row" :style="btnRowStyle">
+        <div
+          class="numBtn"
+          v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle
+            .length"
+          :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
+        >
+          <numBtn
+            :Data="rowStyle[GameData.digitsOfEachRow.length - 1].btnData[i - 1]"
+            :ID="i"
+            @replyAnswer="getAnswer"
+            :ref="setRef"
+          ></numBtn>
+        </div>
+      </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
       <drawingBoard ref="canvas" :Data="configBrush"></drawingBoard>
     </div>
     <div class="function">
       <button @click="drawingFunc('brush')">{{ brushStatusBtn }}</button>
-      <button @click="drawingFunc('clear')">clear</button>
-      <button @click="drawingFunc('eraser')">eraser</button>
+      <button @click="drawingFunc('clear')">清除</button>
+      <button @click="drawingFunc('eraser')">橡皮擦</button>
       <button @click="drawingFunc('visibility')">
         {{ drawingBoardStatusBtn }}
       </button>
+      <button @click="checkAnswer()">檢查答案</button>
     </div>
   </div>
 </template>
 
 <script>
+import { getGameStaticAssets } from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
+import fetchJson from "@/utilitys/fetch-json";
 export default {
   components: {
     drawingBoard: defineAsyncComponent(() =>
@@ -50,16 +96,16 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      test: {
-        color: "red",
-        padPosition: "lowerRight",
-      },
-      test2: {
-        color: "blue",
-        padPosition: "lowerRight",
-      },
-      brushStatusBtn: "brush",
-      drawingBoardStatusBtn: "hide",
+      dotStyle: [],
+      rowStyle: [],
+      unitRowStyle: {},
+      btnRowStyle: {},
+      unitStyle: [],
+      answer: [],
+      btnRef: [],
+
+      brushStatusBtn: "畫筆",
+      drawingBoardStatusBtn: "隱藏",
       brush: {
         color: "black",
         size: 5,
@@ -76,9 +122,16 @@ export default {
   },
   beforeMount() {
     this.configBrush = this.brush;
+    this.setRowStyles();
   },
 
-  mounted() {},
+  async mounted() {
+    this.unit = await fetchJson(
+      getGameStaticAssets("MultiplyBoard", "unit.json")
+    );
+    this.unit = this.unit.data.unit;
+    this.setUnit();
+  },
 
   methods: {
     drawingFunc(btn) {
@@ -87,10 +140,10 @@ export default {
           if (this.canvasStyle.zIndex == -1) {
             this.canvasStyle.zIndex = 1;
             this.configBrush = this.brush;
-            this.brushStatusBtn = "control";
+            this.brushStatusBtn = "控制";
           } else if (this.canvasStyle.zIndex == 1) {
             this.canvasStyle.zIndex = -1;
-            this.brushStatusBtn = "brush";
+            this.brushStatusBtn = "畫筆";
           }
           break;
         case "clear":
@@ -100,18 +153,180 @@ export default {
           this.canvasStyle.zIndex = -1;
           this.configBrush = this.eraser;
           this.canvasStyle.zIndex = 1;
-          this.brushStatusBtn = "control";
+          this.brushStatusBtn = "控制";
           break;
         case "visibility":
           if (this.canvasStyle.visibility == "visible") {
             this.canvasStyle.visibility = "hidden";
-            this.drawingBoardStatusBtn = "show";
+            this.drawingBoardStatusBtn = "顯示";
           } else if (this.canvasStyle.visibility == "hidden") {
             this.canvasStyle.visibility = "visible";
-            this.drawingBoardStatusBtn = "hide";
+            this.drawingBoardStatusBtn = "隱藏";
           }
           break;
       }
+    },
+    setRowStyles() {
+      this.btnRowStyle = {
+        height: 90 / this.GameData.digitsOfEachRow.length + "%",
+      };
+      for (let i in this.GameData.digitsOfEachRow) {
+        let rowStyle = {};
+        rowStyle.btnStyle = this.setBtnStyle(i);
+        rowStyle.btnData = this.setBtnData(i, rowStyle.btnStyle);
+        this.rowStyle.push(rowStyle);
+      }
+    },
+    setBtnStyle(i) {
+      this.maxDigit = Math.max(...this.GameData.digitsOfEachRow);
+      let btnStyle = [];
+      if (i < this.GameData.digitsOfEachRow.length - 1 && i > 1) {
+        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
+          let btn = {
+            gridColumn: j + 10 - this.GameData.digitsOfEachRow[i] - i + 2,
+            gridRow: 1,
+          };
+
+          btnStyle.push(btn);
+        }
+      } else {
+        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
+          let btn = {
+            gridColumn: j + 10 - this.GameData.digitsOfEachRow[i],
+            gridRow: 1,
+          };
+          btnStyle.push(btn);
+        }
+      }
+
+      if (i == 1) {
+        let btn = {
+          gridColumn: 9 - this.maxDigit,
+          gridRow: 1,
+        };
+        btnStyle.push(btn);
+      }
+      return btnStyle;
+    },
+    setBtnData(i, btnStyle) {
+      let btnData = [];
+      if (i < this.GameData.digitsOfEachRow.length - 1) {
+        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
+          let btn = {
+            color: "lightgray",
+            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
+          };
+          btnData.push(btn);
+        }
+      } else {
+        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
+          let btn = {
+            color: "pink",
+            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
+          };
+          btnData.push(btn);
+        }
+      }
+
+      if (i == 1) {
+        let btn = {
+          color: "#aded5d",
+          padPosition: "lowerRight",
+          preset: "x",
+          adjustable: false,
+        };
+        btnData.push(btn);
+      }
+      return btnData;
+    },
+    setPadPosition(row, column) {
+      let position;
+      if (row >= this.GameData.digitsOfEachRow.length / 2) position = "upper";
+      else position = "lower";
+
+      if (column > 5) return position.concat("Left");
+      else return position.concat("Right");
+    },
+    setUnit() {
+      this.unitRowStyle.width = this.$refs.row.clientWidth + "px";
+
+      switch (this.GameData.unit) {
+        case "Length":
+        case "Time":
+        case "Volume":
+        case "Weight":
+          for (let i in this.unit[this.GameData.unit]) {
+            if (i >= this.maxDigit) break;
+
+            if (this.unit[this.GameData.unit][i]) {
+              let unitStyle = {
+                gridColumn: 9 - i,
+                gridRow: 1,
+                text: this.unit[this.GameData.unit][i],
+              };
+              this.unitStyle.push(unitStyle);
+            }
+          }
+          break;
+        case "Number":
+          break;
+        case "Custom":
+          for (let i in this.GameData.customUnit) {
+            if (i >= this.maxDigit) break;
+            if (this.GameData.customUnit[i]) {
+              let unitStyle = {
+                gridColumn: 9 - i,
+                gridRow: 1,
+                text: this.GameData.customUnit[i],
+              };
+              this.unitStyle.push(unitStyle);
+            }
+          }
+          break;
+        default:
+          console.log("Invalid unit.");
+          break;
+      }
+    },
+    getAnswer(ans, id) {
+      this.answer[id - 1] = ans;
+    },
+    checkAnswer() {
+      let isCorrect = true;
+      let ansDigits =
+        this.GameData.digitsOfEachRow[this.GameData.digitsOfEachRow.length - 1];
+      for (let i in this.GameData.answers) {
+        if (
+          this.answer[ansDigits - i - 1] ==
+          this.GameData.answers[this.GameData.answers.length - i - 1]
+        ) {
+          this.btnRef[ansDigits - i - 1].updateColor("pink");
+        } else {
+          isCorrect = false;
+
+          this.btnRef[ansDigits - i - 1].updateColor("red");
+        }
+      }
+      if (isCorrect) {
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", [
+          this.GameData.answers.toString(),
+          this.answer.toString(),
+          "正確",
+        ]);
+        this.$emit("next-question");
+      } else {
+        this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", [
+          this.GameData.answers.toString(),
+          this.answer.toString(),
+          "錯誤",
+        ]);
+      }
+    },
+    setRef(e) {
+      this.btnRef.push(e);
+      console.log(this.btnRef);
     },
   },
 };
@@ -122,39 +337,50 @@ export default {
   height: 100%;
   width: 100%;
 }
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.unit {
+  height: 10%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 10px;
+  padding: 10px;
+  margin: auto;
+}
+.unit button {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: #8fb0e6;
+}
 
 .board {
   height: 90%;
   width: 90%;
   margin: auto;
 }
-.question {
-  height: 35%;
-  width: 100%;
+.row {
+  width: fit-content;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   padding: 10px;
+  margin: auto;
 }
-.calculation {
-  height: 35%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  padding: 10px;
-}
-.answer {
-  height: 17.5%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 10px;
-  padding: 10px;
+.numBtn {
+  aspect-ratio: 2/3;
+  width: fit-content;
+  padding: 0;
 }
 hr {
+  margin: 0;
+  padding: 0;
   opacity: 100;
   border: 1px solid black;
 }
@@ -164,15 +390,17 @@ hr {
   z-index: 2;
   height: 10%;
   width: 70%;
-  background-color: aqua;
+  background-color: lightgray;
   display: flex;
   justify-content: space-evenly;
   margin: auto;
+  border-radius: 10px;
 }
 .function button {
   border: none;
-  margin: 2%;
+  margin: 15px;
   width: 20%;
+  background-color: #8fb0e6;
 }
 
 .drawingBoard {

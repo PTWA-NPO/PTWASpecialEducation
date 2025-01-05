@@ -255,6 +255,9 @@ export default {
     MoneyDrag: defineAsyncComponent(() =>
       import("@/views/GameTemplate/MoneyDrag.vue")
     ),
+    MultiplyBoard: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/MultiplyBoard.vue")
+    ),
   },
   data() {
     return {
