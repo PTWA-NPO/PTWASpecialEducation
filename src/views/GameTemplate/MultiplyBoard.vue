@@ -63,9 +63,9 @@
       </button>
       <button @click="checkAnswer()">檢查答案</button>
     </div>
-  </div>
-  <div class="number-pad">
-    <numPad v-if="showPad" :Data="numPadData" @buttonClicked="handleNumPad" />
+    <div class="number-pad">
+      <numPad v-if="showPad" :Data="numPadData" @buttonClicked="handleNumPad" />
+    </div>
   </div>
 </template>
 
@@ -102,7 +102,7 @@ export default {
       rowStyle: [],
       unitStyle: [],
       answer: [],
-      numPadData: {},
+      numPadData: null,
       showPad: false,
       currentInputBtn: null,
 
@@ -206,6 +206,7 @@ export default {
               if (this.GameData.preset[i][j]) {
                 btn.value = this.GameData.preset[i][j];
                 btn.adjustable = false;
+                btn.backgroundColor = "#909CA7";
               }
             }
           }
@@ -315,13 +316,13 @@ export default {
     btnClick(e, row, column) {
       if (this.rowStyle[row].btnStyle[column].adjustable) {
         this.showPad = true;
+        this.currentInputBtn = { row: row, column: column };
         this.numPadData = {
           top: e.target.getBoundingClientRect().top,
           left:
             e.target.getBoundingClientRect().left +
             e.target.getBoundingClientRect().width,
         };
-        this.currentInputBtn = { row: row, column: column };
       }
     },
     handleNumPad(input) {
