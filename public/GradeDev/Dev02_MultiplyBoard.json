@@ -20,7 +20,7 @@
             "customUnit": [null,2,null,4,null,6,null,8,null,10],
             "decimalPoint": 0,
             "preset": [[1, 2,null,4,5,6],[2,1]],
-            "answers": [1,2,3,4,5]
+            "answers": [null,1,2,3,4,5]
         }
     ]
 }

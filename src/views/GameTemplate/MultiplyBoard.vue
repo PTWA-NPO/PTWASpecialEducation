@@ -101,7 +101,6 @@ export default {
       btnRowStyle: {},
       rowStyle: [],
       unitStyle: [],
-      answer: [],
       numPadData: null,
       showPad: false,
       currentInputBtn: null,
@@ -281,26 +280,23 @@ export default {
     },
     checkAnswer() {
       let isCorrect = true;
-      let ansDigits = this.GameData.digitsOfEachRow[
-        this.GameData.digitsOfEachRow.length - 1
-      ];
-      for (let i in this.GameData.answers) {
-        if (
-          this.answer[ansDigits - i - 1] ==
-          this.GameData.answers[this.GameData.answers.length - i - 1]
-        ) {
-          this.btnRef[ansDigits - i - 1].updateColor("pink");
-        } else {
+      let ans = [];
+      for (let i in this.rowStyle[this.rowStyle.length - 1].btnStyle) {
+        ans.push(this.rowStyle[this.rowStyle.length - 1].btnStyle[i].value);
+      }
+      for (let i in ans) {
+        if (ans[i] != this.GameData.answers[i]) {
           isCorrect = false;
-
-          this.btnRef[ansDigits - i - 1].updateColor("red");
+          this.rowStyle[this.rowStyle.length - 1].btnStyle[i].backgroundColor = "red";
+        } else {
+          this.rowStyle[this.rowStyle.length - 1].btnStyle[i].backgroundColor = "pink";
         }
       }
       if (isCorrect) {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [
           this.GameData.answers.toString(),
-          this.answer.toString(),
+          ans.toString(),
           "正確",
         ]);
         this.$emit("next-question");
@@ -308,7 +304,7 @@ export default {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
           this.GameData.answers.toString(),
-          this.answer.toString(),
+          ans.toString(),
           "錯誤",
         ]);
       }
