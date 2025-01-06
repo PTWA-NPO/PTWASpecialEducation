@@ -1,0 +1,602 @@
+{
+  "id": "MA3142",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "5公斤",
+        "correctAnswer": {
+          "g": 5000
+        },
+        "answerFormat": [
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "3公斤",
+        "correctAnswer": {
+          "g": 3000
+        },
+        "answerFormat": [
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "6公斤",
+        "correctAnswer": {
+          "g": 6000
+        },
+        "answerFormat": [
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "2公斤",
+        "correctAnswer": {
+          "g": 2000
+        },
+        "answerFormat": [
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 4
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "1公斤",
+        "correctAnswer": {
+          "g": 1000
+        },
+        "answerFormat": [
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 4
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "1公斤300公克",
+        "correctAnswer": {
+          "kg": 1,
+          "g": 300
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "2公斤400公克",
+        "correctAnswer": {
+          "kg": 2,
+          "g": 400
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "3公斤500公克",
+        "correctAnswer": {
+          "kg": 3,
+          "g": 500
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "4公斤200公克",
+        "correctAnswer": {
+          "kg": 4,
+          "g": 200
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "5公斤100公克",
+        "correctAnswer": {
+          "kg": 5,
+          "g": 100
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "8000公克",
+        "correctAnswer": {
+          "kg": 8
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "9000公克",
+        "correctAnswer": {
+          "kg": 9
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "7000公克",
+        "correctAnswer": {
+          "kg": 7
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "6000公克",
+        "correctAnswer": {
+          "kg": 6
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "5000公克",
+        "correctAnswer": {
+          "kg": 5
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "9040公克",
+        "correctAnswer": {
+          "kg": 9,
+          "g": 40
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "8050公克",
+        "correctAnswer": {
+          "kg": 8,
+          "g": 50
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "1040公克",
+        "correctAnswer": {
+          "kg": 1,
+          "g": 40
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "2020公克",
+        "correctAnswer": {
+          "kg": 2,
+          "g": 20
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "5010公克",
+        "correctAnswer": {
+          "kg": 5,
+          "g": 10
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "1009公克",
+        "correctAnswer": {
+          "kg": 1,
+          "g": 9
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "2005公克",
+        "correctAnswer": {
+          "kg": 2,
+          "g": 5
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "3006公克",
+        "correctAnswer": {
+          "kg": 3,
+          "g": 6
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "5001公克",
+        "correctAnswer": {
+          "kg": 5,
+          "g": 1
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      },
+      {
+        "QuestionDescription": {
+          "Text": "公斤與公克的換算",
+          "Size": "title-medium"
+        },
+        "HintText": "提示：1公斤=1000公克",
+        "Question": "8007公克",
+        "correctAnswer": {
+          "kg": 8,
+          "g": 7
+        },
+        "answerFormat": [
+          {
+            "unit": "kg",
+            "Data": {
+              "digitCount": 2
+            }
+          },
+          {
+            "unit": "g",
+            "Data": {
+              "digitCount": 3
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}
