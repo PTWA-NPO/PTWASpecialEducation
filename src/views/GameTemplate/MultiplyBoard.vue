@@ -9,14 +9,20 @@
           v-for="i in rowStyle[0].btnStyle.length"
           class="numBtn"
           :style="rowStyle[0].btnStyle[i - 1]"
-        ></button>
+          @click="btnClick($event, 0, i - 1)"
+        >
+          {{ rowStyle[0].btnStyle[i - 1].value }}
+        </button>
       </div>
       <div class="row" :style="btnRowStyle">
         <button
           v-for="i in rowStyle[1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[1].btnStyle[i - 1]"
-        ></button>
+          @click="btnClick($event, 1, i - 1)"
+        >
+          {{ rowStyle[1].btnStyle[i - 1].value }}
+        </button>
       </div>
       <hr />
       <div
@@ -28,7 +34,10 @@
           v-for="j in rowStyle[i + 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[i + 1].btnStyle[j - 1]"
-        ></button>
+          @click="btnClick($event, i + 1, j - 1)"
+        >
+          {{ rowStyle[i + 1].btnStyle[j - 1].value }}
+        </button>
       </div>
       <hr />
       <div class="row" :style="btnRowStyle">
@@ -36,7 +45,10 @@
           v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
-        ></button>
+          @click="btnClick($event, GameData.digitsOfEachRow.length - 1, i - 1)"
+        >
+          {{ rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1].value }}
+        </button>
       </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
@@ -53,11 +65,7 @@
     </div>
   </div>
   <div class="number-pad">
-    <numPad
-      @virtualpadinputInput="Input"
-      @virtualpadinputDelete="Delete"
-      @virtualpadinput-pop="Pop"
-    />
+    <numPad v-if="showPad" :Data="numPadData" @buttonClicked="input" />
   </div>
 </template>
 
@@ -85,12 +93,14 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      rowStyle: [],
       unitRowStyle: {},
       btnRowStyle: {},
+      rowStyle: [],
       unitStyle: [],
       answer: [],
-      btnRef: [],
+      numPadData: {},
+      showPad: false,
+      currentInputBtn: null,
 
       brushStatusBtn: "畫筆",
       drawingBoardStatusBtn: "隱藏",
@@ -117,6 +127,7 @@ export default {
     this.unit = await fetchJson(getGameStaticAssets("MultiplyBoard", "unit.json"));
     this.unit = this.unit.data.unit;
     this.setUnit();
+    console.log(this.rowStyle);
   },
 
   methods: {
@@ -159,7 +170,6 @@ export default {
       for (let i in this.GameData.digitsOfEachRow) {
         let rowStyle = {};
         rowStyle.btnStyle = this.setBtnStyle(i);
-        rowStyle.btnData = this.setBtnData(i, rowStyle.btnStyle);
         this.rowStyle.push(rowStyle);
       }
     },
@@ -176,6 +186,7 @@ export default {
             gridColumn: j + 10 - this.GameData.digitsOfEachRow[i] - i + 2,
             gridRow: 1,
             backgroundColor: btnColor,
+            adjustable: true,
           };
 
           btnStyle.push(btn);
@@ -187,6 +198,15 @@ export default {
             gridRow: 1,
             backgroundColor: btnColor,
           };
+          if (i < 2) {
+            if (this.GameData.preset) {
+              if (this.GameData.preset[i][j]) {
+                btn.value = this.GameData.preset[i][j];
+                btn.adjustable = false;
+              }
+            }
+          }
+          if (btn.adjustable == null) btn.adjustable = true;
           btnStyle.push(btn);
         }
       }
@@ -196,41 +216,12 @@ export default {
           gridColumn: 9 - this.maxDigit,
           gridRow: 1,
           backgroundColor: "#aded5d",
+          value: "x",
+          adjustable: false,
         };
         btnStyle.push(btn);
       }
       return btnStyle;
-    },
-    setBtnData(i, btnStyle) {
-      let btnData = [];
-      if (i < this.GameData.digitsOfEachRow.length - 1) {
-        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
-          let btn = {
-            color: "lightgray",
-            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
-          };
-          btnData.push(btn);
-        }
-      } else {
-        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
-          let btn = {
-            color: "pink",
-            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
-          };
-          btnData.push(btn);
-        }
-      }
-
-      if (i == 1) {
-        let btn = {
-          color: "#aded5d",
-          padPosition: "lowerRight",
-          preset: "x",
-          adjustable: false,
-        };
-        btnData.push(btn);
-      }
-      return btnData;
     },
     setPadPosition(row, column) {
       let position;
@@ -318,9 +309,16 @@ export default {
         ]);
       }
     },
-    setRef(e) {
-      this.btnRef.push(e);
-      console.log(this.btnRef);
+    btnClick(e, row, column) {
+      if (this.rowStyle[row].btnStyle[column].adjustable) {
+        this.showPad = true;
+        this.numPadData = {
+          top: e.target.getBoundingClientRect().top,
+          left:
+            e.target.getBoundingClientRect().left +
+            e.target.getBoundingClientRect().width,
+        };
+      }
     },
   },
 };
@@ -365,6 +363,7 @@ export default {
   width: fit-content;
   padding: 0;
   border: none;
+  font-size: 1.5rem;
 }
 hr {
   margin: 0;
