@@ -1,0 +1,172 @@
+{
+  "id": "MA3142",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "TextData": { "Text": "鳳梨 2公斤400公克", "Size": "medium" },
+        "ImageData": { "Src": "pineapple.png", "Alt": "pineapple" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2400
+      },
+      {
+        "TextData": { "Text": "鳳梨 1公斤400公克", "Size": "medium" },
+        "ImageData": { "Src": "pineapple.png", "Alt": "pineapple" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1400
+      },
+      {
+        "TextData": { "Text": "鳳梨 1公斤500公克", "Size": "medium" },
+        "ImageData": { "Src": "pineapple.png", "Alt": "pineapple" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1500
+      },
+      {
+        "TextData": { "Text": "鳳梨 2公斤500公克", "Size": "medium" },
+        "ImageData": { "Src": "pineapple.png", "Alt": "pineapple" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2500
+      },
+      {
+        "TextData": { "Text": "鳳梨 1公斤200公克", "Size": "medium" },
+        "ImageData": { "Src": "pineapple.png", "Alt": "pineapple" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1200
+      }
+    ],
+    [
+      {
+        "TextData": { "Text": "哈密瓜 1公斤800公克", "Size": "medium" },
+        "ImageData": { "Src": "cantaloupe.png", "Alt": "cantaloupe" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1800
+      },
+      {
+        "TextData": { "Text": "哈密瓜 1公斤600公克", "Size": "medium" },
+        "ImageData": { "Src": "cantaloupe.png", "Alt": "cantaloupe" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1600
+      },
+      {
+        "TextData": { "Text": "哈密瓜 1公斤900公克", "Size": "medium" },
+        "ImageData": { "Src": "cantaloupe.png", "Alt": "cantaloupe" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1900
+      },
+      {
+        "TextData": { "Text": "哈密瓜 2公斤600公克", "Size": "medium" },
+        "ImageData": { "Src": "cantaloupe.png", "Alt": "cantaloupe" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2600
+      },
+      {
+        "TextData": { "Text": "哈密瓜 2公斤700公克", "Size": "medium" },
+        "ImageData": { "Src": "cantaloupe.png", "Alt": "cantaloupe" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2700
+      }
+    ],
+    [
+      {
+        "TextData": { "Text": "西瓜 2000 公克", "Size": "medium" },
+        "ImageData": { "Src": "watermelon.png", "Alt": "watermelon" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2000
+      },
+      {
+        "TextData": { "Text": "西瓜 2500 公克", "Size": "medium" },
+        "ImageData": { "Src": "watermelon.png", "Alt": "watermelon" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2500
+      },
+      {
+        "TextData": { "Text": "西瓜 1000 公克", "Size": "medium" },
+        "ImageData": { "Src": "watermelon.png", "Alt": "watermelon" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1000
+      },
+      {
+        "TextData": { "Text": "西瓜 1500 公克", "Size": "medium" },
+        "ImageData": { "Src": "watermelon.png", "Alt": "watermelon" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1500
+      },
+      {
+        "TextData": { "Text": "西瓜 3000 公克", "Size": "medium" },
+        "ImageData": { "Src": "watermelon.png", "Alt": "watermelon" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 3000
+      }
+    ],
+    [
+      {
+        "TextData": { "Text": "榴槤 1300公克", "Size": "medium" },
+        "ImageData": { "Src": "durian.png", "Alt": "durian" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1300
+      },
+      {
+        "TextData": { "Text": "榴槤 1700公克", "Size": "medium" },
+        "ImageData": { "Src": "durian.png", "Alt": "durian" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1700
+      },
+      {
+        "TextData": { "Text": "榴槤 800公克", "Size": "medium" },
+        "ImageData": { "Src": "durian.png", "Alt": "durian" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 800
+      },
+      {
+        "TextData": { "Text": "榴槤 2400公克", "Size": "medium" },
+        "ImageData": { "Src": "durian.png", "Alt": "durian" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2400
+      },
+      {
+        "TextData": { "Text": "榴槤 2800公克", "Size": "medium" },
+        "ImageData": { "Src": "durian.png", "Alt": "durian" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2800
+      }
+    ],
+    [
+      {
+        "TextData": { "Text": "柚子 1550公克", "Size": "medium" },
+        "ImageData": { "Src": "pomelo.png", "Alt": "pomelo" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1550
+      },
+      {
+        "TextData": { "Text": "柚子 1350公克", "Size": "medium" },
+        "ImageData": { "Src": "pomelo.png", "Alt": "pomelo" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1350
+      },
+      {
+        "TextData": { "Text": "柚子 1450公克", "Size": "medium" },
+        "ImageData": { "Src": "pomelo.png", "Alt": "pomelo" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 1450
+      },
+      {
+        "TextData": { "Text": "柚子 2550公克", "Size": "medium" },
+        "ImageData": { "Src": "pomelo.png", "Alt": "pomelo" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2550
+      },
+      {
+        "TextData": { "Text": "柚子 2850公克", "Size": "medium" },
+        "ImageData": { "Src": "pomelo.png", "Alt": "pomelo" },
+        "ScaleData": { "customScaleSrc": null },
+        "Answer": 2850
+      }
+    ]
+  ]
+}

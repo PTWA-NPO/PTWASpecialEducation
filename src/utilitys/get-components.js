@@ -19,6 +19,8 @@ const componentsMapping = {
   MoneyGenerator: () => import("@/components/MoneyGenerator.vue"),
   CardWithButton: () => import("@/components/CardWithButton.vue"),
   MoneyDisplay: () => import("@/components/MoneyDisplay.vue"),
+  Scale: () => import("@/components/Scale.vue"),
+  NumberIncrementor: () => import("@/components/NumberIncrementor.vue"),
 };
 export function GetComponents(name) {
   console.warn(
