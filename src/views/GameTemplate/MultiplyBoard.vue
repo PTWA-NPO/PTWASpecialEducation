@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="number-pad">
-    <numPad v-if="showPad" :Data="numPadData" @buttonClicked="input" />
+    <numPad v-if="showPad" :Data="numPadData" @buttonClicked="handleNumPad" />
   </div>
 </template>
 
@@ -86,6 +86,10 @@ export default {
     },
     GameConfig: {
       type: Object,
+      required: true,
+    },
+    ID: {
+      type: String,
       required: true,
     },
   },
@@ -127,7 +131,6 @@ export default {
     this.unit = await fetchJson(getGameStaticAssets("MultiplyBoard", "unit.json"));
     this.unit = this.unit.data.unit;
     this.setUnit();
-    console.log(this.rowStyle);
   },
 
   methods: {
@@ -318,7 +321,20 @@ export default {
             e.target.getBoundingClientRect().left +
             e.target.getBoundingClientRect().width,
         };
+        this.currentInputBtn = { row: row, column: column };
       }
+    },
+    handleNumPad(input) {
+      if (input == "清除") {
+        this.rowStyle[this.currentInputBtn.row].btnStyle[
+          this.currentInputBtn.column
+        ].value = null;
+      } else if (input != "關閉") {
+        this.rowStyle[this.currentInputBtn.row].btnStyle[
+          this.currentInputBtn.column
+        ].value = input;
+      }
+      this.showPad = false;
     },
   },
 };
