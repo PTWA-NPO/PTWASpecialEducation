@@ -33,8 +33,7 @@
       <hr />
       <div class="row" :style="btnRowStyle">
         <button
-          v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle
-            .length"
+          v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
         ></button>
@@ -53,6 +52,13 @@
       <button @click="checkAnswer()">檢查答案</button>
     </div>
   </div>
+  <div class="number-pad">
+    <numPad
+      @virtualpadinputInput="Input"
+      @virtualpadinputDelete="Delete"
+      @virtualpadinput-pop="Pop"
+    />
+  </div>
 </template>
 
 <script>
@@ -61,12 +67,8 @@ import { defineAsyncComponent } from "vue";
 import fetchJson from "@/utilitys/fetch-json";
 export default {
   components: {
-    drawingBoard: defineAsyncComponent(() =>
-      import("@/components/DrawingBoard.vue")
-    ),
-    //numBtn: defineAsyncComponent(() =>
-    //  import("@/components/ButtonWithNumPad.vue")
-    //),
+    drawingBoard: defineAsyncComponent(() => import("@/components/DrawingBoard.vue")),
+    numPad: defineAsyncComponent(() => import("@/components/FloatNumPad.vue")),
   },
 
   props: {
@@ -83,7 +85,6 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      dotStyle: [],
       rowStyle: [],
       unitRowStyle: {},
       btnRowStyle: {},
@@ -113,9 +114,7 @@ export default {
   },
 
   async mounted() {
-    this.unit = await fetchJson(
-      getGameStaticAssets("MultiplyBoard", "unit.json")
-    );
+    this.unit = await fetchJson(getGameStaticAssets("MultiplyBoard", "unit.json"));
     this.unit = this.unit.data.unit;
     this.setUnit();
   },
@@ -166,12 +165,17 @@ export default {
     },
     setBtnStyle(i) {
       this.maxDigit = Math.max(...this.GameData.digitsOfEachRow);
-      let btnStyle = [];
+      let btnStyle = [],
+        btnColor;
+      if (i == this.GameData.digitsOfEachRow.length - 1) btnColor = "pink";
+      else btnColor = "lightgray";
+
       if (i < this.GameData.digitsOfEachRow.length - 1 && i > 1) {
         for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
           let btn = {
             gridColumn: j + 10 - this.GameData.digitsOfEachRow[i] - i + 2,
             gridRow: 1,
+            backgroundColor: btnColor,
           };
 
           btnStyle.push(btn);
@@ -181,6 +185,7 @@ export default {
           let btn = {
             gridColumn: j + 10 - this.GameData.digitsOfEachRow[i],
             gridRow: 1,
+            backgroundColor: btnColor,
           };
           btnStyle.push(btn);
         }
@@ -190,6 +195,7 @@ export default {
         let btn = {
           gridColumn: 9 - this.maxDigit,
           gridRow: 1,
+          backgroundColor: "#aded5d",
         };
         btnStyle.push(btn);
       }
@@ -280,8 +286,9 @@ export default {
     },
     checkAnswer() {
       let isCorrect = true;
-      let ansDigits =
-        this.GameData.digitsOfEachRow[this.GameData.digitsOfEachRow.length - 1];
+      let ansDigits = this.GameData.digitsOfEachRow[
+        this.GameData.digitsOfEachRow.length - 1
+      ];
       for (let i in this.GameData.answers) {
         if (
           this.answer[ansDigits - i - 1] ==
@@ -324,13 +331,6 @@ export default {
   height: 100%;
   width: 100%;
 }
-.dot {
-  height: 10px;
-  width: 10px;
-  background-color: black;
-  border-radius: 50%;
-  position: absolute;
-}
 
 .unit {
   height: 10%;
@@ -364,6 +364,7 @@ export default {
   aspect-ratio: 2/3;
   width: fit-content;
   padding: 0;
+  border: none;
 }
 hr {
   margin: 0;
