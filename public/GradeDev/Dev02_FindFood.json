@@ -16,14 +16,18 @@
     "Questions": [
         {
             "Question": "[Insert question 1.]",
-            "True": ["ans1", "ans2", "ans3"],
-            "False": [1, 2, 3, 4, 5]
+            "Options": ["2cm", "4cm"],
+            "Radius": [2,4],
+            "FoodImage": "food1.png",
+            "Answer": 10
         },
 
         {
             "Question": "[Insert question 2.]",
-            "True": ["ans1", "ans2", "ans3"],
-            "False": [1, 2, 3, 4, 5]
+            "Options": ["3cm", "9cm"],
+            "Radius": [3,9],
+            "FoodImage": "food1.png",
+            "Answer": 7
         }
     ]
 }
