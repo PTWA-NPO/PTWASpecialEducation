@@ -4,9 +4,10 @@
     <v-stage :config="configKonva">
       <v-layer>
         <v-rect :config="configBG" />
-        <v-rect v-for="(frame, index) in configFrames" :key="index" :config="frame" />
       </v-layer>
-      <v-layer> </v-layer>
+      <v-layer>
+        <v-circle :config="configRing"></v-circle>
+      </v-layer>
     </v-stage>
   </div>
 </template>
@@ -34,24 +35,19 @@ export default {
       configBG: {
         x: 0,
         y: 0,
-        fill: "#8e6d3c",
-        stroke: "#8e6d3c",
+        fill: "#D09F57",
+        stroke: "#D09F57",
       },
-      configFrames: [
-        {
-          fill: "#c8d0d6",
-          strokeEnabled: false,
-        },
-        {
-          fill: "#9D9FAB",
-          strokeEnabled: false,
-        },
-      ],
+      configRing: {
+        stroke: "black",
+        strokeWidth: 5,
+        draggable: true,
+      },
     };
   },
   mounted() {
     this.initializeScene();
-    this.drawFrames();
+    this.drawRing();
   },
 
   methods: {
@@ -63,18 +59,11 @@ export default {
       this.configBG.width = this.gameWidth / 2;
       this.configBG.height = this.gameHeight;
     },
-    drawFrames() {
-      this.configFrames[0].x = this.gameWidth / 2;
-      this.configFrames[0].y = 0;
-      this.configFrames[0].width = this.gameWidth / 2;
-      this.configFrames[0].height = this.gameHeight / 2;
-
-      this.configFrames[1].x = this.gameWidth / 2;
-      this.configFrames[1].y = this.gameHeight / 2;
-      this.configFrames[1].width = this.gameWidth / 2;
-      this.configFrames[1].height = this.gameHeight / 2;
+    drawRing() {
+      this.configRing.x = (this.gameWidth / 4) * 3;
+      this.configRing.y = this.gameHeight / 2;
+      this.configRing.radius = this.gameWidth / 5;
     },
-    update() {},
   },
 };
 </script>
