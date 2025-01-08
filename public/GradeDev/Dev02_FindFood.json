@@ -24,8 +24,8 @@
 
         {
             "Question": "[Insert question 2.]",
-            "Options": ["3cm", "9cm"],
-            "Radius": [3,9],
+            "Options": ["9cm", "3cm"],
+            "Radius": [9,3],
             "FoodImage": "food1.png",
             "Answer": 7
         }
