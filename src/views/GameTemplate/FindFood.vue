@@ -7,6 +7,12 @@
       </v-layer>
       <v-layer>
         <v-circle :config="configRing"></v-circle>
+        <v-text
+          v-for="(option, index) in configOptions"
+          :key="index"
+          :config="option"
+          @click="handleButton(index)"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -44,12 +50,14 @@ export default {
         draggable: true,
       },
       ringRadius: [],
+      configOptions: [],
     };
   },
   mounted() {
     this.initializeScene();
     this.setRingRadius();
     this.drawRing();
+    this.drawOptions();
   },
 
   methods: {
@@ -81,6 +89,19 @@ export default {
       this.configRing.x = (this.gameWidth / 4) * 3;
       this.configRing.y = this.gameHeight / 2 - this.gameWidth / 40;
       this.configRing.radius = this.ringRadius[0];
+    },
+    drawOptions() {
+      this.configOptions = this.GameData.Options.map((option, index) => {
+        return {
+          x: this.gameWidth / 2 + this.gameWidth / 20 + (this.gameWidth / 4) * index,
+          y: (this.gameHeight / 10) * 9,
+          text: option,
+          fontSize: this.gameWidth / 30,
+        };
+      });
+    },
+    handleButton(index) {
+      this.configRing.radius = this.ringRadius[index];
     },
   },
 };
