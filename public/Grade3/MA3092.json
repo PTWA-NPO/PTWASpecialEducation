@@ -1,0 +1,2276 @@
+{
+  "id": "MA3092",
+  "introvideo": "",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "塗色的部分共是多少?將正確的分數連起來。"
+  },
+  "GameType": "LinkGame",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{7}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ],
+          [
+            [0, 3],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{7}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{7}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 3],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{7}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{7}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 3]
+          ],
+          [
+            [0, 3],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 7,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{7}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{7}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 2],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 3],
+            [1, 2]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{6}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{6}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{6}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{6}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{6}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{6}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 3]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 6,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{6}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{6}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 3]
+          ],
+          [
+            [0, 3],
+            [1, 0]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{7}{8}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 3]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 8,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{8}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{7}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{8}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 3],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 8,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{8}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{8}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 8,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 8,
+                  "shape": "circle",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{7}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{8}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{8}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{9}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 0]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 9,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{9}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{9}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 3],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 8,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{8}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{9}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ],
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{9}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 2],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 3],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 9,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 9,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{7}{9}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{9}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 0]
+          ],
+          [
+            [0, 2],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ]
+        ]
+      }
+    ],
+    [
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 9,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 2,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{9}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{2}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{10}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ],
+          [
+            [0, 1],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 10,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{10}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{10}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 2]
+          ],
+          [
+            [0, 0],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 9,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{9}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{10}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 1],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ],
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 0],
+            [1, 1]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 7,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 3,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 8,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 10,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{8}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{3}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{7}{10}"
+                }
+              },
+              {
+                "Name": "TextOnly",
+                "Data": {
+                  "Text": "1",
+                  "Zhuyin": true,
+                  "Size": "title-medium"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 3],
+            [1, 3]
+          ],
+          [
+            [0, 1],
+            [1, 1]
+          ],
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 2],
+            [1, 0]
+          ]
+        ]
+      },
+      {
+        "Question": {
+          "text": "把一樣的數連起來",
+          "RowData": [
+            [
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 1,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 4,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 5,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              },
+              {
+                "Name": "InteractiveFractionVisual",
+                "Data": {
+                  "Numerator": 6,
+                  "Denominator": 10,
+                  "shape": "cup",
+                  "DisplayOnly": true
+                }
+              }
+            ],
+            [
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{6}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{5}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{1}{10}"
+                }
+              },
+              {
+                "Name": "FractionDisplay",
+                "Data": {
+                  "Content": "\\frac{4}{10}"
+                }
+              }
+            ]
+          ]
+        },
+        "Answer": [
+          [
+            [0, 0],
+            [1, 2]
+          ],
+          [
+            [0, 1],
+            [1, 3]
+          ],
+          [
+            [0, 2],
+            [1, 1]
+          ],
+          [
+            [0, 3],
+            [1, 0]
+          ]
+        ]
+      }
+    ]
+  ]
+}
