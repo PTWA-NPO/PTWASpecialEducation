@@ -6,7 +6,7 @@
         <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
-        <v-circle :config="configRing"></v-circle>
+        <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
         <v-text
           v-for="(option, index) in configOptions"
           :key="index"
@@ -51,6 +51,7 @@ export default {
       },
       ringRadius: [],
       configOptions: [],
+      ringKey: 0,
     };
   },
   mounted() {
@@ -102,6 +103,29 @@ export default {
     },
     handleButton(index) {
       this.configRing.radius = this.ringRadius[index];
+      this.snapToOrigin();
+      this.ringKey++;
+    },
+    handleDragEnd(e) {
+      let target = {
+        x: this.gameWidth / 4,
+        y: this.gameHeight / 2,
+      };
+      if (canvasTools.distance(e.target.position(), target) <= this.gameWidth / 20) {
+        this.snapToTarget();
+      } else {
+        this.snapToOrigin();
+      }
+    },
+    snapToTarget() {
+      this.configRing.x = this.gameWidth / 4;
+      this.configRing.y = this.gameHeight / 2;
+      this.ringKey++;
+    },
+    snapToOrigin() {
+      this.configRing.x = (this.gameWidth / 4) * 3;
+      this.configRing.y = this.gameHeight / 2 - this.gameWidth / 40;
+      this.ringKey++;
     },
   },
 };
