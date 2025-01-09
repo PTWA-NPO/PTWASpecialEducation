@@ -7,7 +7,7 @@
       </v-layer>
       <v-layer>
         <v-image :config="configTarget" />
-        <v-image :config="configFood" />
+        <v-shape :config="configFood" />
       </v-layer>
       <v-layer>
         <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
@@ -154,14 +154,27 @@ export default {
     drawFood() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      this.configFood.image = foodImage;
-      this.configFood.x = this.gameWidth / 4;
-      this.configFood.y = this.gameHeight / 4;
-      this.configFood.width = this.gameHeight / 10;
-      this.configFood.height = this.gameHeight / 10;
-
-      this.configFood.x = canvasTools.corner(this.configFood).x;
-      this.configFood.y = canvasTools.corner(this.configFood).y;
+      let food = {
+        image: foodImage,
+        x: this.gameWidth / 4,
+        y: this.gameHeight / 4,
+        width: this.gameHeight / 10,
+        height: this.gameHeight / 10,
+        rotation: Math.random() * 360,
+        sceneFunc: this.foodSceneFunc,
+      };
+      this.configFood = food;
+    },
+    foodSceneFunc(context, shape) {
+      context.beginPath();
+      context.rotate(shape.getAttr("rotation") * (Math.PI / 180));
+      context.drawImage(
+        shape.getAttr("image"),
+        -shape.getAttr("width") / 2,
+        -shape.getAttr("height") / 2,
+        shape.getAttr("width"),
+        shape.getAttr("height")
+      );
     },
   },
 };
