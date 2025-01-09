@@ -18,7 +18,8 @@
             "Question": "[Insert question 1.]",
             "Options": ["2cm", "4cm"],
             "Radius": [2,4],
-            "FoodImage": "food1.png",
+            "TargetImage": "target.png",
+            "FoodImage": "food.png",
             "Answer": 10
         },
 
@@ -26,7 +27,8 @@
             "Question": "[Insert question 2.]",
             "Options": ["9cm", "3cm"],
             "Radius": [9,3],
-            "FoodImage": "food1.png",
+            "TargetImage": "target.png",
+            "FoodImage": "food.png",
             "Answer": 7
         }
     ]

@@ -6,6 +6,10 @@
         <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
+        <v-image :config="configTarget" />
+        <v-image :config="configFood" />
+      </v-layer>
+      <v-layer>
         <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
         <v-text
           v-for="(option, index) in configOptions"
@@ -33,6 +37,10 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
   emits: ["play-effect", "add-record", "next-question"],
   data() {
@@ -52,6 +60,8 @@ export default {
       ringRadius: [],
       configOptions: [],
       ringKey: 0,
+      configTarget: {},
+      configFood: {},
     };
   },
   mounted() {
@@ -59,6 +69,8 @@ export default {
     this.setRingRadius();
     this.drawRing();
     this.drawOptions();
+    this.drawTarget();
+    this.drawFood();
   },
 
   methods: {
@@ -126,6 +138,30 @@ export default {
       this.configRing.x = (this.gameWidth / 4) * 3;
       this.configRing.y = this.gameHeight / 2 - this.gameWidth / 40;
       this.ringKey++;
+    },
+    drawTarget() {
+      const targetImage = new window.Image();
+      targetImage.src = getGameAssets(this.ID, this.GameData.TargetImage);
+      this.configTarget.image = targetImage;
+      this.configTarget.x = this.gameWidth / 4;
+      this.configTarget.y = this.gameHeight / 2;
+      this.configTarget.width = this.gameHeight / 10;
+      this.configTarget.height = this.gameHeight / 10;
+
+      this.configTarget.x = canvasTools.corner(this.configTarget).x;
+      this.configTarget.y = canvasTools.corner(this.configTarget).y;
+    },
+    drawFood() {
+      const foodImage = new window.Image();
+      foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
+      this.configFood.image = foodImage;
+      this.configFood.x = this.gameWidth / 4;
+      this.configFood.y = this.gameHeight / 4;
+      this.configFood.width = this.gameHeight / 10;
+      this.configFood.height = this.gameHeight / 10;
+
+      this.configFood.x = canvasTools.corner(this.configFood).x;
+      this.configFood.y = canvasTools.corner(this.configFood).y;
     },
   },
 };
