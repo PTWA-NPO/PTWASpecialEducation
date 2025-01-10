@@ -51,10 +51,11 @@ export function randomPositionInCircle(center, radius){
         left: center.x - radius,
         right: center.x + radius,
     }
-    
+
     let isInCircle = false;
+    let position;
     do{
-        let position = randomPosition(boundaries);
+        position = randomPosition(boundaries);
         if(distance(position, center) < radius) isInCircle = true;
     }while(!isInCircle);
     return position;
