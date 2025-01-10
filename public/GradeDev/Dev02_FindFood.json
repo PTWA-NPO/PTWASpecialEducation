@@ -19,7 +19,7 @@
             "Options": ["2cm", "4cm"],
             "Radius": [2,4],
             "CorrectRadius": 0,
-            "TargetImage": "target.png",
+            "TargetImage": "rat.png",
             "FoodImage": "food.png",
             "Answer": 8
         },
@@ -29,7 +29,7 @@
             "Options": ["9cm", "3cm"],
             "Radius": [9,3],
             "CorrectRadius": 1,
-            "TargetImage": "target.png",
+            "TargetImage": "rat.png",
             "FoodImage": "food.png",
             "Answer": 7
         }
