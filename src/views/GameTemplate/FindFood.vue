@@ -6,10 +6,6 @@
         <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
-        <v-image :config="configTarget" />
-        <v-shape :config="configFood" />
-      </v-layer>
-      <v-layer>
         <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
         <v-text
           v-for="(option, index) in configOptions"
@@ -17,6 +13,10 @@
           :config="option"
           @click="handleButton(index)"
         />
+      </v-layer>
+      <v-layer>
+        <v-image :config="configTarget" />
+        <v-shape v-for="(food, index) in configFood" :key="index" :config="food" />
       </v-layer>
     </v-stage>
   </div>
@@ -61,7 +61,7 @@ export default {
       configOptions: [],
       ringKey: 0,
       configTarget: {},
-      configFood: {},
+      configFood: [],
     };
   },
   mounted() {
@@ -70,7 +70,7 @@ export default {
     this.drawRing();
     this.drawOptions();
     this.drawTarget();
-    this.drawFood();
+    this.drawFoodinCorrectRadius();
   },
 
   methods: {
@@ -151,23 +151,42 @@ export default {
       this.configTarget.x = canvasTools.corner(this.configTarget).x;
       this.configTarget.y = canvasTools.corner(this.configTarget).y;
     },
-    drawFood() {
+    drawFoodinCorrectRadius() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      let food = {
-        image: foodImage,
-        x: this.gameWidth / 4,
-        y: this.gameHeight / 4,
-        width: this.gameHeight / 10,
-        height: this.gameHeight / 10,
-        rotation: Math.random() * 360,
-        sceneFunc: this.foodSceneFunc,
-      };
-      this.configFood = food;
+      this.foodWidth = this.gameHeight / 20;
+      for (let i = 0; i < this.GameData.Answer; i++) {
+        let position;
+        do {
+          position = canvasTools.randomPositionInCircle(
+            canvasTools.center(this.configTarget),
+            this.ringRadius[this.GameData.CorrectRadius]
+          );
+        } while (this.isOverlapped(position));
+
+        let food = {
+          image: foodImage,
+          x: position.x,
+          y: position.y,
+          width: this.foodWidth,
+          height: this.foodWidth,
+          rotation: Math.random() * 360,
+          sceneFunc: this.foodSceneFunc,
+          draggable: true,
+        };
+        this.configFood.push(food);
+      }
     },
     foodSceneFunc(context, shape) {
       context.beginPath();
       context.rotate(shape.getAttr("rotation") * (Math.PI / 180));
+      // 設置可點擊區域
+      context.rect(
+        -shape.getAttr("width") / 2,
+        -shape.getAttr("height") / 2,
+        shape.getAttr("width"),
+        shape.getAttr("height")
+      );
       context.drawImage(
         shape.getAttr("image"),
         -shape.getAttr("width") / 2,
@@ -175,6 +194,29 @@ export default {
         shape.getAttr("width"),
         shape.getAttr("height")
       );
+    },
+    isOverlapped(food) {
+      for (let i = 0; i < this.configFood.length; i++) {
+        if (canvasTools.distance(food, this.configFood[i]) < this.foodWidth) return true;
+      }
+      if (
+        canvasTools.distance(food, canvasTools.center(this.configTarget)) <
+        this.configTarget.width
+      ) {
+        return true;
+      }
+
+      for (let i = 0; i < this.configOptions.length; i++) {
+        if (
+          canvasTools.distance(food, canvasTools.center(this.configTarget)) <
+            this.ringRadius[i] + this.foodWidth &&
+          canvasTools.distance(food, canvasTools.center(this.configTarget)) >
+            this.ringRadius[i] - this.foodWidth
+        ) {
+          return true;
+        }
+      }
+      return false;
     },
   },
 };
