@@ -44,6 +44,22 @@ export function randomPosition(boundaries){
     }
 }
 
+export function randomPositionInCircle(center, radius){
+    let boundaries = {
+        up: center.y - radius,
+        down: center.y + radius,
+        left: center.x - radius,
+        right: center.x + radius,
+    }
+    
+    let isInCircle = false;
+    do{
+        let position = randomPosition(boundaries);
+        if(distance(position, center) < radius) isInCircle = true;
+    }while(!isInCircle);
+    return position;
+}
+
 export function angle(object_1, object_2){
     if(object_2.x>object_1.x) return Math.atan((object_2.y-object_1.y)/(object_2.x-object_1.x))+Math.PI/2;
     else return Math.atan((object_2.y-object_1.y)/(object_2.x-object_1.x))+Math.PI/2*3;
