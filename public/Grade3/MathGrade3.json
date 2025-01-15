@@ -13,24 +13,12 @@
                 "Name": "數到10000",
                 "Description": "將數字連連看",
                 "Img": "MA3011.png"
-              },
-              {
-                "id": "MA3012",
-                "Name": "累加、累減連連看",
-                "Description": "將數字連到數線中的空白處",
-                "Img": "MA3012.png"
               }
             ]
           },
           {
             "Title": "使用錢幣",
             "Games": [
-              {
-                "id": "MA3013",
-                "Name": "數錢幣",
-                "Description": "數數看錢幣，並且田入正確的數字",
-                "Img": "MA3013.png"
-              },
               {
                 "id": "MA3014",
                 "Name": "數到10000",
@@ -110,12 +98,6 @@
             "Title": "認識毫米",
             "Games": [
               {
-                "id": "MA3031",
-                "Name": "量量看",
-                "Description": "使用題目提供的尺，來量各題的長度並回答問題",
-                "Img": "MA3031.png"
-              },
-              {
                 "id": "MA3032",
                 "Name": "長度單位換算",
                 "Description": "請選擇正確轉換過的單位",
@@ -154,18 +136,6 @@
           {
             "Title": "認識毫米",
             "Games": [
-              {
-                "id": "MA3041",
-                "Name": "二位數乘以一位數(計算題)",
-                "Description": "使用題目提供的尺，來量各題的長度並回答問題",
-                "Img": "MA3041.png"
-              },
-              {
-                "id": "MA3042",
-                "Name": "三位數乘以一位數(計算題)",
-                "Description": "請選擇正確轉換過的單位",
-                "Img": "MA3042.png"
-              },
               {
                 "id": "MA3043",
                 "Name": "連乘的兩步驟問題(應用題)",
@@ -227,28 +197,6 @@
                 "Name": "認識平方公分",
                 "Description": "下面圖形的面積各是多少平方公分?",
                 "Img": "MA3061.png"
-              }
-            ]
-          },
-          {
-            "Title": "切割拼湊算面積",
-            "Games": [
-              {
-                "id": "MA3062",
-                "Name": "切割拼湊算面積",
-                "Description": "下面圖形的面積各是多少平方公分?",
-                "Img": "MA3062.png"
-              }
-            ]
-          },
-          {
-            "Title": "估估看面積有多大",
-            "Games": [
-              {
-                "id": "MA3063",
-                "Name": "估估看面積有多大",
-                "Description": "估估看，下面圖形的面積大約有多少",
-                "Img": "MA3063.png"
               }
             ]
           }
@@ -323,45 +271,6 @@
                 "Img": "MA3092.png"
               }
             ]
-          },
-          {
-            "Title": "幾分之幾(二)",
-            "Games": [
-              {
-                "id": "MA3093",
-                "Name": "幾分之幾(離散量情境的分數概念)",
-                "Description": "",
-                "Img": "MA3093.png"
-              }
-            ]
-          },
-          {
-            "Title": "幾分之幾(二)",
-            "Games": [
-              {
-                "id": "MA3094",
-                "Name": "分數數詞序列一",
-                "Description": "",
-                "Img": "MA3094.png"
-              },
-              {
-                "id": "MA3095",
-                "Name": "分數數詞序列二",
-                "Description": "",
-                "Img": "MA3095.png"
-              }
-            ]
-          },
-          {
-            "Title": "分數的大小比較",
-            "Games": [
-              {
-                "id": "MA3096",
-                "Name": "分數的大小比較",
-                "Description": "",
-                "Img": "MA3096.png"
-              }
-            ]
           }
         ]
       }
@@ -423,17 +332,6 @@
       {
         "Title": "4 - 公斤和公克",
         "Section": [
-          {
-            "Title": "認識1公斤秤",
-            "Games": [
-              {
-                "id": "MA3141",
-                "Name": "認識1公斤秤",
-                "Description": "",
-                "Img": ""
-              }
-            ]
-          },
           {
             "Title": "認識3公斤秤",
             "Games": [
@@ -509,12 +407,6 @@
                 "Name": "直徑、半徑、圓心",
                 "Description": "",
                 "Img": ""
-              },
-              {
-                "id": "MA3164",
-                "Name": "判斷半徑是直徑的一半",
-                "Description": "",
-                "Img": ""
               }
             ]
           }
@@ -565,12 +457,6 @@
                 "Name": "時分的加減(計算題)",
                 "Description": "",
                 "Img": "MA3185.png"
-              },
-              {
-                "id": "MA3186",
-                "Name": "時分的加減(應用題)",
-                "Description": "",
-                "Img": "MA3186.png"
               }
             ]
           }
