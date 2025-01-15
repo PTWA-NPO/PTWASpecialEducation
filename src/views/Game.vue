@@ -258,6 +258,9 @@ export default {
     MultiplyBoard: defineAsyncComponent(() =>
       import("@/views/GameTemplate/MultiplyBoard.vue")
     ),
+    FractionArithmetic: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/FractionArithmetic.vue")
+    ),
   },
   data() {
     return {
