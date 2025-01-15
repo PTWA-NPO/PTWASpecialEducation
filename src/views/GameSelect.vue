@@ -69,22 +69,25 @@
       class="game-select__container"
       style="overflow-y: hidden"
     >
-      <div class="side-bar">
-        <p class="title">現在科目</p>
-        <button class="">
-          {{ subjects[nowSubject] }}
-        </button>
-        <p class="title">章節</p>
-        <div v-if="showInfo" class="button-container">
-          <template v-for="(items, key) in showInfo" :key="key">
+      <div class="sidebar">
+        <p class="sidebar__title">學期</p>
+        <div class="sidebar__button-group">
+          <template v-for="(semester, index) in showInfo" :key="index">
             <button
-              class="list-group-item"
-              @click="
-                () => {
-                  selectChapter(key);
-                }
-              "
+              class="sidebar__button"
+              :class="{
+                'sidebar__button--semester-active': selectedSemester === index,
+              }"
+              @click="selectSemester(index)"
             >
+              {{ semester.lableName }}
+            </button>
+          </template>
+        </div>
+        <p class="sidebar__title">章節</p>
+        <div v-if="showInfo" class="sidebar__button-group">
+          <template v-for="(items, key) in currentSemesterChapters" :key="key">
+            <button class="sidebar__button" @click="selectChapter(key)">
               {{ items.Title }}
             </button>
           </template>
@@ -93,7 +96,7 @@
       <!-- 遊戲卡片區域 -->
       <div v-if="showGameCards" :key="refresh" class="game-display__container">
         <div
-          v-for="(items, index) in showInfo[selectedCharpter].Section"
+          v-for="(items, index) in currentChapterSections"
           :key="index"
           class="game-charpter__container"
         >
@@ -216,7 +219,18 @@ export default {
       showGameCards: false,
       showMode: "menu", // menu, game, search
       refresh: 0,
+      selectedSemester: 0, // 新增：當前選擇的學期
     };
+  },
+  computed: {
+    currentSemesterChapters() {
+      if (!this.showInfo || !this.showInfo[this.selectedSemester]) return [];
+      return this.showInfo[this.selectedSemester].gameItem;
+    },
+    currentChapterSections() {
+      if (!this.currentSemesterChapters || !this.selectedCharpter) return [];
+      return this.currentSemesterChapters[this.selectedCharpter]?.Section || [];
+    },
   },
   async created() {
     // 在這裡你可以存取 this.$route.params.id
@@ -256,19 +270,26 @@ export default {
         if (subjectSession == "Math") {
           this.showInfo = this.mathShowInfo;
           this.changeSubject("Math");
-          this.handleChapterSession("Math");
+          this.handleSemesterAndChapterSession("Math");
         } else if (subjectSession == "Chinese") {
           this.showInfo = this.chineseShowInfo;
           this.changeSubject("Chinese");
-          this.handleChapterSession("Chinese");
+          this.handleSemesterAndChapterSession("Chinese");
         } else if (subjectSession == "Technology") {
           this.showInfo = this.technologyShowInfo;
           this.changeSubject("Technology");
-          this.handleChapterSession("Technology");
+          this.handleSemesterAndChapterSession("Technology");
         }
       }
     },
-    handleChapterSession(subject) {
+    handleSemesterAndChapterSession(subject) {
+      let semesterSession = this.handleSession("get", `${subject}Semester`);
+      if (semesterSession) {
+        this.selectedSemester = parseInt(semesterSession);
+      } else {
+        this.selectedSemester = 0;
+      }
+
       let chapterSession = this.handleSession("get", `${subject}Chapter`);
       if (chapterSession) {
         this.selectChapter(chapterSession);
@@ -279,13 +300,20 @@ export default {
     },
     convertGameDataImageURLs(originalDatas) {
       let datas = originalDatas;
-      for (let i in datas) {
-        for (let z in datas[i].Section) {
-          for (let x in datas[i].Section[z].Games) {
-            datas[i].Section[z].Games[x].Img = getGameAssets(
-              datas[i].Section[z].Games[x].id,
-              datas[i].Section[z].Games[x].Img
-            );
+      for (let semester in datas) {
+        for (let chapter in datas[semester].gameItem) {
+          for (let section in datas[semester].gameItem[chapter].Section) {
+            for (let game in datas[semester].gameItem[chapter].Section[section]
+              .Games) {
+              datas[semester].gameItem[chapter].Section[section].Games[
+                game
+              ].Img = getGameAssets(
+                datas[semester].gameItem[chapter].Section[section].Games[game]
+                  .id,
+                datas[semester].gameItem[chapter].Section[section].Games[game]
+                  .Img
+              );
+            }
           }
         }
       }
@@ -316,15 +344,15 @@ export default {
       if (subject == "Math") {
         this.showInfo = this.mathShowInfo;
         this.handleSession("set", "Subject", subject);
-        this.handleChapterSession("Math");
+        this.handleSemesterAndChapterSession("Math");
       } else if (subject == "Chinese") {
         this.showInfo = this.chineseShowInfo;
         this.handleSession("set", "Subject", subject);
-        this.handleChapterSession("Chinese");
+        this.handleSemesterAndChapterSession("Chinese");
       } else if (subject == "Technology") {
         this.showInfo = this.technologyShowInfo;
         this.handleSession("set", "Subject", subject);
-        this.handleChapterSession("Technology");
+        this.handleSemesterAndChapterSession("Technology");
       }
       this.handleSession("set", "Subject", subject);
       this.handleSession("remove", "Chapter");
@@ -378,6 +406,12 @@ export default {
     switchRouter(to) {
       this.makeReadText("", "", (stop = true));
       this.$router.push(to);
+    },
+    selectSemester(index) {
+      this.selectedSemester = index;
+      this.selectedCharpter = null;
+      this.showGameCards = false;
+      this.handleSession("set", `${this.nowSubject}Semester`, index);
     },
   },
 };
@@ -504,38 +538,6 @@ header {
   display: grid;
   grid-template-columns: 1fr 5fr;
   height: 90vh;
-  .side-bar {
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
-    background-color: #ddd;
-    padding: 0 1rem;
-    button {
-      @extend .button-border;
-      width: 100%;
-      font-weight: 600;
-      font-size: 1.2rem;
-      height: 2.6rem;
-    }
-    .title {
-      font-size: 1.5em;
-      margin: 1rem 0;
-    }
-    .button-container {
-      display: grid;
-      gap: 1rem;
-      button {
-        transition: transform 0.3s ease;
-        font-size: 1rem;
-        background-color: #feece9;
-        color: #333;
-      }
-      button:hover {
-        transform: scale(1.05);
-        background-color: #feece9;
-      }
-    }
-  }
 }
 
 .game-display__container {
@@ -608,6 +610,35 @@ header {
       .game-card__group {
         grid-template-columns: 1fr 1fr 1fr 1fr;
       }
+    }
+  }
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  background-color: #ddd;
+  padding: 0 0.7rem;
+  &__title {
+    font-size: 1.5em;
+    margin: 1rem 0;
+  }
+  &__button-group {
+    display: grid;
+    gap: 1rem;
+  }
+  &__button {
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    background-color: #feece9;
+    color: #333;
+    @extend .button-border;
+    width: 100%;
+    font-weight: 600;
+    height: 2.6rem;
+    &--semester-active {
+      background-color: #4caf50; // 綠色
+      color: white;
     }
   }
 }
