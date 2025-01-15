@@ -2,35 +2,22 @@
   <div>
     <select @change="(event) => (tester = event.target.value)">
       <option>numberLine</option>
-      <option>fraction</option>
+      <option selected>fraction</option>
       <option>drawShapes</option>
       <option>dragToAlign</option>
       <option>dragImages</option>
       <option>scale</option>
       <option>drawingBroad</option>
-      <option selected>numPad</option>
     </select>
   </div>
   <div v-if="tester == 'fraction'" class="testArea">
-    <dragFraction
-      :Data="configFraction"
-      :ID="gameid"
-      @reply-answer="printAns"
-    />
+    <dragFraction :Data="configFraction" :ID="gameid" @reply-answer="printAns" />
   </div>
   <div v-if="tester == 'numberLine'" class="testArea">
-    <numberLine
-      :Data="configNumberLine"
-      :ID="gameid"
-      @get-drag-position="printAns"
-    />
+    <numberLine :Data="configNumberLine" :ID="gameid" @get-drag-position="printAns" />
   </div>
   <div v-if="tester == 'drawShapes'" class="testArea">
-    <drawShapes
-      :Data="configDrawShapes"
-      :ID="gameid"
-      @reply-answer="printAns"
-    />
+    <drawShapes :Data="configDrawShapes" :ID="gameid" @reply-answer="printAns" />
   </div>
   <div v-if="tester == 'dragToAlign'" class="testArea">
     <dragToAlign :Data="configDragToAlign" :ID="gameid" />
@@ -62,9 +49,6 @@
       </button>
     </div>
   </div>
-  <div v-if="tester == 'numPad'" class="numPad testArea">
-    <numPad :Data="configNumPad" @replyAnswer="printAns"></numPad>
-  </div>
 </template>
 
 <script>
@@ -73,28 +57,13 @@ import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {
-    dragFraction: defineAsyncComponent(() =>
-      import("@/components/DragFraction.vue")
-    ),
-    numberLine: defineAsyncComponent(() =>
-      import("@/components/DragOnNumberLine.vue")
-    ),
-    drawShapes: defineAsyncComponent(() =>
-      import("@/components/DrawShapes.vue")
-    ),
-    dragToAlign: defineAsyncComponent(() =>
-      import("@/components/DragToAlign.vue")
-    ),
-    dragImages: defineAsyncComponent(() =>
-      import("@/components/DragImages.vue")
-    ),
+    dragFraction: defineAsyncComponent(() => import("@/components/DragFraction.vue")),
+    numberLine: defineAsyncComponent(() => import("@/components/DragOnNumberLine.vue")),
+    drawShapes: defineAsyncComponent(() => import("@/components/DrawShapes.vue")),
+    dragToAlign: defineAsyncComponent(() => import("@/components/DragToAlign.vue")),
+    dragImages: defineAsyncComponent(() => import("@/components/DragImages.vue")),
     scale: defineAsyncComponent(() => import("@/components/Scale.vue")),
-    drawingBoard: defineAsyncComponent(() =>
-      import("@/components/DrawingBoard.vue")
-    ),
-    numPad: defineAsyncComponent(() =>
-      import("@/components/ButtonWithNumPad.vue")
-    ),
+    drawingBoard: defineAsyncComponent(() => import("@/components/DrawingBoard.vue")),
   },
   data() {
     return {
@@ -156,10 +125,6 @@ export default {
       configBrush: {
         color: "red",
         size: 10,
-      },
-      configNumPad: {
-        padPosition: "upperRight",
-        color: "#6da1f1",
       },
       gameid: "Dev0105",
     };

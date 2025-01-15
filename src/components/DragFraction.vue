@@ -1,5 +1,5 @@
 <template>
-  <div ref="container">
+  <div ref="container" class="gameContainer">
     <v-stage :config="configKonva">
       <v-layer>
         <v-rect :config="configBG" />
@@ -7,6 +7,7 @@
       </v-layer>
       <v-layer v-if="Data.shape == 'circle'">
         <circleFraction
+          :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
           :numerator="numerator"
@@ -17,6 +18,7 @@
 
       <v-layer v-if="Data.shape == 'rect'">
         <rectFraction
+          :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
           :numerator="numerator"
@@ -42,18 +44,13 @@
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
-import { identity } from "@vueuse/core";
 export default {
   components: {
     circleFraction: defineAsyncComponent(() =>
-      import(
-        "@/components/components-utilitys/drag-fraction/DragFractionCircle.vue"
-      )
+      import("@/components/components-utilitys/drag-fraction/DragFractionCircle.vue")
     ),
     rectFraction: defineAsyncComponent(() =>
-      import(
-        "@/components/components-utilitys/drag-fraction/DragFractionRect.vue"
-      )
+      import("@/components/components-utilitys/drag-fraction/DragFractionRect.vue")
     ),
   },
 
@@ -91,17 +88,28 @@ export default {
 
       numerator: 3,
       denominator: 3,
+      componentKey: 0,
     };
   },
 
   mounted() {
     this.initializeScene();
+    this.componentKey++;
   },
 
   methods: {
     initializeScene() {
-      this.gameWidth = this.$refs.container.clientWidth;
-      this.gameHeight = this.gameWidth * 0.75;
+      console.log(this.$refs.container.clientWidth, this.$refs.container.clientHeight);
+      if (
+        this.$refs.container.clientWidth * 0.75 <= this.$refs.container.clientHeight ||
+        this.$refs.container.clientHeight == 0
+      ) {
+        this.gameWidth = this.$refs.container.clientWidth;
+        this.gameHeight = this.gameWidth * 0.75;
+      } else {
+        this.gameHeight = this.$refs.container.clientHeight;
+        this.gameWidth = this.gameHeight / 0.75;
+      }
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
       this.configBG.width = this.gameWidth;
@@ -241,3 +249,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.gameContainer {
+  width: 100%;
+  height: 100%;
+}
+</style>
