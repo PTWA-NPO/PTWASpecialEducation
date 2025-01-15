@@ -6,13 +6,25 @@
           <img :src="navLogoSrc" @click="switchRouter({ name: 'Home' })" />
         </div>
         <div class="subjects">
-          <button class="subject__btn" @click="changeSubject('Math')">
+          <button
+            class="subject__btn"
+            :class="{ 'subject__btn--active': nowSubject === 'Math' }"
+            @click="changeSubject('Math')"
+          >
             {{ subjects["Math"] }}
           </button>
-          <button class="subject__btn" @click="changeSubject('Chinese')">
+          <button
+            class="subject__btn"
+            :class="{ 'subject__btn--active': nowSubject === 'Chinese' }"
+            @click="changeSubject('Chinese')"
+          >
             {{ subjects["Chinese"] }}
           </button>
-          <button class="subject__btn" @click="changeSubject('Technology')">
+          <button
+            class="subject__btn"
+            :class="{ 'subject__btn--active': nowSubject === 'Technology' }"
+            @click="changeSubject('Technology')"
+          >
             {{ subjects["Technology"] }}
           </button>
         </div>
@@ -454,6 +466,10 @@ header {
         border-radius: $border-radius;
         background-color: #bdb2ff;
         border: none;
+        &--active {
+          background-color: #9f86ff;
+          color: white;
+        }
       }
     }
     .search-group {
