@@ -358,25 +358,8 @@
             "Title": "公斤和公克的換算",
             "Games": [
               {
-                "id": "MA3144",
-                "Name": "公斤和公克的換算",
-                "Description": "",
-                "Img": ""
-              },
-              {
                 "id": "MA3145",
                 "Name": "比大小",
-                "Description": "",
-                "Img": ""
-              }
-            ]
-          },
-          {
-            "Title": "重量的加減計算",
-            "Games": [
-              {
-                "id": "MA3146",
-                "Name": "重量的加減(應用題)",
                 "Description": "",
                 "Img": ""
               }
