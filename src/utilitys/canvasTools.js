@@ -69,3 +69,10 @@ export function angle(object_1, object_2){
 export function slope(object_1,object_2){
     return((object_2.y-object_1.y)/(object_2.x-object_1.x));
 }
+
+export function unitVector(object_1, object_2){
+    return {
+        x: (object_2.x-object_1.x)/ distance(object_1, object_2),
+        y: (object_2.y-object_1.y)/ distance(object_1, object_2),
+    }
+}
