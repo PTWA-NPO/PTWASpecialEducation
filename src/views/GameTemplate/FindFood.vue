@@ -72,6 +72,7 @@ export default {
     this.drawTarget();
     this.drawFoodinCorrectRadius();
     this.drawFoodOutside();
+    document.addEventListener("keydown", this.test);
   },
 
   methods: {
@@ -86,11 +87,11 @@ export default {
     setRingRadius() {
       this.ringRadius[this.findLargestRadius()] = this.gameWidth / 5;
 
-      let ratio =
+      this.smallToLargeRatio =
         this.GameData.Radius[1 - this.findLargestRadius()] /
         this.GameData.Radius[this.findLargestRadius()];
       this.ringRadius[1 - this.findLargestRadius()] =
-        this.ringRadius[this.findLargestRadius()] * ratio;
+        this.ringRadius[this.findLargestRadius()] * this.smallToLargeRatio;
     },
     findLargestRadius() {
       if (this.GameData.Radius[0] < this.GameData.Radius[1]) {
@@ -155,7 +156,7 @@ export default {
     drawFoodinCorrectRadius() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      this.foodWidth = this.gameHeight / 20;
+      this.foodWidth = (this.gameHeight * this.smallToLargeRatio) / 10;
       for (let i = 0; i < this.GameData.Answer; i++) {
         let position;
         do {
@@ -174,6 +175,7 @@ export default {
           rotation: Math.random() * 360,
           sceneFunc: this.foodSceneFunc,
           draggable: true,
+          visible: true,
         };
         this.configFood.push(food);
       }
@@ -181,7 +183,7 @@ export default {
     drawFoodOutside() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      this.foodWidth = this.gameHeight / 20;
+      this.foodWidth = (this.gameHeight * this.smallToLargeRatio) / 10;
 
       let correctArea =
         Math.pow(this.ringRadius[this.GameData.CorrectRadius], 2) * Math.PI;
@@ -195,15 +197,18 @@ export default {
         right: this.gameHeight,
       };
       for (let i = 0; i < foodCount; i++) {
-        let position;
+        let position, inCorrectArea;
         do {
           position = canvasTools.randomPosition(bound);
+
+          inCorrectArea = false;
           if (
-            canvasTools.distance(this.configTarget, position) <=
+            canvasTools.distance(canvasTools.center(this.configTarget), position) <=
             this.ringRadius[this.GameData.CorrectRadius]
-          )
-            continue;
-        } while (this.isOverlapped(position));
+          ) {
+            inCorrectArea = true;
+          }
+        } while (this.isOverlapped(position) || inCorrectArea);
 
         let food = {
           image: foodImage,
@@ -251,6 +256,40 @@ export default {
         }
       }
       return false;
+    },
+    test(e) {
+      if (e.key == " ") {
+        this.ending = window.setInterval(this.gatheringAnimation, 20);
+      }
+    },
+    gatheringAnimation() {
+      let allGathered = true;
+      for (let i = 0; i < this.GameData.Answer; i++) {
+        if (this.configFood[i].visible) {
+          allGathered = false;
+          let unitVector = canvasTools.unitVector(
+            this.configFood[i],
+            canvasTools.center(this.configTarget)
+          );
+          this.configFood[i].x += unitVector.x;
+          this.configFood[i].y += unitVector.y;
+          if (
+            canvasTools.distance(
+              canvasTools.center(this.configTarget),
+              this.configFood[i]
+            ) <
+            this.configTarget.width / 2
+          ) {
+            this.configFood[i].visible = false;
+          }
+        }
+      }
+      if (allGathered) {
+        this.nextQuestion();
+      }
+    },
+    nextQuestion() {
+      this.$emit("next-question");
     },
   },
 };
