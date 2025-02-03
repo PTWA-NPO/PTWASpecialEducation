@@ -24,7 +24,6 @@
     "konva": "^9.3.14",
     "mitt": "^3.0.1",
     "pinia": "^2.2.2",
-    "ptwa_specialeducation": "file:",
     "quasar": "^2.16.8",
     "vue": "^3.3.4",
     "vue-konva": "^3.0.2",
