@@ -6,6 +6,10 @@
         <v-rect :config="configBG" />
       </v-layer>
       <v-layer>
+        <v-image :config="configTarget" />
+        <v-shape v-for="(food, index) in configFood" :key="index" :config="food" />
+      </v-layer>
+      <v-layer>
         <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
         <v-text
           v-for="(option, index) in configOptions"
@@ -13,10 +17,6 @@
           :config="option"
           @click="handleButton(index)"
         />
-      </v-layer>
-      <v-layer>
-        <v-image :config="configTarget" />
-        <v-shape v-for="(food, index) in configFood" :key="index" :config="food" />
       </v-layer>
     </v-stage>
   </div>
@@ -71,11 +71,12 @@ export default {
     this.drawOptions();
     this.drawTarget();
     this.drawFoodinCorrectRadius();
+    this.drawFoodOutside();
   },
 
   methods: {
     initializeScene() {
-      this.gameWidth = this.$refs.container.clientWidth;
+      this.gameWidth = this.$refs.container.clientWidth * 0.8;
       this.gameHeight = this.gameWidth / 2;
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
@@ -177,16 +178,49 @@ export default {
         this.configFood.push(food);
       }
     },
+    drawFoodOutside() {
+      const foodImage = new window.Image();
+      foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
+      this.foodWidth = this.gameHeight / 20;
+
+      let correctArea =
+        Math.pow(this.ringRadius[this.GameData.CorrectRadius], 2) * Math.PI;
+      let outsideArea = Math.pow(this.gameHeight, 2) - correctArea;
+      let foodCount = Math.floor((this.GameData.Answer / correctArea) * outsideArea);
+
+      let bound = {
+        up: 0,
+        down: this.gameHeight,
+        left: 0,
+        right: this.gameHeight,
+      };
+      for (let i = 0; i < foodCount; i++) {
+        let position;
+        do {
+          position = canvasTools.randomPosition(bound);
+          if (
+            canvasTools.distance(this.configTarget, position) <=
+            this.ringRadius[this.GameData.CorrectRadius]
+          )
+            continue;
+        } while (this.isOverlapped(position));
+
+        let food = {
+          image: foodImage,
+          x: position.x,
+          y: position.y,
+          width: this.foodWidth,
+          height: this.foodWidth,
+          rotation: Math.random() * 360,
+          sceneFunc: this.foodSceneFunc,
+          draggable: true,
+        };
+        this.configFood.push(food);
+      }
+    },
     foodSceneFunc(context, shape) {
       context.beginPath();
       context.rotate(shape.getAttr("rotation") * (Math.PI / 180));
-      // 設置可點擊區域
-      context.rect(
-        -shape.getAttr("width") / 2,
-        -shape.getAttr("height") / 2,
-        shape.getAttr("width"),
-        shape.getAttr("height")
-      );
       context.drawImage(
         shape.getAttr("image"),
         -shape.getAttr("width") / 2,
