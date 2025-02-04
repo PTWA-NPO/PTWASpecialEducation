@@ -10,7 +10,19 @@
         <v-shape v-for="(food, index) in configFood" :key="index" :config="food" />
       </v-layer>
       <v-layer>
-        <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd"></v-circle>
+        <v-circle :key="ringKey" :config="configRing" @dragend="handleDragEnd" />
+        <v-rect
+          v-for="(shadow, index) in configShadows"
+          :key="index"
+          :config="shadow"
+          @click="handleButton(index)"
+        />
+        <v-rect
+          v-for="(button, index) in configButtons"
+          :key="index"
+          :config="button"
+          @click="handleButton(index)"
+        />
         <v-text
           v-for="(option, index) in configOptions"
           :key="index"
@@ -58,6 +70,8 @@ export default {
         draggable: true,
       },
       ringRadius: [],
+      configButtons: [],
+      configShadows: [],
       configOptions: [],
       ringKey: 0,
       configTarget: {},
@@ -67,11 +81,7 @@ export default {
   mounted() {
     this.initializeScene();
     this.setRingRadius();
-    this.drawRing();
-    this.drawOptions();
-    this.drawTarget();
-    this.drawFoodinCorrectRadius();
-    this.drawFoodOutside();
+    this.drawOnCanvas();
     document.addEventListener("keydown", this.test);
   },
 
@@ -100,23 +110,82 @@ export default {
         return 0;
       }
     },
+    drawOnCanvas() {
+      this.drawRing();
+      this.drawButtons();
+      this.drawShadows();
+      this.drawOptions();
+      this.drawTarget();
+      this.drawFoodinCorrectRadius();
+      this.drawFoodOutside();
+    },
     drawRing() {
       this.configRing.x = (this.gameWidth / 4) * 3;
-      this.configRing.y = this.gameHeight / 2 - this.gameWidth / 40;
+      this.configRing.y = this.gameHeight / 2 - this.gameWidth / 25;
       this.configRing.radius = this.ringRadius[0];
+    },
+    snapToTarget() {
+      this.configRing.x = this.gameWidth / 4;
+      this.configRing.y = this.gameHeight / 2;
+      this.ringKey++;
+    },
+    snapToOrigin() {
+      this.configRing.x = (this.gameWidth / 4) * 3;
+      this.configRing.y = this.gameHeight / 2 - this.gameWidth / 25;
+      this.ringKey++;
+    },
+    drawButtons() {
+      this.buttonPos = this.GameData.Options.map((option, index) => {
+        return {
+          x:
+            this.gameWidth / 2 +
+            this.gameWidth / 30 +
+            (this.gameWidth / 4 - this.gameWidth / 60) * index,
+          y: (this.gameHeight / 10) * 9 - this.gameWidth / 40,
+        };
+      });
+      this.configButtons = this.GameData.Options.map((option, index) => {
+        return {
+          x: this.buttonPos[index].x,
+          y: this.buttonPos[index].y,
+          fill: "#d9d9d9",
+          width: this.gameWidth / 4 - (this.gameWidth / 30 / 2) * 3,
+          height: this.gameHeight / 15 + this.gameWidth / 35,
+          cornerRadius: this.gameWidth / 40,
+        };
+      });
+      this.configButtons[0].y += this.gameHeight / 60;
+    },
+    drawShadows() {
+      this.configShadows = this.GameData.Options.map((option, index) => {
+        return {
+          x: this.buttonPos[index].x,
+          y: this.buttonPos[index].y + this.gameHeight / 60,
+          fill: "#a8a8a8",
+          width: this.gameWidth / 4 - (this.gameWidth / 30 / 2) * 3,
+          height: this.gameHeight / 15 + this.gameWidth / 35,
+          cornerRadius: this.gameWidth / 40,
+        };
+      });
     },
     drawOptions() {
       this.configOptions = this.GameData.Options.map((option, index) => {
         return {
-          x: this.gameWidth / 2 + this.gameWidth / 20 + (this.gameWidth / 4) * index,
-          y: (this.gameHeight / 10) * 9,
+          x: this.buttonPos[index].x + this.gameWidth / 60,
+          y: this.buttonPos[index].y + this.gameWidth / 60,
           text: option,
-          fontSize: this.gameWidth / 30,
+          fontSize: this.gameHeight / 15,
         };
       });
+      this.configOptions[0].y += this.gameHeight / 60;
     },
     handleButton(index) {
       this.configRing.radius = this.ringRadius[index];
+      this.configButtons[index].y = this.buttonPos[index].y + this.gameHeight / 60;
+      this.configOptions[index].y =
+        this.buttonPos[index].y + this.gameWidth / 60 + this.gameHeight / 60;
+      this.configButtons[1 - index].y = this.buttonPos[index].y;
+      this.configOptions[1 - index].y = this.buttonPos[index].y + this.gameWidth / 60;
       this.snapToOrigin();
       this.ringKey++;
     },
@@ -130,16 +199,6 @@ export default {
       } else {
         this.snapToOrigin();
       }
-    },
-    snapToTarget() {
-      this.configRing.x = this.gameWidth / 4;
-      this.configRing.y = this.gameHeight / 2;
-      this.ringKey++;
-    },
-    snapToOrigin() {
-      this.configRing.x = (this.gameWidth / 4) * 3;
-      this.configRing.y = this.gameHeight / 2 - this.gameWidth / 40;
-      this.ringKey++;
     },
     drawTarget() {
       const targetImage = new window.Image();
