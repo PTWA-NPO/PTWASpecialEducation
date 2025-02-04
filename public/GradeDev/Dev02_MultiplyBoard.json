@@ -19,8 +19,8 @@
             "digitsOfEachRow":[6,2,5,5,6],
             "customUnit": [null,2,null,4,null,6,null,8,null,10],
             "decimalPoint": 0,
-            "preset": null,
-            "answers": [1,2,3,4,5]
+            "preset": [[1, 2,null,4,5,6],[2,1]],
+            "answers": [null,1,2,3,4,5]
         }
     ]
 }

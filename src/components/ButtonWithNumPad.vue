@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="container">
-    <button ref="numBtn" class="numBtn" @click="showPad" :style="btnStyle">
+    <button ref="numBtn" class="numBtn" :style="btnStyle" @click="showPad">
       {{ input }}
     </button>
     <div ref="keys" class="keys" :style="padStyle">
@@ -25,7 +25,9 @@ export default {
       required: true,
     },
     ID: {
+      type: String,
       required: false,
+      default: null,
     },
   },
 
