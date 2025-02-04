@@ -2,7 +2,7 @@
   <div class="game">
     <DragToAlign
       :Data="configDragToAlign"
-      :ID="id"
+      :ID="ID"
       class="game__drag-to-align game--border"
     >
     </DragToAlign>
@@ -36,7 +36,7 @@ export default {
       type: Object,
       required: true,
     },
-    id: {
+    ID: {
       type: String,
       required: true,
     },
