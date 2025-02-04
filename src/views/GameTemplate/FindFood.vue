@@ -156,7 +156,9 @@ export default {
     drawFoodinCorrectRadius() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      this.foodWidth = (this.gameHeight * this.smallToLargeRatio) / 10;
+      if (this.GameData.CorrectRadius == this.findLargestRadius())
+        this.foodWidth = this.gameHeight / 15;
+      else this.foodWidth = this.gameHeight / 20;
       for (let i = 0; i < this.GameData.Answer; i++) {
         let position;
         do {
@@ -183,7 +185,6 @@ export default {
     drawFoodOutside() {
       const foodImage = new window.Image();
       foodImage.src = getGameAssets(this.ID, this.GameData.FoodImage);
-      this.foodWidth = (this.gameHeight * this.smallToLargeRatio) / 10;
 
       let correctArea =
         Math.pow(this.ringRadius[this.GameData.CorrectRadius], 2) * Math.PI;
@@ -271,8 +272,13 @@ export default {
             this.configFood[i],
             canvasTools.center(this.configTarget)
           );
-          this.configFood[i].x += unitVector.x;
-          this.configFood[i].y += unitVector.y;
+          if (this.GameData.CorrectRadius == this.findLargestRadius()) {
+            this.configFood[i].x += unitVector.x * 2;
+            this.configFood[i].y += unitVector.y * 2;
+          } else {
+            this.configFood[i].x += unitVector.x;
+            this.configFood[i].y += unitVector.y;
+          }
           if (
             canvasTools.distance(
               canvasTools.center(this.configTarget),
