@@ -397,5 +397,9 @@ button {
   margin-left: 3vw;
   border: none;
   background-color: lightgray;
+  cursor: pointer;
+  &:hover {
+    background-color: darken(lightgray, 10%);
+  }
 }
 </style>
