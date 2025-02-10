@@ -110,7 +110,13 @@
                     "Name": "乘法計算版",
                     "Description": "#",
                     "Img": "MA3011.png"
-                }
+                },
+                {
+                  "id": "Dev02_FindFood",
+                  "Name": "範圍找食物",
+                  "Description": "#",
+                  "Img": "MA3011.png"
+              }
                 ]
             }
         ]
