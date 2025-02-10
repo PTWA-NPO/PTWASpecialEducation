@@ -7,6 +7,7 @@
       </v-layer>
       <v-layer v-if="Data.shape == 'circle'">
         <circleFraction
+          :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
           :numerator="numerator"
@@ -17,6 +18,7 @@
 
       <v-layer v-if="Data.shape == 'rect'">
         <rectFraction
+          :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
           :numerator="numerator"
@@ -86,11 +88,13 @@ export default {
 
       numerator: 3,
       denominator: 3,
+      componentKey: 0,
     };
   },
 
   mounted() {
     this.initializeScene();
+    this.componentKey++;
   },
 
   methods: {

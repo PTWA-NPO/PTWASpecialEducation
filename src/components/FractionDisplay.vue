@@ -10,6 +10,10 @@
 export default {
   props: {
     Data: {
+      type: Object,
+      required: true,
+    },
+    ID: {
       type: String,
       required: true,
     },
@@ -28,7 +32,7 @@ export default {
       this.numerator = null;
       this.denominator = null;
       const regex = /\\frac\{(\d+)\}\{(\d+)\}/;
-      const match = this.Data.match(regex);
+      const match = this.Data.Content.match(regex);
       this.numerator = parseInt(match[1], 10);
       this.denominator = parseInt(match[2], 10);
     },

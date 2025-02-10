@@ -39,11 +39,11 @@ export default {
 
   props: {
     numerator: {
-      type: Object,
+      type: Number,
       required: true,
     },
     denominator: {
-      type: Object,
+      type: Number,
       required: true,
     },
     gameWidth: {

@@ -99,6 +99,12 @@ export default {
       import("@/components/ElectronicClock.vue")
     ),
     Clock: defineAsyncComponent(() => import("@/components/Clock.vue")),
+    FractionDisplay: defineAsyncComponent(() =>
+      import("@/components/FractionDisplay.vue")
+    ),
+    InteractiveFractionVisual: defineAsyncComponent(() =>
+      import("@/components/InteractiveFractionVisual.vue")
+    ),
   },
   props: {
     GameData: {

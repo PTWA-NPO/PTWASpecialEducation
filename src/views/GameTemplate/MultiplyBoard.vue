@@ -5,22 +5,24 @@
         <button v-for="i in unitStyle" :style="i">{{ i.text }}</button>
       </div>
       <div ref="row" class="row" :style="btnRowStyle">
-        <div
+        <button
           v-for="i in rowStyle[0].btnStyle.length"
           class="numBtn"
           :style="rowStyle[0].btnStyle[i - 1]"
+          @click="btnClick($event, 0, i - 1)"
         >
-          <numBtn :Data="rowStyle[0].btnData[i - 1]"></numBtn>
-        </div>
+          {{ rowStyle[0].btnStyle[i - 1].value }}
+        </button>
       </div>
       <div class="row" :style="btnRowStyle">
-        <div
+        <button
           v-for="i in rowStyle[1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[1].btnStyle[i - 1]"
+          @click="btnClick($event, 1, i - 1)"
         >
-          <numBtn :Data="rowStyle[1].btnData[i - 1]"></numBtn>
-        </div>
+          {{ rowStyle[1].btnStyle[i - 1].value }}
+        </button>
       </div>
       <hr />
       <div
@@ -28,29 +30,25 @@
         class="row"
         :style="btnRowStyle"
       >
-        <div
+        <button
           v-for="j in rowStyle[i + 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[i + 1].btnStyle[j - 1]"
+          @click="btnClick($event, i + 1, j - 1)"
         >
-          <numBtn :Data="rowStyle[i + 1].btnData[j - 1]"></numBtn>
-        </div>
+          {{ rowStyle[i + 1].btnStyle[j - 1].value }}
+        </button>
       </div>
       <hr />
       <div class="row" :style="btnRowStyle">
-        <div
-          v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle
-            .length"
+        <button
+          v-for="i in rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle.length"
           class="numBtn"
           :style="rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1]"
+          @click="btnClick($event, GameData.digitsOfEachRow.length - 1, i - 1)"
         >
-          <numBtn
-            :ref="setRef"
-            :Data="rowStyle[GameData.digitsOfEachRow.length - 1].btnData[i - 1]"
-            :ID="i"
-            @replyAnswer="getAnswer"
-          ></numBtn>
-        </div>
+          {{ rowStyle[GameData.digitsOfEachRow.length - 1].btnStyle[i - 1].value }}
+        </button>
       </div>
     </div>
     <div class="drawingBoard" :style="canvasStyle">
@@ -65,6 +63,9 @@
       </button>
       <button @click="checkAnswer()">檢查答案</button>
     </div>
+    <div class="number-pad">
+      <numPad v-if="showPad" :Data="numPadData" @buttonClicked="handleNumPad" />
+    </div>
   </div>
 </template>
 
@@ -74,12 +75,8 @@ import { defineAsyncComponent } from "vue";
 import fetchJson from "@/utilitys/fetch-json";
 export default {
   components: {
-    drawingBoard: defineAsyncComponent(() =>
-      import("@/components/DrawingBoard.vue")
-    ),
-    numBtn: defineAsyncComponent(() =>
-      import("@/components/ButtonWithNumPad.vue")
-    ),
+    drawingBoard: defineAsyncComponent(() => import("@/components/DrawingBoard.vue")),
+    numPad: defineAsyncComponent(() => import("@/components/FloatNumPad.vue")),
   },
 
   props: {
@@ -91,18 +88,22 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
 
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      dotStyle: [],
-      rowStyle: [],
       unitRowStyle: {},
       btnRowStyle: {},
+      rowStyle: [],
       unitStyle: [],
-      answer: [],
-      btnRef: [],
+      numPadData: null,
+      showPad: false,
+      currentInputBtn: null,
 
       brushStatusBtn: "畫筆",
       drawingBoardStatusBtn: "隱藏",
@@ -126,9 +127,7 @@ export default {
   },
 
   async mounted() {
-    this.unit = await fetchJson(
-      getGameStaticAssets("MultiplyBoard", "unit.json")
-    );
+    this.unit = await fetchJson(getGameStaticAssets("MultiplyBoard", "unit.json"));
     this.unit = this.unit.data.unit;
     this.setUnit();
   },
@@ -173,18 +172,23 @@ export default {
       for (let i in this.GameData.digitsOfEachRow) {
         let rowStyle = {};
         rowStyle.btnStyle = this.setBtnStyle(i);
-        rowStyle.btnData = this.setBtnData(i, rowStyle.btnStyle);
         this.rowStyle.push(rowStyle);
       }
     },
     setBtnStyle(i) {
       this.maxDigit = Math.max(...this.GameData.digitsOfEachRow);
-      let btnStyle = [];
+      let btnStyle = [],
+        btnColor;
+      if (i == this.GameData.digitsOfEachRow.length - 1) btnColor = "pink";
+      else btnColor = "lightgray";
+
       if (i < this.GameData.digitsOfEachRow.length - 1 && i > 1) {
         for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
           let btn = {
             gridColumn: j + 10 - this.GameData.digitsOfEachRow[i] - i + 2,
             gridRow: 1,
+            backgroundColor: btnColor,
+            adjustable: true,
           };
 
           btnStyle.push(btn);
@@ -194,7 +198,18 @@ export default {
           let btn = {
             gridColumn: j + 10 - this.GameData.digitsOfEachRow[i],
             gridRow: 1,
+            backgroundColor: btnColor,
           };
+          if (i < 2) {
+            if (this.GameData.preset) {
+              if (this.GameData.preset[i][j]) {
+                btn.value = this.GameData.preset[i][j];
+                btn.adjustable = false;
+                btn.backgroundColor = "#909CA7";
+              }
+            }
+          }
+          if (btn.adjustable == null) btn.adjustable = true;
           btnStyle.push(btn);
         }
       }
@@ -203,41 +218,13 @@ export default {
         let btn = {
           gridColumn: 9 - this.maxDigit,
           gridRow: 1,
+          backgroundColor: "#aded5d",
+          value: "x",
+          adjustable: false,
         };
         btnStyle.push(btn);
       }
       return btnStyle;
-    },
-    setBtnData(i, btnStyle) {
-      let btnData = [];
-      if (i < this.GameData.digitsOfEachRow.length - 1) {
-        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
-          let btn = {
-            color: "lightgray",
-            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
-          };
-          btnData.push(btn);
-        }
-      } else {
-        for (let j = 0; j < this.GameData.digitsOfEachRow[i]; ++j) {
-          let btn = {
-            color: "pink",
-            padPosition: this.setPadPosition(i, btnStyle[j].gridColumn),
-          };
-          btnData.push(btn);
-        }
-      }
-
-      if (i == 1) {
-        let btn = {
-          color: "#aded5d",
-          padPosition: "lowerRight",
-          preset: "x",
-          adjustable: false,
-        };
-        btnData.push(btn);
-      }
-      return btnData;
     },
     setPadPosition(row, column) {
       let position;
@@ -293,25 +280,23 @@ export default {
     },
     checkAnswer() {
       let isCorrect = true;
-      let ansDigits =
-        this.GameData.digitsOfEachRow[this.GameData.digitsOfEachRow.length - 1];
-      for (let i in this.GameData.answers) {
-        if (
-          this.answer[ansDigits - i - 1] ==
-          this.GameData.answers[this.GameData.answers.length - i - 1]
-        ) {
-          this.btnRef[ansDigits - i - 1].updateColor("pink");
-        } else {
+      let ans = [];
+      for (let i in this.rowStyle[this.rowStyle.length - 1].btnStyle) {
+        ans.push(this.rowStyle[this.rowStyle.length - 1].btnStyle[i].value);
+      }
+      for (let i in ans) {
+        if (ans[i] != this.GameData.answers[i]) {
           isCorrect = false;
-
-          this.btnRef[ansDigits - i - 1].updateColor("red");
+          this.rowStyle[this.rowStyle.length - 1].btnStyle[i].backgroundColor = "red";
+        } else {
+          this.rowStyle[this.rowStyle.length - 1].btnStyle[i].backgroundColor = "pink";
         }
       }
       if (isCorrect) {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [
           this.GameData.answers.toString(),
-          this.answer.toString(),
+          ans.toString(),
           "正確",
         ]);
         this.$emit("next-question");
@@ -319,14 +304,34 @@ export default {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
           this.GameData.answers.toString(),
-          this.answer.toString(),
+          ans.toString(),
           "錯誤",
         ]);
       }
     },
-    setRef(e) {
-      this.btnRef.push(e);
-      console.log(this.btnRef);
+    btnClick(e, row, column) {
+      if (this.rowStyle[row].btnStyle[column].adjustable) {
+        this.showPad = true;
+        this.currentInputBtn = { row: row, column: column };
+        this.numPadData = {
+          top: e.target.getBoundingClientRect().top,
+          left:
+            e.target.getBoundingClientRect().left +
+            e.target.getBoundingClientRect().width,
+        };
+      }
+    },
+    handleNumPad(input) {
+      if (input == "清除") {
+        this.rowStyle[this.currentInputBtn.row].btnStyle[
+          this.currentInputBtn.column
+        ].value = null;
+      } else if (input != "關閉") {
+        this.rowStyle[this.currentInputBtn.row].btnStyle[
+          this.currentInputBtn.column
+        ].value = input;
+      }
+      this.showPad = false;
     },
   },
 };
@@ -336,13 +341,6 @@ export default {
 .container {
   height: 100%;
   width: 100%;
-}
-.dot {
-  height: 10px;
-  width: 10px;
-  background-color: black;
-  border-radius: 50%;
-  position: absolute;
 }
 
 .unit {
@@ -377,6 +375,8 @@ export default {
   aspect-ratio: 2/3;
   width: fit-content;
   padding: 0;
+  border: none;
+  font-size: 1.5rem;
 }
 hr {
   margin: 0;
