@@ -339,7 +339,7 @@ export default {
       if (this.answer == this.GameData.Answer) {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [this.GameData.Answer, this.answer, "正確"]);
-        window.setInterval(this.gatheringAnimation, 20);
+        requestAnimationFrame(this.gatheringAnimation);
       } else {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [this.GameData.Answer, this.answer, "錯誤"]);
@@ -375,6 +375,8 @@ export default {
       }
       if (allGathered) {
         this.$emit("next-question");
+      } else {
+        requestAnimationFrame(this.gatheringAnimation);
       }
     },
   },
