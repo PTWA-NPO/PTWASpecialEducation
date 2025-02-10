@@ -1,6 +1,13 @@
 <template>
-  <div ref="container">
-    <h2>{{ GameData.Question }}</h2>
+  <div ref="container" :key="containerKey">
+    <div class="question">
+      {{ GameData.Question }}
+      <div class="answer">
+        <numberIncrementor :ID="ID" :Data="incrementorData" @numberChanged="getAnswer" />
+        {{ GameData.Unit }}
+        <button @click="checkAnswer">提交答案</button>
+      </div>
+    </div>
     <v-stage :config="configKonva">
       <v-layer>
         <v-rect :config="configBG" />
@@ -39,7 +46,11 @@ import { getGameAssets } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
-  components: {},
+  components: {
+    numberIncrementor: defineAsyncComponent(() =>
+      import("@/components/NumberIncrementor.vue")
+    ),
+  },
   props: {
     GameData: {
       type: Object,
@@ -57,6 +68,9 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
+      incrementorData: {
+        digitCount: 2,
+      },
       configKonva: {},
       configBG: {
         x: 0,
@@ -76,13 +90,14 @@ export default {
       ringKey: 0,
       configTarget: {},
       configFood: [],
+      answer: 0,
+      containerKey: 0,
     };
   },
   mounted() {
     this.initializeScene();
     this.setRingRadius();
     this.drawOnCanvas();
-    document.addEventListener("keydown", this.test);
   },
 
   methods: {
@@ -317,9 +332,18 @@ export default {
       }
       return false;
     },
-    test(e) {
-      if (e.key == " ") {
-        this.ending = window.setInterval(this.gatheringAnimation, 20);
+    getAnswer(num) {
+      this.answer = num;
+    },
+    checkAnswer() {
+      if (this.answer == this.GameData.Answer) {
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", [this.GameData.Answer, this.answer, "正確"]);
+        window.setInterval(this.gatheringAnimation, 20);
+      } else {
+        this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", [this.GameData.Answer, this.answer, "錯誤"]);
+        this.containerKey++;
       }
     },
     gatheringAnimation() {
@@ -350,12 +374,28 @@ export default {
         }
       }
       if (allGathered) {
-        this.nextQuestion();
+        this.$emit("next-question");
       }
-    },
-    nextQuestion() {
-      this.$emit("next-question");
     },
   },
 };
 </script>
+
+<style scoped lang="scss">
+.question {
+  font-size: 2rem;
+  align-items: center;
+  width: 80%;
+}
+.answer {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  width: fit-content;
+}
+button {
+  margin-left: 3vw;
+  border: none;
+  background-color: lightgray;
+}
+</style>

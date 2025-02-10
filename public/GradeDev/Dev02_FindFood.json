@@ -15,8 +15,9 @@
     },
     "Questions": [
         {
-            "Question": "[Insert question 1.]",
-            "Options": ["直徑2cm", "直徑4cm"],
+            "Question": "小老鼠搬起司，他搬光了距離他2公分以內的起司，是搬了幾塊起司？",
+            "Unit": "塊",
+            "Options": ["半徑2公分", "半徑4公分"],
             "Radius": [2,4],
             "CorrectRadius": 0,
             "TargetImage": "rat.png",
@@ -25,7 +26,8 @@
         },
 
         {
-            "Question": "[Insert question 2.]",
+            "Question": "小老鼠搬起司，他搬光了距離他3公分以內的起司，是搬了幾塊起司？",
+            "Unit": "塊",
             "Options": ["直徑6cm", "直徑3cm"],
             "Radius": [6,3],
             "CorrectRadius": 0,
