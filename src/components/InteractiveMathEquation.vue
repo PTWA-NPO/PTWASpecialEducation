@@ -28,7 +28,6 @@
             v-model="userAnswers[index]"
             type="text"
             class="interactive-equation__input"
-            maxlength="3"
             @touchstart="handleInputClick(index, $event)"
           />
         </template>
