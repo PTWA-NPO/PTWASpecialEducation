@@ -11,7 +11,7 @@
           v-for="(image, index) in configImage"
           :key="index"
           :config="image"
-          @dragmove="handleDragmove"
+          @dragmove="keepInBound"
           @dragend="handleDragend"
         />
       </v-layer>
@@ -115,26 +115,34 @@ export default {
       };
 
       for (let i in this.Data.images) {
+        let imageData = this.Data.images[i];
         let image = new window.Image();
-        image.src = getGameAssets(this.ID, this.Data.images[i].path);
+        image.src = getGameAssets(this.ID, imageData.path);
         this.images.push(image);
+
         let draggable = true;
-        if (this.Data.images[i].draggable == false) draggable = false;
+        if (imageData.draggable == false) draggable = false;
+
+        let position = {};
+        if (imageData.presetPosition) {
+          position.x = this.gridPos.x[imageData.presetPosition.x];
+          position.y = this.gridPos.y[imageData.presetPosition.y];
+        } else {
+          position.x = currentPos.x;
+          position.y = currentPos.y;
+          currentPos.x += imageData.ratio.width * this.ratioLength;
+          currentPos.y += this.ratioLength;
+        }
         let config = {
           image: this.images[i],
-          width: this.Data.images[i].ratio.width * this.ratioLength,
-          height: this.Data.images[i].ratio.height * this.ratioLength,
+          width: imageData.ratio.width * this.ratioLength,
+          height: imageData.ratio.height * this.ratioLength,
           draggable: draggable,
-          x: currentPos.x,
-          y: currentPos.y,
+          x: position.x,
+          y: position.y,
         };
         this.configImage.push(config);
-        currentPos.x += config.width;
-        currentPos.x += this.ratioLength;
       }
-    },
-    handleDragmove(e) {
-      this.keepInBound(e);
     },
     keepInBound(e) {
       e.target.x(Math.max(e.target.x(), 0));
@@ -146,7 +154,7 @@ export default {
       if (this.Data.images[e.target.index].snapToGrid) this.snapToGrid(e);
     },
     snapToGrid(e) {
-      let snapTo = { x: 0, y: 0 },
+      let snapTo = {},
         distance = 999;
       for (let i in this.gridPos.x) {
         if (Math.abs(e.target.x() - this.gridPos.x[i]) < distance) {

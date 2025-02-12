@@ -117,6 +117,10 @@ export default {
             },
             snapToGrid: false,
             draggable: false,
+            presetPosition: {
+              x: 5,
+              y: 7,
+            },
           },
         ],
         backgroundType: "grid", //grid, color, image
