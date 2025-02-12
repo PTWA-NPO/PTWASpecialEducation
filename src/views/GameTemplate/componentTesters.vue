@@ -2,10 +2,10 @@
   <div>
     <select @change="(event) => (tester = event.target.value)">
       <option>numberLine</option>
-      <option selected>fraction</option>
+      <option>fraction</option>
       <option>drawShapes</option>
       <option>dragToAlign</option>
-      <option>dragImages</option>
+      <option selected>dragImages</option>
       <option>scale</option>
       <option>drawingBroad</option>
     </select>
@@ -67,7 +67,7 @@ export default {
   },
   data() {
     return {
-      tester: "numPad",
+      tester: "dragImages",
       configFraction: {
         verifyOption: "answer",
         shape: "circle",
@@ -116,7 +116,8 @@ export default {
             },
           },
         ],
-        background: "black",
+        backgroundType: "grid", //grid, color, image
+        background: "15", //15, "gray", "apple.png"
       },
       configScale: {
         answer: 100,

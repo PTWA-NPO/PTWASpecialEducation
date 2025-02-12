@@ -2,7 +2,16 @@
   <div ref="container">
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG" />
+        <v-rect v-if="Data.backgroundType == 'color'" :config="configBG" />
+        <v-image v-if="Data.backgroundType == 'image'" :config="configBG" />
+      </v-layer>
+      <v-layer v-if="Data.backgroundType == 'grid'">
+        <v-line
+          v-for="(pointSet, index) in configBG"
+          :key="index"
+          :points="pointSet"
+          :stroke="'black'"
+        />
       </v-layer>
       <v-layer>
         <v-image
@@ -40,6 +49,10 @@ export default {
         y: 0,
         strokeEnabled: false,
       },
+      gridPos: {
+        x: [],
+        y: [],
+      },
       configImage: [],
       images: [],
     };
@@ -47,6 +60,7 @@ export default {
 
   mounted() {
     this.initializeScene();
+    this.drawBackground();
     this.drawImages();
   },
 
@@ -57,7 +71,37 @@ export default {
       this.configKonva.height = this.gameWidth;
       this.configBG.width = this.gameWidth;
       this.configBG.height = this.gameWidth;
-      if (this.Data.background) this.configBG.fill = this.Data.background;
+    },
+    drawBackground() {
+      switch (this.Data.backgroundType) {
+        case "grid":
+          this.setGrid();
+          this.drawGrid();
+          break;
+        case "color":
+          this.configBG.fill = this.Data.background;
+          break;
+        case "image":
+          let image = new window.Image();
+          image.src = getGameAssets(this.ID, this.Data.background);
+          this.configBG.image = image;
+          break;
+      }
+    },
+    setGrid() {
+      for (let i = 0; i <= this.Data.background; ++i)
+        this.gridPos.x.push((i * this.gameWidth) / this.Data.background);
+      for (let i = 0; i <= this.Data.background; ++i)
+        this.gridPos.y.push((i * this.gameWidth) / this.Data.background);
+    },
+    drawGrid() {
+      this.configBG = [];
+      for (let i = 1; i < this.Data.background; ++i) {
+        this.configBG.push([this.gridPos.x[i], 0, this.gridPos.x[i], this.gameWidth]);
+      }
+      for (let i = 1; i < this.Data.background; ++i) {
+        this.configBG.push([0, this.gridPos.y[i], this.gameWidth, this.gridPos.y[i]]);
+      }
     },
     drawImages() {
       this.ratioLength = this.gameWidth / 11;
@@ -87,9 +131,7 @@ export default {
       e.target.x(Math.max(e.target.x(), 0));
       e.target.x(Math.min(e.target.x(), this.gameWidth - e.target.attrs.width));
       e.target.y(Math.max(e.target.y(), 0));
-      e.target.y(
-        Math.min(e.target.y(), this.gameWidth - e.target.attrs.height)
-      );
+      e.target.y(Math.min(e.target.y(), this.gameWidth - e.target.attrs.height));
     },
   },
 };
