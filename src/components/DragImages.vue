@@ -118,11 +118,13 @@ export default {
         let image = new window.Image();
         image.src = getGameAssets(this.ID, this.Data.images[i].path);
         this.images.push(image);
+        let draggable = true;
+        if (this.Data.images[i].draggable == false) draggable = false;
         let config = {
           image: this.images[i],
           width: this.Data.images[i].ratio.width * this.ratioLength,
           height: this.Data.images[i].ratio.height * this.ratioLength,
-          draggable: true,
+          draggable: draggable,
           x: currentPos.x,
           y: currentPos.y,
         };

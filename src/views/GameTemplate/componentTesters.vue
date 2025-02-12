@@ -115,6 +115,8 @@ export default {
               width: 2,
               height: 5,
             },
+            snapToGrid: false,
+            draggable: false,
           },
         ],
         backgroundType: "grid", //grid, color, image
