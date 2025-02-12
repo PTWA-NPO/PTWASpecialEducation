@@ -107,6 +107,7 @@ export default {
               width: 3,
               height: 3,
             },
+            snapToGrid: true,
           },
           {
             path: "sugar.png",

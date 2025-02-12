@@ -5,20 +5,21 @@
         <v-rect v-if="Data.backgroundType == 'color'" :config="configBG" />
         <v-image v-if="Data.backgroundType == 'image'" :config="configBG" />
       </v-layer>
-      <v-layer v-if="Data.backgroundType == 'grid'">
-        <v-line
-          v-for="(pointSet, index) in configBG"
-          :key="index"
-          :points="pointSet"
-          :stroke="'black'"
-        />
-      </v-layer>
+
       <v-layer>
         <v-image
           v-for="(image, index) in configImage"
           :key="index"
           :config="image"
           @dragmove="keepInBound"
+        />
+      </v-layer>
+      <v-layer v-if="Data.backgroundType == 'grid'">
+        <v-line
+          v-for="(pointSet, index) in configBG"
+          :key="index"
+          :points="pointSet"
+          :stroke="'black'"
         />
       </v-layer>
     </v-stage>
@@ -104,7 +105,9 @@ export default {
       }
     },
     drawImages() {
-      this.ratioLength = this.gameWidth / 11;
+      if (this.Data.backgroundType == "grid")
+        this.ratioLength = this.gameWidth / this.Data.background;
+      else this.ratioLength = this.gameWidth / 11;
       let currentPos = {
         x: this.ratioLength,
         y: this.ratioLength,
