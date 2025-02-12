@@ -123,16 +123,9 @@ export default {
         let draggable = true;
         if (imageData.draggable == false) draggable = false;
 
-        let position = {};
-        if (imageData.presetPosition) {
-          position.x = this.gridPos.x[imageData.presetPosition.x];
-          position.y = this.gridPos.y[imageData.presetPosition.y];
-        } else {
-          position.x = currentPos.x;
-          position.y = currentPos.y;
-          currentPos.x += imageData.ratio.width * this.ratioLength;
-          currentPos.y += this.ratioLength;
-        }
+        let position = this.getPosition(imageData, currentPos).position;
+        currentPos = this.getPosition(imageData, currentPos).newPos;
+
         let config = {
           image: this.images[i],
           width: imageData.ratio.width * this.ratioLength,
@@ -143,6 +136,23 @@ export default {
         };
         this.configImage.push(config);
       }
+    },
+    getPosition(imageData, currentPos) {
+      let position = {},
+        newPos = {};
+      if (imageData.presetPosition) {
+        position.x = this.gridPos.x[imageData.presetPosition.x];
+        position.y = this.gridPos.y[imageData.presetPosition.y];
+      } else {
+        position.x = currentPos.x;
+        position.y = currentPos.y;
+        newPos.x = currentPos.x + (imageData.ratio.width + 1) * this.ratioLength;
+        newPos.y = currentPos.y;
+      }
+      return {
+        position: position,
+        newPos: newPos,
+      };
     },
     keepInBound(e) {
       e.target.x(Math.max(e.target.x(), 0));
