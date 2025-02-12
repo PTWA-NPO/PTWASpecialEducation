@@ -11,7 +11,7 @@
           v-for="(image, index) in configImage"
           :key="index"
           :config="image"
-          @dragmove="keepInBound"
+          @dragmove="handleDragmove"
           @dragend="handleDragend"
         />
       </v-layer>
@@ -68,11 +68,26 @@ export default {
 
   methods: {
     initializeScene() {
-      this.gameWidth = this.$refs.container.clientWidth;
+      if (
+        this.$refs.container.clientWidth * this.Data.backgroundRatio.height <=
+          this.$refs.container.clientHeight * this.Data.backgroundRatio.width ||
+        this.$refs.container.clientHeight == 0
+      ) {
+        this.gameWidth = this.$refs.container.clientWidth;
+        this.gameHeight =
+          (this.gameWidth * this.Data.backgroundRatio.height) /
+          this.Data.backgroundRatio.width;
+      } else {
+        this.gameHeight = this.$refs.container.clientHeight;
+        this.gameWidth =
+          (this.gameHeight * this.Data.backgroundRatio.width) /
+          this.Data.backgroundRatio.height;
+      }
+
       this.configKonva.width = this.gameWidth;
-      this.configKonva.height = this.gameWidth;
+      this.configKonva.height = this.gameHeight;
       this.configBG.width = this.gameWidth;
-      this.configBG.height = this.gameWidth;
+      this.configBG.height = this.gameHeight;
     },
     drawBackground() {
       switch (this.Data.backgroundType) {
@@ -91,24 +106,22 @@ export default {
       }
     },
     setGrid() {
-      for (let i = 0; i <= this.Data.background; ++i)
-        this.gridPos.x.push((i * this.gameWidth) / this.Data.background);
-      for (let i = 0; i <= this.Data.background; ++i)
-        this.gridPos.y.push((i * this.gameWidth) / this.Data.background);
+      for (let i = 0; i <= this.Data.backgroundRatio.width; ++i)
+        this.gridPos.x.push((i * this.gameWidth) / this.Data.backgroundRatio.width);
+      for (let i = 0; i <= this.Data.backgroundRatio.height; ++i)
+        this.gridPos.y.push((i * this.gameHeight) / this.Data.backgroundRatio.height);
     },
     drawGrid() {
       this.configBG = [];
-      for (let i = 1; i < this.Data.background; ++i) {
-        this.configBG.push([this.gridPos.x[i], 0, this.gridPos.x[i], this.gameWidth]);
+      for (let i = 1; i < this.Data.backgroundRatio.width; ++i) {
+        this.configBG.push([this.gridPos.x[i], 0, this.gridPos.x[i], this.gameHeight]);
       }
-      for (let i = 1; i < this.Data.background; ++i) {
+      for (let i = 1; i < this.Data.backgroundRatio.height; ++i) {
         this.configBG.push([0, this.gridPos.y[i], this.gameWidth, this.gridPos.y[i]]);
       }
     },
     drawImages() {
-      if (this.Data.backgroundType == "grid")
-        this.ratioLength = this.gameWidth / this.Data.background;
-      else this.ratioLength = this.gameWidth / 11;
+      this.ratioLength = this.gameWidth / this.Data.backgroundRatio.width;
       let currentPos = {
         x: this.ratioLength,
         y: this.ratioLength,
@@ -141,8 +154,8 @@ export default {
       let position = {},
         newPos = {};
       if (imageData.presetPosition) {
-        position.x = this.gridPos.x[imageData.presetPosition.x];
-        position.y = this.gridPos.y[imageData.presetPosition.y];
+        position.x = this.ratioLength * imageData.presetPosition.x;
+        position.y = this.ratioLength * imageData.presetPosition.y;
       } else {
         position.x = currentPos.x;
         position.y = currentPos.y;
@@ -153,6 +166,12 @@ export default {
         position: position,
         newPos: newPos,
       };
+    },
+    handleDragmove(e) {
+      this.keepInBound(e);
+      if (this.Data.images[e.target.index].rotatable) {
+        console.log(1);
+      }
     },
     keepInBound(e) {
       e.target.x(Math.max(e.target.x(), 0));
