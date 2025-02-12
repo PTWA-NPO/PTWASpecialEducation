@@ -11,7 +11,8 @@
           v-for="(image, index) in configImage"
           :key="index"
           :config="image"
-          @dragmove="keepInBound"
+          @dragmove="handleDragmove"
+          @dragend="handleDragend"
         />
       </v-layer>
       <v-layer v-if="Data.backgroundType == 'grid'">
@@ -130,11 +131,36 @@ export default {
         currentPos.x += this.ratioLength;
       }
     },
+    handleDragmove(e) {
+      this.keepInBound(e);
+    },
     keepInBound(e) {
       e.target.x(Math.max(e.target.x(), 0));
       e.target.x(Math.min(e.target.x(), this.gameWidth - e.target.attrs.width));
       e.target.y(Math.max(e.target.y(), 0));
       e.target.y(Math.min(e.target.y(), this.gameWidth - e.target.attrs.height));
+    },
+    handleDragend(e) {
+      if (this.Data.images[e.target.index].snapToGrid) this.snapToGrid(e);
+    },
+    snapToGrid(e) {
+      let snapTo = { x: 0, y: 0 },
+        distance = 999;
+      for (let i in this.gridPos.x) {
+        if (Math.abs(e.target.x() - this.gridPos.x[i]) < distance) {
+          distance = Math.abs(e.target.x() - this.gridPos.x[i]);
+          snapTo.x = this.gridPos.x[i];
+        }
+      }
+      distance = 999;
+      for (let i in this.gridPos.y) {
+        if (Math.abs(e.target.y() - this.gridPos.y[i]) < distance) {
+          distance = Math.abs(e.target.y() - this.gridPos.y[i]);
+          snapTo.y = this.gridPos.y[i];
+        }
+      }
+      e.target.x(snapTo.x);
+      e.target.y(snapTo.y);
     },
   },
 };
