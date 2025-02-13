@@ -23,12 +23,17 @@
           :stroke="'black'"
         />
       </v-layer>
+      <v-layer>
+        <v-rect :config="configRotationPanel" />
+        <v-image v-for="(arrow, index) in configArrows" :key="index" :config="arrow" />
+      </v-layer>
     </v-stage>
   </div>
 </template>
 
 <script>
 import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 import * as canvasTools from "@/utilitys/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
@@ -57,6 +62,8 @@ export default {
       },
       configImage: [],
       images: [],
+      configRotationPanel: null,
+      configArrows: [],
     };
   },
 
@@ -170,7 +177,45 @@ export default {
     handleDragmove(e) {
       this.keepInBound(e);
       if (this.Data.images[e.target.index].rotatable) {
-        console.log(1);
+        if (this.configRotationPanel == null) {
+          this.drawPanel();
+        }
+        this.movePanel(e);
+      }
+    },
+    drawPanel() {
+      this.configRotationPanel = {
+        width: this.ratioLength * 2,
+        height: this.ratioLength,
+        fill: "#8fb0e6",
+        cornerRadius: this.ratioLength * 0.5,
+      };
+
+      let arrowImage = new window.Image();
+      arrowImage.src = getSystemAssets("backArrow.png", "icon");
+      let flip = [1, -1],
+        offset = [0, this.ratioLength * 0.8];
+      for (let i = 0; i < 2; ++i) {
+        let arrow = {
+          width: this.ratioLength * 0.8,
+          height: this.ratioLength * 0.8,
+          image: arrowImage,
+          scaleX: flip[i],
+          offsetX: offset[i],
+        };
+        this.configArrows.push(arrow);
+      }
+    },
+    movePanel(e) {
+      this.configRotationPanel.x = e.target.x();
+      if (e.target.y() + e.target.attrs.height + this.ratioLength > this.gameHeight)
+        this.configRotationPanel.y = e.target.y() - this.ratioLength;
+      else this.configRotationPanel.y = e.target.y() + e.target.attrs.height;
+
+      for (let i = 0; i < 2; ++i) {
+        this.configArrows[i].x =
+          this.configRotationPanel.x + this.ratioLength * (i + 0.1);
+        this.configArrows[i].y = this.configRotationPanel.y + this.ratioLength * 0.1;
       }
     },
     keepInBound(e) {
@@ -180,7 +225,11 @@ export default {
       e.target.y(Math.min(e.target.y(), this.gameWidth - e.target.attrs.height));
     },
     handleDragend(e) {
-      if (this.Data.images[e.target.index].snapToGrid) this.snapToGrid(e);
+      if (
+        this.Data.images[e.target.index].snapToGrid &&
+        this.Data.backgroundType == "grid"
+      )
+        this.snapToGrid(e);
     },
     snapToGrid(e) {
       let snapTo = {},
@@ -200,6 +249,7 @@ export default {
       }
       e.target.x(snapTo.x);
       e.target.y(snapTo.y);
+      this.movePanel(e);
     },
   },
 };

@@ -111,6 +111,15 @@ export default {
             rotatable: true,
           },
           {
+            path: "apple.png",
+            ratio: {
+              width: 4,
+              height: 2,
+            },
+            snapToGrid: true,
+            rotatable: true,
+          },
+          {
             path: "sugar.png",
             ratio: {
               width: 2,
@@ -124,7 +133,7 @@ export default {
             },
           },
         ],
-        backgroundType: "color", //grid, color, image
+        backgroundType: "grid", //grid, color, image
         background: "gray", //15, "gray", "apple.png"
         backgroundRatio: {
           width: 15,
