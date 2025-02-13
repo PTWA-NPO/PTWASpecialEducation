@@ -34,6 +34,26 @@
         <span v-else class="interactive-equation__text">{{ item.value }}</span>
       </template>
     </div>
+    <div
+      v-if="Data.finalAnswerTemplate"
+      class="interactive-equation__final-answer"
+    >
+      <span class="interactive-equation__text">答:</span>
+      <template
+        v-for="(item, index) in parsedFinalAnswer"
+        :key="`final-${index}`"
+      >
+        <input
+          v-if="item.isInput"
+          v-model="finalAnswers[index]"
+          type="text"
+          class="interactive-equation__input"
+          @touchstart="handleFinalAnswerClick($event, index)"
+        />
+        <span v-else class="interactive-equation__text">{{ item.value }}</span>
+      </template>
+    </div>
+
     <FloatNumPad
       v-if="showNumPad"
       :Data="numPadPosition"
@@ -84,23 +104,40 @@ export default {
       },
       activeInputIndex: null,
       numPadOffset: 10,
+      finalAnswers: {},
+      parsedFinalAnswer: [],
     };
   },
 
+  computed: {
+    isAllInputsValid() {
+      return (
+        this.areAllAnswersFilled() &&
+        this.areAllAnswersCorrect() &&
+        this.areFinalAnswersCorrect()
+      );
+    },
+  },
+
   created() {
-    this.initializeEquation();
+    this.initialize();
   },
 
   methods: {
-    initializeEquation() {
+    initialize() {
       this.equation = this.Data.equation;
       this.answers = this.Data.answers;
       this.parseEquationString();
+      this.parseFinalAnswerString();
     },
 
     parseEquationString() {
-      const parts = this.equation.split(" ");
-      this.parsedEquation = parts.map(this.createEquationPart);
+      this.parsedEquation = this.parseTemplate(this.equation);
+    },
+
+    parseTemplate(template, createPartFn = this.createEquationPart) {
+      if (!template) return [];
+      return template.split(" ").map(createPartFn);
     },
 
     createEquationPart(part) {
@@ -143,7 +180,13 @@ export default {
     },
 
     clearInput() {
-      if (this.activeInputIndex !== null) {
+      if (
+        typeof this.activeInputIndex === "string" &&
+        this.activeInputIndex.startsWith("final-")
+      ) {
+        const index = this.activeInputIndex.split("-")[1];
+        this.finalAnswers[index] = "";
+      } else if (this.activeInputIndex !== null) {
         this.userAnswers[this.activeInputIndex] = "";
       }
     },
@@ -154,14 +197,26 @@ export default {
     },
 
     updateInputValue(value) {
-      if (this.activeInputIndex !== null) {
+      if (
+        typeof this.activeInputIndex === "string" &&
+        this.activeInputIndex.startsWith("final-")
+      ) {
+        const index = this.activeInputIndex.split("-")[1];
+        this.finalAnswers[index] = (this.finalAnswers[index] || "") + value;
+      } else if (this.activeInputIndex !== null) {
         const currentValue = this.userAnswers[this.activeInputIndex] || "";
         this.userAnswers[this.activeInputIndex] = currentValue + value;
       }
     },
 
+    handleFinalAnswerClick(event, index) {
+      this.activeInputIndex = `final-${index}`;
+      this.updateNumPadPosition(event.target);
+      this.showNumPad = true;
+    },
+
     validateAnswers() {
-      if (this.areAllAnswersFilled() && this.areAllAnswersCorrect()) {
+      if (this.isAllInputsValid) {
         this.$emit("replyAnswer", true);
       }
     },
@@ -195,6 +250,22 @@ export default {
       );
       return userAnswer === this.answers[answerIndex];
     },
+
+    areFinalAnswersCorrect() {
+      return Object.entries(this.finalAnswers).every(
+        ([index, answer]) => answer === this.Data.finalAnswers[index]
+      );
+    },
+
+    parseFinalAnswerString() {
+      if (!this.Data.finalAnswerTemplate) return;
+
+      const parts = this.Data.finalAnswerTemplate.split(" ");
+      this.parsedFinalAnswer = parts.map((part) => ({
+        value: part === "_" ? "" : part,
+        isInput: part === "_",
+      }));
+    },
   },
 };
 </script>
@@ -202,14 +273,14 @@ export default {
 <style lang="scss" scoped>
 .interactive-equation {
   $self: &;
+  font-size: 24px;
 
   &__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    font-size: 24px;
-    gap: 8px;
+    padding: 10px;
+    gap: $gap--tiny;
   }
 
   &__input {
@@ -237,6 +308,17 @@ export default {
 
   &__text {
     font-size: inherit;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__final-answer {
+    display: flex;
+    gap: $gap--small;
+    align-items: center;
   }
 }
 </style>
