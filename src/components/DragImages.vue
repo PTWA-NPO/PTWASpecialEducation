@@ -272,8 +272,32 @@ export default {
       this.movePanel(this.configImage[id]);
     },
     rotateImage(e) {
-      this.configImage[this.rotatingImageID].rotation += 90;
-      this.movePanel(this.configImage[this.rotatingImageID]);
+      let id = this.rotatingImageID;
+      if (e.target.attrs.index == 0) this.configImage[id].rotation -= 90;
+      else this.configImage[id].rotation += 90;
+      this.movePanel(this.configImage[id]);
+
+      switch (this.configImage[id].rotation % 360) {
+        case 0:
+          this.configImage[id].offsetX = 0;
+          this.configImage[id].offsetY = 0;
+          break;
+        case 90:
+        case -270:
+          this.configImage[id].offsetX = 0;
+          this.configImage[id].offsetY = this.configImage[id].height;
+          break;
+        case 180:
+        case -180:
+          this.configImage[id].offsetX = this.configImage[id].width;
+          this.configImage[id].offsetY = this.configImage[id].height;
+          break;
+        case 270:
+        case -90:
+          this.configImage[id].offsetX = this.configImage[id].width;
+          this.configImage[id].offsetY = 0;
+          break;
+      }
     },
   },
 };
