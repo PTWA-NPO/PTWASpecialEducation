@@ -1,6 +1,9 @@
 <template>
   <div class="outter-container">
     <div class="left-column">
+      <div v-if="GameData.questionText" class="text-area">
+        {{ GameData.questionText }}
+      </div>
       <div v-if="GameConfig.layout.top" class="game-area--top game-area">
         <component
           :is="GameData.topComponent.Name"
@@ -8,6 +11,9 @@
           :ID="ID"
           @replyAnswer="topReply"
         ></component>
+      </div>
+      <div v-if="GameData.middleText" class="text-area">
+        {{ GameData.middleText }}
       </div>
       <div v-if="GameConfig.layout.down" class="game-area--down game-area">
         <component
@@ -54,6 +60,12 @@ export default {
     ),
     ImageContainer: defineAsyncComponent(() =>
       import("@/components/ImageContainer.vue")
+    ),
+    InteractiveMathEquation: defineAsyncComponent(() =>
+      import("@/components/InteractiveMathEquation.vue")
+    ),
+    RepeatImage: defineAsyncComponent(() =>
+      import("@/components/RepeatImage.vue")
     ),
   },
   props: {
@@ -258,6 +270,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   gap: $gap--small;
+
+  .text-area {
+    padding: $gap--tiny;
+    background-color: #dfdfdf;
+    border-radius: $border-radius;
+    font-size: $text-medium;
+  }
   .game-area {
     max-height: 40vh;
     display: flex;
