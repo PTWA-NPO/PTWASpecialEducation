@@ -1,0 +1,29 @@
+{
+  "id": "MA3171",
+  "introvideo": "src",
+  "GameType": "SelfDefine",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想，再填填看"
+  },
+  "GameConfig": {},
+  "Questions": [
+    {
+      "firstRow": {
+        "start": 2,
+        "multiply": 3,
+        "middle": null,
+        "divide": 3,
+        "end": null
+      },
+      "secondRow": {
+        "start": null,
+        "multiply": 4,
+        "middle": 20,
+        "divide": 4,
+        "end": 5
+      },
+      "answers": [6, 2, 5]
+    }
+  ]
+}
