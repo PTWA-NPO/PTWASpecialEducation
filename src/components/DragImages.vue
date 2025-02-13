@@ -25,7 +25,12 @@
       </v-layer>
       <v-layer>
         <v-rect :config="configRotationPanel" />
-        <v-image v-for="(arrow, index) in configArrows" :key="index" :config="arrow" />
+        <v-image
+          v-for="(arrow, index) in configArrows"
+          :key="index"
+          :config="arrow"
+          @click="rotateImage"
+        />
       </v-layer>
     </v-stage>
   </div>
@@ -153,6 +158,8 @@ export default {
           draggable: draggable,
           x: position.x,
           y: position.y,
+          index: i,
+          rotation: 0,
         };
         this.configImage.push(config);
       }
@@ -175,12 +182,16 @@ export default {
       };
     },
     handleDragmove(e) {
+      let id = e.target.attrs.index;
+      this.configImage[id].x = e.target.x();
+      this.configImage[id].y = e.target.y();
       this.keepInBound(e);
-      if (this.Data.images[e.target.index].rotatable) {
+      if (this.Data.images[id].rotatable) {
         if (this.configRotationPanel == null) {
           this.drawPanel();
         }
-        this.movePanel(e);
+        this.movePanel(this.configImage[id]);
+        this.rotatingImageID = e.target.attrs.index;
       }
     },
     drawPanel() {
@@ -202,15 +213,23 @@ export default {
           image: arrowImage,
           scaleX: flip[i],
           offsetX: offset[i],
+          index: i,
         };
         this.configArrows.push(arrow);
       }
     },
-    movePanel(e) {
-      this.configRotationPanel.x = e.target.x();
-      if (e.target.y() + e.target.attrs.height + this.ratioLength > this.gameHeight)
-        this.configRotationPanel.y = e.target.y() - this.ratioLength;
-      else this.configRotationPanel.y = e.target.y() + e.target.attrs.height;
+    movePanel(image) {
+      this.configRotationPanel.x = image.x;
+
+      if (image.rotation % 180 == 0) {
+        if (image.y + image.height + this.ratioLength > this.gameHeight)
+          this.configRotationPanel.y = image.y - this.ratioLength;
+        else this.configRotationPanel.y = image.y + image.height;
+      } else {
+        if (image.y + image.width + this.ratioLength > this.gameHeight)
+          this.configRotationPanel.y = image.y - this.ratioLength;
+        else this.configRotationPanel.y = image.y + image.width;
+      }
 
       for (let i = 0; i < 2; ++i) {
         this.configArrows[i].x =
@@ -225,13 +244,12 @@ export default {
       e.target.y(Math.min(e.target.y(), this.gameWidth - e.target.attrs.height));
     },
     handleDragend(e) {
-      if (
-        this.Data.images[e.target.index].snapToGrid &&
-        this.Data.backgroundType == "grid"
-      )
+      let id = e.target.attrs.index;
+      if (this.Data.images[id].snapToGrid && this.Data.backgroundType == "grid")
         this.snapToGrid(e);
     },
     snapToGrid(e) {
+      let id = e.target.attrs.index;
       let snapTo = {},
         distance = 999;
       for (let i in this.gridPos.x) {
@@ -249,7 +267,13 @@ export default {
       }
       e.target.x(snapTo.x);
       e.target.y(snapTo.y);
-      this.movePanel(e);
+      this.configImage[id].x = snapTo.x;
+      this.configImage[id].y = snapTo.y;
+      this.movePanel(this.configImage[id]);
+    },
+    rotateImage(e) {
+      this.configImage[this.rotatingImageID].rotation += 90;
+      this.movePanel(this.configImage[this.rotatingImageID]);
     },
   },
 };
