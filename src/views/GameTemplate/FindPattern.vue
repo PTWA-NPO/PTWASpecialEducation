@@ -25,6 +25,10 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
 
   emits: ["play-effect", "add-record", "next-question"],
@@ -32,12 +36,7 @@ export default {
   data() {
     return {
       configKonva: {},
-      configBG: {
-        x: 0,
-        y: 0,
-        fill: "gray",
-        stroke: "gray",
-      },
+      configDragBG: {},
     };
   },
 
@@ -47,13 +46,18 @@ export default {
 
   methods: {
     initializeScene() {
+      this.tableSize = {
+        width: this.GameData.Map[0].length,
+        height: this.GameData.Map.length,
+      };
       let gameRatio;
       switch (this.GameData.AnswerType) {
         case "Drag":
-          gameRatio = this.GameData.Map[0].length / (this.GameData.Map.length + 1.5);
+          gameRatio = this.tableSize.width / (this.tableSize.height + 1.5);
           break;
         case "Fill":
-          gameRatio = this.GameData.Map[0].length / this.GameData.Map.length;
+          gameRatio = this.tableSize.width / this.tableSize.height;
+          break;
       }
 
       if (
@@ -69,8 +73,27 @@ export default {
       }
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
+      this.blockWidth = this.gameWidth / this.tableSize.width;
+
+      switch (this.GameData.AnswerType) {
+        case "Drag":
+          this.drawDragBG();
+          break;
+        case "Fill":
+          break;
+      }
     },
-    update() {},
+    drawDragBG() {
+      this.configDragBG = {
+        x: 0,
+        y: this.blockWidth * this.tableSize.height,
+        width: this.gameWidth,
+        height: this.blockWidth * 1.5,
+        fill: "gray",
+        stroke: "gray",
+        cornerRadius: this.blockWidth * 0.5,
+      };
+    },
   },
 };
 </script>
