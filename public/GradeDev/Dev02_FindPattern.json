@@ -15,15 +15,21 @@
     },
     "Questions": [
         {
-            "Question": "[Insert question 1.]",
-            "True": ["ans1", "ans2", "ans3"],
-            "False": [1, 2, 3, 4, 5]
+            "Question": "拖拉圖案",
+            "AnswerType": "Drag",
+            "Images": ["heartPink.png", "heartPurple.png"],
+            "Map": [[0, 1, 0, 1, 0, 1]],
+            "BlankSpace": [[4, 0]]
         },
 
         {
-            "Question": "[Insert question 2.]",
-            "True": ["ans1", "ans2", "ans3"],
-            "False": [1, 2, 3, 4, 5]
+            "Question": "填色",
+            "AnswerType": "Fill",
+            "Frame": "clover.png",
+            "Fill": "cloverFilling.png",
+            "FillRotation": [0, 90, 180, 270],
+            "Map": [[0, 1, 2, 3, 0, 1, 2, 3]],
+            "BlankSpace": [[4, 0], [5, 0]]
         }
     ]
 }

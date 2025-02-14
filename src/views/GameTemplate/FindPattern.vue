@@ -47,11 +47,26 @@ export default {
 
   methods: {
     initializeScene() {
-      this.gameWidth = this.$refs.container.clientWidth;
+      let gameRatio;
+      if (this.GameData.AnswerType == "Drag")
+        gameRatio = this.GameData.Map[0].length / (this.GameData.Map.length + 1.5);
+      else gameRatio = this.GameData.Map[0].length / this.GameData.Map.length;
+
+      if (
+        this.$refs.container.clientWidth / gameRatio <=
+          this.$refs.container.clientHeight ||
+        this.$refs.container.clientHeight <= this.$refs.container.clientWidth * 0.1
+      ) {
+        this.gameWidth = this.$refs.container.clientWidth;
+        this.gameHeight = this.gameWidth / gameRatio;
+      } else {
+        this.gameHeight = this.$refs.container.clientHeight;
+        this.gameWidth = this.gameHeight * gameRatio;
+      }
       this.configKonva.width = this.gameWidth;
-      this.configKonva.height = this.gameWidth / 2;
+      this.configKonva.height = this.gameHeight;
       this.configBG.width = this.gameWidth;
-      this.configBG.height = this.gameWidth / 2;
+      this.configBG.height = this.gameHeight;
     },
     update() {},
   },
