@@ -23,18 +23,21 @@
           :key="index"
           :config="shadow"
           @click="handleButton(index)"
+          @tap="handleButton(index)"
         />
         <v-rect
           v-for="(button, index) in configButtons"
           :key="index"
           :config="button"
           @click="handleButton(index)"
+          @tap="handleButton(index)"
         />
         <v-text
           v-for="(option, index) in configOptions"
           :key="index"
           :config="option"
           @click="handleButton(index)"
+          @tap="handleButton(index)"
         />
       </v-layer>
     </v-stage>
