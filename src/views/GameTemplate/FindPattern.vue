@@ -5,6 +5,9 @@
       <v-layer>
         <v-rect v-if="GameData.AnswerType == 'Drag'" :config="configDragBG"></v-rect>
       </v-layer>
+      <v-layer>
+        <v-image v-for="(block, index) in configBlocks" :key="index" :config="block" />
+      </v-layer>
     </v-stage>
   </div>
 </template>
@@ -37,6 +40,7 @@ export default {
     return {
       configKonva: {},
       configDragBG: {},
+      configBlocks: [],
     };
   },
 
@@ -78,8 +82,10 @@ export default {
       switch (this.GameData.AnswerType) {
         case "Drag":
           this.drawDragBG();
+          this.drawDragMap();
           break;
         case "Fill":
+          this.drawFillMap();
           break;
       }
     },
@@ -94,6 +100,29 @@ export default {
         cornerRadius: this.blockWidth * 0.5,
       };
     },
+    drawDragMap() {
+      this.images = [];
+      for (let i in this.GameData.Images) {
+        let image = new window.Image();
+        image.src = getGameAssets(this.ID, this.GameData.Images[i]);
+        this.images.push(image);
+      }
+
+      for (let i = 0; i < this.tableSize.width; ++i) {
+        for (let j = 0; j < this.tableSize.height; ++j) {
+          let block = {
+            x: this.blockWidth * i,
+            y: this.blockWidth * j,
+            height: this.blockWidth,
+            width: this.blockWidth,
+            image: this.images[this.GameData.Map[j][i]],
+          };
+          this.configBlocks.push(block);
+          console.log(i, j);
+        }
+      }
+    },
+    drawFillMap() {},
   },
 };
 </script>
