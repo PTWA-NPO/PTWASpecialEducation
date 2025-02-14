@@ -116,6 +116,7 @@ export default {
             height: this.blockWidth,
             width: this.blockWidth,
             image: this.images[this.GameData.Map[j][i]],
+            visible: !this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
           console.log(i, j);
@@ -123,6 +124,13 @@ export default {
       }
     },
     drawFillMap() {},
+    isBlankSpace(x, y) {
+      for (let i in this.GameData.BlankSpace) {
+        if (this.GameData.BlankSpace[i][0] == x && this.GameData.BlankSpace[i][1] == y)
+          return true;
+      }
+      return false;
+    },
   },
 };
 </script>
