@@ -3,7 +3,7 @@
     <h2>{{ GameData.Question }}</h2>
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
+        <v-rect v-if="GameData.AnswerType == 'Drag'" :config="configDragBG"></v-rect>
       </v-layer>
     </v-stage>
   </div>
@@ -48,9 +48,13 @@ export default {
   methods: {
     initializeScene() {
       let gameRatio;
-      if (this.GameData.AnswerType == "Drag")
-        gameRatio = this.GameData.Map[0].length / (this.GameData.Map.length + 1.5);
-      else gameRatio = this.GameData.Map[0].length / this.GameData.Map.length;
+      switch (this.GameData.AnswerType) {
+        case "Drag":
+          gameRatio = this.GameData.Map[0].length / (this.GameData.Map.length + 1.5);
+          break;
+        case "Fill":
+          gameRatio = this.GameData.Map[0].length / this.GameData.Map.length;
+      }
 
       if (
         this.$refs.container.clientWidth / gameRatio <=
@@ -65,8 +69,6 @@ export default {
       }
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
-      this.configBG.width = this.gameWidth;
-      this.configBG.height = this.gameHeight;
     },
     update() {},
   },
