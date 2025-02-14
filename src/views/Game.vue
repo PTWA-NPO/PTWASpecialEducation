@@ -22,11 +22,7 @@
             />
             <div class="row Game_Component">
               <!-- Dynamic import component -->
-              <div
-                v-if="GameStatus == 'Progressing'"
-                id="GameContainer"
-                class="games"
-              >
+              <div v-if="GameStatus == 'Progressing'" id="GameContainer" class="games">
                 <EffectWindow
                   v-if="ShowReply"
                   id="CorrecIncorrect"
@@ -164,27 +160,21 @@ export default {
     LevelAndTime,
     MediaModal,
     loading,
-    LinkGame: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/LinkGame.vue")
-    ),
+    LinkGame: defineAsyncComponent(() => import("@/views/GameTemplate/LinkGame.vue")),
     CompareGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/CompareGame.vue")
     ),
     TrueFalseGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/TrueFalseGame.vue")
     ),
-    SelectGame: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/SelectGame.vue")
-    ),
+    SelectGame: defineAsyncComponent(() => import("@/views/GameTemplate/SelectGame.vue")),
     NumberInputGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/NumberInputGame.vue")
     ),
     ClassifyGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/ClassifyGame.vue")
     ),
-    SortGame: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/SortGame.vue")
-    ),
+    SortGame: defineAsyncComponent(() => import("@/views/GameTemplate/SortGame.vue")),
     FindTheItemGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/FindTheItemGame.vue")
     ),
@@ -206,19 +196,11 @@ export default {
     PairingGame: defineAsyncComponent(() =>
       import("@/views/GameTemplate/PairingGame.vue")
     ),
-    NumberLock: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/NumberLock.vue")
-    ),
-    RacingCar: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/RacingCar.vue")
-    ),
-    WhackaMole: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/WhackaMole.vue")
-    ),
+    NumberLock: defineAsyncComponent(() => import("@/views/GameTemplate/NumberLock.vue")),
+    RacingCar: defineAsyncComponent(() => import("@/views/GameTemplate/RacingCar.vue")),
+    WhackaMole: defineAsyncComponent(() => import("@/views/GameTemplate/WhackaMole.vue")),
     Maze: defineAsyncComponent(() => import("@/views/GameTemplate/Maze.vue")),
-    NumberLock: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/NumberLock.vue")
-    ),
+    NumberLock: defineAsyncComponent(() => import("@/views/GameTemplate/NumberLock.vue")),
     SelectGameMulti: defineAsyncComponent(() =>
       import("@/views/GameTemplate/SelectGameMulti.vue")
     ),
@@ -228,38 +210,31 @@ export default {
     // eslint-disable-next-line vue/no-reserved-component-names
     Track: defineAsyncComponent(() => import("@/views/GameTemplate/Track.vue")),
     EffectWindow,
-    SideBar: defineAsyncComponent(() =>
-      import("@/components/game-system/SideBar.vue")
-    ),
-    CopyItem: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/CopyItem.vue")
-    ),
-    Airplane: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/Airplane.vue")
-    ),
+    SideBar: defineAsyncComponent(() => import("@/components/game-system/SideBar.vue")),
+    CopyItem: defineAsyncComponent(() => import("@/views/GameTemplate/CopyItem.vue")),
+    Airplane: defineAsyncComponent(() => import("@/views/GameTemplate/Airplane.vue")),
     ComponentTesters: defineAsyncComponent(() =>
       import("@/views/GameTemplate/componentTesters.vue")
     ), //for testing only
     BalloonShooting: defineAsyncComponent(() =>
       import("@/views/GameTemplate/BalloonShooting.vue")
     ),
-    NumberLock: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/NumberLock.vue")
-    ),
+    NumberLock: defineAsyncComponent(() => import("@/views/GameTemplate/NumberLock.vue")),
     LinkToImage: defineAsyncComponent(() =>
       import("@/views/GameTemplate/LinktoImage.vue")
     ),
     WordProblemWithCalculator: defineAsyncComponent(() =>
       import("@/views/GameTemplate/WordProblemWithCalculator.vue")
     ),
-    MoneyDrag: defineAsyncComponent(() =>
-      import("@/views/GameTemplate/MoneyDrag.vue")
-    ),
+    MoneyDrag: defineAsyncComponent(() => import("@/views/GameTemplate/MoneyDrag.vue")),
     MultiplyBoard: defineAsyncComponent(() =>
       import("@/views/GameTemplate/MultiplyBoard.vue")
     ),
     FractionArithmetic: defineAsyncComponent(() =>
       import("@/views/GameTemplate/FractionArithmetic.vue")
+    ),
+    FindPattern: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/FindPattern.vue")
     ),
   },
   data() {

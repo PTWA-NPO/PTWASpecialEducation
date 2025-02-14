@@ -1,0 +1,29 @@
+{
+    "id": "Dev02_FindPattern",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "[Insert question.]"
+    },
+    "TotalLevel": 2,
+    "GameType": "FindPattern",
+    "GameConfig": {
+        "GlobalTitle": "[Insert title.]"
+    },
+    "Hint":{
+        
+    },
+    "Questions": [
+        {
+            "Question": "[Insert question 1.]",
+            "True": ["ans1", "ans2", "ans3"],
+            "False": [1, 2, 3, 4, 5]
+        },
+
+        {
+            "Question": "[Insert question 2.]",
+            "True": ["ans1", "ans2", "ans3"],
+            "False": [1, 2, 3, 4, 5]
+        }
+    ]
+}
