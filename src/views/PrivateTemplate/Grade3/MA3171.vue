@@ -165,7 +165,6 @@ export default {
     },
     numPadButtonClicked(label) {
       if (this.currentInputIndex !== null) {
-        // 修正條件判斷
         switch (label) {
           case "清除":
             this.inputValues[this.currentInputIndex] = "";
@@ -174,10 +173,8 @@ export default {
             this.closeNumPad();
             break;
           default:
-            this.inputValues[this.currentInputIndex] = label;
-            this.$nextTick(() => {
-              this.closeNumPad();
-            });
+            this.inputValues[this.currentInputIndex] =
+              this.inputValues[this.currentInputIndex] + label;
             break;
         }
       }
@@ -230,10 +227,12 @@ export default {
       this.submitted = true;
 
       if (isCorrect) {
-        this.$emit("play-effect", "correct");
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", ["不支援", "不支援", "正確"]);
         this.$emit("next-question");
       } else {
         this.$emit("play-effect", "wrong");
+        this.$emit("add-record", ["不支援", "不支援", "錯誤"]);
       }
     },
   },
@@ -275,6 +274,10 @@ export default {
     cursor: pointer;
     background-color: white;
     border-radius: 8px;
+    padding: 0 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &.error {
       background-color: #ffebee;
