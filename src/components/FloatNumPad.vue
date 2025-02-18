@@ -96,8 +96,8 @@ export default {
           left = 0;
         }
 
-        this.adjustedTop = top + "px";
-        this.adjustedLeft = left + "px";
+        this.adjustedTop = `${top}px`;
+        this.adjustedLeft = `${left}px`;
       });
     },
     getButtonClass(label) {
@@ -113,33 +113,38 @@ export default {
 .floating-num-pad {
   position: absolute;
   display: grid;
-  width: 11rem;
-  background: $primary-color;
-  border: black solid 2px;
+  width: fit-content;
+  height: fit-content;
+  background-color: #9b8c7c;
   grid-template-columns: repeat(3, 1fr);
-  padding: 0.2rem;
+  padding: 0.5rem;
   justify-content: center;
   align-items: center;
   gap: $gap--tiny;
   border-radius: $border-radius;
+  z-index: 1000;
 }
 
 button {
-  width: 3rem;
-  height: 3rem;
-  font-size: 14px;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f0f0f0;
+  border: none;
   @extend .button-basic;
 }
 
 .button-number {
   background-color: $sub-color;
+  font-size: 2rem;
 }
 
 .button-clear {
   background-color: $warning-color;
+  font-size: 1rem;
 }
 
 .button-close {
+  font-size: 1rem;
   background-color: $error-color;
   color: white;
 }
