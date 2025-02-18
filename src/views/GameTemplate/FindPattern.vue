@@ -1,6 +1,9 @@
 <template>
   <div ref="container">
-    <h2>{{ GameData.Question }}</h2>
+    <div class="question">
+      <h2>{{ GameData.Question }}</h2>
+      <button @click="checkAnswer">提交答案</button>
+    </div>
     <v-stage :config="configKonva">
       <v-layer>
         <v-rect v-if="GameData.AnswerType == 'Drag'" :config="configDragBG"></v-rect>
@@ -8,7 +11,7 @@
       <v-layer>
         <v-image v-for="(block, index) in configBlocks" :key="index" :config="block" />
       </v-layer>
-      <v-layer v-if="GameData.AnswerType == 'Drag'">
+      <v-layer v-if="GameData.AnswerType == 'Drag'" :key="draggableKey">
         <v-image
           v-for="(block, index) in configDraggables"
           :key="index"
@@ -50,6 +53,7 @@ export default {
       configDragBG: {},
       configBlocks: [],
       configDraggables: [],
+      draggableKey: 0,
       answers: [],
     };
   },
@@ -144,7 +148,6 @@ export default {
           width: this.blockWidth,
           image: this.images[i],
           draggable: true,
-          index: i,
         };
         this.configDraggables.push(block);
       }
@@ -152,13 +155,13 @@ export default {
     drawFillMap() {},
     isBlankSpace(x, y) {
       for (let i in this.GameData.BlankSpace) {
-        if (this.GameData.BlankSpace[i][0] == x && this.GameData.BlankSpace[i][1] == y)
+        if (this.GameData.BlankSpace[i].x == x && this.GameData.BlankSpace[i].y == y)
           return i;
       }
       return null;
     },
     handleDragend(e) {
-      let id = e.target.attrs.index;
+      let id = e.target.index;
       if (id < this.images.length) {
         for (let block in this.configBlocks) {
           if (
@@ -180,9 +183,9 @@ export default {
         } else {
           this.answers[this.configDraggables[id].answerIndex] = null;
           this.configDraggables.splice(id, 1);
+          this.draggableKey++;
         }
       }
-      console.log(this.answers);
     },
     isSlotAvailable(block) {
       if (this.configBlocks[block].answerIndex) {
@@ -190,7 +193,7 @@ export default {
       } else return false;
     },
     snapBack(e) {
-      let id = e.target.attrs.index;
+      let id = e.target.index;
       e.target.x(this.configDraggables[id].x);
       e.target.y(this.configDraggables[id].y);
     },
@@ -202,11 +205,64 @@ export default {
         width: this.blockWidth,
         image: this.images[imageID],
         draggable: true,
-        index: this.configDraggables.length,
         answerIndex: this.configBlocks[slot].answerIndex,
       };
       this.configDraggables.push(block);
     },
+    checkAnswer() {
+      let correctAnswers = [],
+        studentAnswers = [],
+        isCorrect = true;
+      for (let i in this.answers) {
+        let blockID = {
+          x: this.GameData.BlankSpace[i].x,
+          y: this.GameData.BlankSpace[i].y,
+        };
+        let correctAnswerID = this.GameData.Map[blockID.y][blockID.x];
+        if (this.answers[i] != correctAnswerID) isCorrect = false;
+        studentAnswers.push(this.GameData.Images[this.answers[i]]);
+        correctAnswers.push(this.GameData.Images[correctAnswerID]);
+      }
+      if (isCorrect) {
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", [
+          correctAnswers.toString(),
+          studentAnswers.toString(),
+          "正確",
+        ]);
+        this.$emit("next-question");
+      } else {
+        this.$emit("play-effect", "WrongSound");
+        console.log(studentAnswers.filter((answer) => answer == null));
+        if (studentAnswers.filter((answer) => answer == null).length > 0)
+          this.$emit("add-record", [correctAnswers.toString(), "未填答完成", "錯誤"]);
+        else
+          this.$emit("add-record", [
+            correctAnswers.toString(),
+            studentAnswers.toString(),
+            "錯誤",
+          ]);
+      }
+    },
   },
 };
 </script>
+
+<style scoped lang="css">
+.question {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+button {
+  margin-left: auto;
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+  border-radius: 1rem;
+  &:hover {
+    background-color: darken(lightgray, 10%);
+  }
+  font-size: 2rem;
+}
+</style>

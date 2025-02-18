@@ -19,7 +19,7 @@
             "AnswerType": "Drag",
             "Images": ["heartPink.png", "heartPurple.png"],
             "Map": [[0, 1, 0, 1, 0, 1]],
-            "BlankSpace": [[4, 0]]
+            "BlankSpace": [{"x": 2, "y": 0},{"x": 4, "y": 0}]
         },
 
         {
@@ -29,7 +29,7 @@
             "Fill": "cloverFilling.png",
             "FillRotation": [0, 90, 180, 270],
             "Map": [[0, 1, 2, 3, 0, 1, 2, 3]],
-            "BlankSpace": [[4, 0], [5, 0]]
+            "BlankSpace": [{"x": 4, "y": 0}, {"x": 5, "y": 0}]
         }
     ]
 }
