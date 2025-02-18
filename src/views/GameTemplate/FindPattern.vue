@@ -50,7 +50,7 @@ export default {
       configDragBG: {},
       configBlocks: [],
       configDraggables: [],
-      answer: [],
+      answers: [],
     };
   },
 
@@ -128,8 +128,10 @@ export default {
             width: this.blockWidth,
             image: this.images[this.GameData.Map[j][i]],
             visible: !this.isBlankSpace(i, j),
+            answerIndex: this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
+          if (!block.visible) this.answers.push(null);
         }
       }
     },
@@ -151,20 +153,21 @@ export default {
     isBlankSpace(x, y) {
       for (let i in this.GameData.BlankSpace) {
         if (this.GameData.BlankSpace[i][0] == x && this.GameData.BlankSpace[i][1] == y)
-          return true;
+          return i;
       }
-      return false;
+      return null;
     },
     handleDragend(e) {
       let id = e.target.attrs.index;
       if (id < this.images.length) {
-        for (let i in this.configBlocks) {
+        for (let block in this.configBlocks) {
           if (
-            !this.configBlocks[i].visible &&
-            canvasTools.distance(e.target.position(), this.configBlocks[i]) <
+            this.isSlotAvailable(block) &&
+            canvasTools.distance(e.target.position(), this.configBlocks[block]) <
               this.blockWidth * 0.25
           ) {
-            this.newDraggable(i, id);
+            this.newDraggable(block, id);
+            this.answers[this.configBlocks[block].answerIndex] = id;
           }
         }
         this.snapBack(e);
@@ -175,9 +178,16 @@ export default {
         ) {
           this.snapBack(e);
         } else {
+          this.answers[this.configDraggables[id].answerIndex] = null;
           this.configDraggables.splice(id, 1);
         }
       }
+      console.log(this.answers);
+    },
+    isSlotAvailable(block) {
+      if (this.configBlocks[block].answerIndex) {
+        if (this.answers[this.configBlocks[block].answerIndex] == null) return true;
+      } else return false;
     },
     snapBack(e) {
       let id = e.target.attrs.index;
@@ -193,6 +203,7 @@ export default {
         image: this.images[imageID],
         draggable: true,
         index: this.configDraggables.length,
+        answerIndex: this.configBlocks[slot].answerIndex,
       };
       this.configDraggables.push(block);
     },
