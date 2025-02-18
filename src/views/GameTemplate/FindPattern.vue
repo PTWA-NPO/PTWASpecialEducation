@@ -230,34 +230,30 @@ export default {
       if (!isCorrect) this.removeWrongAnswers(wrongAnswers);
     },
     emitAnswer(isCorrect) {
-      let correctAnswers = [],
-        studentAnswers = [];
-      for (let i in this.answers) {
+      let correctAnswers = [];
+      for (let i in this.GameData.BlankSpace) {
         let blockID = {
           x: this.GameData.BlankSpace[i].x,
           y: this.GameData.BlankSpace[i].y,
         };
-        let correctAnswerID = this.GameData.Map[blockID.y][blockID.x];
-        studentAnswers.push(this.GameData.Images[this.answers[i]]);
-        correctAnswers.push(this.GameData.Images[correctAnswerID]);
+        correctAnswers.push(this.GameData.Map[blockID.y][blockID.x]);
       }
       if (isCorrect) {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [
           correctAnswers.toString(),
-          studentAnswers.toString(),
+          this.answers.toString(),
           "正確",
         ]);
         this.$emit("next-question");
       } else {
         this.$emit("play-effect", "WrongSound");
-        console.log(studentAnswers.filter((answer) => answer == null));
-        if (studentAnswers.filter((answer) => answer == null).length > 0)
+        if (this.answers.filter((answer) => answer == null).length > 0)
           this.$emit("add-record", [correctAnswers.toString(), "未填答完成", "錯誤"]);
         else
           this.$emit("add-record", [
             correctAnswers.toString(),
-            studentAnswers.toString(),
+            this.answers.toString(),
             "錯誤",
           ]);
       }
