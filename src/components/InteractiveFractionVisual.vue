@@ -61,6 +61,7 @@ export default {
       dashPattern: [5, 5],
       rectScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       circleScale: 0.45,
+      gridScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       isCupMode: this.Data.shape === "cup",
       answer: this.Data.answer,
     };
@@ -116,6 +117,8 @@ export default {
         this.drawRectangle();
       } else if (this.shape === "circle") {
         this.drawCircle();
+      } else if (this.shape === "grid") {
+        this.drawGrid();
       }
     },
 
@@ -214,6 +217,60 @@ export default {
       this.ctx.stroke();
       this.ctx.setLineDash([]);
     },
+
+    drawGrid() {
+      const { width, height, x, y } = this.calculateGridDimensions();
+
+      // 固定兩行，列數根據分母計算
+      const rows = 2;
+      const cols = Math.ceil(this.denominator / 2);
+
+      const cellWidth = width / cols;
+      const cellHeight = height / rows;
+
+      // 先繪製網格外框
+      this.ctx.strokeRect(x, y, width, height);
+
+      // 填充選中的格子（上下上下順序）
+      this.ctx.fillStyle = this.fillColor;
+      for (let i = 0; i < this.numerator; i++) {
+        const col = Math.floor(i / 2); // 計算在第幾列
+        const row = i % 2; // 在該列中是上還是下
+        this.ctx.fillRect(
+          x + col * cellWidth,
+          y + row * cellHeight,
+          cellWidth,
+          cellHeight
+        );
+      }
+
+      // 最後繪製分隔線（虛線），確保在最上層
+      this.ctx.setLineDash(this.dashPattern);
+      // 繪製垂直分隔線
+      for (let i = 1; i < cols; i++) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + i * cellWidth, y);
+        this.ctx.lineTo(x + i * cellWidth, y + height);
+        this.ctx.stroke();
+      }
+
+      // 繪製水平分隔線
+      this.ctx.beginPath();
+      this.ctx.moveTo(x, y + cellHeight);
+      this.ctx.lineTo(x + width, y + cellHeight);
+      this.ctx.stroke();
+      this.ctx.setLineDash([]); // 重置為實線
+    },
+
+    calculateGridDimensions() {
+      return {
+        width: this.gameWidth * this.gridScale.width,
+        height: this.gameHeight * this.gridScale.height,
+        x: this.gameWidth * this.gridScale.x,
+        y: this.gameHeight * this.gridScale.y,
+      };
+    },
+
     handleShapeClick() {
       if (this.displayOnly) return;
 
