@@ -62,6 +62,7 @@ export default {
       rectScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       circleScale: 0.45,
       isCupMode: this.Data.shape === "cup",
+      answer: this.Data.answer,
     };
   },
   computed: {
@@ -219,10 +220,11 @@ export default {
       this.numerator =
         this.numerator >= this.denominator ? 0 : this.numerator + 1;
 
-      this.$emit("replyAnswer", {
-        numerator: this.numerator,
-        denominator: this.denominator,
-      });
+      const isCorrect =
+        this.numerator === this.answer.numerator &&
+        this.denominator === this.answer.denominator;
+
+      this.$emit("replyAnswer", isCorrect);
     },
   },
 };
