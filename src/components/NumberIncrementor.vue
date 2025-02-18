@@ -69,7 +69,6 @@ export default {
       const result = this.Data.decimalPlaces
         ? totalValue / Math.pow(10, this.Data.decimalPlaces)
         : totalValue;
-      console.log(result);
       this.$emit("numberChanged", result);
       this.$emit("replyAnswer", result === this.Data.answer);
     },
