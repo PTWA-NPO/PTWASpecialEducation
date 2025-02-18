@@ -78,6 +78,20 @@ export default {
           break;
       }
 
+      this.drawCanvas(gameRatio);
+
+      switch (this.GameData.AnswerType) {
+        case "Drag":
+          this.drawDragBG();
+          this.drawDragMap();
+          this.drawDraggables();
+          break;
+        case "Fill":
+          this.drawFillMap();
+          break;
+      }
+    },
+    drawCanvas(gameRatio) {
       if (
         this.$refs.container.clientWidth / gameRatio <=
           this.$refs.container.clientHeight ||
@@ -92,17 +106,6 @@ export default {
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
       this.blockWidth = this.gameWidth / this.tableSize.width;
-
-      switch (this.GameData.AnswerType) {
-        case "Drag":
-          this.drawDragBG();
-          this.drawDragMap();
-          this.drawDraggables();
-          break;
-        case "Fill":
-          this.drawFillMap();
-          break;
-      }
     },
     drawDragBG() {
       this.configDragBG = {
@@ -220,6 +223,18 @@ export default {
         };
         let correctAnswerID = this.GameData.Map[blockID.y][blockID.x];
         if (this.answers[i] != correctAnswerID) isCorrect = false;
+      }
+      this.emitAnswer(isCorrect, correctAnswers, studentAnswers);
+    },
+    emitAnswer(isCorrect) {
+      let correctAnswers = [],
+        studentAnswers = [];
+      for (let i in this.answers) {
+        let blockID = {
+          x: this.GameData.BlankSpace[i].x,
+          y: this.GameData.BlankSpace[i].y,
+        };
+        let correctAnswerID = this.GameData.Map[blockID.y][blockID.x];
         studentAnswers.push(this.GameData.Images[this.answers[i]]);
         correctAnswers.push(this.GameData.Images[correctAnswerID]);
       }
