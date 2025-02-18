@@ -235,6 +235,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: inherit;
   position: relative;
   &__canvas {
     width: 100%;
@@ -255,6 +256,8 @@ export default {
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  aspect-ratio: 2/3;
 }
 
 .fraction-chart__cup--disabled {
