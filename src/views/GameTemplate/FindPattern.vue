@@ -8,6 +8,14 @@
       <v-layer>
         <v-image v-for="(block, index) in configBlocks" :key="index" :config="block" />
       </v-layer>
+      <v-layer v-if="GameData.AnswerType == 'Drag'">
+        <v-image
+          v-for="(block, index) in configDraggables"
+          :key="index"
+          :config="block"
+          @dragend="handleDragend"
+        />
+      </v-layer>
     </v-stage>
   </div>
 </template>
@@ -41,6 +49,8 @@ export default {
       configKonva: {},
       configDragBG: {},
       configBlocks: [],
+      configDraggables: [],
+      answer: [],
     };
   },
 
@@ -83,6 +93,7 @@ export default {
         case "Drag":
           this.drawDragBG();
           this.drawDragMap();
+          this.drawDraggables();
           break;
         case "Fill":
           this.drawFillMap();
@@ -119,8 +130,21 @@ export default {
             visible: !this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
-          console.log(i, j);
         }
+      }
+    },
+    drawDraggables() {
+      for (let i in this.images) {
+        let block = {
+          x: this.blockWidth * (Number(i) * 1.25 + 0.25),
+          y: this.blockWidth * (this.tableSize.height + 0.25),
+          height: this.blockWidth,
+          width: this.blockWidth,
+          image: this.images[i],
+          draggable: true,
+          index: i,
+        };
+        this.configDraggables.push(block);
       }
     },
     drawFillMap() {},
@@ -130,6 +154,47 @@ export default {
           return true;
       }
       return false;
+    },
+    handleDragend(e) {
+      let id = e.target.attrs.index;
+      if (id < this.images.length) {
+        for (let i in this.configBlocks) {
+          if (
+            !this.configBlocks[i].visible &&
+            canvasTools.distance(e.target.position(), this.configBlocks[i]) <
+              this.blockWidth * 0.25
+          ) {
+            this.newDraggable(i, id);
+          }
+        }
+        this.snapBack(e);
+      } else {
+        if (
+          canvasTools.distance(e.target.position(), this.configDraggables[id]) <
+          this.blockWidth * 0.5
+        ) {
+          this.snapBack(e);
+        } else {
+          this.configDraggables.splice(id, 1);
+        }
+      }
+    },
+    snapBack(e) {
+      let id = e.target.attrs.index;
+      e.target.x(this.configDraggables[id].x);
+      e.target.y(this.configDraggables[id].y);
+    },
+    newDraggable(slot, imageID) {
+      let block = {
+        x: this.configBlocks[slot].x,
+        y: this.configBlocks[slot].y,
+        height: this.blockWidth,
+        width: this.blockWidth,
+        image: this.images[imageID],
+        draggable: true,
+        index: this.configDraggables.length,
+      };
+      this.configDraggables.push(block);
     },
   },
 };
