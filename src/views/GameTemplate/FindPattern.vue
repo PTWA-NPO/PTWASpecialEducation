@@ -213,18 +213,21 @@ export default {
       this.configDraggables.push(block);
     },
     checkAnswer() {
-      let correctAnswers = [],
-        studentAnswers = [],
-        isCorrect = true;
+      let isCorrect = true,
+        wrongAnswers = [];
       for (let i in this.answers) {
         let blockID = {
           x: this.GameData.BlankSpace[i].x,
           y: this.GameData.BlankSpace[i].y,
         };
         let correctAnswerID = this.GameData.Map[blockID.y][blockID.x];
-        if (this.answers[i] != correctAnswerID) isCorrect = false;
+        if (this.answers[i] != correctAnswerID) {
+          isCorrect = false;
+          wrongAnswers.push(i);
+        }
       }
-      this.emitAnswer(isCorrect, correctAnswers, studentAnswers);
+      this.emitAnswer(isCorrect);
+      if (!isCorrect) this.removeWrongAnswers(wrongAnswers);
     },
     emitAnswer(isCorrect) {
       let correctAnswers = [],
@@ -257,6 +260,15 @@ export default {
             studentAnswers.toString(),
             "錯誤",
           ]);
+      }
+    },
+    removeWrongAnswers(wrongAnswers) {
+      for (let i in this.configDraggables) {
+        let answerIndex = this.configDraggables[i].answerIndex;
+        if (wrongAnswers.includes(answerIndex)) {
+          this.answers[answerIndex] = null;
+          this.configDraggables.splice(i, 1);
+        }
       }
     },
   },
