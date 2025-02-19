@@ -6,18 +6,7 @@
   },
   "TotalLevel": 3,
   "GameType": "SelfDefine",
-  "GameConfig": {
-    "NumberPadAutoDisappear": false,
-    "layout": {
-      "top": true,
-      "down": true,
-      "pad": false
-    },
-    "checkAnswer": {
-      "top": true,
-      "down": true
-    }
-  },
+  "GameConfig": {},
   "Questions": [
     [
       {
