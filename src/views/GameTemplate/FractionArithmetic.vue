@@ -5,25 +5,29 @@
       <div class="question__math-expression">
         <FractionDisplay
           :Data="questionLeftTerm"
+          :ID="ID"
           class="math-expression__fraction"
         ></FractionDisplay>
         <span class="question__math-symbol">{{ operation }}</span>
         <FractionDisplay
           :Data="questionRightTerm"
+          :ID="ID"
           class="math-expression__fraction"
         ></FractionDisplay>
         <span class="question__math-symbol">&#61;</span>
         <FractionForAnswer
           ref="fractionsComponent"
           :Data="answerData"
-          @validation="handleValidation"
+          :ID="ID"
           @recordAnswer="handleRecordAnswer"
+          @replyAnswer="handleValidation"
         ></FractionForAnswer>
       </div>
     </div>
     <div class="check-calculation">
       <DragFraction
         :Data="checkCalculationData"
+        :ID="ID"
         class="check-calculation-components"
       ></DragFraction>
       <button class="check-answer-btn" @click="triggerValidation">

@@ -1,24 +1,26 @@
 <template>
-  <div ref="container" class="fraction-for-answer">
-    <input
-      ref="numerator"
-      class="fraction-input numerator"
-      type="text"
-      @click="showNumPad('numerator', $event)"
-    />
-    <span class="line"></span>
-    <input
-      ref="denominator"
-      class="fraction-input denominator"
-      type="text"
-      @click="showNumPad('denominator', $event)"
+  <div :class="$attrs.class">
+    <div ref="container" class="fraction-for-answer">
+      <input
+        ref="numerator"
+        class="fraction-input numerator"
+        type="text"
+        @click="showNumPad('numerator', $event)"
+      />
+      <span class="line"></span>
+      <input
+        ref="denominator"
+        class="fraction-input denominator"
+        type="text"
+        @click="showNumPad('denominator', $event)"
+      />
+    </div>
+    <FloatNumPad
+      v-if="virtualNumpadSwitch"
+      :Data="numPadPosition"
+      @buttonClicked="numPadButtonClicked"
     />
   </div>
-  <FloatNumPad
-    v-if="virtualNumpadSwitch"
-    :Data="numPadPosition"
-    @buttonClicked="numPadButtonClicked"
-  />
 </template>
 
 <script>
@@ -36,8 +38,12 @@ export default {
       type: Object,
       required: true,
     },
+    ID: {
+      type: String,
+      required: true,
+    },
   },
-  emits: ["validation", "recordAnswer"],
+  emits: ["recordAnswer", "replyAnswer"],
   data() {
     return {
       virtualNumpadSwitch: false,
@@ -90,7 +96,7 @@ export default {
       let userAnswer = `${parseInt(userNumerator, 10) || null}/${
         parseInt(userDenominator, 10) || null
       }`;
-      this.$emit("validation", isCorrect);
+      this.$emit("replyAnswer", isCorrect);
       this.$emit("recordAnswer", [
         correctAnswer,
         userAnswer,
@@ -121,6 +127,8 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   gap: 0.2rem;
@@ -128,7 +136,10 @@ export default {
 
 .fraction-input {
   flex: 1;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
   text-align: center;
   font-size: 1.5rem;
 }
