@@ -21,6 +21,9 @@ const componentsMapping = {
   MoneyDisplay: () => import("@/components/MoneyDisplay.vue"),
   Scale: () => import("@/components/Scale.vue"),
   NumberIncrementor: () => import("@/components/NumberIncrementor.vue"),
+  InteractiveMathEquation: () =>
+    import("@/components/InteractiveMathEquation.vue"),
+  FloatNumPad: () => import("@/components/FloatNumPad.vue"),
 };
 export function GetComponents(name) {
   console.warn(

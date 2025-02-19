@@ -1,0 +1,40 @@
+{
+  "id": "MA3071",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用除法算式記記看"
+  },
+  "TotalLevel": 3,
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    {
+      "questionText": "把7朵花，每7朵綁一束，最多可以綁成幾束?",
+      "middleText": "用除法算式記記看",
+      "topComponent": {
+        "Name": "RepeatImage",
+        "Data": { "Src": "flower.png", "Alt": "花", "Count": 7 }
+      },
+      "downComponent": {
+        "Name": "InteractiveMathEquation",
+        "Data": {
+          "equation": "_ ÷ _ = _ ",
+          "answers": ["7", "7", "1"],
+          "finalAnswerTemplate": "_ 束",
+          "finalAnswers": ["1"]
+        }
+      }
+    }
+  ]
+}
