@@ -219,12 +219,11 @@ export default {
       let rotations = this.GameData.FillRotation;
       for (let i in rotations) {
         if (Number(i) + 1 == rotations.length) {
-          this.rotationDividers.push((rotations[i] + rotations[1] + 360) / 2);
+          this.rotationDividers.push((rotations[i] + rotations[0] + 360) / 2);
         } else {
           this.rotationDividers.push((rotations[i] + rotations[Number(i) + 1]) / 2);
         }
       }
-      console.log(this.rotationDividers);
     },
     isBlankSpace(x, y) {
       for (let i in this.GameData.BlankSpace) {
@@ -264,8 +263,22 @@ export default {
       if (this.GameData.AnswerType == "Drag" || e.target.attrs.answerIndex == null)
         return 0;
 
-      let id = e.target.index;
-      this.configFillings[id].visible = true;
+      let id = e.target.index,
+        rotationIndex = this.getClickRotationIndex(
+          this.configFillings[id],
+          e.target.getStage().getPointerPosition()
+        );
+
+      if (
+        this.configFillings[id].visible &&
+        this.configFillings[id].rotation == this.GameData.FillRotation[rotationIndex]
+      ) {
+        this.configFillings[id].visible = false;
+      } else {
+        this.configFillings[id].visible = true;
+      }
+
+      this.configFillings[id].rotation = this.GameData.FillRotation[rotationIndex];
     },
     isSlotAvailable(block) {
       if (this.configBlocks[block].answerIndex) {
@@ -289,7 +302,24 @@ export default {
       };
       this.configDraggables.push(block);
     },
-    getClickAngleIndex(block, click) {},
+    getClickRotationIndex(block, click) {
+      let rotation = (canvasTools.angle(block, click) * 180) / Math.PI;
+      for (let i in this.rotationDividers) {
+        if (i == 0) {
+          if (
+            rotation < this.rotationDividers[i] ||
+            rotation > this.rotationDividers[this.rotationDividers.length - 1]
+          )
+            return i;
+        } else {
+          if (
+            rotation > this.rotationDividers[Number(i) - 1] &&
+            rotation < this.rotationDividers[i]
+          )
+            return i;
+        }
+      }
+    },
     checkAnswer() {
       let isCorrect = true,
         wrongAnswers = [];
