@@ -355,16 +355,13 @@ export default {
         if (this.configFood[i].visible) {
           allGathered = false;
           let unitVector = canvasTools.unitVector(
-            this.configFood[i],
-            canvasTools.center(this.configTarget)
+            canvasTools.center(this.configTarget),
+            this.configFood[i]
           );
-          if (this.GameData.CorrectRadius == this.findLargestRadius()) {
-            this.configFood[i].x += unitVector.x * 2;
-            this.configFood[i].y += unitVector.y * 2;
-          } else {
-            this.configFood[i].x += unitVector.x;
-            this.configFood[i].y += unitVector.y;
-          }
+          if (unitVector.x > 0) this.configTarget.scaleX = 1;
+          else this.configTarget.scaleX = -1;
+          this.configTarget.x += unitVector.x * 2;
+          this.configTarget.y += unitVector.y * 2;
           if (
             canvasTools.distance(
               canvasTools.center(this.configTarget),
@@ -374,6 +371,7 @@ export default {
           ) {
             this.configFood[i].visible = false;
           }
+          break;
         }
       }
       if (allGathered) {
