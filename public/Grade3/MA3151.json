@@ -1,0 +1,511 @@
+{
+  "id": "MA3151",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "認識一位小數"
+  },
+  "TotalLevel": 3,
+  "GameType": "SelfDefine",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": true,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "answerType": "decimal",
+        "questionDescription": "先塗上3/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 3,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.3
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "decimal",
+        "questionDescription": "先塗上1/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 1,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.1
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "decimal",
+        "questionDescription": "先塗上2/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 2,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.2
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "decimal",
+        "questionDescription": "先塗上4/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 4,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.4
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "decimal",
+        "questionDescription": "先塗上5/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 5,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.5
+          },
+          "suffix": "杯水"
+        }
+      }
+    ],
+    [
+      {
+        "answerType": "fraction",
+        "questionDescription": "先塗上6/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 6,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 6,
+            "denominator": 10
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "fraction",
+        "questionDescription": "先塗上7/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 7,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 7,
+            "denominator": 10
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "fraction",
+        "questionDescription": "先塗上8/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 8,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 8,
+            "denominator": 10
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "fraction",
+        "questionDescription": "先塗上9/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 9,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 9,
+            "denominator": 10
+          },
+          "suffix": "杯水"
+        }
+      },
+      {
+        "answerType": "fraction",
+        "questionDescription": "先塗上5/10杯水",
+        "question": {
+          "Numerator": 0,
+          "Denominator": 10,
+          "shape": "cup",
+          "DisplayOnly": false,
+          "answer": {
+            "numerator": 5,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 5,
+            "denominator": 10
+          },
+          "suffix": "杯水"
+        }
+      }
+    ],
+    [
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 4,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "answer": {
+            "numerator": 4,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 4,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.4
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 7,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "answer": {
+            "numerator": 7,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 7,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.7
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 3,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "answer": {
+            "numerator": 3,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 3,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.3
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 6,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "answer": {
+            "numerator": 6,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 6,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.6
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 9,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "answer": {
+            "numerator": 9,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 9,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.9
+          },
+          "suffix": "張"
+        }
+      }
+    ],
+    [
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 5,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "randomFill": true,
+          "answer": {
+            "numerator": 5,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 5,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.5
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 7,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "randomFill": true,
+          "answer": {
+            "numerator": 7,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 7,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.7
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 8,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "randomFill": true,
+          "answer": {
+            "numerator": 8,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 8,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.8
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 6,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "randomFill": true,
+          "answer": {
+            "numerator": 6,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 6,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.6
+          },
+          "suffix": "張"
+        }
+      },
+      {
+        "answerType": "both",
+        "questionDescription": "塗色部分是幾張？請用分數跟小數回答",
+        "question": {
+          "Numerator": 4,
+          "Denominator": 10,
+          "shape": "grid",
+          "DisplayOnly": true,
+          "randomFill": true,
+          "answer": {
+            "numerator": 4,
+            "denominator": 10
+          }
+        },
+        "answer": {
+          "fraction": {
+            "numerator": 4,
+            "denominator": 10
+          },
+          "decimal": {
+            "digitCount": 2,
+            "decimalPlaces": 1,
+            "answer": 0.4
+          },
+          "suffix": "張"
+        }
+      }
+    ]
+  ]
+}
