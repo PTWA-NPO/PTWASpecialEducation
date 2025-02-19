@@ -8,9 +8,15 @@
       <v-layer>
         <v-rect v-if="GameData.AnswerType == 'Drag'" :config="configDragBG"></v-rect>
       </v-layer>
+
+      <v-layer v-if="GameData.AnswerType == 'Fill'">
+        <v-image v-for="(block, index) in configFillings" :key="index" :config="block" />
+      </v-layer>
+
       <v-layer>
         <v-image v-for="(block, index) in configBlocks" :key="index" :config="block" />
       </v-layer>
+
       <v-layer v-if="GameData.AnswerType == 'Drag'" :key="draggableKey">
         <v-image
           v-for="(block, index) in configDraggables"
@@ -53,6 +59,7 @@ export default {
       configDragBG: {},
       configBlocks: [],
       configDraggables: [],
+      configFillings: [],
       draggableKey: 0,
       answers: [],
     };
@@ -88,6 +95,7 @@ export default {
           break;
         case "Fill":
           this.drawFillMap();
+          this.drawFillings();
           break;
       }
     },
@@ -155,7 +163,50 @@ export default {
         this.configDraggables.push(block);
       }
     },
-    drawFillMap() {},
+    drawFillMap() {
+      this.frameImage = new window.Image();
+      this.frameImage.src = getGameAssets(this.ID, this.GameData.Frame);
+
+      for (let i = 0; i < this.tableSize.width; ++i) {
+        for (let j = 0; j < this.tableSize.height; ++j) {
+          let block = {
+            x: this.blockWidth * i,
+            y: this.blockWidth * j,
+            height: this.blockWidth,
+            width: this.blockWidth,
+            image: this.frameImage,
+            answerIndex: this.isBlankSpace(i, j),
+          };
+          this.configBlocks.push(block);
+        }
+      }
+    },
+    drawFillings() {
+      this.fillingImage = new window.Image();
+      this.fillingImage.src = getGameAssets(this.ID, this.GameData.Fill);
+      let offset = {
+        x: this.blockWidth * 0.5,
+        y: this.blockWidth * 0.5,
+      };
+
+      for (let i = 0; i < this.tableSize.width; ++i) {
+        for (let j = 0; j < this.tableSize.height; ++j) {
+          let rotationIndex = this.GameData.Map[j][i];
+          let block = {
+            x: this.blockWidth * (i + 0.5),
+            y: this.blockWidth * (j + 0.5),
+            height: this.blockWidth,
+            width: this.blockWidth,
+            image: this.fillingImage,
+            visible: !this.isBlankSpace(i, j),
+            rotation: this.GameData.FillRotation[rotationIndex],
+            offset: offset,
+          };
+          this.configFillings.push(block);
+          if (!block.visible) this.answers.push(null);
+        }
+      }
+    },
     isBlankSpace(x, y) {
       for (let i in this.GameData.BlankSpace) {
         if (this.GameData.BlankSpace[i].x == x && this.GameData.BlankSpace[i].y == y)
