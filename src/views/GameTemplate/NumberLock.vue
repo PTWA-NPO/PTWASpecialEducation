@@ -55,12 +55,6 @@ export default {
     ImageContainer: defineAsyncComponent(() =>
       import("@/components/ImageContainer.vue")
     ),
-    InteractiveFractionVisual: defineAsyncComponent(() =>
-      import("@/components/InteractiveFractionVisual.vue")
-    ),
-    NumberIncrementor: defineAsyncComponent(() =>
-      import("@/components/NumberIncrementor.vue")
-    ),
   },
   props: {
     GameData: {
