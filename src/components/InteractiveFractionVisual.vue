@@ -64,6 +64,8 @@ export default {
       gridScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       isCupMode: this.Data.shape === "cup",
       answer: this.Data.answer,
+      isRandomFill: this.Data.randomFill || false,
+      randomIndices: [],
     };
   },
   computed: {
@@ -75,6 +77,9 @@ export default {
   watch: {
     numerator() {
       this.drawShape();
+    },
+    shape() {
+      this.randomIndices = [];
     },
   },
   mounted() {
@@ -130,9 +135,20 @@ export default {
     drawRectangle() {
       const { width, height, x, y } = this.calculateRectDimensions();
 
+      // 先繪製外框
       this.drawRectOutline(x, y, width, height);
-      this.drawRectFill(x, y, width, height);
+
+      // 再繪製填充
+      if (this.isRandomFill && this.displayOnly) {
+        this.drawRandomRectFill(x, y, width, height);
+      } else {
+        this.drawRectFill(x, y, width, height);
+      }
+
+      // 最後繪製分隔線（虛線）
+      this.ctx.setLineDash(this.dashPattern);
       this.drawRectDividers(x, y, width, height);
+      this.ctx.setLineDash([]);
     },
 
     calculateRectDimensions() {
@@ -155,7 +171,6 @@ export default {
     },
 
     drawRectDividers(x, y, width, height) {
-      this.ctx.setLineDash(this.dashPattern);
       this.ctx.beginPath();
       for (let i = 1; i < this.denominator; i++) {
         const lineX = x + (width * i) / this.denominator;
@@ -163,15 +178,40 @@ export default {
         this.ctx.lineTo(lineX, y + height);
       }
       this.ctx.stroke();
-      this.ctx.setLineDash([]);
+    },
+
+    drawRandomRectFill(x, y, width, height) {
+      if (this.randomIndices.length === 0) {
+        this.generateRandomIndices(this.denominator);
+      }
+
+      this.ctx.fillStyle = this.fillColor;
+      const sectionWidth = width / this.denominator;
+
+      // 使用隨機位置填充
+      for (let i = 0; i < this.numerator; i++) {
+        const section = this.randomIndices[i];
+        this.ctx.fillRect(x + section * sectionWidth, y, sectionWidth, height);
+      }
     },
 
     drawCircle() {
       const { centerX, centerY, radius } = this.calculateCircleDimensions();
 
+      // 先繪製圓形外框
       this.drawCircleOutline(centerX, centerY, radius);
-      this.drawCircleFill(centerX, centerY, radius);
+
+      // 再繪製填充
+      if (this.isRandomFill && this.displayOnly) {
+        this.drawRandomCircleFill(centerX, centerY, radius);
+      } else {
+        this.drawCircleFill(centerX, centerY, radius);
+      }
+
+      // 最後繪製分隔線（虛線）
+      this.ctx.setLineDash(this.dashPattern);
       this.drawCircleDividers(centerX, centerY, radius);
+      this.ctx.setLineDash([]);
     },
 
     calculateCircleDimensions() {
@@ -204,7 +244,6 @@ export default {
     },
 
     drawCircleDividers(centerX, centerY, radius) {
-      this.ctx.setLineDash(this.dashPattern);
       this.ctx.beginPath();
       for (let i = 1; i <= this.denominator; i++) {
         const angle = (i * Math.PI * 2) / this.denominator - Math.PI / 2;
@@ -215,7 +254,38 @@ export default {
         );
       }
       this.ctx.stroke();
-      this.ctx.setLineDash([]);
+    },
+
+    drawRandomCircleFill(centerX, centerY, radius) {
+      if (this.randomIndices.length === 0) {
+        this.generateRandomIndices(this.denominator);
+      }
+
+      this.ctx.fillStyle = this.fillColor;
+
+      // 使用隨機位置填充扇形
+      for (let i = 0; i < this.numerator; i++) {
+        const section = this.randomIndices[i];
+        this.ctx.beginPath();
+        this.ctx.moveTo(centerX, centerY);
+        const startAngle =
+          -Math.PI / 2 + (section * Math.PI * 2) / this.denominator;
+        const endAngle = startAngle + (Math.PI * 2) / this.denominator;
+        this.ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        this.ctx.lineTo(centerX, centerY);
+        this.ctx.fill();
+      }
+    },
+
+    generateRandomIndices(totalSections) {
+      // 創建所有可能的位置陣列
+      const indices = Array.from({ length: totalSections }, (_, i) => i);
+      // 打亂陣列
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      this.randomIndices = indices;
     },
 
     drawGrid() {
@@ -231,22 +301,46 @@ export default {
       // 先繪製網格外框
       this.ctx.strokeRect(x, y, width, height);
 
-      // 填充選中的格子（上下上下順序）
-      this.ctx.fillStyle = this.fillColor;
-      for (let i = 0; i < this.numerator; i++) {
-        const col = Math.floor(i / 2); // 計算在第幾列
-        const row = i % 2; // 在該列中是上還是下
-        this.ctx.fillRect(
-          x + col * cellWidth,
-          y + row * cellHeight,
-          cellWidth,
-          cellHeight
-        );
+      // 如果是隨機模式且還沒有生成隨機位置，則生成
+      if (
+        this.isRandomFill &&
+        this.displayOnly &&
+        this.randomIndices.length === 0
+      ) {
+        this.generateRandomIndices(cols * rows);
       }
 
-      // 最後繪製分隔線（虛線），確保在最上層
+      // 填充選中的格子
+      this.ctx.fillStyle = this.fillColor;
+      if (this.isRandomFill && this.displayOnly) {
+        // 使用隨機位置填充
+        for (let i = 0; i < this.numerator; i++) {
+          const index = this.randomIndices[i];
+          const col = Math.floor(index / 2);
+          const row = index % 2;
+          this.ctx.fillRect(
+            x + col * cellWidth,
+            y + row * cellHeight,
+            cellWidth,
+            cellHeight
+          );
+        }
+      } else {
+        // 原本的上下上下順序填充
+        for (let i = 0; i < this.numerator; i++) {
+          const col = Math.floor(i / 2);
+          const row = i % 2;
+          this.ctx.fillRect(
+            x + col * cellWidth,
+            y + row * cellHeight,
+            cellWidth,
+            cellHeight
+          );
+        }
+      }
+
+      // 最後繪製分隔線（虛線）
       this.ctx.setLineDash(this.dashPattern);
-      // 繪製垂直分隔線
       for (let i = 1; i < cols; i++) {
         this.ctx.beginPath();
         this.ctx.moveTo(x + i * cellWidth, y);
@@ -254,12 +348,11 @@ export default {
         this.ctx.stroke();
       }
 
-      // 繪製水平分隔線
       this.ctx.beginPath();
       this.ctx.moveTo(x, y + cellHeight);
       this.ctx.lineTo(x + width, y + cellHeight);
       this.ctx.stroke();
-      this.ctx.setLineDash([]); // 重置為實線
+      this.ctx.setLineDash([]);
     },
 
     calculateGridDimensions() {
