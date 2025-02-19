@@ -14,7 +14,13 @@
       </v-layer>
 
       <v-layer>
-        <v-image v-for="(block, index) in configBlocks" :key="index" :config="block" />
+        <v-image
+          v-for="(block, index) in configBlocks"
+          :key="index"
+          :config="block"
+          @click="handleClick"
+          @tap="handleClick"
+        />
       </v-layer>
 
       <v-layer v-if="GameData.AnswerType == 'Drag'" :key="draggableKey">
@@ -96,6 +102,7 @@ export default {
         case "Fill":
           this.drawFillMap();
           this.drawFillings();
+          this.setRotationDividers();
           break;
       }
     },
@@ -207,6 +214,18 @@ export default {
         }
       }
     },
+    setRotationDividers() {
+      this.rotationDividers = [];
+      let rotations = this.GameData.FillRotation;
+      for (let i in rotations) {
+        if (Number(i) + 1 == rotations.length) {
+          this.rotationDividers.push((rotations[i] + rotations[1] + 360) / 2);
+        } else {
+          this.rotationDividers.push((rotations[i] + rotations[Number(i) + 1]) / 2);
+        }
+      }
+      console.log(this.rotationDividers);
+    },
     isBlankSpace(x, y) {
       for (let i in this.GameData.BlankSpace) {
         if (this.GameData.BlankSpace[i].x == x && this.GameData.BlankSpace[i].y == y)
@@ -241,6 +260,13 @@ export default {
         }
       }
     },
+    handleClick(e) {
+      if (this.GameData.AnswerType == "Drag" || e.target.attrs.answerIndex == null)
+        return 0;
+
+      let id = e.target.index;
+      this.configFillings[id].visible = true;
+    },
     isSlotAvailable(block) {
       if (this.configBlocks[block].answerIndex) {
         if (this.answers[this.configBlocks[block].answerIndex] == null) return true;
@@ -263,6 +289,7 @@ export default {
       };
       this.configDraggables.push(block);
     },
+    getClickAngleIndex(block, click) {},
     checkAnswer() {
       let isCorrect = true,
         wrongAnswers = [];
