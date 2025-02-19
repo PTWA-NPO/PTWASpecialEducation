@@ -244,23 +244,23 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: $padding--large;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  gap: $gap--large;
 
   .equations-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    gap: $gap--large;
   }
 
   .equation {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: $gap--large;
   }
 
   .box {
@@ -270,47 +270,46 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: $text-medium;
     cursor: pointer;
     background-color: white;
-    border-radius: 8px;
-    padding: 0 5px;
+    border-radius: $border-radius;
+    padding: 0 $padding--small;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
     &.error {
-      background-color: #ffebee;
-      border-color: #f44336;
+      background-color: $error-color;
+      border-color: $error-color;
     }
 
     &.preset {
-      background-color: #f5f5f5;
+      background-color: $sub-color;
       cursor: not-allowed;
     }
   }
 
   .operator {
-    font-size: 28px;
-    color: #1976d2;
+    font-size: $text-large;
+    color: $accent-color;
     font-weight: bold;
     min-width: 30px;
     text-align: center;
   }
 
   .submit-btn {
-    padding: 1rem 2rem;
-    font-size: 18px;
-    background-color: #1976d2;
+    padding: $padding--small $padding--large;
+    font-size: $text-medium;
+    background-color: $accent-color;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: $border-radius;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 2rem;
 
     &:hover {
-      background-color: #1565c0;
+      background-color: $accent-color;
     }
 
     &:disabled {
