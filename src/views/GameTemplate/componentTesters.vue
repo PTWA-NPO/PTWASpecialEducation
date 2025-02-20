@@ -5,9 +5,10 @@
       <option>fraction</option>
       <option>drawShapes</option>
       <option>dragToAlign</option>
-      <option selected>dragImages</option>
+      <option>dragImages</option>
       <option>scale</option>
       <option>drawingBroad</option>
+      <option selected>fillImages</option>
     </select>
   </div>
   <div v-if="tester == 'fraction'" class="testArea">
@@ -49,6 +50,9 @@
       </button>
     </div>
   </div>
+  <div v-if="tester == 'fillImages'" class="testArea">
+    <fillImages :Data="configFillImages" :ID="gameid" @replyAnswer="printAns" />
+  </div>
 </template>
 
 <script>
@@ -64,10 +68,11 @@ export default {
     dragImages: defineAsyncComponent(() => import("@/components/DragImages.vue")),
     scale: defineAsyncComponent(() => import("@/components/Scale.vue")),
     drawingBoard: defineAsyncComponent(() => import("@/components/DrawingBoard.vue")),
+    fillImages: defineAsyncComponent(() => import("@/components/FillImages.vue")),
   },
   data() {
     return {
-      tester: "dragImages",
+      tester: "fillImages",
       configFraction: {
         verifyOption: "answer",
         shape: "circle",
@@ -148,6 +153,7 @@ export default {
         color: "red",
         size: 10,
       },
+      configFillImages: {},
       gameid: "Dev0105",
     };
   },
