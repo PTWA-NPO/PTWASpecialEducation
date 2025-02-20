@@ -281,7 +281,6 @@ export default {
       }
 
       this.configFillings[id].rotation = this.GameData.FillRotation[rotationIndex];
-      console.log(this.answers);
     },
     isSlotAvailable(block) {
       if (this.configBlocks[block].answerIndex) {

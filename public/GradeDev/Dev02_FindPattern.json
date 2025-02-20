@@ -30,6 +30,13 @@
             "FillRotation": [0, 90, 180, 270],
             "Map": [[0, 1, 2, 3, 0, 1, 2, 3]],
             "BlankSpace": [{"x": 4, "y": 0}, {"x": 5, "y": 0}]
+        },
+        {
+            "Question": "拖拉圖案",
+            "AnswerType": "Drag",
+            "Images": ["heartPink.png", "heartPurple.png"],
+            "Map": [[0, 1, 0, 1, 0, 1],[ 1, 0, 1, 0, 1,0],[0, 1, 0, 1, 0, 1],[ 1, 0, 1, 0, 1,0]],
+            "BlankSpace": [{"x": 3, "y": 0},{"x": 1, "y": 1}]
         }
     ]
 }
