@@ -113,6 +113,12 @@
                 "Name": "乘法計算版",
                 "Description": "#",
                 "Img": "MA3011.png"
+              },
+              {
+                "id": "Dev02_FindPattern",
+                "Name": "找規律",
+                "Description": "#",
+                "Img": "MA3011.png"
               }
             ]
           }
