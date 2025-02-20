@@ -249,16 +249,37 @@ export default {
           this.blockWidth * 0.5
         ) {
           this.snapBack(e);
-        } else {
-          this.answers[this.configDraggables[id].answerIndex] = null;
-          this.configDraggables.splice(id, 1);
-          this.draggableKey++;
+          console.log(this.answers);
+          return;
         }
+        for (let block in this.configBlocks) {
+          if (
+            this.isSlotAvailable(block) &&
+            canvasTools.distance(e.target.position(), this.configBlocks[block]) <
+              this.blockWidth * 0.25
+          ) {
+            this.answers[this.configBlocks[block].answerIndex] = this.answers[
+              this.configDraggables[id].answerIndex
+            ];
+            this.answers[this.configDraggables[id].answerIndex] = null;
+
+            this.configDraggables[id].x = this.configBlocks[block].x;
+            this.configDraggables[id].y = this.configBlocks[block].y;
+            this.configDraggables[id].answerIndex = this.configBlocks[block].answerIndex;
+            this.snapBack(e);
+            console.log(this.answers);
+            return;
+          }
+        }
+        this.answers[this.configDraggables[id].answerIndex] = null;
+        this.configDraggables.splice(id, 1);
+        this.draggableKey++;
       }
+      console.log(this.answers);
     },
     handleClick(e) {
       if (this.GameData.AnswerType == "Drag" || e.target.attrs.answerIndex == null)
-        return 0;
+        return;
 
       let id = e.target.index,
         rotationIndex = this.getClickRotationIndex(
