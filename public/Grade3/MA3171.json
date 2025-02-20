@@ -1,0 +1,300 @@
+{
+  "id": "MA3171",
+  "introvideo": "src",
+  "GameType": "SelfDefine",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想，再填填看"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "firstRow": {
+          "start": 2,
+          "multiply": 3,
+          "divide": 3
+        },
+        "secondRow": {
+          "multiply": 4,
+          "middle": 20,
+          "divide": 4,
+          "end": 5
+        },
+        "answers": [6, 2, 5]
+      },
+      {
+        "firstRow": {
+          "start": 2,
+          "multiply": 6,
+          "divide": 6
+        },
+        "secondRow": {
+          "multiply": 3,
+          "middle": 15,
+          "divide": 3,
+          "end": 5
+        },
+        "answers": [12, 2, 5]
+      },
+      {
+        "firstRow": {
+          "start": 2,
+          "multiply": 4,
+          "divide": 4
+        },
+        "secondRow": {
+          "multiply": 8,
+          "middle": 40,
+          "divide": 8,
+          "end": 5
+        },
+        "answers": [8, 2, 5]
+      },
+      {
+        "firstRow": {
+          "start": 2,
+          "multiply": 5,
+          "divide": 5
+        },
+        "secondRow": {
+          "multiply": 6,
+          "middle": 30,
+          "divide": 6,
+          "end": 5
+        },
+        "answers": [10, 2, 5]
+      },
+      {
+        "firstRow": {
+          "start": 2,
+          "multiply": 9,
+          "divide": 9
+        },
+        "secondRow": {
+          "multiply": 7,
+          "middle": 35,
+          "divide": 7,
+          "end": 5
+        },
+        "answers": [18, 2, 5]
+      }
+    ],
+    [
+      {
+        "firstRow": {
+          "start": 3,
+          "multiply": 3,
+          "divide": 3
+        },
+        "secondRow": {
+          "multiply": 2,
+          "middle": 8,
+          "divide": 2,
+          "end": 4
+        },
+        "answers": [9, 3, 4]
+      },
+      {
+        "firstRow": {
+          "start": 3,
+          "multiply": 4,
+          "divide": 4
+        },
+        "secondRow": {
+          "multiply": 4,
+          "middle": 16,
+          "divide": 4,
+          "end": 4
+        },
+        "answers": [12, 3, 4]
+      },
+      {
+        "firstRow": {
+          "start": 3,
+          "multiply": 6,
+          "divide": 6
+        },
+        "secondRow": {
+          "multiply": 5,
+          "middle": 20,
+          "divide": 5,
+          "end": 4
+        },
+        "answers": [18, 3, 4]
+      },
+      {
+        "firstRow": {
+          "start": 3,
+          "multiply": 5,
+          "divide": 5
+        },
+        "secondRow": {
+          "multiply": 7,
+          "middle": 28,
+          "divide": 7,
+          "end": 4
+        },
+        "answers": [15, 3, 4]
+      },
+      {
+        "firstRow": {
+          "start": 3,
+          "multiply": 8,
+          "divide": 8
+        },
+        "secondRow": {
+          "multiply": 9,
+          "middle": 36,
+          "divide": 9,
+          "end": 4
+        },
+        "answers": [24, 3, 4]
+      }
+    ],
+    [
+      {
+        "firstRow": {
+          "start": 6,
+          "multiply": 3,
+          "divide": 3
+        },
+        "secondRow": {
+          "multiply": 2,
+          "middle": 14,
+          "divide": 2,
+          "end": 7
+        },
+        "answers": [18, 6, 7]
+      },
+      {
+        "firstRow": {
+          "start": 6,
+          "multiply": 7,
+          "divide": 7
+        },
+        "secondRow": {
+          "multiply": 4,
+          "middle": 28,
+          "divide": 4,
+          "end": 7
+        },
+        "answers": [42, 6, 7]
+      },
+      {
+        "firstRow": {
+          "start": 6,
+          "multiply": 6,
+          "divide": 6
+        },
+        "secondRow": {
+          "multiply": 5,
+          "middle": 35,
+          "divide": 5,
+          "end": 7
+        },
+        "answers": [36, 6, 7]
+      },
+      {
+        "firstRow": {
+          "start": 6,
+          "multiply": 5,
+          "divide": 5
+        },
+        "secondRow": {
+          "multiply": 7,
+          "middle": 49,
+          "divide": 7,
+          "end": 7
+        },
+        "answers": [30, 6, 7]
+      },
+      {
+        "firstRow": {
+          "start": 6,
+          "multiply": 8,
+          "divide": 8
+        },
+        "secondRow": {
+          "multiply": 9,
+          "middle": 63,
+          "divide": 9,
+          "end": 7
+        },
+        "answers": [48, 6, 7]
+      }
+    ],
+    [
+      {
+        "firstRow": {
+          "start": 8,
+          "multiply": 3,
+          "divide": 3
+        },
+        "secondRow": {
+          "multiply": 2,
+          "middle": 18,
+          "divide": 2,
+          "end": 9
+        },
+        "answers": [24, 8, 9]
+      },
+      {
+        "firstRow": {
+          "start": 8,
+          "multiply": 7,
+          "divide": 7
+        },
+        "secondRow": {
+          "multiply": 4,
+          "middle": 36,
+          "divide": 4,
+          "end": 9
+        },
+        "answers": [56, 8, 9]
+      },
+      {
+        "firstRow": {
+          "start": 8,
+          "multiply": 6,
+          "divide": 6
+        },
+        "secondRow": {
+          "multiply": 5,
+          "middle": 45,
+          "divide": 5,
+          "end": 9
+        },
+        "answers": [48, 8, 9]
+      },
+      {
+        "firstRow": {
+          "start": 8,
+          "multiply": 5,
+          "divide": 5
+        },
+        "secondRow": {
+          "multiply": 7,
+          "middle": 63,
+          "divide": 7,
+          "end": 9
+        },
+        "answers": [40, 8, 9]
+      },
+      {
+        "firstRow": {
+          "start": 8,
+          "multiply": 8,
+          "divide": 8
+        },
+        "secondRow": {
+          "multiply": 9,
+          "middle": 81,
+          "divide": 9,
+          "end": 9
+        },
+        "answers": [64, 8, 9]
+      }
+    ]
+  ]
+}
