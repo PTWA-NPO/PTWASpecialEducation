@@ -81,15 +81,7 @@ export default {
         width: this.GameData.Map[0].length,
         height: this.GameData.Map.length,
       };
-      let gameRatio;
-      switch (this.GameData.AnswerType) {
-        case "Drag":
-          gameRatio = this.tableSize.width / (this.tableSize.height + 1.5);
-          break;
-        case "Fill":
-          gameRatio = this.tableSize.width / this.tableSize.height;
-          break;
-      }
+      let gameRatio = this.setGameRatio();
 
       this.drawCanvas(gameRatio);
 
@@ -106,16 +98,21 @@ export default {
           break;
       }
     },
+    setGameRatio() {
+      switch (this.GameData.AnswerType) {
+        case "Drag":
+          return this.tableSize.width / (this.tableSize.height + 1.5);
+        case "Fill":
+          return this.tableSize.width / this.tableSize.height;
+      }
+    },
     drawCanvas(gameRatio) {
-      if (
-        this.$refs.container.clientWidth / gameRatio <=
-          this.$refs.container.clientHeight ||
-        this.$refs.container.clientHeight <= this.$refs.container.clientWidth * 0.1
-      ) {
+      if (gameRatio > 2) {
         this.gameWidth = this.$refs.container.clientWidth;
         this.gameHeight = this.gameWidth / gameRatio;
       } else {
-        this.gameHeight = this.$refs.container.clientHeight;
+        //this.gameHeight = this.$refs.container.clientHeight;
+        this.gameHeight = window.innerHeight * 0.7;
         this.gameWidth = this.gameHeight * gameRatio;
       }
       this.configKonva.width = this.gameWidth;
