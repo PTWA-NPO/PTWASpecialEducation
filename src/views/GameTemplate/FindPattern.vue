@@ -274,11 +274,14 @@ export default {
         this.configFillings[id].rotation == this.GameData.FillRotation[rotationIndex]
       ) {
         this.configFillings[id].visible = false;
+        this.answers[this.configBlocks[id].answerIndex] = null;
       } else {
         this.configFillings[id].visible = true;
+        this.answers[this.configBlocks[id].answerIndex] = rotationIndex;
       }
 
       this.configFillings[id].rotation = this.GameData.FillRotation[rotationIndex];
+      console.log(this.answers);
     },
     isSlotAvailable(block) {
       if (this.configBlocks[block].answerIndex) {
@@ -367,12 +370,25 @@ export default {
       }
     },
     removeWrongAnswers(wrongAnswers) {
-      for (let i in this.configDraggables) {
-        let answerIndex = this.configDraggables[i].answerIndex;
-        if (wrongAnswers.includes(answerIndex)) {
-          this.answers[answerIndex] = null;
-          this.configDraggables.splice(i, 1);
-        }
+      switch (this.GameData.AnswerType) {
+        case "Drag":
+          for (let i in this.configDraggables) {
+            let answerIndex = this.configDraggables[i].answerIndex;
+            if (wrongAnswers.includes(answerIndex)) {
+              this.answers[answerIndex] = null;
+              this.configDraggables.splice(i, 1);
+            }
+          }
+          break;
+        case "Fill":
+          for (let i in this.configFillings) {
+            let answerIndex = this.configBlocks[i].answerIndex;
+            if (wrongAnswers.includes(answerIndex)) {
+              this.answers[answerIndex] = null;
+              this.configFillings[i].visible = false;
+            }
+          }
+          break;
       }
     },
   },
