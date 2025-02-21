@@ -1,0 +1,1132 @@
+{
+  "id": "MA3031",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "將物品量一量，再填填看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              },
+              {
+                "path": "paperclip.png",
+                "ratio": {
+                  "width": 3,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 = $i$ 毫米",
+            "Answer": ["3", "30"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              },
+              {
+                "path": "paperclip.png",
+                "ratio": {
+                  "width": 4,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 = $i$ 毫米",
+            "Answer": ["4", "40"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              },
+              {
+                "path": "paperclip.png",
+                "ratio": {
+                  "width": 5,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 = $i$ 毫米",
+            "Answer": ["5", "50"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              },
+              {
+                "path": "paperclip.png",
+                "ratio": {
+                  "width": 1,
+                  "height": 1
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 = $i$ 毫米",
+            "Answer": ["1", "10"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              },
+              {
+                "path": "paperclip.png",
+                "ratio": {
+                  "width": 2,
+                  "height": 1
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 = $i$ 毫米",
+            "Answer": ["2", "20"]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "candy-cane.png",
+                "ratio": {
+                  "width": 5.88,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["5", "9"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "candy-cane.png",
+                "ratio": {
+                  "width": 6.67,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["6", "7"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "candy-cane.png",
+                "ratio": {
+                  "width": 6.56,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["6", "6"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "candy-cane.png",
+                "ratio": {
+                  "width": 5.78,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["5", "8"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "candy-cane.png",
+                "ratio": {
+                  "width": 6.26,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["6", "3"]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "glue-stick.png",
+                "ratio": {
+                  "width": 8.42,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["8", "4"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "glue-stick.png",
+                "ratio": {
+                  "width": 8.12,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["8", "1"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "glue-stick.png",
+                "ratio": {
+                  "width": 8.32,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["8", "3"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "glue-stick.png",
+                "ratio": {
+                  "width": 7.9,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["7", "9"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "glue-stick.png",
+                "ratio": {
+                  "width": 7.78,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["7", "8"]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "mobile-phone.png",
+                "ratio": {
+                  "width": 14.28,
+                  "height": 8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["14", "3"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "mobile-phone.png",
+                "ratio": {
+                  "width": 14.87,
+                  "height": 8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["14", "9"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "mobile-phone.png",
+                "ratio": {
+                  "width": 13.45,
+                  "height": 8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["13", "5"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "mobile-phone.png",
+                "ratio": {
+                  "width": 13.55,
+                  "height": 8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["13", "6"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "mobile-phone.png",
+                "ratio": {
+                  "width": 14.68,
+                  "height": 8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["14", "7"]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "red-crayon.png",
+                "ratio": {
+                  "width": 10.01,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["10", "1"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "red-crayon.png",
+                "ratio": {
+                  "width": 11.11,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["11", "2"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "red-crayon.png",
+                "ratio": {
+                  "width": 10.41,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["10", "5"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "red-crayon.png",
+                "ratio": {
+                  "width": 11.4,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["11", "5"]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 12
+            },
+            "images": [
+              {
+                "path": "red-crayon.png",
+                "ratio": {
+                  "width": 10.51,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              },
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 4
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$ 公分 $i$ 毫米",
+            "Answer": ["10", "6"]
+          }
+        }
+      }
+    ]
+  ]
+}
