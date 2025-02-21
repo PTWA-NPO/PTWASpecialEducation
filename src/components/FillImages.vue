@@ -3,6 +3,11 @@
     <v-stage :config="configKonva">
       <v-layer>
         <v-image
+          v-for="(fill, index) in configFill"
+          :key="index"
+          :config="fill"
+        ></v-image>
+        <v-image
           v-for="(frame, index) in configFrame"
           :key="index"
           :config="frame"
@@ -36,6 +41,8 @@ export default {
     return {
       configKonva: {},
       configFrame: [],
+      configFill: [],
+      mapOfRows: [],
     };
   },
 
@@ -47,11 +54,13 @@ export default {
     initializeScene() {
       this.ratio = this.setRatio();
       this.setCanvas();
+      this.setMap();
+      this.draw();
     },
     setRatio() {
       let row = Math.floor(Math.pow(this.Data.frame, 0.5));
       let column = Math.ceil(this.Data.frame / row);
-      this.ratioLength = this.gameWidth / column;
+
       return {
         row: row,
         column: column,
@@ -71,6 +80,42 @@ export default {
       }
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
+      this.ratioLength = this.gameWidth / this.ratio.column;
+    },
+    setMap() {
+      let rowWithLessElements = this.ratio.column - (this.Data.frame % this.ratio.column);
+      if (rowWithLessElements == this.ratio.column) rowWithLessElements = 0;
+      for (let i = 0; i < this.ratio.row; ++i) {
+        if (i < rowWithLessElements) this.mapOfRows.push(this.ratio.column - 1);
+        else this.mapOfRows.push(this.ratio.column);
+      }
+    },
+    draw() {
+      const frameImage = new window.Image();
+      frameImage.src = getGameAssets(this.ID, this.Data.frameImage);
+      const fillImage = new window.Image();
+      fillImage.src = getGameAssets(this.ID, this.Data.fillImage);
+      for (let i in this.mapOfRows) {
+        for (let j = 0; j < this.mapOfRows[i]; ++j) {
+          let frame = {
+            width: this.ratioLength,
+            height: this.ratioLength,
+            x: this.ratioLength * j,
+            y: this.ratioLength * i,
+            image: frameImage,
+          };
+          this.configFrame.push(frame);
+
+          let fill = {
+            width: this.ratioLength,
+            height: this.ratioLength,
+            x: this.ratioLength * j,
+            y: this.ratioLength * i,
+            image: fillImage,
+          };
+          this.configFill.push(fill);
+        }
+      }
     },
   },
 };
