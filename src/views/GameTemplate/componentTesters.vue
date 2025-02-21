@@ -51,7 +51,23 @@
     </div>
   </div>
   <div v-if="tester == 'fillImages'" class="testArea">
-    <fillImages :Data="configFillImages" :ID="gameid" @replyAnswer="printAns" />
+    <fillImages
+      :key="testerKey"
+      :Data="configFillImages"
+      :ID="'Dev02_Testers'"
+      @replyAnswer="printAns"
+    />
+    <input
+      type="number"
+      min="1"
+      max="49"
+      @input="
+        (e) => {
+          configFillImages.frame = e.target.value;
+          testerKey++;
+        }
+      "
+    />
   </div>
 </template>
 
@@ -73,6 +89,7 @@ export default {
   data() {
     return {
       tester: "fillImages",
+      testerKey: 0,
       configFraction: {
         verifyOption: "answer",
         shape: "circle",
@@ -153,7 +170,12 @@ export default {
         color: "red",
         size: 10,
       },
-      configFillImages: {},
+      configFillImages: {
+        frame: 1,
+        frameImage: "clover.png",
+        fill: 1,
+        fillImage: "cloverFull.png",
+      },
       gameid: "Dev0105",
     };
   },

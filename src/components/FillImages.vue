@@ -2,7 +2,11 @@
   <div ref="container">
     <v-stage :config="configKonva">
       <v-layer>
-        <v-rect :config="configBG"></v-rect>
+        <v-image
+          v-for="(frame, index) in configFrame"
+          :key="index"
+          :config="frame"
+        ></v-image>
       </v-layer>
     </v-stage>
   </div>
@@ -16,12 +20,12 @@ export default {
   components: {},
 
   props: {
-    GameData: {
+    Data: {
       type: Object,
       required: true,
     },
-    GameConfig: {
-      type: Object,
+    ID: {
+      type: String,
       required: true,
     },
   },
@@ -31,12 +35,7 @@ export default {
   data() {
     return {
       configKonva: {},
-      configBG: {
-        x: 0,
-        y: 0,
-        fill: "gray",
-        stroke: "gray",
-      },
+      configFrame: [],
     };
   },
 
@@ -46,11 +45,32 @@ export default {
 
   methods: {
     initializeScene() {
-      this.gameWidth = this.$refs.container.clientWidth;
+      this.ratio = this.setRatio();
+      this.setCanvas();
+    },
+    setRatio() {
+      let row = Math.floor(Math.pow(this.Data.frame, 0.5));
+      let column = Math.ceil(this.Data.frame / row);
+      this.ratioLength = this.gameWidth / column;
+      return {
+        row: row,
+        column: column,
+      };
+    },
+    setCanvas() {
+      if (
+        this.$refs.container.clientWidth * this.ratio.row <=
+          this.$refs.container.clientHeight * this.ratio.column ||
+        this.$refs.container.clientHeight == 0
+      ) {
+        this.gameWidth = this.$refs.container.clientWidth;
+        this.gameHeight = (this.gameWidth * this.ratio.row) / this.ratio.column;
+      } else {
+        this.gameHeight = this.$refs.container.clientHeight;
+        this.gameWidth = (this.gameHeight / this.ratio.row) * this.ratio.column;
+      }
       this.configKonva.width = this.gameWidth;
-      this.configKonva.height = this.gameWidth / 2;
-      this.configBG.width = this.gameWidth;
-      this.configBG.height = this.gameWidth / 2;
+      this.configKonva.height = this.gameHeight;
     },
   },
 };
