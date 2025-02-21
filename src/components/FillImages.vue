@@ -11,6 +11,8 @@
           v-for="(frame, index) in configFrame"
           :key="index"
           :config="frame"
+          @click="handleClick(index)"
+          @tap="handleClick(index)"
         ></v-image>
       </v-layer>
     </v-stage>
@@ -35,7 +37,7 @@ export default {
     },
   },
 
-  emits: ["play-effect", "add-record", "next-question"],
+  emits: ["replyAnswer"],
 
   data() {
     return {
@@ -124,12 +126,23 @@ export default {
             x: posX,
             y: this.ratioLength * i,
             image: fillImage,
+            visible: false,
           };
           this.configFill.push(fill);
           posX += this.ratioLength;
         }
       }
-      console.log(this.configFrame.length);
+    },
+    handleClick(id) {
+      this.configFill[id].visible = !this.configFill[id].visible;
+      this.countFills();
+    },
+    countFills() {
+      let fills = 0;
+      for (let i in this.configFill) {
+        if (this.configFill[i].visible) fills++;
+      }
+      this.$emit("replyAnswer", fills == this.Data.fill);
     },
   },
 };
