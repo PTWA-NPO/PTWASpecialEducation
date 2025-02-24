@@ -30,6 +30,7 @@
           :key="index"
           :config="arrow"
           @click="rotateImage"
+          @tap="rotateImage"
         />
       </v-layer>
     </v-stage>
