@@ -1,5 +1,5 @@
 <template>
-  <div ref="container">
+  <div ref="container" class="gameContainer">
     <v-stage :config="configKonva">
       <v-layer>
         <v-rect v-if="Data.backgroundType == 'color'" :config="configBG" />
@@ -302,3 +302,10 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.gameContainer {
+  width: 100%;
+  height: 100%;
+}
+</style>
