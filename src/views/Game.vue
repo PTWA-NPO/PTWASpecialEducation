@@ -231,6 +231,9 @@ export default {
       import("@/views/GameTemplate/MultiplyBoard.vue")
     ),
     FindFood: defineAsyncComponent(() => import("@/views/GameTemplate/FindFood.vue")),
+    FractionArithmetic: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/FractionArithmetic.vue")
+    ),
   },
   data() {
     return {

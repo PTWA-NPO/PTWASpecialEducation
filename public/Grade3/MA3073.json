@@ -1,0 +1,40 @@
+{
+  "id": "MA3073",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用除法算式記記看"
+  },
+  "TotalLevel": 3,
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    {
+      "questionText": "有9顆糖果，平分給2個人，盡量分完，每個人可以分到幾顆?還剩下幾顆糖果?",
+      "middleText": "用除法算式記記看",
+      "topComponent": {
+        "Name": "RepeatImage",
+        "Data": { "Src": "candy.png", "Alt": "糖果", "Count": 9 }
+      },
+      "downComponent": {
+        "Name": "InteractiveMathEquation",
+        "Data": {
+          "equation": "_ ÷ _ = _ … _",
+          "answers": ["9", "2", "4", "1"],
+          "finalAnswerTemplate": "分到 _ 顆，剩下 _ 顆",
+          "finalAnswers": ["4", "1"]
+        }
+      }
+    }
+  ]
+}
