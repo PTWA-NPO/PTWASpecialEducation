@@ -61,7 +61,11 @@ export default {
       dashPattern: [5, 5],
       rectScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       circleScale: 0.45,
+      gridScale: { width: 0.8, height: 0.6, x: 0.1, y: 0.2 },
       isCupMode: this.Data.shape === "cup",
+      answer: this.Data.answer,
+      isRandomFill: this.Data.randomFill || false,
+      randomIndices: [],
     };
   },
   computed: {
@@ -73,6 +77,9 @@ export default {
   watch: {
     numerator() {
       this.drawShape();
+    },
+    shape() {
+      this.randomIndices = [];
     },
   },
   mounted() {
@@ -115,6 +122,8 @@ export default {
         this.drawRectangle();
       } else if (this.shape === "circle") {
         this.drawCircle();
+      } else if (this.shape === "grid") {
+        this.drawGrid();
       }
     },
 
@@ -126,9 +135,20 @@ export default {
     drawRectangle() {
       const { width, height, x, y } = this.calculateRectDimensions();
 
+      // 先繪製外框
       this.drawRectOutline(x, y, width, height);
-      this.drawRectFill(x, y, width, height);
+
+      // 再繪製填充
+      if (this.isRandomFill && this.displayOnly) {
+        this.drawRandomRectFill(x, y, width, height);
+      } else {
+        this.drawRectFill(x, y, width, height);
+      }
+
+      // 最後繪製分隔線（虛線）
+      this.ctx.setLineDash(this.dashPattern);
       this.drawRectDividers(x, y, width, height);
+      this.ctx.setLineDash([]);
     },
 
     calculateRectDimensions() {
@@ -151,7 +171,6 @@ export default {
     },
 
     drawRectDividers(x, y, width, height) {
-      this.ctx.setLineDash(this.dashPattern);
       this.ctx.beginPath();
       for (let i = 1; i < this.denominator; i++) {
         const lineX = x + (width * i) / this.denominator;
@@ -159,15 +178,40 @@ export default {
         this.ctx.lineTo(lineX, y + height);
       }
       this.ctx.stroke();
-      this.ctx.setLineDash([]);
+    },
+
+    drawRandomRectFill(x, y, width, height) {
+      if (this.randomIndices.length === 0) {
+        this.generateRandomIndices(this.denominator);
+      }
+
+      this.ctx.fillStyle = this.fillColor;
+      const sectionWidth = width / this.denominator;
+
+      // 使用隨機位置填充
+      for (let i = 0; i < this.numerator; i++) {
+        const section = this.randomIndices[i];
+        this.ctx.fillRect(x + section * sectionWidth, y, sectionWidth, height);
+      }
     },
 
     drawCircle() {
       const { centerX, centerY, radius } = this.calculateCircleDimensions();
 
+      // 先繪製圓形外框
       this.drawCircleOutline(centerX, centerY, radius);
-      this.drawCircleFill(centerX, centerY, radius);
+
+      // 再繪製填充
+      if (this.isRandomFill && this.displayOnly) {
+        this.drawRandomCircleFill(centerX, centerY, radius);
+      } else {
+        this.drawCircleFill(centerX, centerY, radius);
+      }
+
+      // 最後繪製分隔線（虛線）
+      this.ctx.setLineDash(this.dashPattern);
       this.drawCircleDividers(centerX, centerY, radius);
+      this.ctx.setLineDash([]);
     },
 
     calculateCircleDimensions() {
@@ -200,7 +244,6 @@ export default {
     },
 
     drawCircleDividers(centerX, centerY, radius) {
-      this.ctx.setLineDash(this.dashPattern);
       this.ctx.beginPath();
       for (let i = 1; i <= this.denominator; i++) {
         const angle = (i * Math.PI * 2) / this.denominator - Math.PI / 2;
@@ -211,18 +254,127 @@ export default {
         );
       }
       this.ctx.stroke();
+    },
+
+    drawRandomCircleFill(centerX, centerY, radius) {
+      if (this.randomIndices.length === 0) {
+        this.generateRandomIndices(this.denominator);
+      }
+
+      this.ctx.fillStyle = this.fillColor;
+
+      // 使用隨機位置填充扇形
+      for (let i = 0; i < this.numerator; i++) {
+        const section = this.randomIndices[i];
+        this.ctx.beginPath();
+        this.ctx.moveTo(centerX, centerY);
+        const startAngle =
+          -Math.PI / 2 + (section * Math.PI * 2) / this.denominator;
+        const endAngle = startAngle + (Math.PI * 2) / this.denominator;
+        this.ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        this.ctx.lineTo(centerX, centerY);
+        this.ctx.fill();
+      }
+    },
+
+    generateRandomIndices(totalSections) {
+      // 創建所有可能的位置陣列
+      const indices = Array.from({ length: totalSections }, (_, i) => i);
+      // 打亂陣列
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+      this.randomIndices = indices;
+    },
+
+    drawGrid() {
+      const { width, height, x, y } = this.calculateGridDimensions();
+
+      // 固定兩行，列數根據分母計算
+      const rows = 2;
+      const cols = Math.ceil(this.denominator / 2);
+
+      const cellWidth = width / cols;
+      const cellHeight = height / rows;
+
+      // 先繪製網格外框
+      this.ctx.strokeRect(x, y, width, height);
+
+      // 如果是隨機模式且還沒有生成隨機位置，則生成
+      if (
+        this.isRandomFill &&
+        this.displayOnly &&
+        this.randomIndices.length === 0
+      ) {
+        this.generateRandomIndices(cols * rows);
+      }
+
+      // 填充選中的格子
+      this.ctx.fillStyle = this.fillColor;
+      if (this.isRandomFill && this.displayOnly) {
+        // 使用隨機位置填充
+        for (let i = 0; i < this.numerator; i++) {
+          const index = this.randomIndices[i];
+          const col = Math.floor(index / 2);
+          const row = index % 2;
+          this.ctx.fillRect(
+            x + col * cellWidth,
+            y + row * cellHeight,
+            cellWidth,
+            cellHeight
+          );
+        }
+      } else {
+        // 原本的上下上下順序填充
+        for (let i = 0; i < this.numerator; i++) {
+          const col = Math.floor(i / 2);
+          const row = i % 2;
+          this.ctx.fillRect(
+            x + col * cellWidth,
+            y + row * cellHeight,
+            cellWidth,
+            cellHeight
+          );
+        }
+      }
+
+      // 最後繪製分隔線（虛線）
+      this.ctx.setLineDash(this.dashPattern);
+      for (let i = 1; i < cols; i++) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + i * cellWidth, y);
+        this.ctx.lineTo(x + i * cellWidth, y + height);
+        this.ctx.stroke();
+      }
+
+      this.ctx.beginPath();
+      this.ctx.moveTo(x, y + cellHeight);
+      this.ctx.lineTo(x + width, y + cellHeight);
+      this.ctx.stroke();
       this.ctx.setLineDash([]);
     },
+
+    calculateGridDimensions() {
+      return {
+        width: this.gameWidth * this.gridScale.width,
+        height: this.gameHeight * this.gridScale.height,
+        x: this.gameWidth * this.gridScale.x,
+        y: this.gameHeight * this.gridScale.y,
+      };
+    },
+
     handleShapeClick() {
       if (this.displayOnly) return;
 
       this.numerator =
         this.numerator >= this.denominator ? 0 : this.numerator + 1;
 
-      this.$emit("replyAnswer", {
-        numerator: this.numerator,
-        denominator: this.denominator,
-      });
+      const isCorrect =
+        this.numerator === this.answer.numerator &&
+        this.denominator === this.answer.denominator;
+
+      this.$emit("replyAnswer", isCorrect);
     },
   },
 };
@@ -235,6 +387,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: inherit;
   position: relative;
   &__canvas {
     width: 100%;
@@ -255,6 +408,8 @@ export default {
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  aspect-ratio: 2/3;
 }
 
 .fraction-chart__cup--disabled {
