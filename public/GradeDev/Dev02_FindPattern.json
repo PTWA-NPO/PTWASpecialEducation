@@ -1,0 +1,42 @@
+{
+    "id": "Dev02_FindPattern",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "[Insert question.]"
+    },
+    "TotalLevel": 2,
+    "GameType": "FindPattern",
+    "GameConfig": {
+        "GlobalTitle": "[Insert title.]"
+    },
+    "Hint":{
+        
+    },
+    "Questions": [
+        {
+            "Question": "拖拉圖案",
+            "AnswerType": "Drag",
+            "Images": ["heartPink.png", "heartPurple.png"],
+            "Map": [[0, 1, 0, 1, 0, 1]],
+            "BlankSpace": [{"x": 2, "y": 0},{"x": 4, "y": 0}]
+        },
+
+        {
+            "Question": "填色",
+            "AnswerType": "Fill",
+            "Frame": "clover.png",
+            "Fill": "cloverFilling.png",
+            "FillRotation": [0, 90, 180, 270],
+            "Map": [[0, 1, 2, 3, 0, 1, 2, 3]],
+            "BlankSpace": [{"x": 4, "y": 0}, {"x": 5, "y": 0}]
+        },
+        {
+            "Question": "拖拉圖案",
+            "AnswerType": "Drag",
+            "Images": ["heartPink.png", "heartPurple.png"],
+            "Map": [[0, 1, 0, 1, 0, 1],[ 1, 0, 1, 0, 1,0],[0, 1, 0, 1, 0, 1],[ 1, 0, 1, 0, 1,0]],
+            "BlankSpace": [{"x": 3, "y": 0},{"x": 1, "y": 1}]
+        }
+    ]
+}

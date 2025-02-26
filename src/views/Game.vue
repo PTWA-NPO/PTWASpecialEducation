@@ -234,6 +234,9 @@ export default {
     FractionArithmetic: defineAsyncComponent(() =>
       import("@/views/GameTemplate/FractionArithmetic.vue")
     ),
+    FindPattern: defineAsyncComponent(() =>
+      import("@/views/GameTemplate/FindPattern.vue")
+    ),
   },
   data() {
     return {
