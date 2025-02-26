@@ -1,0 +1,39 @@
+{
+    "id": "Dev02_FindFood",
+    "introvideo": "hint1.mp4",
+    "IntroText": {
+        "Type": "PlainText",
+        "Content": "[Insert question.]"
+    },
+    "TotalLevel": 2,
+    "GameType": "FindFood",
+    "GameConfig": {
+        "GlobalTitle": "[Insert title.]"
+    },
+    "Hint":{
+        
+    },
+    "Questions": [
+        {
+            "Question": "小老鼠搬起司，他搬光了距離他2公分以內的起司，是搬了幾塊起司？",
+            "Unit": "塊",
+            "Options": ["半徑2公分", "半徑4公分"],
+            "Radius": [2,4],
+            "CorrectRadius": 0,
+            "TargetImage": "rat.png",
+            "FoodImage": "food.png",
+            "Answer": 8
+        },
+
+        {
+            "Question": "小老鼠搬起司，他搬光了距離他3公分以內的起司，是搬了幾塊起司？",
+            "Unit": "塊",
+            "Options": ["直徑6cm", "直徑3cm"],
+            "Radius": [6,3],
+            "CorrectRadius": 0,
+            "TargetImage": "rat.png",
+            "FoodImage": "food.png",
+            "Answer": 7
+        }
+    ]
+}
