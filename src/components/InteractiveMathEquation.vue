@@ -69,8 +69,8 @@ export default {
   name: "InteractiveMathEquation",
 
   components: {
-    FloatNumPad: defineAsyncComponent(() =>
-      import("@/components/FloatNumPad.vue")
+    FloatNumPad: defineAsyncComponent(
+      () => import("@/components/FloatNumPad.vue")
     ),
   },
 
@@ -279,7 +279,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: $gap--tiny;
     gap: $gap--tiny;
   }
 
@@ -318,7 +318,9 @@ export default {
   &__final-answer {
     display: flex;
     gap: $gap--small;
+    padding: $gap--tiny;
     align-items: center;
+    justify-content: end;
   }
 }
 </style>
