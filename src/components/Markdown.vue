@@ -7,6 +7,39 @@
       >
         {{ element.content }}
       </component>
+      <div v-else-if="element.el === 'math-input'" class="math-input-container">
+        <q-btn
+          v-if="element.isSymbol"
+          :label="element.content || '?'"
+          class="math-symbol-btn"
+          rounded
+        >
+          <q-menu anchor="bottom start" self="top left">
+            <q-item
+              v-for="symbol in availableSymbols"
+              :key="symbol"
+              v-close-popup
+              clickable
+              dense
+              @click="handleSymbolSelect(index, symbol)"
+            >
+              {{ symbol }}
+            </q-item>
+          </q-menu>
+        </q-btn>
+        <input
+          v-else
+          v-model="element.content"
+          type="text"
+          @input="checkAnswer($event)"
+          @click="
+            (event) => {
+              showKeyboard(event, index);
+              disableKeyboardOnMobile(event);
+            }
+          "
+        />
+      </div>
       <input
         v-else-if="element.el === 'input'"
         ref="inputRefs"
@@ -59,6 +92,7 @@ export default {
       clickedEvent: null,
       wrongInputIndex: [],
       numPadOffset: 10,
+      availableSymbols: ["+", "-", "×", "÷"],
     };
   },
   created() {
@@ -72,7 +106,8 @@ export default {
   methods: {
     parseMarkdown() {
       const content = this.markdownContent.trim();
-      const tokenRegex = /(\$i\$|\$t\$|\$s\$|\$n\$|#\s|##\s|###\s|\*\*|__|\n)/g;
+      const tokenRegex =
+        /(\$i\$|\$t\$|\$s\$|\$n\$|\$\$|#\s|##\s|###\s|\*\*|__|\n)/g;
       const tokens = content.split(tokenRegex);
       this.wa = tokens;
       const elements = [];
@@ -83,6 +118,8 @@ export default {
       tokens.forEach((token) => {
         if (token === "$i$") {
           elements.push({ el: "input", content: "" });
+        } else if (token === "$$") {
+          elements.push({ el: "math-input", content: "", isSymbol: true });
         } else if (token === "$t$") {
           elements.push({ el: "tab", content: "" });
         } else if (token === "$s$") {
@@ -116,7 +153,7 @@ export default {
       return validTags.includes(el) ? el : "span";
     },
     isSpecialElement(el) {
-      return ["input", "tab", "space", "br"].includes(el);
+      return ["input", "math-input", "tab", "space", "br"].includes(el);
     },
     checkAnswer() {
       if (typeof this.Data.Answer != "object") return;
@@ -196,10 +233,27 @@ export default {
         }
       });
     },
+    handleSymbolSelect(index, symbol) {
+      this.elements[index].content = symbol;
+      this.checkAnswer();
+    },
   },
 };
 </script>
 <style scoped lang="scss">
+.math-input-container {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.math-symbol-btn {
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 0;
+  min-width: 40px;
+  height: 40px;
+}
+
 input {
   min-width: 50px;
   max-width: 100px;
