@@ -116,7 +116,6 @@
 <script>
 import draggable from "vuedraggable";
 import { defineAsyncComponent } from "vue";
-import { GetComponents } from "@/utilitys/get-components.js";
 export default {
   name: "CompareGame",
   components: {
@@ -262,6 +261,7 @@ export default {
     grid-template-rows: 2fr 1fr;
     gap: $gap--small;
     padding: $gap--small;
+    overflow: hidden;
   }
 
   &__card {
@@ -274,6 +274,8 @@ export default {
     align-items: center;
     gap: $gap--small;
     padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
 
     &--wrong {
       background-color: #cc0627c6;
