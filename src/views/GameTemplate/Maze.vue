@@ -156,6 +156,11 @@ export default {
         },
       },
 
+      previousPosition: {
+        x: false,
+        y: 0,
+      },
+
       touchPosition: {
         x: 0,
         y: 0,
@@ -388,6 +393,7 @@ export default {
         entity: this.entityInfo.ghost_2,
       });
       this.playerAnimation(this.entityInfo.player);
+      this.preventClipping();
     },
 
     mapInxyGrid(config) {
@@ -791,6 +797,20 @@ export default {
             ((entity.endDegrees + 90) * Math.PI) / 180;
           break;
       }
+    },
+    preventClipping() {
+      if(this.previousPosition.x){
+        let roundedX = Math.round(this.entityInfo.player.xyGrid.x);
+        let roundedY = Math.round(this.entityInfo.player.xyGrid.y);
+        if(this.map[this.randomMapId][roundedY][roundedX] == 1){
+          this.configPlayer.x = this.previousPosition.x;
+          this.configPlayer.y = this.previousPosition.y;
+        }
+      }
+      this.previousPosition = {
+        x: this.configPlayer.x,
+        y: this.configPlayer.y,
+      };
     },
   },
 };
