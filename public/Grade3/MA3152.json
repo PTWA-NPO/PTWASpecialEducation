@@ -1,0 +1,245 @@
+{
+  "id": "MA3152",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想，再選選看"
+  },
+  "TotalLevel": 6,
+  "GameType": "TrueFalseGame",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "1個白色積木可以說是0.1條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "1-1.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "2個0.1條橘色積木合起來是0.2條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2-1&2-2.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是3個0.1條橘色積木合起來為0.3條的橘色積木嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2-1&2-2.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "3個0.1條橘色積木合起來是0.3條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2-3&2-4.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是2個0.1條橘色積木合起來為0.2條的橘色積木嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2-3&2-4.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "4個0.1條橘色積木合起來是0.4條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2-5.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "10個0.1條橘色積木合起來是1條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "3-1.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "這是1個1條和5個0.1條合起來的嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4-1.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是3個1條和3個0.1條合起來的嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4-2.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是2個1條和5個0.1條合起來的嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4-3&4-4.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是2個1條和10個0.1條合起來的嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4-3&4-4.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是1個1條和4個0.1條合起來的嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4-5.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "這是1.5條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5-1.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是1.5條橘色積木嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5-2&5-3.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是2.3條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5-2&5-3.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是1.2條橘色積木嗎?",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5-4.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "這是1.4條橘色積木嗎?",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5-5.png",
+              "Alt": "ddd"
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}
