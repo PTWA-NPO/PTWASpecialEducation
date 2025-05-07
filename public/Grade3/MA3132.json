@@ -1,0 +1,95 @@
+{
+  "id": "MA3132",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "請畫出圓"
+  },
+  "GameType": "SelfDefine",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "GameLevel": 1,
+        "imageData": {
+          "Src": "1-1.png",
+          "Alt": "遊戲圖片"
+        },
+        "markdownData": {
+          "Render": "紅色格子的數字：$i$、$i$、$i$、$i$、$i$、...$n$藍色格子的數字：$i$、$i$、$i$、$i$、...",
+          "Answer": [1, 3, 5, 7, 9, 2, 4, 6, 8]
+        },
+        "Questions": [
+          {
+            "text": "按照規律，10號的格子要塗什麼顏色?$question$",
+            "options": ["紅色", "藍色"],
+            "correctAnswer": 1
+          },
+          {
+            "text": "按照規律，11號的格子要塗什麼顏色?$question$",
+            "options": ["紅色", "藍色"],
+            "correctAnswer": 0
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "GameLevel": 2,
+        "Question": "拖拉圖案",
+        "AnswerType": "Drag",
+        "Images": [
+          "2-1.png",
+          "2-2.png",
+          "2-3.png",
+          "2-4.png",
+          "2-5.png",
+          "2-6.png",
+          "2-7.png",
+          "2-8.png",
+          "2-9.png",
+          "2-10.png",
+          "2-11.png",
+          "2-12.png",
+          "2-13.png",
+          "2-14.png",
+          "2-15.png"
+        ],
+        "Map": [
+          [0, 3, 6, 9, 12],
+          [1, 4, 7, 10, 13],
+          [2, 5, 8, 11, 14]
+        ],
+        "BlankSpace": [
+          { "x": 1, "y": 0 },
+          { "x": 4, "y": 0 },
+          { "x": 2, "y": 1 },
+          { "x": 1, "y": 2 },
+          { "x": 3, "y": 2 }
+        ]
+      }
+    ],
+    [
+      {
+        "GameLevel": 3,
+        "imageData": {
+          "Src": "3-1.png",
+          "Alt": "遊戲圖片"
+        },
+        "markdownData": {
+          "Render": "紅色格子的數字：$i$",
+          "Answer": [1]
+        },
+        "Answer": [12, 14, 17, 19, 21, 23],
+        "Boxes": [
+          { "x": 0.765, "y": 0.408, "width": 0.097, "height": 0.063 },
+          { "x": 0.215, "y": 0.6, "width": 0.1, "height": 0.064 },
+          { "x": 0.632, "y": 0.605, "width": 0.097, "height": 0.064 },
+          { "x": 0.08, "y": 0.787, "width": 0.097, "height": 0.065 },
+          { "x": 0.355, "y": 0.789, "width": 0.098, "height": 0.064 },
+          { "x": 0.628, "y": 0.79, "width": 0.1, "height": 0.065 }
+        ]
+      }
+    ]
+  ]
+}
