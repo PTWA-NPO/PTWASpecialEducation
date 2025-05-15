@@ -56,6 +56,17 @@
       <span v-else-if="element.el === 'tab'">&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span v-else-if="element.el === 'space'">&nbsp;</span>
       <br v-else-if="element.el === 'br'" />
+      <div v-else-if="element.el === 'options'" class="options-container">
+        <div
+          v-for="(option, optionIndex) in element.content"
+          :key="optionIndex"
+          class="option"
+          :class="{ selected: selectedOptions[index] === optionIndex }"
+          @click="selectOption(index, optionIndex)"
+        >
+          {{ option }}
+        </div>
+      </div>
       <FloatNumPad
         v-if="isShowNumPad"
         :Data="floatNumPadLocation"
@@ -93,6 +104,7 @@ export default {
       wrongInputIndex: [],
       numPadOffset: 10,
       availableSymbols: ["+", "-", "×", "÷"],
+      selectedOptions: {},
     };
   },
   created() {
@@ -107,7 +119,7 @@ export default {
     parseMarkdown() {
       const content = this.markdownContent.trim();
       const tokenRegex =
-        /(\$i\$|\$t\$|\$s\$|\$n\$|\$\$|#\s|##\s|###\s|\*\*|__|\n)/g;
+        /(\$i\$|\$t\$|\$s\$|\$n\$|\$\$|#\s|##\s|###\s|\*\*|__|\n|\$\[.*?\]\$)/g;
       const tokens = content.split(tokenRegex);
       this.wa = tokens;
       const elements = [];
@@ -126,6 +138,13 @@ export default {
           elements.push({ el: "space", content: "" });
         } else if (token === "$n$" || token === "\n") {
           elements.push({ el: "br", content: "" });
+        } else if (token.startsWith("$[") && token.endsWith("]$")) {
+          // 解析選項
+          const options = token
+            .slice(2, -2)
+            .split(",")
+            .map((option) => option.trim());
+          elements.push({ el: "options", content: options });
         } else if (token === "# ") {
           currentTag = "h1";
         } else if (token === "## ") {
@@ -153,27 +172,50 @@ export default {
       return validTags.includes(el) ? el : "span";
     },
     isSpecialElement(el) {
-      return ["input", "math-input", "tab", "space", "br"].includes(el);
+      return ["input", "math-input", "tab", "space", "br", "options"].includes(
+        el
+      );
     },
     checkAnswer() {
       if (typeof this.Data.Answer != "object") return;
       this.wrongInputIndex = [];
       this.resetInputBG();
       let check = true;
-      let userAnswer = this.elements
-        .filter((element) => element.el === "input")
-        .map((element) => element.content);
+
+      let allAnswers = [];
+
+      this.elements.forEach((element, index) => {
+        if (element.el === "input") {
+          allAnswers.push(element.content);
+        } else if (element.el === "options") {
+          const selectedOption = this.selectedOptions[index];
+          if (selectedOption !== undefined) {
+            allAnswers.push(element.content[selectedOption]);
+          } else {
+            allAnswers.push("");
+          }
+        }
+      });
+
+      // 逐個比較答案
+      const isAnswerCorrect = (userAns, correctAns) => {
+        if (!isNaN(correctAns)) {
+          return Number(userAns) === Number(correctAns);
+        }
+        return userAns === correctAns;
+      };
+
       for (let i = 0; i < this.Data.Answer.length; i++) {
-        if (this.Data.Answer[i] != userAnswer[i]) {
+        const userAnswer = allAnswers[i].trim();
+        const correctAnswer = this.Data.Answer[i];
+
+        if (!isAnswerCorrect(userAnswer, correctAnswer)) {
           check = false;
           this.wrongInputIndex.push(i);
         }
       }
-      if (check) {
-        this.$emit("replyAnswer", true);
-      } else {
-        this.$emit("replyAnswer", false);
-      }
+
+      this.$emit("replyAnswer", check);
     },
     disableKeyboardOnMobile($event) {
       const input = $event.target;
@@ -237,6 +279,10 @@ export default {
       this.elements[index].content = symbol;
       this.checkAnswer();
     },
+    selectOption(elementIndex, optionIndex) {
+      this.selectedOptions[elementIndex] = optionIndex;
+      this.checkAnswer();
+    },
   },
 };
 </script>
@@ -266,6 +312,34 @@ input {
   span,
   p {
     font-size: $text-medium;
+  }
+}
+.options-container {
+  display: inline-flex;
+  gap: 10px;
+  margin: 0 5px;
+}
+
+.option {
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 80px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+
+  &:hover {
+    background-color: #e9e9e9;
+  }
+
+  &.selected {
+    border-color: $hyperlink-color;
+    background-color: $success-color;
+    color: white;
   }
 }
 </style>
