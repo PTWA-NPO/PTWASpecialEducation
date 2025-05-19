@@ -92,6 +92,7 @@
                       :key="index"
                       :config="box"
                       @click="handleBoxClick($event, index)"
+                      @touchstart="handleBoxClick($event, index)"
                     />
                   </v-layer>
                   <v-layer>
