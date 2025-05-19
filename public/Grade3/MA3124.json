@@ -1,0 +1,301 @@
+{
+  "id": "MA3124",
+  "introvideo": "src",
+  "GameType": "WordProblemWithCalculator",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用直式算算看"
+  },
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Division"
+  },
+  "Questions": [
+    [
+      {
+        "headQuestion": "弟弟有800張貼紙，平分成4個盒子，一個盒子有幾張貼紙?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 800
+        },
+        "markdown": {
+          "Render": "800 $$ 4 = $i$$n$答：$i$張",
+          "Answer": ["÷", 200, 200]
+        }
+      },
+      {
+        "headQuestion": "奶奶有500元，平分給5個孫子當零用錢，一個孫子分到多少元?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 500
+        },
+        "markdown": {
+          "Render": "500 $$ 5 = $i$$n$答：$i$元",
+          "Answer": ["÷", 100, 100]
+        }
+      },
+      {
+        "headQuestion": "弟弟有400張貼紙，平分成2個盒子，一個盒子有幾張貼紙?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 400
+        },
+        "markdown": {
+          "Render": "400 $$ 2 = $i$$n$答：$i$張",
+          "Answer": ["÷", 200, 200]
+        }
+      },
+      {
+        "headQuestion": "弟弟有300張貼紙，平分成3個盒子，一個盒子有幾張貼紙?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 300
+        },
+        "markdown": {
+          "Render": "300 $$ 3 = $i$$n$答：$i$張",
+          "Answer": ["÷", 100, 100]
+        }
+      },
+      {
+        "headQuestion": "奶奶有800元，平分給2個孫子當零用錢，一個孫子分到多少元?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 800
+        },
+        "markdown": {
+          "Render": "800 $$ 2 = $i$$n$答：$i$元",
+          "Answer": ["÷", 400, 400]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "有448個柳丁，每4個裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 448
+        },
+        "markdown": {
+          "Render": "448 $$ 4 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 112, 112]
+        }
+      },
+      {
+        "headQuestion": "有696個柳丁，每3個裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 696
+        },
+        "markdown": {
+          "Render": "696 $$ 3 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 232, 232]
+        }
+      },
+      {
+        "headQuestion": "有777個蘋果，每7個裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 777
+        },
+        "markdown": {
+          "Render": "777 $$ 7 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 111, 111]
+        }
+      },
+      {
+        "headQuestion": "有842個蘋果，每2個裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 842
+        },
+        "markdown": {
+          "Render": "842 $$ 2 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 421, 421]
+        }
+      },
+      {
+        "headQuestion": "有936個蘋果，每3個裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 936
+        },
+        "markdown": {
+          "Render": "936 $$ 3 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 312, 312]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "壽司店買了630公斤的白米，每3公斤裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 630
+        },
+        "markdown": {
+          "Render": "630 $$ 3 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 210, 210]
+        }
+      },
+      {
+        "headQuestion": "壽司店買了680公斤的白米，每4公斤裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 680
+        },
+        "markdown": {
+          "Render": "680 $$ 4 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 170, 170]
+        }
+      },
+      {
+        "headQuestion": "麵包店買了600公斤的麵粉，每5公斤裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 600
+        },
+        "markdown": {
+          "Render": "600 $$ 5 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 120, 120]
+        }
+      },
+      {
+        "headQuestion": "麵包店買了900公斤的麵粉，每6公斤裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 6,
+          "dividend": 900
+        },
+        "markdown": {
+          "Render": "900 $$ 6 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 150, 150]
+        }
+      },
+      {
+        "headQuestion": "壽司店買了840公斤的白米，每7公斤裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 840
+        },
+        "markdown": {
+          "Render": "840 $$ 7 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 120, 120]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "果園今天採收824顆芒果，每4顆裝成一盒，最多可以裝成幾盒?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 824
+        },
+        "markdown": {
+          "Render": "824 $$ 4 = $i$$n$答：$i$盒",
+          "Answer": ["÷", 206, 206]
+        }
+      },
+      {
+        "headQuestion": "果園今天採收917顆橘子，每3顆裝成一袋，最多可以裝成幾袋?還剩下幾顆?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 917
+        },
+        "markdown": {
+          "Render": "917 $$ 3 = $i$ ... $i$$n$答：$i$盒，剩$i$盒",
+          "Answer": ["÷", 305, 2, 305, 2]
+        }
+      },
+      {
+        "headQuestion": "果園今天採收749顆橘子，每7顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 749
+        },
+        "markdown": {
+          "Render": "749 $$ 7 = $i$$n$答：$i$盒",
+          "Answer": ["÷", 107, 107]
+        }
+      },
+      {
+        "headQuestion": "果園今天採收608顆芒果，每3顆裝成一盒，最多可以裝成幾盒?還剩下幾顆?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 608
+        },
+        "markdown": {
+          "Render": "608 $$ 3 = $i$ ... $i$$n$答：$i$盒，剩$i$盒",
+          "Answer": ["÷", 202, 2, 202, 2]
+        }
+      },
+      {
+        "headQuestion": "果園今天採收535顆芒果，每5顆裝成一盒，最多可以裝成幾盒?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 535
+        },
+        "markdown": {
+          "Render": "535 $$ 5 = $i$$n$答：$i$盒",
+          "Answer": ["÷", 107, 107]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "有238個棉花糖，平分成7袋，一袋有幾個棉花糖?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 238
+        },
+        "markdown": {
+          "Render": "238 $$ 7 = $i$$n$答：$i$個",
+          "Answer": ["÷", 34, 34]
+        }
+      },
+      {
+        "headQuestion": "有276個果凍，平分成9袋，一袋有幾個果凍?還剩下幾個?",
+        "calculator": {
+          "divisor": 9,
+          "dividend": 276
+        },
+        "markdown": {
+          "Render": "276 $$ 9 = $i$ ... $i$$n$答：$i$個，剩$i$個",
+          "Answer": ["÷", 30, 6, 30, 6]
+        }
+      },
+      {
+        "headQuestion": "有246個果凍，平分成6袋，一袋有幾個果凍?",
+        "calculator": {
+          "divisor": 6,
+          "dividend": 246
+        },
+        "markdown": {
+          "Render": "246 $$ 6 = $i$$n$答：$i$個",
+          "Answer": ["÷", 41, 41]
+        }
+      },
+      {
+        "headQuestion": "有365個果凍，平分成7袋，一袋有幾個果凍?還剩下幾個?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 365
+        },
+        "markdown": {
+          "Render": "365 $$ 7 = $i$ ... $i$$n$答：$i$個，剩$i$個",
+          "Answer": ["÷", 52, 1, 52, 1]
+        }
+      },
+      {
+        "headQuestion": "有469個棉花糖，平分成5袋，一袋有幾個棉花糖?還剩下幾個?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 469
+        },
+        "markdown": {
+          "Render": "469 $$ 5 = $i$ ... $i$$n$答：$i$個，剩$i$個",
+          "Answer": ["÷", 93, 4, 93, 4]
+        }
+      }
+    ]
+  ]
+}

@@ -9,7 +9,8 @@
   "GameType": "WordProblemWithCalculator",
   "GameConfig": {
     "calculatorVerify": true,
-    "markdownVerify": true
+    "markdownVerify": true,
+    "calculator": "Calculator"
   },
   "Hint": {},
   "Questions": [

@@ -40,8 +40,6 @@
 <script>
 import { getGameAssets } from "@/utilitys/get_assets.js";
 import { getSystemAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
-import { defineAsyncComponent } from "vue";
 export default {
   components: {},
   props: {
@@ -111,26 +109,41 @@ export default {
         case "color":
           this.configBG.fill = this.Data.background;
           break;
-        case "image":
+        case "image": {
           let image = new window.Image();
           image.src = getGameAssets(this.ID, this.Data.background);
           this.configBG.image = image;
           break;
+        }
       }
     },
     setGrid() {
       for (let i = 0; i <= this.Data.backgroundRatio.width; ++i)
-        this.gridPos.x.push((i * this.gameWidth) / this.Data.backgroundRatio.width);
+        this.gridPos.x.push(
+          (i * this.gameWidth) / this.Data.backgroundRatio.width
+        );
       for (let i = 0; i <= this.Data.backgroundRatio.height; ++i)
-        this.gridPos.y.push((i * this.gameHeight) / this.Data.backgroundRatio.height);
+        this.gridPos.y.push(
+          (i * this.gameHeight) / this.Data.backgroundRatio.height
+        );
     },
     drawGrid() {
       this.configBG = [];
       for (let i = 1; i < this.Data.backgroundRatio.width; ++i) {
-        this.configBG.push([this.gridPos.x[i], 0, this.gridPos.x[i], this.gameHeight]);
+        this.configBG.push([
+          this.gridPos.x[i],
+          0,
+          this.gridPos.x[i],
+          this.gameHeight,
+        ]);
       }
       for (let i = 1; i < this.Data.backgroundRatio.height; ++i) {
-        this.configBG.push([0, this.gridPos.y[i], this.gameWidth, this.gridPos.y[i]]);
+        this.configBG.push([
+          0,
+          this.gridPos.y[i],
+          this.gameWidth,
+          this.gridPos.y[i],
+        ]);
       }
     },
     drawImages() {
@@ -174,7 +187,8 @@ export default {
       } else {
         position.x = currentPos.x;
         position.y = currentPos.y;
-        newPos.x = currentPos.x + (imageData.ratio.width + 1) * this.ratioLength;
+        newPos.x =
+          currentPos.x + (imageData.ratio.width + 1) * this.ratioLength;
         newPos.y = currentPos.y;
       }
       return {
@@ -235,14 +249,17 @@ export default {
       for (let i = 0; i < 2; ++i) {
         this.configArrows[i].x =
           this.configRotationPanel.x + this.ratioLength * (i + 0.1);
-        this.configArrows[i].y = this.configRotationPanel.y + this.ratioLength * 0.1;
+        this.configArrows[i].y =
+          this.configRotationPanel.y + this.ratioLength * 0.1;
       }
     },
     keepInBound(e) {
       e.target.x(Math.max(e.target.x(), 0));
       e.target.x(Math.min(e.target.x(), this.gameWidth - e.target.attrs.width));
       e.target.y(Math.max(e.target.y(), 0));
-      e.target.y(Math.min(e.target.y(), this.gameWidth - e.target.attrs.height));
+      e.target.y(
+        Math.min(e.target.y(), this.gameWidth - e.target.attrs.height)
+      );
     },
     handleDragend(e) {
       let id = e.target.attrs.index;

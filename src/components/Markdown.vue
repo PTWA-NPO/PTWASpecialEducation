@@ -7,6 +7,28 @@
       >
         {{ element.content }}
       </component>
+      <div v-else-if="element.el === 'math-input'" class="math-input-container">
+        <q-btn
+          v-if="element.isSymbol"
+          :label="element.content || '?'"
+          class="math-symbol-btn"
+          :class="{ 'wrong-answer': element.isWrong }"
+          rounded
+        >
+          <q-menu anchor="bottom start" self="top left">
+            <q-item
+              v-for="symbol in availableSymbols"
+              :key="symbol"
+              v-close-popup
+              clickable
+              dense
+              @click="handleSymbolSelect(index, symbol)"
+            >
+              {{ symbol }}
+            </q-item>
+          </q-menu>
+        </q-btn>
+      </div>
       <input
         v-else-if="element.el === 'input'"
         ref="inputRefs"
@@ -23,6 +45,17 @@
       <span v-else-if="element.el === 'tab'">&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <span v-else-if="element.el === 'space'">&nbsp;</span>
       <br v-else-if="element.el === 'br'" />
+      <div v-else-if="element.el === 'options'" class="options-container">
+        <div
+          v-for="(option, optionIndex) in element.content"
+          :key="optionIndex"
+          class="option"
+          :class="{ selected: selectedOptions[index] === optionIndex }"
+          @click="selectOption(index, optionIndex)"
+        >
+          {{ option }}
+        </div>
+      </div>
       <FloatNumPad
         v-if="isShowNumPad"
         :Data="floatNumPadLocation"
@@ -59,6 +92,8 @@ export default {
       clickedEvent: null,
       wrongInputIndex: [],
       numPadOffset: 10,
+      availableSymbols: ["+", "-", "×", "÷"],
+      selectedOptions: {},
     };
   },
   created() {
@@ -72,7 +107,8 @@ export default {
   methods: {
     parseMarkdown() {
       const content = this.markdownContent.trim();
-      const tokenRegex = /(\$i\$|\$t\$|\$s\$|\$n\$|#\s|##\s|###\s|\*\*|__|\n)/g;
+      const tokenRegex =
+        /(\$i\$|\$t\$|\$s\$|\$n\$|\$\$|#\s|##\s|###\s|\*\*|__|\n|\$\[.*?\]\$)/g;
       const tokens = content.split(tokenRegex);
       this.wa = tokens;
       const elements = [];
@@ -83,12 +119,21 @@ export default {
       tokens.forEach((token) => {
         if (token === "$i$") {
           elements.push({ el: "input", content: "" });
+        } else if (token === "$$") {
+          elements.push({ el: "math-input", content: "", isSymbol: true });
         } else if (token === "$t$") {
           elements.push({ el: "tab", content: "" });
         } else if (token === "$s$") {
           elements.push({ el: "space", content: "" });
         } else if (token === "$n$" || token === "\n") {
           elements.push({ el: "br", content: "" });
+        } else if (token.startsWith("$[") && token.endsWith("]$")) {
+          // 解析選項
+          const options = token
+            .slice(2, -2)
+            .split(",")
+            .map((option) => option.trim());
+          elements.push({ el: "options", content: options });
         } else if (token === "# ") {
           currentTag = "h1";
         } else if (token === "## ") {
@@ -116,27 +161,51 @@ export default {
       return validTags.includes(el) ? el : "span";
     },
     isSpecialElement(el) {
-      return ["input", "tab", "space", "br"].includes(el);
+      return ["input", "math-input", "tab", "space", "br", "options"].includes(
+        el
+      );
     },
     checkAnswer() {
       if (typeof this.Data.Answer != "object") return;
       this.wrongInputIndex = [];
       this.resetInputBG();
       let check = true;
-      let userAnswer = this.elements
-        .filter((element) => element.el === "input")
-        .map((element) => element.content);
+      let allAnswers = [];
+
+      // 獲取所有輸入框的答案
+      this.elements.forEach((element, index) => {
+        if (element.el === "input" || element.el === "math-input") {
+          allAnswers.push(element.content);
+        } else if (element.el === "options") {
+          const selectedOption = this.selectedOptions[index];
+          if (selectedOption !== undefined) {
+            allAnswers.push(element.content[selectedOption]);
+          } else {
+            allAnswers.push("");
+          }
+        }
+      });
+      // 檢查輸入框數量是否匹配
+
+      const isAnswerCorrect = (userAns, correctAns) => {
+        if (!isNaN(correctAns)) {
+          return Number(userAns) === Number(correctAns);
+        }
+        return userAns === correctAns;
+      };
+
       for (let i = 0; i < this.Data.Answer.length; i++) {
-        if (this.Data.Answer[i] != userAnswer[i]) {
+        const userAnswer = allAnswers[i].trim();
+        const correctAnswer = this.Data.Answer[i];
+
+        if (!isAnswerCorrect(userAnswer, correctAnswer)) {
           check = false;
           this.wrongInputIndex.push(i);
         }
       }
-      if (check) {
-        this.$emit("replyAnswer", true);
-      } else {
-        this.$emit("replyAnswer", false);
-      }
+      console.log(check);
+
+      this.$emit("replyAnswer", check);
     },
     disableKeyboardOnMobile($event) {
       const input = $event.target;
@@ -158,8 +227,8 @@ export default {
       const inputRect = event.target.getBoundingClientRect();
       this.isShowNumPad = true;
       this.floatNumPadLocation = {
-        top: `${inputRect.bottom + window.scrollY + this.numPadOffset}px`,
-        left: `${inputRect.left + window.scrollX}px`,
+        top: `${inputRect.bottom + window.scrollY}px`,
+        left: `${inputRect.right + window.scrollX + this.numPadOffset}px`,
       };
     },
     fillToInput(content) {
@@ -179,7 +248,8 @@ export default {
     },
     markWrong() {
       this.checkAnswer();
-      let cnt = 0;
+      let totalIndex = 0;
+      let inputIndex = 0;
       // 先檢查 inputRefs 是否存在
       if (!this.$refs.inputRefs) {
         console.warn("inputRefs not found");
@@ -188,30 +258,112 @@ export default {
 
       this.elements.forEach((element) => {
         if (element.el === "input") {
-          // 檢查該索引的 input 是否存在
-          if (this.wrongInputIndex.includes(cnt) && this.$refs.inputRefs[cnt]) {
-            this.$refs.inputRefs[cnt].style.backgroundColor = "red";
+          if (
+            this.wrongInputIndex.includes(totalIndex) &&
+            this.$refs.inputRefs[inputIndex]
+          ) {
+            this.$refs.inputRefs[inputIndex].style.backgroundColor = "red";
           }
-          cnt++;
+          inputIndex++;
+          totalIndex++;
+        } else if (element.el === "math-input") {
+          element.isWrong = this.wrongInputIndex.includes(totalIndex);
+          totalIndex++;
         }
       });
+    },
+    handleSymbolSelect(index, symbol) {
+      this.elements[index].content = symbol;
+      this.checkAnswer();
+    },
+    selectOption(elementIndex, optionIndex) {
+      // 保存原始選項列表
+      const element = this.elements[elementIndex];
+      if (element && element.el === "options") {
+        // 保存選中的值，但保持原始選項列表不變
+        element.selectedValue = element.content[optionIndex];
+      }
+      this.selectedOptions[elementIndex] = optionIndex;
+      this.checkAnswer();
     },
   },
 };
 </script>
+
 <style scoped lang="scss">
+.math-input-container {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.math-symbol-btn {
+  border-radius: 20px;
+  font-size: $text-small;
+  padding: 0;
+  min-width: 40px;
+  height: 40px;
+
+  &.wrong-answer {
+    background-color: red !important;
+    color: white !important;
+  }
+}
+
 input {
-  min-width: 50px;
-  max-width: 100px;
+  min-width: 20px;
+  max-width: 50px;
   border: 1px solid #000;
   border-radius: $border-radius;
   padding: 5px;
   margin: 5px;
 }
 .markdown-container {
+  width: 100%;
+  height: 100%;
   span,
   p {
     font-size: $text-medium;
+    margin: 0;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  br {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.options-container {
+  display: inline-flex;
+  gap: 10px;
+  margin: 0 5px;
+}
+
+.option {
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 80px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+
+  &:hover {
+    background-color: #e9e9e9;
+  }
+
+  &.selected {
+    border-color: $hyperlink-color;
+    background-color: $success-color;
+    color: white;
   }
 }
 </style>

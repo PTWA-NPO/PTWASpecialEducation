@@ -1,0 +1,334 @@
+{
+  "id": "MA3177",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用算式記記看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "72 ÷ (    ) = 9",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "72",
+            "segments": 9,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：72 $$ $i$ = $i$",
+            "Answer": ["÷", 9, 8]
+          }
+        }
+      },
+      {
+        "questionText": "56 ÷ (    ) = 8",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "56",
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：56 $$ $i$ = $i$",
+            "Answer": ["÷", 8, 7]
+          }
+        }
+      },
+      {
+        "questionText": "54 ÷ (    ) = 9",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "54",
+            "segments": 9,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：54 $$ $i$ = $i$",
+            "Answer": ["÷", 9, 6]
+          }
+        }
+      },
+      {
+        "questionText": "32 ÷ (    ) = 4",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "32",
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：32 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 8]
+          }
+        }
+      },
+      {
+        "questionText": "49 ÷ (    ) = 7",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "49",
+            "segments": 7,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：49 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 7]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "60 ÷ (    ) = 5",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "60",
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：60 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 12]
+          }
+        }
+      },
+      {
+        "questionText": "72 ÷ (    ) = 3",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "72",
+            "segments": 3,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：72 $$ $i$ = $i$",
+            "Answer": ["÷", 3, 24]
+          }
+        }
+      },
+      {
+        "questionText": "84 ÷ (    ) = 6",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "84",
+            "segments": 6,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：84 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 14]
+          }
+        }
+      },
+      {
+        "questionText": "91 ÷ (    ) = 7",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "91",
+            "segments": 7,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：91 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 13]
+          }
+        }
+      },
+      {
+        "questionText": "92 ÷ (    ) = 4",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "92",
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：92 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 23]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "369 ÷ (    ) = 9",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "369",
+            "segments": 9,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：369 $$ $i$ = $i$",
+            "Answer": ["÷", 9, 41]
+          }
+        }
+      },
+      {
+        "questionText": "380 ÷ (    ) = 4",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "380",
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：380 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 95]
+          }
+        }
+      },
+      {
+        "questionText": "301 ÷ (    ) = 7",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "301",
+            "segments": 7,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：301 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 43]
+          }
+        }
+      },
+      {
+        "questionText": "205 ÷ (    ) = 5",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "205",
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：205 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 41]
+          }
+        }
+      },
+      {
+        "questionText": "520 ÷ (    ) = 8",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "520",
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：520 $$ $i$ = $i$",
+            "Answer": ["÷", 8, 65]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "媽媽有一條160公分的毛線，平分剪成幾段時，每段的長度剛好是8公分?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "160",
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [160, "÷", 8, 20]
+          }
+        }
+      }
+    ]
+  ]
+}

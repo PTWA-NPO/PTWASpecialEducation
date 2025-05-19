@@ -1,0 +1,1132 @@
+{
+  "id": "MA3157",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "將物品量一量，再填填看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "eraser.png",
+                "ratio": {
+                  "width": 4.4,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [4, 4, 4.4]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "eraser.png",
+                "ratio": {
+                  "width": 4.7,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [4, 7, 4.7]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "eraser.png",
+                "ratio": {
+                  "width": 5.4,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [5, 4, 5.4]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "eraser.png",
+                "ratio": {
+                  "width": 5.6,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [5, 6, 5.6]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "eraser.png",
+                "ratio": {
+                  "width": 4.4,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [4, 4, 4.4]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "pencil.png",
+                "ratio": {
+                  "width": 6.5,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [6, 5, 6.5]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "pencil.png",
+                "ratio": {
+                  "width": 6.9,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [6, 9, 6.9]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "pencil.png",
+                "ratio": {
+                  "width": 7.33,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [7, 3, 7.3]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "pencil.png",
+                "ratio": {
+                  "width": 7.8,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [7, 8, 7.8]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 5
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 3
+                }
+              },
+              {
+                "path": "pencil.png",
+                "ratio": {
+                  "width": 6.1,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [6, 1, 6.1]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "correction-fluid.png",
+                "ratio": {
+                  "width": 8.45,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [8, 5, 8.5]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "correction-fluid.png",
+                "ratio": {
+                  "width": 8.84,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [8, 9, 8.9]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "correction-fluid.png",
+                "ratio": {
+                  "width": 9.36,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [9, 4, 9.4]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "correction-fluid.png",
+                "ratio": {
+                  "width": 9.04,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [9, 1, 9.1]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "correction-fluid.png",
+                "ratio": {
+                  "width": 8.74,
+                  "height": 3
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [8, 8, 8.8]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "pen.png",
+                "ratio": {
+                  "width": 10.33,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [10, 4, 10.4]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "pen.png",
+                "ratio": {
+                  "width": 11.98,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [12, 1, 12.1]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "pen.png",
+                "ratio": {
+                  "width": 11.42,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [11, 5, 11.5]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "pen.png",
+                "ratio": {
+                  "width": 10.81,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [10, 9, 10.9]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "pen.png",
+                "ratio": {
+                  "width": 12.5,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [12, 5, 12.5]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "propelling-pencial.png",
+                "ratio": {
+                  "width": 13.4,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [13, 5, 13.5]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "propelling-pencial.png",
+                "ratio": {
+                  "width": 14.7,
+                  "height": 2.8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [14, 8, 14.8]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "propelling-pencial.png",
+                "ratio": {
+                  "width": 14.12,
+                  "height": 2.8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [14, 2, 14.2]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "propelling-pencial.png",
+                "ratio": {
+                  "width": 13,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [13, 1, 13.1]
+          }
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 20,
+              "height": 8
+            },
+            "images": [
+              {
+                "path": "ruler.png",
+                "ratio": {
+                  "width": 16,
+                  "height": 2
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 1,
+                  "y": 5
+                }
+              },
+              {
+                "path": "propelling-pencial.png",
+                "ratio": {
+                  "width": 14.22,
+                  "height": 2.8
+                },
+                "snapToGrid": true,
+                "rotatable": false
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "$i$公分$i$毫米=$i$公分",
+            "Answer": [14, 3, 14.3]
+          }
+        }
+      }
+    ]
+  ]
+}

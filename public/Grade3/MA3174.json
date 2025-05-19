@@ -1,0 +1,507 @@
+{
+  "id": "MA3174",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用算式記記看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "(    ) x 5 = 100",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 100,
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：100 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 20]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 6 = 60",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 60,
+            "segments": 6,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：60 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 10]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 2 = 80",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 80,
+            "segments": 2,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：80 $$ $i$ = $i$",
+            "Answer": ["÷", 2, 40]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 3 = 90",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 90,
+            "segments": 3,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：90 $$ $i$ = $i$",
+            "Answer": ["÷", 3, 30]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 4 = 160",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 160,
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：160 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 40]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "(    ) x 8 = 88",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 88,
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：88 $$ $i$ = $i$",
+            "Answer": ["÷", 8, 11]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 4 = 52",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 52,
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：52 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 13]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 6 = 84",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 84,
+            "segments": 6,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：84 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 14]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 5 = 75",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 75,
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：75 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 15]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 7 = 91",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 91,
+            "segments": 7,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：91 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 13]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "(    ) x 2 = 102",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 102,
+            "segments": 2,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：102 $$ $i$ = $i$",
+            "Answer": ["÷", 2, 51]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 3 = 144",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 144,
+            "segments": 3,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：144 $$ $i$ = $i$",
+            "Answer": ["÷", 3, 48]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 4 = 132",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 132,
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：132 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 33]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 5 = 130",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 130,
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：130 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 26]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) x 4 = 164",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 164,
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：164 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 41]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "一頂帽子價格的3倍剛好和一件360元的褲子一樣，一頂帽子多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 360,
+            "segments": 3,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [360, "÷", 3, 120]
+          }
+        }
+      },
+      {
+        "questionText": "一頂帽子價格的2倍剛好和一件500元的褲子一樣，一頂帽子多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 500,
+            "segments": 2,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [500, "÷", 2, 250]
+          }
+        }
+      },
+      {
+        "questionText": "一雙襪子價格的6倍剛好和一件474元的衣服一樣，一雙襪子多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 474,
+            "segments": 6,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [474, "÷", 6, 79]
+          }
+        }
+      },
+      {
+        "questionText": "一雙襪子價格的5倍剛好和一件245元的衣服一樣，一雙襪子多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 245,
+            "segments": 5,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [245, "÷", 5, 49]
+          }
+        }
+      },
+      {
+        "questionText": "一雙襪子價格的4倍剛好和一件396元的衣服一樣，一雙襪子多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 396,
+            "segments": 4,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [396, "÷", 4, 99]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "爸爸買了9包巧克力，共付了558元，一包巧克力多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 558,
+            "segments": 9,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [558, "÷", 9, 62]
+          }
+        }
+      },
+      {
+        "questionText": "哥哥買了8包遊戲卡，共付了376元，一包遊戲卡多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 376,
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [376, "÷", 8, 47]
+          }
+        }
+      },
+      {
+        "questionText": "爸爸買了7包巧克力，共付了448元，一包巧克力多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 448,
+            "segments": 7,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [448, "÷", 7, 64]
+          }
+        }
+      },
+      {
+        "questionText": "哥哥買了8包遊戲卡，共付了496元，一包遊戲卡多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 496,
+            "segments": 8,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [496, "÷", 8, 62]
+          }
+        }
+      },
+      {
+        "questionText": "爸爸買了9包巧克力，共付了522元，一包巧克力多少元?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 522,
+            "segments": 9,
+            "stepLabel": "?",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [522, "÷", 9, 58]
+          }
+        }
+      }
+    ]
+  ]
+}

@@ -1,0 +1,507 @@
+{
+  "id": "MA3176",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用算式記記看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "(    ) ÷ 5 = 8",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 5,
+            "stepLabel": "8",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：8 $$ $i$ = $i$",
+            "Answer": ["×", 5, 40]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 6 = 20",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 6,
+            "stepLabel": "20",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：20 $$ $i$ = $i$",
+            "Answer": ["×", 6, 120]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 3 = 10",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 3,
+            "stepLabel": "10",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：10 $$ $i$ = $i$",
+            "Answer": ["×", 3, 30]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 4 = 40",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 4,
+            "stepLabel": "40",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：40 $$ $i$ = $i$",
+            "Answer": ["×", 4, 160]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 2 = 30",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 2,
+            "stepLabel": "30",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：30 $$ $i$ = $i$",
+            "Answer": ["×", 2, 60]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "(    ) ÷ 5 = 11",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 5,
+            "stepLabel": "11",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：11 $$ $i$ = $i$",
+            "Answer": ["×", 5, 55]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 7 = 13",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 7,
+            "stepLabel": "13",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：13 $$ $i$ = $i$",
+            "Answer": ["×", 7, 91]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 4 = 12",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 4,
+            "stepLabel": "12",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：12 $$ $i$ = $i$",
+            "Answer": ["×", 4, 48]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 3 = 28",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 3,
+            "stepLabel": "28",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：28 $$ $i$ = $i$",
+            "Answer": ["×", 3, 84]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 2 = 43",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 2,
+            "stepLabel": "43",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：43 $$ $i$ = $i$",
+            "Answer": ["×", 2, 86]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "(    ) ÷ 5 = 11",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 5,
+            "stepLabel": "11",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：11 $$ $i$ = $i$",
+            "Answer": ["×", 5, 55]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 7 = 13",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 7,
+            "stepLabel": "13",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：13 $$ $i$ = $i$",
+            "Answer": ["×", 7, 91]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 4 = 12",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 4,
+            "stepLabel": "12",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：12 $$ $i$ = $i$",
+            "Answer": ["×", 4, 48]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 3 = 28",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 3,
+            "stepLabel": "28",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：28 $$ $i$ = $i$",
+            "Answer": ["×", 3, 84]
+          }
+        }
+      },
+      {
+        "questionText": "(    ) ÷ 2 = 43",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 2,
+            "stepLabel": "43",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：43 $$ $i$ = $i$",
+            "Answer": ["×", 2, 86]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "桌上有一些鉛筆，每5枝分一堆，共分成了10堆，請問桌上原本有幾枝鉛筆?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 10,
+            "stepLabel": "5",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [5, "×", 10, 50]
+          }
+        }
+      },
+      {
+        "questionText": "桌上有一些鉛筆，每6枝分一堆，共分成了13堆，請問桌上原本有幾枝鉛筆?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 13,
+            "stepLabel": "6",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [6, "×", 13, 78]
+          }
+        }
+      },
+      {
+        "questionText": "桌上有一些貼紙，每4張分一堆，共分成了24堆，請問桌上原本有幾張貼紙?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 24,
+            "stepLabel": "4",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [4, "×", 24, 96]
+          }
+        }
+      },
+      {
+        "questionText": "桌上有一些貼紙，每7張分一堆，共分成了11堆，請問桌上原本有幾張貼紙?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 11,
+            "stepLabel": "7",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [7, "×", 11, 77]
+          }
+        }
+      },
+      {
+        "questionText": "桌上有一些貼紙，每6張分一堆，共分成了14堆，請問桌上原本有幾張貼紙?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 14,
+            "stepLabel": "6",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [6, "×", 14, 84]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "箱子有一些漫畫書，班上每組各分8本，剛好可以平分給13組，請問箱子裡有幾本漫畫書?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 13,
+            "stepLabel": "8",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [8, "×", 13, 104]
+          }
+        }
+      },
+      {
+        "questionText": "箱子有一些漫畫書，班上每組各分9本，剛好可以平分給12組，請問箱子裡有幾本漫畫書?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 12,
+            "stepLabel": "9",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [9, "×", 12, 108]
+          }
+        }
+      },
+      {
+        "questionText": "箱子有一些漫畫書，班上每組各分7本，剛好可以平分給15組，請問箱子裡有幾本漫畫書?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 15,
+            "stepLabel": "7",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [7, "×", 15, 105]
+          }
+        }
+      },
+      {
+        "questionText": "老師把一些貼紙平分給6個學生，每個人分到21張貼紙，老師原來有幾張貼紙?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 6,
+            "stepLabel": "21",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [21, "×", 6, 126]
+          }
+        }
+      },
+      {
+        "questionText": "老師把一些貼紙平分給8個學生，每個人分到32張貼紙，老師原來有幾張貼紙?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": "?",
+            "segments": 8,
+            "stepLabel": "32",
+            "displayOneSegment": false
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [32, "×", 8, 256]
+          }
+        }
+      }
+    ]
+  ]
+}
