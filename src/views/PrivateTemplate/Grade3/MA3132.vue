@@ -287,8 +287,8 @@ export default {
               const isWrong = wrongIndices.includes(index);
               return {
                 ...box,
-                stroke: isWrong ? "#ff0000" : "#000",
-                strokeWidth: isWrong ? 3 : 2,
+                stroke: isWrong ? "#ff3154" : "#000",
+                strokeWidth: isWrong ? 4 : 2,
               };
             });
             // 強制更新 Konva 層
