@@ -283,17 +283,6 @@
         "Title": "4 - 公斤和公克",
         "Section": [
           {
-            "Title": "認識3公斤秤",
-            "Games": [
-              {
-                "id": "MA3142",
-                "Name": "認識3公斤秤",
-                "Description": "",
-                "Img": "MA3142.png"
-              }
-            ]
-          },
-          {
             "Title": "重量的量感與估測",
             "Games": [
               {
@@ -400,12 +389,6 @@
           {
             "Title": "1時、分和秒",
             "Games": [
-              {
-                "id": "MA3183",
-                "Name": "時間單位換算",
-                "Description": "",
-                "Img": "MA3183.png"
-              },
               {
                 "id": "MA3184",
                 "Name": "能理解並運用適當的時間單位",

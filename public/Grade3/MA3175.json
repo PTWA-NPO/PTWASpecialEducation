@@ -1,0 +1,507 @@
+{
+  "id": "MA3175",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用算式記記看"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "5 x (    ) = 100",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 100,
+            "segments": 20,
+            "stepLabel": "5",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：100 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 20]
+          }
+        }
+      },
+      {
+        "questionText": "7 x (    ) = 70",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 70,
+            "segments": 10,
+            "stepLabel": "7",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：70 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 10]
+          }
+        }
+      },
+      {
+        "questionText": "4 x (    ) = 80",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 80,
+            "segments": 20,
+            "stepLabel": "4",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：80 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 20]
+          }
+        }
+      },
+      {
+        "questionText": "3 x (    ) = 150",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 150,
+            "segments": 50,
+            "stepLabel": "3",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：150 $$ $i$ = $i$",
+            "Answer": ["÷", 3, 50]
+          }
+        }
+      },
+      {
+        "questionText": "6 x (    ) = 180",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 180,
+            "segments": 30,
+            "stepLabel": "6",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：180 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 30]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "8 x (    ) = 64",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 64,
+            "segments": 8,
+            "stepLabel": "8",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：64 $$ $i$ = $i$",
+            "Answer": ["÷", 8, 8]
+          }
+        }
+      },
+      {
+        "questionText": "6 x (    ) = 72",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 72,
+            "segments": 12,
+            "stepLabel": "6",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：72 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 12]
+          }
+        }
+      },
+      {
+        "questionText": "7 x (    ) = 35",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 35,
+            "segments": 5,
+            "stepLabel": "7",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：35 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 5]
+          }
+        }
+      },
+      {
+        "questionText": "4 x (    ) = 64",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 64,
+            "segments": 16,
+            "stepLabel": "4",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：64 $$ $i$ = $i$",
+            "Answer": ["÷", 4, 16]
+          }
+        }
+      },
+      {
+        "questionText": "3 x (    ) = 36",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 36,
+            "segments": 12,
+            "stepLabel": "3",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：36 $$ $i$ = $i$",
+            "Answer": ["÷", 3, 12]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "9 x (    ) = 135",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 135,
+            "segments": 15,
+            "stepLabel": "9",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：135 $$ $i$ = $i$",
+            "Answer": ["÷", 9, 15]
+          }
+        }
+      },
+      {
+        "questionText": "8 x (    ) = 176",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 176,
+            "segments": 22,
+            "stepLabel": "8",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：176 $$ $i$ = $i$",
+            "Answer": ["÷", 8, 22]
+          }
+        }
+      },
+      {
+        "questionText": "7 x (    ) = 238",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 238,
+            "segments": 34,
+            "stepLabel": "7",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：238 $$ $i$ = $i$",
+            "Answer": ["÷", 7, 34]
+          }
+        }
+      },
+      {
+        "questionText": "5 x (    ) = 145",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 145,
+            "segments": 29,
+            "stepLabel": "5",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：145 $$ $i$ = $i$",
+            "Answer": ["÷", 5, 29]
+          }
+        }
+      },
+      {
+        "questionText": "6 x (    ) = 246",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 246,
+            "segments": 41,
+            "stepLabel": "6",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：246 $$ $i$ = $i$",
+            "Answer": ["÷", 6, 41]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "投籃遊戲，投進一球得4分，哥哥投進一些球，共得到52分，哥哥投進幾球?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 52,
+            "segments": 13,
+            "stepLabel": "4",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [52, "÷", 4, 13]
+          }
+        }
+      },
+      {
+        "questionText": "投籃遊戲，投進一球得6分，哥哥投進一些球，共得到90分，哥哥投進幾球?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 90,
+            "segments": 15,
+            "stepLabel": "6",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [90, "÷", 6, 15]
+          }
+        }
+      },
+      {
+        "questionText": "投籃遊戲，投進一球得5分，哥哥投進一些球，共得到110分，哥哥投進幾球?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 110,
+            "segments": 22,
+            "stepLabel": "5",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [110, "÷", 5, 22]
+          }
+        }
+      },
+      {
+        "questionText": "哥哥去夜市玩射氣球，射到一個氣球得3分，哥哥射到了一些，共得到75分，哥哥射到幾個氣球?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 75,
+            "segments": 25,
+            "stepLabel": "3",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [75, "÷", 3, 25]
+          }
+        }
+      },
+      {
+        "questionText": "哥哥去夜市玩射氣球，射到一個氣球得7分，哥哥射到了一些，共得到98分，哥哥射到幾個氣球?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 98,
+            "segments": 14,
+            "stepLabel": "7",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [98, "÷", 7, 14]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "一袋蘋果有7顆，老闆賣了一些，共賣出133顆蘋果，請問老闆是賣出幾袋蘋果?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 133,
+            "segments": 19,
+            "stepLabel": "7",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [133, "÷", 7, 19]
+          }
+        }
+      },
+      {
+        "questionText": "一袋蘋果有5顆，老闆賣了一些，共賣出110顆蘋果，請問老闆是賣出幾袋蘋果?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 110,
+            "segments": 22,
+            "stepLabel": "5",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [110, "÷", 5, 22]
+          }
+        }
+      },
+      {
+        "questionText": "一袋橘子有9顆，老闆賣了一些，共賣出216顆橘子，請問老闆是賣出幾袋橘子?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 216,
+            "segments": 24,
+            "stepLabel": "9",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [216, "÷", 9, 24]
+          }
+        }
+      },
+      {
+        "questionText": "一袋橘子有8顆，老闆賣了一些，共賣出480顆橘子，請問老闆是賣出幾袋橘子?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 480,
+            "segments": 60,
+            "stepLabel": "8",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [480, "÷", 8, 60]
+          }
+        }
+      },
+      {
+        "questionText": "一袋橘子有6顆，老闆賣了一些，共賣出306顆橘子，請問老闆是賣出幾袋橘子?",
+        "topComponent": {
+          "Name": "NumberLineVisualizer",
+          "Data": {
+            "total": 306,
+            "segments": 51,
+            "stepLabel": "6",
+            "displayOneSegment": true
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "橫式：$i$ $$ $i$ = $i$",
+            "Answer": [306, "÷", 6, 51]
+          }
+        }
+      }
+    ]
+  ]
+}

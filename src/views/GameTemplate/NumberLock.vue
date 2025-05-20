@@ -78,6 +78,9 @@ export default {
     FractionForAnswer: defineAsyncComponent(
       () => import("@/components/FractionForAnswer.vue")
     ),
+    NumberLineVisualizer: defineAsyncComponent(
+      () => import("@/components/NumberLineVisualizer.vue")
+    ),
   },
   props: {
     GameData: {
@@ -291,9 +294,9 @@ export default {
     background-color: #dfdfdf;
     border-radius: $border-radius;
     font-size: $text-medium;
+    white-space: pre-wrap;
   }
   .game-area {
-    max-height: 39vh;
     min-height: 0;
     display: flex;
     justify-content: center;

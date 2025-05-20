@@ -26,6 +26,7 @@ const componentsMapping = {
   FloatNumPad: () => import("@/components/FloatNumPad.vue"),
   DragImages: () => import("@/components/DragImages.vue"),
   FractionDisplay: () => import("@/components/FractionDisplay.vue"),
+  DecimalCalculator: () => import("@/components/DecimalCalculator.vue"),
 };
 export function GetComponents(name) {
   console.warn(

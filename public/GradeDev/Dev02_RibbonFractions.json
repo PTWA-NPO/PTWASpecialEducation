@@ -16,6 +16,7 @@
     "Questions": [
         {
             "Question": "下面哪些緞帶有顏色的部分是8/11？",
+            "Type": "Ribbon",
             "Numerator": 8,
             "Denominator": 11,
             "Option": 7,
@@ -25,10 +26,20 @@
 
         {
            "Question": "下面哪些緞帶有顏色的部分是4/13？",
+            "Type": "Ribbon",
             "Numerator": 4,
             "Denominator": 13,
             "Option": 5,
             "CorrectOption": 1
+        },
+        {
+            "Question": "下面哪些色紙有顏色的部分是6/15？",
+            "Type": "Paper",
+            "Numerator": 6,
+            "Denominator": 15,
+            "Factors": [5,3],
+            "Option": 6,
+            "CorrectOption": 2
         }
     ]
 }
