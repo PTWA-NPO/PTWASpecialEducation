@@ -1,0 +1,301 @@
+{
+  "id": "MA3122",
+  "introvideo": "src",
+  "GameType": "WordProblemWithCalculator",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用直式算算看"
+  },
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Division"
+  },
+  "Questions": [
+    [
+      {
+        "headQuestion": "老師買了80根棒棒糖，平分給4個小朋友，一個人可以分到幾根棒棒糖?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 80
+        },
+        "markdown": {
+          "Render": "80 $$ 4 = $i$$n$答：$i$根",
+          "Answer": ["÷", 20, 20]
+        }
+      },
+      {
+        "headQuestion": "老師買了60顆巧克力，平分給3個小朋友，一個人可以分到幾顆巧克力?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 60
+        },
+        "markdown": {
+          "Render": "60 $$ 3 = $i$$n$答：$i$顆",
+          "Answer": ["÷", 20, 20]
+        }
+      },
+      {
+        "headQuestion": "老師買了90根棒棒糖，平分給3個小朋友，一個人可以分到幾根棒棒糖?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 90
+        },
+        "markdown": {
+          "Render": "90 $$ 3 = $i$$n$答：$i$根",
+          "Answer": ["÷", 30, 30]
+        }
+      },
+      {
+        "headQuestion": "老師買了50顆巧克力，平分給5個小朋友，一個人可以分到幾顆巧克力?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 50
+        },
+        "markdown": {
+          "Render": "50 $$ 5 = $i$$n$答：$i$顆",
+          "Answer": ["÷", 10, 10]
+        }
+      },
+      {
+        "headQuestion": "老師買了40根棒棒糖，平分給4個小朋友，一個人可以分到幾根棒棒糖?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 40
+        },
+        "markdown": {
+          "Render": "40 $$ 4 = $i$$n$答：$i$根",
+          "Answer": ["÷", 10, 10]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "媽媽花了39元買3個紅豆餅，一個紅豆餅要多少元?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 39
+        },
+        "markdown": {
+          "Render": "39 $$ 3 = $i$$n$答：$i$元",
+          "Answer": ["÷", 13, 13]
+        }
+      },
+      {
+        "headQuestion": "爸爸花了46元買2杯奶茶，一杯奶茶要多少元?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 46
+        },
+        "markdown": {
+          "Render": "46 $$ 2 = $i$$n$答：$i$元",
+          "Answer": ["÷", 23, 23]
+        }
+      },
+      {
+        "headQuestion": "媽媽花了45元買3個紅豆餅，一個紅豆餅要多少元?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 45
+        },
+        "markdown": {
+          "Render": "45 $$ 3 = $i$$n$答：$i$元",
+          "Answer": ["÷", 15, 15]
+        }
+      },
+      {
+        "headQuestion": "媽媽花了48元買4個紅豆餅，一個紅豆餅要多少元?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 48
+        },
+        "markdown": {
+          "Render": "48 $$ 4 = $i$$n$答：$i$元",
+          "Answer": ["÷", 12, 12]
+        }
+      },
+      {
+        "headQuestion": "爸爸花了38元買2杯奶茶，一杯奶茶要多少元?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 38
+        },
+        "markdown": {
+          "Render": "38 $$ 2 = $i$$n$答：$i$元",
+          "Answer": ["÷", 19, 19]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "有78顆橘子，每6顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 6,
+          "dividend": 78
+        },
+        "markdown": {
+          "Render": "78 $$ 6 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 13, 13]
+        }
+      },
+      {
+        "headQuestion": "有96顆洋蔥，每8顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 8,
+          "dividend": 96
+        },
+        "markdown": {
+          "Render": "96 $$ 8 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 12, 12]
+        }
+      },
+      {
+        "headQuestion": "有65顆橘子，每5顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 65
+        },
+        "markdown": {
+          "Render": "65 $$ 5 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 13, 13]
+        }
+      },
+      {
+        "headQuestion": "有98顆洋蔥，每7顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 98
+        },
+        "markdown": {
+          "Render": "98 $$ 7 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 14, 14]
+        }
+      },
+      {
+        "headQuestion": "有84顆橘子，每4顆裝成一袋，最多可以裝成幾袋?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 84
+        },
+        "markdown": {
+          "Render": "84 $$ 4 = $i$$n$答：$i$袋",
+          "Answer": ["÷", 21, 21]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "把49元分給3個人，一個人最多可以分到幾元?還剩下幾元?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 49
+        },
+        "markdown": {
+          "Render": "49 $$ 3 = $i$ ... $i$$n$答：$i$元，剩$i$元",
+          "Answer": ["÷", 16, 1, 16, 1]
+        }
+      },
+      {
+        "headQuestion": "把50張貼紙分給4個人，一個人最多可以分到幾張?還剩下幾張?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 50
+        },
+        "markdown": {
+          "Render": "50 $$ 4 = $i$ ... $i$$n$答：$i$張，剩$i$張",
+          "Answer": ["÷", 12, 2, 12, 2]
+        }
+      },
+      {
+        "headQuestion": "把47元分給2個人，一個人最多可以分到幾元?還剩下幾元?",
+        "calculator": {
+          "divisor": 2,
+          "dividend": 47
+        },
+        "markdown": {
+          "Render": "47 $$ 2 = $i$ ... $i$$n$答：$i$元，剩$i$元",
+          "Answer": ["÷", 23, 1, 23, 1]
+        }
+      },
+      {
+        "headQuestion": "把43張貼紙分給3個人，一個人最多可以分到幾張?還剩下幾張?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 43
+        },
+        "markdown": {
+          "Render": "43 $$ 3 = $i$ ... $i$$n$答：$i$張，剩$i$張",
+          "Answer": ["÷", 14, 1, 14, 1]
+        }
+      },
+      {
+        "headQuestion": "把46元分給4個人，一個人最多可以分到幾元?還剩下幾元?",
+        "calculator": {
+          "divisor": 4,
+          "dividend": 46
+        },
+        "markdown": {
+          "Render": "46 $$ 4 = $i$ ... $i$$n$答：$i$元，剩$i$元",
+          "Answer": ["÷", 11, 2, 11, 2]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "有95個巧克力，每8個裝一包，最多可以裝成幾包?還剩下幾個巧克力?",
+        "calculator": {
+          "divisor": 8,
+          "dividend": 95
+        },
+        "markdown": {
+          "Render": "95 $$ 8 = $i$ ... $i$$n$答：$i$包，剩$i$包",
+          "Answer": ["÷", 11, 7, 11, 7]
+        }
+      },
+      {
+        "headQuestion": "有86個果凍，每7個裝一包，最多可以裝成幾包?還剩下幾個果凍?",
+        "calculator": {
+          "divisor": 7,
+          "dividend": 86
+        },
+        "markdown": {
+          "Render": "86 $$ 7 = $i$ ... $i$$n$答：$i$包，剩$i$包",
+          "Answer": ["÷", 12, 2, 12, 2]
+        }
+      },
+      {
+        "headQuestion": "有92個巧克力，每6個裝一包，最多可以裝成幾包?還剩下幾個巧克力?",
+        "calculator": {
+          "divisor": 6,
+          "dividend": 92
+        },
+        "markdown": {
+          "Render": "92 $$ 6 = $i$ ... $i$$n$答：$i$包，剩$i$包",
+          "Answer": ["÷", 15, 2, 15, 2]
+        }
+      },
+      {
+        "headQuestion": "有78個果凍，每5個裝一包，最多可以裝成幾包?還剩下幾個果凍?",
+        "calculator": {
+          "divisor": 5,
+          "dividend": 78
+        },
+        "markdown": {
+          "Render": "78 $$ 5 = $i$ ... $i$$n$答：$i$包，剩$i$包",
+          "Answer": ["÷", 15, 3, 15, 3]
+        }
+      },
+      {
+        "headQuestion": "有61個巧克力，每3個裝一包，最多可以裝成幾包?還剩下幾個巧克力?",
+        "calculator": {
+          "divisor": 3,
+          "dividend": 61
+        },
+        "markdown": {
+          "Render": "61 $$ 3 = $i$ ... $i$$n$答：$i$包，剩$i$包",
+          "Answer": ["÷", 20, 1, 20, 1]
+        }
+      }
+    ]
+  ]
+}

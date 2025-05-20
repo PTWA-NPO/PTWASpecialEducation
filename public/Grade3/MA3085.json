@@ -9,10 +9,148 @@
   "GameType": "WordProblemWithCalculator",
   "GameConfig": {
     "calculatorVerify": true,
-    "markdownVerify": true
+    "markdownVerify": true,
+    "calculator": "DecimalCalculator"
   },
   "Hint": {},
   "Questions": [
+    [
+      {
+        "headQuestion": "把150毫升的牛奶和1公升550毫升的紅茶混在一起變奶茶，泡好的奶茶共幾公升幾毫升?",
+        "calculator": {
+          "Unit": "Volume",
+          "CarryAmount": 1,
+          "CustomeUnit": null,
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["150", "1550"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1700",
+            "Number": ["150", "1550"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "150毫升 + 1公升550毫升 = $n$$i$公升$i$毫升",
+          "Answer": [1, 700]
+        },
+        "image": {
+          "Src": "1-1.png"
+        }
+      },
+      {
+        "headQuestion": "把250毫升的牛奶和1公升450毫升的紅茶混在一起變奶茶，泡好的奶茶共幾公升幾毫升?",
+        "calculator": {
+          "Unit": "Volume",
+          "CarryAmount": 1,
+          "CustomeUnit": null,
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["250", "1450"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1700",
+            "Number": ["250", "1450"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "250毫升 + 1公升450毫升 = $n$$i$公升$i$毫升",
+          "Answer": [1, 700]
+        },
+        "image": {
+          "Src": "1-2.png"
+        }
+      },
+      {
+        "headQuestion": "把150毫升的牛奶和1公升350毫升的紅茶混在一起變奶茶，泡好的奶茶共幾公升幾毫升?",
+        "calculator": {
+          "Unit": "Volume",
+          "CarryAmount": 1,
+          "CustomeUnit": null,
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["150", "1350"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1500",
+            "Number": ["150", "1350"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "150毫升 + 1公升350毫升 = $n$$i$公升$i$毫升",
+          "Answer": [1, 500]
+        },
+        "image": {
+          "Src": "1-3.png"
+        }
+      },
+      {
+        "headQuestion": "把350毫升的牛奶和1公升550毫升的紅茶混在一起變奶茶，泡好的奶茶共幾公升幾毫升?",
+        "calculator": {
+          "Unit": "Volume",
+          "CarryAmount": 1,
+          "CustomeUnit": null,
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["350", "1550"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1900",
+            "Number": ["350", "1550"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "350毫升 + 1公升550毫升 = $n$$i$公升$i$毫升",
+          "Answer": [1, 900]
+        },
+        "image": {
+          "Src": "1-4.png"
+        }
+      },
+      {
+        "headQuestion": "把250毫升的牛奶和1公升550毫升的紅茶混在一起變奶茶，泡好的奶茶共幾公升幾毫升?",
+        "calculator": {
+          "Unit": "Volume",
+          "CarryAmount": 1,
+          "CustomeUnit": null,
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["250", "1550"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1800",
+            "Number": ["250", "1550"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "250毫升 + 1公升550毫升 = $n$$i$公升$i$毫升",
+          "Answer": [1, 800]
+        },
+        "image": {
+          "Src": "1-5.png"
+        }
+      }
+    ],
     [
       {
         "headQuestion": "一桶冬瓜茶有4公升700毫升，喝掉1630毫升後，還剩下幾公升幾毫升",
@@ -34,8 +172,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升700毫升-1630毫升=3公升70毫升$n$$n$單位換算:1630毫升=$i$公升$i$毫升",
-          "Answer": [1, 630]
+          "Render": "4公升700毫升 - 1630毫升 =$n$$i$公升$i$毫升$n$(單位換算：1630毫升 = $i$公升$i$毫升)",
+          "Answer": [3, 70, 1, 630]
+        },
+        "image": {
+          "Src": "2-1.png"
         }
       },
       {
@@ -58,8 +199,11 @@
           }
         },
         "markdown": {
-          "Render": "3公升500毫升-1210毫升=2公升290毫升 $n$$n$ 單位換算: 1210毫升= $i$ 公升 $i$ 毫升",
-          "Answer": [1, 210]
+          "Render": "3公升500毫升 - 1210毫升 =$n$$i$公升$i$毫升$n$(單位換算：1210毫升 = $i$公升$i$毫升)",
+          "Answer": [2, 290, 1, 210]
+        },
+        "image": {
+          "Src": "2-2.png"
         }
       },
       {
@@ -82,8 +226,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升890毫升-1180毫升=3公升710毫升$n$$n$單位換算: 1180毫升= $i$ 公升 $i$ 毫升",
-          "Answer": [1, 180]
+          "Render": "4公升890毫升 - 1180毫升 =$n$$i$公升$i$毫升$n$(單位換算：1180毫升 = $i$公升$i$毫升)",
+          "Answer": [3, 710, 1, 180]
+        },
+        "image": {
+          "Src": "2-3.png"
         }
       },
       {
@@ -106,8 +253,11 @@
           }
         },
         "markdown": {
-          "Render": "5公升990毫升-1540毫升=4公升450毫升 $n$$n$ 單位換算: 1540毫升= $i$ 公升 $i$ 毫升",
-          "Answer": [1, 540]
+          "Render": "5公升990毫升 - 1540毫升 =$n$$i$公升$i$毫升$n$(單位換算：1540毫升 = $i$公升$i$毫升)",
+          "Answer": [4, 450, 1, 540]
+        },
+        "image": {
+          "Src": "2-4.png"
         }
       },
       {
@@ -130,8 +280,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升490毫升-1230毫升=3公升260毫升 $n$$n$ 單位換算: 1230毫升= $i$ 公升 $i$ 毫升",
-          "Answer": [1, 230]
+          "Render": "4公升490毫升 - 1230毫升 =$n$$i$公升$i$毫升$n$(單位換算：1230毫升 = $i$公升$i$毫升)",
+          "Answer": [3, 260, 1, 230]
+        },
+        "image": {
+          "Src": "2-5.png"
         }
       }
     ],
@@ -156,8 +309,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升100毫升-160毫升=3940毫升 $n$$n$ 單位換算: 4公升100毫升= $i$ 毫升",
-          "Answer": [4100]
+          "Render": "4公升100毫升 - 160毫升 = $i$毫升",
+          "Answer": [3940, 4100]
+        },
+        "image": {
+          "Src": "3-1.png"
         }
       },
       {
@@ -180,8 +336,11 @@
           }
         },
         "markdown": {
-          "Render": "3公升100毫升-150毫升=2950毫升 $n$$n$ 單位換算: 3公升100毫升= $i$ 毫升",
-          "Answer": [3100]
+          "Render": "3公升100毫升 - 150毫升 = $i$毫升",
+          "Answer": [2950, 3100]
+        },
+        "image": {
+          "Src": "3-2.png"
         }
       },
       {
@@ -204,8 +363,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升300毫升-850毫升=3450毫升 $n$$n$單位換算: 4公升300毫升= $i$ 毫升",
-          "Answer": [4300]
+          "Render": "4公升300毫升 - 850毫升 = $i$毫升",
+          "Answer": [3450, 4300]
+        },
+        "image": {
+          "Src": "3-3.png"
         }
       },
       {
@@ -228,8 +390,11 @@
           }
         },
         "markdown": {
-          "Render": "4公升200毫升-950毫升=3250毫升 $n$$n$單位換算: 4公升200毫升= $i$ 毫升",
-          "Answer": [4200]
+          "Render": "4公升200毫升 - 950毫升 = $i$毫升",
+          "Answer": [3250, 4200]
+        },
+        "image": {
+          "Src": "3-4.png"
         }
       },
       {
@@ -252,8 +417,11 @@
           }
         },
         "markdown": {
-          "Render": "3公升300毫升-750毫升=2550毫升 $n$$n$單位換算: 3公升300毫升= $i$ 毫升",
-          "Answer": [3300]
+          "Render": "3公升300毫升 - 750毫升 = $i$毫升",
+          "Answer": [2550, 3300]
+        },
+        "image": {
+          "Src": "3-5.png"
         }
       }
     ],
@@ -272,14 +440,17 @@
           },
           "Answer": {
             "Carry": [],
-            "Answer": "2 10",
+            "Answer": "2010",
             "Number": ["1220", "790"],
             "Symbol": "+"
           }
         },
         "markdown": {
-          "Render": "1公升220毫升+790毫升=2公升10毫升",
+          "Render": "1公升220毫升 + 790毫升 =$n$$i$公升$i$毫升",
           "Answer": [2, 10]
+        },
+        "image": {
+          "Src": "4-1.png"
         }
       },
       {
@@ -296,14 +467,17 @@
           },
           "Answer": {
             "Carry": [],
-            "Answer": "2 110",
+            "Answer": "2100",
             "Number": ["1250", "850"],
             "Symbol": "+"
           }
         },
         "markdown": {
-          "Render": "1公升250毫升+850毫升=2公升110毫升",
-          "Answer": [2, 110]
+          "Render": "1公升250毫升 + 850毫升 =$n$$i$公升$i$毫升",
+          "Answer": [2, 100]
+        },
+        "image": {
+          "Src": "4-2.png"
         }
       },
       {
@@ -320,14 +494,17 @@
           },
           "Answer": {
             "Carry": [],
-            "Answer": "2 265",
+            "Answer": "2265",
             "Number": ["1550", "715"],
             "Symbol": "+"
           }
         },
         "markdown": {
-          "Render": "1公升550毫升+715毫升=2公升265毫升",
+          "Render": "1公升550毫升 + 715毫升 =$n$$i$公升$i$毫升",
           "Answer": [2, 265]
+        },
+        "image": {
+          "Src": "4-3.png"
         }
       },
       {
@@ -344,14 +521,17 @@
           },
           "Answer": {
             "Carry": [],
-            "Answer": "2 205",
+            "Answer": "2205",
             "Number": ["1550", "655"],
             "Symbol": "+"
           }
         },
         "markdown": {
-          "Render": "1公升550毫升+655毫升=2公升205毫升",
+          "Render": "1公升550毫升 + 655毫升 =$n$$i$公升$i$毫升",
           "Answer": [2, 205]
+        },
+        "image": {
+          "Src": "4-4.png"
         }
       },
       {
@@ -368,14 +548,17 @@
           },
           "Answer": {
             "Carry": [],
-            "Answer": "2 300",
+            "Answer": "2300",
             "Number": ["1450", "850"],
             "Symbol": "+"
           }
         },
         "markdown": {
-          "Render": "1公升450毫升+850毫升=2公升300毫升",
+          "Render": "1公升450毫升 + 850毫升 =$n$$i$公升$i$毫升",
           "Answer": [2, 300]
+        },
+        "image": {
+          "Src": "4-5.png"
         }
       }
     ],
@@ -400,8 +583,11 @@
           }
         },
         "markdown": {
-          "Render": "6公升-2075毫升=3925毫升 $n$ 單位換算: 6公升= $i$ 毫升",
-          "Answer": [6000]
+          "Render": "6公升 - 2075毫升 = $i$ 毫升$n$(單位換算：6公升 = $i$毫升)",
+          "Answer": [3925, 6000]
+        },
+        "image": {
+          "Src": "5-1.png"
         }
       },
       {
@@ -424,8 +610,11 @@
           }
         },
         "markdown": {
-          "Render": "5公升-2750毫升=2225毫升 $n$ 單位換算: 5公升= $i$ 毫升",
-          "Answer": [5000]
+          "Render": "5公升 - 2750毫升 = $i$ 毫升$n$(單位換算：5公升 = $i$毫升)",
+          "Answer": [2225, 5000]
+        },
+        "image": {
+          "Src": "5-2.png"
         }
       },
       {
@@ -448,8 +637,11 @@
           }
         },
         "markdown": {
-          "Render": "5公升-2400毫升=2600毫升 $n$ 單位換算: 5公升= $i$ 毫升",
-          "Answer": [5000]
+          "Render": "5公升 - 2400毫升 = $i$ 毫升$n$(單位換算：5公升 = $i$毫升)",
+          "Answer": [2600, 5000]
+        },
+        "image": {
+          "Src": "5-3.png"
         }
       },
       {
@@ -472,8 +664,11 @@
           }
         },
         "markdown": {
-          "Render": "6公升-2850毫升=3150毫升 $n$ 單位換算: 6公升= $i$ 毫升",
-          "Answer": [6000]
+          "Render": "6公升 - 2850毫升 = $i$ 毫升$n$(單位換算：6公升 = $i$毫升)",
+          "Answer": [3150, 6000]
+        },
+        "image": {
+          "Src": "5-4.png"
         }
       },
       {
@@ -496,8 +691,11 @@
           }
         },
         "markdown": {
-          "Render": "6公升-2995毫升=3005毫升 $n$ 單位換算: 6公升= $i$ 毫升",
-          "Answer": [6000]
+          "Render": "6公升 - 2995毫升 = $i$ 毫升$n$(單位換算：6公升 = $i$毫升)",
+          "Answer": [3005, 6000]
+        },
+        "image": {
+          "Src": "5-5.png"
         }
       }
     ]

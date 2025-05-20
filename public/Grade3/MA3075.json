@@ -1,0 +1,282 @@
+{
+  "id": "MA3075",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "把做法和答案記下來"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": false,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": true,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "有28個小朋友要參加遊行，平分成4組，盡量分完，一組有幾個人?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "28 $$ $i$ = $i$$n$答：$i$人",
+            "Answer": ["÷", 4, 7, 7]
+          }
+        }
+      },
+      {
+        "questionText": "有20個小朋友要參加遊行，平分成5組，盡量分完，一組有幾個人?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "20 $$ $i$ = $i$$n$答：$i$人",
+            "Answer": ["÷", 5, 4, 4]
+          }
+        }
+      },
+      {
+        "questionText": "有24個小朋友要參加遊行，平分成4組，盡量分完，一組有幾個人?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "24 $$ $i$ = $i$$n$答：$i$人",
+            "Answer": ["÷", 4, 6, 6]
+          }
+        }
+      },
+      {
+        "questionText": "有35個小朋友要參加遊行，平分成5組，盡量分完，一組有幾個人?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "35 $$ $i$ = $i$$n$答：$i$人",
+            "Answer": ["÷", 5, 7, 7]
+          }
+        }
+      },
+      {
+        "questionText": "有32個小朋友要參加遊行，平分成4組，盡量分完，一組有幾個人?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "32 $$ $i$ = $i$$n$答：$i$人",
+            "Answer": ["÷", 4, 8, 8]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "有36枝鉛筆，每7枝裝一盒，最多可以裝成幾盒?還剩下幾枝筆?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "36 $$ $i$ = $i$...$i$$n$答：$i$盒，剩下$i$枝",
+            "Answer": ["÷", 7, 5, 1, 5, 1]
+          }
+        }
+      },
+      {
+        "questionText": "有40枝鉛筆，每7枝裝一盒，最多可以裝成幾盒?還剩下幾枝筆?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "40 $$ $i$ = $i$...$i$$n$答：$i$盒，剩下$i$枝",
+            "Answer": ["÷", 7, 5, 5, 5, 5]
+          }
+        }
+      },
+      {
+        "questionText": "有52枝鉛筆，每6枝裝一盒，最多可以裝成幾盒?還剩下幾枝筆?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "52 $$ $i$ = $i$...$i$$n$答：$i$盒，剩下$i$枝",
+            "Answer": ["÷", 6, 8, 4, 8, 4]
+          }
+        }
+      },
+      {
+        "questionText": "有35枝鉛筆，每6枝裝一盒，最多可以裝成幾盒?還剩下幾枝筆?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "35 $$ $i$ = $i$...$i$$n$答：$i$盒，剩下$i$枝",
+            "Answer": ["÷", 6, 5, 5, 5, 5]
+          }
+        }
+      },
+      {
+        "questionText": "有54枝鉛筆，每7枝裝一盒，最多可以裝成幾盒?還剩下幾枝筆?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "54 $$ $i$ = $i$...$i$$n$答：$i$盒，剩下$i$枝",
+            "Answer": ["÷", 7, 7, 5, 7, 5]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "把35公分長的繩子，每8公分剪成一段，做多可以剪成幾段?還剩下幾公分?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "35 $$ $i$ = $i$...$i$$n$答：$i$段，剩下$i$公分",
+            "Answer": ["÷", 8, 4, 3, 4, 3]
+          }
+        }
+      },
+      {
+        "questionText": "把46公分長的繩子，每9公分剪成一段，做多可以剪成幾段?還剩下幾公分?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "46 $$ $i$ = $i$...$i$$n$答：$i$段，剩下$i$公分",
+            "Answer": ["÷", 9, 5, 1, 5, 1]
+          }
+        }
+      },
+      {
+        "questionText": "把50公分長的繩子，每9公分剪成一段，做多可以剪成幾段?還剩下幾公分?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "50 $$ $i$ = $i$...$i$$n$答：$i$段，剩下$i$公分",
+            "Answer": ["÷", 9, 5, 5, 5, 5]
+          }
+        }
+      },
+      {
+        "questionText": "把69公分長的繩子，每8公分剪成一段，做多可以剪成幾段?還剩下幾公分?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "69 $$ $i$ = $i$...$i$$n$答：$i$段，剩下$i$公分",
+            "Answer": ["÷", 8, 8, 5, 8, 5]
+          }
+        }
+      },
+      {
+        "questionText": "把75公分長的繩子，每8公分剪成一段，做多可以剪成幾段?還剩下幾公分?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "75 $$ $i$ = $i$...$i$$n$答：$i$段，剩下$i$公分",
+            "Answer": ["÷", 8, 9, 3, 9, 3]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "有35個小朋友要坐小火車，每個車廂可以坐9個人，需要幾個車廂才夠所有人坐呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "35 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個車廂",
+            "Answer": ["÷", 9, 3, 8, 3, 4, 4]
+          }
+        }
+      },
+      {
+        "questionText": "有17個小朋友要坐小火車，每個車廂可以坐9個人，需要幾個車廂才夠所有人坐呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "17 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個車廂",
+            "Answer": ["÷", 9, 1, 8, 1, 2, 2]
+          }
+        }
+      },
+      {
+        "questionText": "有19個小朋友要坐小火車，每個車廂可以坐9個人，需要幾個車廂才夠所有人坐呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "19 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個車廂",
+            "Answer": ["÷", 9, 2, 1, 2, 3, 3]
+          }
+        }
+      },
+      {
+        "questionText": "有25個小朋友要坐小火車，每個車廂可以坐9個人，需要幾個車廂才夠所有人坐呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "25 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個車廂",
+            "Answer": ["÷", 9, 2, 7, 2, 3, 3]
+          }
+        }
+      },
+      {
+        "questionText": "有30個小朋友要坐小火車，每個車廂可以坐9個人，需要幾個車廂才夠所有人坐呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "30 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個車廂",
+            "Answer": ["÷", 9, 3, 3, 3, 4, 4]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "媽媽做了32個點心，一個紙盒可以裝6個點心，最少需要幾個紙盒才夠裝完全部呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "32 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個紙盒",
+            "Answer": ["÷", 6, 5, 2, 5, 6, 6]
+          }
+        }
+      },
+      {
+        "questionText": "媽媽做了33個點心，一個紙盒可以裝6個點心，最少需要幾個紙盒才夠裝完全部呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "33 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個紙盒",
+            "Answer": ["÷", 6, 5, 3, 5, 6, 6]
+          }
+        }
+      },
+      {
+        "questionText": "媽媽做了34個點心，一個紙盒可以裝6個點心，最少需要幾個紙盒才夠裝完全部呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "34 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個紙盒",
+            "Answer": ["÷", 6, 5, 4, 5, 6, 6]
+          }
+        }
+      },
+      {
+        "questionText": "媽媽做了27個點心，一個紙盒可以裝6個點心，最少需要幾個紙盒才夠裝完全部呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "27 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個紙盒",
+            "Answer": ["÷", 6, 4, 3, 4, 5, 5]
+          }
+        }
+      },
+      {
+        "questionText": "媽媽做了40個點心，一個紙盒可以裝6個點心，最少需要幾個紙盒才夠裝完全部呢?",
+        "topComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "40 $$ $i$ = $i$...$i$$n$$i$ + 1 = $i$$n$答：$i$個紙盒",
+            "Answer": ["÷", 6, 6, 4, 6, 7, 7]
+          }
+        }
+      }
+    ]
+  ]
+}
