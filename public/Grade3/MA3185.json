@@ -1,336 +1,574 @@
 {
-  "GameType": "CalculatorGame",
-  "GameConfig": {},
-  "Hint": {},
+  "id": "MA3185",
   "IntroText": {
     "Type": "PlainText",
-    "Content": "請使用計算器將以下的數字相加"
+    "Content": "用直式算算看"
   },
+  "GameType": "WordProblemWithCalculator",
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Calculator"
+  },
+  "Hint": {},
   "Questions": [
     [
       {
-        "CarryAmount": 1,
-        "CustomeUnit": ["分", null, "時", null],
-        "NumberAmount": 4,
-        "Preset": {
-          "Number": ["629", "3  "],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["629", "3  "],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "929",
+            "Number": ["629", "3  "],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "929",
-          "Number": ["629", "3  "],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "6時29分 + 3時= $i$時$i$分",
+          "Answer": [9, 29]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["609", "199"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["911", "2  "],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1111",
+            "Number": ["911", "2  "],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "808",
-          "Number": ["609", "199"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "9時11分 + 2時= $i$時$i$分",
+          "Answer": [11, 11]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["149", "254"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["308", "4  "],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "708",
+            "Number": ["308", "4  "],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "403",
-          "Number": ["149", "254"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "3時8分 + 4時= $i$時$i$分",
+          "Answer": [7, 8]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["364", "456"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["754", "1  "],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "854",
+            "Number": ["754", "1  "],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "820",
-          "Number": ["364", "456"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "7時54分 + 1時= $i$時$i$分",
+          "Answer": [8, 54]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["584", "358"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["413", "6  "],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1013",
+            "Number": ["413", "6  "],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "942",
-          "Number": ["584", "358"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "4時13分 + 6時= $i$時$i$分",
+          "Answer": [10, 13]
         }
       }
     ],
     [
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["465", "722"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1003", "5  "],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "503",
+            "Number": ["1003", "5  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1187",
-          "Number": ["465", "722"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "10時3分 - 5時= $i$時$i$分",
+          "Answer": [5, 3]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["858", "211"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["943", "3  "],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "643",
+            "Number": ["943", "3  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1069",
-          "Number": ["858", "211"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "9時43分 - 3時= $i$時$i$分",
+          "Answer": [6, 43]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["974", "412"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["750", "4  "],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "350",
+            "Number": ["750", "4  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1386",
-          "Number": ["974", "412"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "7時50分 - 4時= $i$時$i$分",
+          "Answer": [3, 50]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["627", "540"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1112", "8  "],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "312",
+            "Number": ["1112", "8  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1167",
-          "Number": ["627", "540"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "11時12分 - 8時= $i$時$i$分",
+          "Answer": [3, 12]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["713", "325"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["633", "5  "],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "133",
+            "Number": ["633", "5  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1038",
-          "Number": ["713", "325"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "6時33分 - 5時= $i$時$i$分",
+          "Answer": [1, 33]
         }
       }
     ],
     [
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["3224", "398"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["105", "45"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "150",
+            "Number": ["105", "45"],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "3622",
-          "Number": ["3224", "398"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "1時5分 + 45分= $i$時$i$分",
+          "Answer": [1, 50]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["2362", "189"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["412", "27"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "439",
+            "Number": ["412", "27"],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "2551",
-          "Number": ["2362", "189"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "4時12分 + 27分= $i$時$i$分",
+          "Answer": [4, 39]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["2128", "395"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1133", "7"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1140",
+            "Number": ["1133", "7"],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "2523",
-          "Number": ["2128", "395"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "11時33分 + 7分= $i$時$i$分",
+          "Answer": [11, 40]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["4183", "548"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["608", "38"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "646",
+            "Number": ["608", "38"],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "4731",
-          "Number": ["4183", "548"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "6時8分 + 38分= $i$時$i$分",
+          "Answer": [6, 46]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["1257", "553"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["224", "31"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "255",
+            "Number": ["224", "31"],
+            "Symbol": "+"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "1810",
-          "Number": ["1257", "553"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "2時24分 + 31分= $i$時$i$分",
+          "Answer": [2, 55]
         }
       }
     ],
     [
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["5425", "2742"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["749", "23"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "726",
+            "Number": ["749", "23"],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "8167",
-          "Number": ["5425", "2742"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "7時49分 - 23分= $i$時$i$分",
+          "Answer": [7, 26]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["6610", "2571"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["150", "15"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "135",
+            "Number": ["150", "15  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "9181",
-          "Number": ["6610", "2571"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "1時50分 - 15分= $i$時$i$分",
+          "Answer": [1, 35]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["4385", "2810"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["336", "18"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "318",
+            "Number": ["336", "18  "],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "7195",
-          "Number": ["4385", "2810"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "3時36分 - 18分= $i$時$i$分",
+          "Answer": [3, 18]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["6526", "1862"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1245", "33"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "1212",
+            "Number": ["1245", "33"],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "8388",
-          "Number": ["6526", "1862"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "12時45分 - 33分= $i$時$i$分",
+          "Answer": [12, 12]
         }
       },
       {
-        "Unit": "Number",
-        "CarryAmount": 1,
-        "NumberAmount": 4,
-        "CustomeUnit": null,
-        "Preset": {
-          "Number": ["2684", "5405"],
-          "Symbol": "+"
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["554", "9"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "545",
+            "Number": ["554", "9"],
+            "Symbol": "-"
+          }
         },
-        "Answer": {
-          "Carry": [],
-          "Answer": "8089",
-          "Number": ["2684", "5405"],
-          "Symbol": "+"
+        "markdown": {
+          "Render": "5時54分 - 9分= $i$時$i$分",
+          "Answer": [5, 45]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["235", "110"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "125",
+            "Number": ["235", "110"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "2時35分 - 1時10分= $i$時$i$分",
+          "Answer": [1, 25]
+        }
+      },
+      {
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["520", "325"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "845",
+            "Number": ["520", "325"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "5時20分 + 3時25分= $i$時$i$分",
+          "Answer": [8, 45]
+        }
+      },
+      {
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["854", "232"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "622",
+            "Number": ["854", "232  "],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "8時54分 - 2時32分= $i$時$i$分",
+          "Answer": [6, 22]
+        }
+      },
+      {
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["318", "209"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "109",
+            "Number": ["318", "209"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "3時18分 - 2時9分= $i$時$i$分",
+          "Answer": [1, 9]
+        }
+      },
+      {
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["631", "212"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "843",
+            "Number": ["631", "212"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "6時31分 + 2時12分= $i$時$i$分",
+          "Answer": [8, 43]
         }
       }
     ]

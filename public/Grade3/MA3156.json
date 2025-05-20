@@ -1,0 +1,151 @@
+{
+  "id": "MA3156",
+  "introvideo": "src",
+  "GameType": "WordProblemWithCalculator",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用直式算算看"
+  },
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "DecimalCalculator"
+  },
+  "Questions": [
+    [
+      {
+        "headQuestion": "阿姨將3.5公升的百香果汁和2.4公升的綠茶混合在一起泡成百香綠茶，百香綠茶總共多少公升?",
+        "calculator": { "number1": 3.5, "number2": 2.4, "operation": "+" },
+        "markdown": { "Render": "3.5 $$ 2.4 = $i$", "Answer": ["+", 5.9] }
+      },
+      {
+        "headQuestion": "阿姨將4.1公升的百香果汁和3.8公升的綠茶混合在一起泡成百香綠茶，百香綠茶總共多少公升?",
+        "calculator": { "number1": 4.1, "number2": 3.8, "operation": "+" },
+        "markdown": { "Render": "4.1 $$ 3.8 = $i$", "Answer": ["+", 7.9] }
+      },
+      {
+        "headQuestion": "媽媽將4.5公升的紅茶和2.5公升的牛奶混合在一起泡成奶茶，奶茶總共多少公升?",
+        "calculator": { "number1": 4.5, "number2": 2.5, "operation": "+" },
+        "markdown": { "Render": "4.5 $$ 2.5 = $i$", "Answer": ["+", 7] }
+      },
+      {
+        "headQuestion": "媽媽將5.1公升的紅茶和3.9公升的牛奶混合在一起泡成奶茶，奶茶總共多少公升?",
+        "calculator": { "number1": 5.1, "number2": 3.9, "operation": "+" },
+        "markdown": { "Render": "5.1 $$ 3.9 = $i$", "Answer": ["+", 9] }
+      },
+      {
+        "headQuestion": "媽媽將2.2公升的紅茶和4.9公升的牛奶混合在一起泡成奶茶，奶茶總共多少公升?",
+        "calculator": { "number1": 2.2, "number2": 4.9, "operation": "+" },
+        "markdown": { "Render": "2.2 $$ 4.9 = $i$", "Answer": ["+", 7.1] }
+      }
+    ],
+    [
+      {
+        "headQuestion": "冰箱有一瓶鮮奶，哥哥喝了1.4公升，弟弟喝了1公升，兩人共喝了幾公升的鮮奶?",
+        "calculator": { "number1": 1.4, "number2": 1, "operation": "+" },
+        "markdown": { "Render": "1.4 $$ 1 = $i$", "Answer": ["+", 2.4] }
+      },
+      {
+        "headQuestion": "冰箱有一瓶鮮奶，哥哥喝了2公升，弟弟喝了1.3公升，兩人共喝了幾公升的鮮奶?",
+        "calculator": { "number1": 2, "number2": 1.3, "operation": "+" },
+        "markdown": { "Render": "2 $$ 1.3 = $i$", "Answer": ["+", 3.3] }
+      },
+      {
+        "headQuestion": "哥哥和弟弟用彩帶裝飾窗戶，哥哥用了13公尺，弟弟用了1.7公尺，兩人共用了幾公尺?",
+        "calculator": { "number1": 13, "number2": 1.7, "operation": "+" },
+        "markdown": { "Render": "13 $$ 1.7 = $i$", "Answer": ["+", 14.7] }
+      },
+      {
+        "headQuestion": "哥哥和弟弟用彩帶裝飾窗戶，哥哥用了11公尺，弟弟用了6.7公尺，兩人共用了幾公尺?",
+        "calculator": { "number1": 11, "number2": 6.7, "operation": "+" },
+        "markdown": { "Render": "11 $$ 6.7 = $i$", "Answer": ["+", 17.7] }
+      },
+      {
+        "headQuestion": "哥哥和弟弟用彩帶裝飾窗戶，哥哥用了2.7公尺，弟弟用了2.4公尺，兩人共用了幾公尺?",
+        "calculator": { "number1": 2.7, "number2": 2.4, "operation": "+" },
+        "markdown": { "Render": "2.7 $$ 2.4 = $i$", "Answer": ["+", 5.1] }
+      }
+    ],
+    [
+      {
+        "headQuestion": "一袋綠豆有9.8公斤，用掉6.7公斤，還剩下多少公斤?",
+        "calculator": { "number1": 9.8, "number2": 6.7, "operation": "-" },
+        "markdown": { "Render": "9.8 $$ 6.7 = $i$", "Answer": ["-", 3.1] }
+      },
+      {
+        "headQuestion": "一袋綠豆有5.6公斤，用掉3.3公斤，還剩下多少公斤?",
+        "calculator": { "number1": 5.6, "number2": 3.3, "operation": "-" },
+        "markdown": { "Render": "5.6 $$ 3.3 = $i$", "Answer": ["-", 2.3] }
+      },
+      {
+        "headQuestion": "一袋麵粉有4.3公斤，用掉2.3公斤，還剩下多少公斤?",
+        "calculator": { "number1": 4.3, "number2": 2.3, "operation": "-" },
+        "markdown": { "Render": "4.3 $$ 2.3 = $i$", "Answer": ["-", 2] }
+      },
+      {
+        "headQuestion": "一袋麵粉有7.5公斤，用掉4.2公斤，還剩下多少公斤?",
+        "calculator": { "number1": 7.5, "number2": 4.2, "operation": "-" },
+        "markdown": { "Render": "7.5 $$ 4.2 = $i$", "Answer": ["-", 3.3] }
+      },
+      {
+        "headQuestion": "一袋麵粉有6.6公斤，用掉3.6公斤，還剩下多少公斤?",
+        "calculator": { "number1": 6.6, "number2": 3.6, "operation": "-" },
+        "markdown": { "Render": "6.6 $$ 3.6 = $i$", "Answer": ["-", 3] }
+      }
+    ],
+    [
+      {
+        "headQuestion": "媽媽買了3公升的蜂蜜，喝掉1.1公升後，還剩下多少公升?",
+        "calculator": { "number1": 3, "number2": 1.1, "operation": "-" },
+        "markdown": { "Render": "3 $$ 1.1 = $i$", "Answer": ["-", 1.9] }
+      },
+      {
+        "headQuestion": "媽媽買了2公升的蜂蜜，喝掉0.8公升後，還剩下多少公升?",
+        "calculator": { "number1": 2, "number2": 0.8, "operation": "-" },
+        "markdown": { "Render": "2 $$ 0.8 = $i$", "Answer": ["-", 1.2] }
+      },
+      {
+        "headQuestion": "爸爸買了1公升的水，喝掉0.6公升後，還剩下多少公升?",
+        "calculator": { "number1": 1, "number2": 0.6, "operation": "-" },
+        "markdown": { "Render": "1 $$ 0.6 = $i$", "Answer": ["-", 0.4] }
+      },
+      {
+        "headQuestion": "爸爸買了1.3公升的水，喝掉0.7公升後，還剩下多少公升?",
+        "calculator": { "number1": 1.3, "number2": 0.7, "operation": "-" },
+        "markdown": { "Render": "1.3 $$ 0.7 = $i$", "Answer": ["-", 0.6] }
+      },
+      {
+        "headQuestion": "爸爸買了2.5公升的水，喝掉1.6公升後，還剩下多少公升?",
+        "calculator": { "number1": 2.5, "number2": 1.6, "operation": "-" },
+        "markdown": { "Render": "2.5 $$ 1.6 = $i$", "Answer": ["-", 0.9] }
+      }
+    ],
+    [
+      {
+        "headQuestion": "壽司店買了10公斤的米，做壽司用了6.4公斤，還剩下多少公斤?",
+        "calculator": { "number1": 10, "number2": 6.4, "operation": "-" },
+        "markdown": { "Render": "10 $$ 6.4 = $i$", "Answer": ["-", 3.6] }
+      },
+      {
+        "headQuestion": "壽司店買了12公斤的麵粉，做壽司用了8.8公斤，還剩下多少公斤?",
+        "calculator": { "number1": 12, "number2": 8.8, "operation": "-" },
+        "markdown": { "Render": "12 $$ 8.8 = $i$", "Answer": ["-", 3.2] }
+      },
+      {
+        "headQuestion": "麵包店買了20公斤的麵粉，做蛋糕用了7.9公斤，還剩下多少公斤?",
+        "calculator": { "number1": 20, "number2": 7.9, "operation": "-" },
+        "markdown": { "Render": "20 $$ 7.9 = $i$", "Answer": ["-", 12.1] }
+      },
+      {
+        "headQuestion": "麵包店買了11.5公斤的麵粉，做蛋糕用了5.7公斤，還剩下多少公斤?",
+        "calculator": { "number1": 11.5, "number2": 5.7, "operation": "-" },
+        "markdown": { "Render": "11.5 $$ 5.7 = $i$", "Answer": ["-", 5.8] }
+      },
+      {
+        "headQuestion": "麵包店買了12.6公斤的麵粉，做蛋糕用了4.9公斤，還剩下多少公斤?",
+        "calculator": { "number1": 12.6, "number2": 4.9, "operation": "-" },
+        "markdown": { "Render": "12.6 $$ 4.9 = $i$", "Answer": ["-", 7.7] }
+      }
+    ]
+  ]
+}

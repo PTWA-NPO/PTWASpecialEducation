@@ -1,0 +1,276 @@
+{
+  "id": "MA3123",
+  "introvideo": "src",
+  "GameType": "WordProblemWithCalculator",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用直式算算看"
+  },
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Division"
+  },
+  "Questions": [
+    [
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 600
+        },
+        "markdown": {
+          "Render": "600 ÷ 3 = $i$",
+          "Answer": [200]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 800
+        },
+        "markdown": {
+          "Render": "800 ÷ 4 = $i$",
+          "Answer": [200]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 900
+        },
+        "markdown": {
+          "Render": "900 ÷ 3 = $i$",
+          "Answer": [300]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 2,
+          "dividend": 600
+        },
+        "markdown": {
+          "Render": "600 ÷ 2 = $i$",
+          "Answer": [300]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 7,
+          "dividend": 700
+        },
+        "markdown": {
+          "Render": "700 ÷ 7 = $i$",
+          "Answer": [100]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 2,
+          "dividend": 482
+        },
+        "markdown": {
+          "Render": "482 ÷ 2 = $i$",
+          "Answer": [241]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 396
+        },
+        "markdown": {
+          "Render": "396 ÷ 3 = $i$",
+          "Answer": [132]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 555
+        },
+        "markdown": {
+          "Render": "555 ÷ 5 = $i$",
+          "Answer": [111]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 848
+        },
+        "markdown": {
+          "Render": "848 ÷ 4 = $i$",
+          "Answer": [212]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 633
+        },
+        "markdown": {
+          "Render": "633 ÷ 3 = $i$",
+          "Answer": [211]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 690
+        },
+        "markdown": {
+          "Render": "690 ÷ 3 = $i$",
+          "Answer": [230]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 600
+        },
+        "markdown": {
+          "Render": "600 ÷ 4 = $i$",
+          "Answer": [150]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 2,
+          "dividend": 700
+        },
+        "markdown": {
+          "Render": "700 ÷ 2 = $i$",
+          "Answer": [350]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 900
+        },
+        "markdown": {
+          "Render": "900 ÷ 5 = $i$",
+          "Answer": [180]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 450
+        },
+        "markdown": {
+          "Render": "450 ÷ 3 = $i$",
+          "Answer": [150]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 2,
+          "dividend": 406
+        },
+        "markdown": {
+          "Render": "406 ÷ 2 = $i$",
+          "Answer": [203]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 624
+        },
+        "markdown": {
+          "Render": "624 ÷ 3 = $i$",
+          "Answer": [208]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 6,
+          "dividend": 615
+        },
+        "markdown": {
+          "Render": "615 ÷ 6 = $i$ ... $i$",
+          "Answer": [102, 3]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 809
+        },
+        "markdown": {
+          "Render": "809 ÷ 8 = $i$ ... $i$",
+          "Answer": [101, 1]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 7,
+          "dividend": 716
+        },
+        "markdown": {
+          "Render": "716 ÷ 7 = $i$ ... $i$",
+          "Answer": [102, 2]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 465
+        },
+        "markdown": {
+          "Render": "465 ÷ 5 = $i$",
+          "Answer": [93]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 104
+        },
+        "markdown": {
+          "Render": "104 ÷ 8 = $i$",
+          "Answer": [13]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 7,
+          "dividend": 136
+        },
+        "markdown": {
+          "Render": "136 ÷ 7 = $i$ ... $i$",
+          "Answer": [19, 3]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 219
+        },
+        "markdown": {
+          "Render": "219 ÷ 9 = $i$ ... $i$",
+          "Answer": [24, 3]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 7,
+          "dividend": 446
+        },
+        "markdown": {
+          "Render": "446 ÷ 7 = $i$ ... $i$",
+          "Answer": [63, 5]
+        }
+      }
+    ]
+  ]
+}

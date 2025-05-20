@@ -1,0 +1,276 @@
+{
+  "id": "MA3074",
+  "introvideo": "src",
+  "GameType": "WordProblemWithCalculator",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用除法直式算算看"
+  },
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Division"
+  },
+  "Questions": [
+    [
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 40
+        },
+        "markdown": {
+          "Render": "40 ÷ 5 = $i$",
+          "Answer": [8]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 10
+        },
+        "markdown": {
+          "Render": "10 ÷ 5 = $i$",
+          "Answer": [2]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 32
+        },
+        "markdown": {
+          "Render": "32 ÷ 4 = $i$",
+          "Answer": [8]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 27
+        },
+        "markdown": {
+          "Render": "27 ÷ 3 = $i$",
+          "Answer": [9]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 24
+        },
+        "markdown": {
+          "Render": "24 ÷ 4 = $i$",
+          "Answer": [6]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 23
+        },
+        "markdown": {
+          "Render": "23 ÷ 4 = $i$ ... $i$",
+          "Answer": [5, 3]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 3,
+          "dividend": 22
+        },
+        "markdown": {
+          "Render": "22 ÷ 3 = $i$ ... $i$",
+          "Answer": [7, 1]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 25
+        },
+        "markdown": {
+          "Render": "25 ÷ 4 = $i$ ... $i$",
+          "Answer": [6, 1]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 5,
+          "dividend": 27
+        },
+        "markdown": {
+          "Render": "27 ÷ 5 = $i$ ... $i$",
+          "Answer": [5, 2]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 4,
+          "dividend": 30
+        },
+        "markdown": {
+          "Render": "30 ÷ 4 = $i$ ... $i$",
+          "Answer": [7, 2]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 6,
+          "dividend": 36
+        },
+        "markdown": {
+          "Render": "36 ÷ 6 = $i$",
+          "Answer": [6]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 72
+        },
+        "markdown": {
+          "Render": "72 ÷ 9 = $i$",
+          "Answer": [8]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 6,
+          "dividend": 48
+        },
+        "markdown": {
+          "Render": "48 ÷ 6 = $i$",
+          "Answer": [8]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 7,
+          "dividend": 49
+        },
+        "markdown": {
+          "Render": "49 ÷ 7 = $i$",
+          "Answer": [7]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 64
+        },
+        "markdown": {
+          "Render": "64 ÷ 8 = $i$",
+          "Answer": [8]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 58
+        },
+        "markdown": {
+          "Render": "58 ÷ 8 = $i$ ... $i$",
+          "Answer": [7, 2]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 59
+        },
+        "markdown": {
+          "Render": "59 ÷ 8 = $i$ ... $i$",
+          "Answer": [7, 3]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 62
+        },
+        "markdown": {
+          "Render": "62 ÷ 8 = $i$ ... $i$",
+          "Answer": [7, 6]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 70
+        },
+        "markdown": {
+          "Render": "70 ÷ 8 = $i$ ... $i$",
+          "Answer": [8, 6]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 8,
+          "dividend": 69
+        },
+        "markdown": {
+          "Render": "69 ÷ 8 = $i$ ... $i$",
+          "Answer": [8, 5]
+        }
+      }
+    ],
+    [
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 64
+        },
+        "markdown": {
+          "Render": "64 ÷ 9 = $i$ ... $i$",
+          "Answer": [7, 1]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 80
+        },
+        "markdown": {
+          "Render": "80 ÷ 9 = $i$ ... $i$",
+          "Answer": [8, 2]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 50
+        },
+        "markdown": {
+          "Render": "50 ÷ 9 = $i$ ... $i$",
+          "Answer": [5, 5]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 62
+        },
+        "markdown": {
+          "Render": "62 ÷ 9 = $i$ ... $i$",
+          "Answer": [6, 8]
+        }
+      },
+      {
+        "calculator": {
+          "divisor": 9,
+          "dividend": 46
+        },
+        "markdown": {
+          "Render": "46 ÷ 9 = $i$ ... $i$",
+          "Answer": [5, 1]
+        }
+      }
+    ]
+  ]
+}

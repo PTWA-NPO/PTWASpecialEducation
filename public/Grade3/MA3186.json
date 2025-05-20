@@ -1,0 +1,602 @@
+{
+  "id": "MA3186",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "把做法和答案記下來"
+  },
+  "GameType": "WordProblemWithCalculator",
+  "GameConfig": {
+    "calculatorVerify": true,
+    "markdownVerify": true,
+    "calculator": "Calculator"
+  },
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "headQuestion": "小花下午3時15分吃點心，吃點心花了25分鐘，吃完點心是下午什麼時候?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["315", "25"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "340",
+            "Number": ["315", "25"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：3時15分 $$ 25分鐘 =$n$$i$時$i$分",
+          "Answer": ["+", 3, 40]
+        }
+      },
+      {
+        "headQuestion": "弟弟下午2時30分吃點心，吃點心花了18分鐘，吃完點心是下午什麼時候?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["230", "18"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "248",
+            "Number": ["230", "18"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：2時30分 $$ 18分鐘 =$n$$i$時$i$分",
+          "Answer": ["+", 2, 48]
+        }
+      },
+      {
+        "headQuestion": "弟弟下午3時8分吃點心，吃點心花了26分鐘，吃完點心是下午什麼時候?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["3 8", "26"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "334",
+            "Number": ["3 8", "26"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：3時8分 $$ 26分鐘 =$n$$i$時$i$分",
+          "Answer": ["+", 3, 34]
+        }
+      },
+      {
+        "headQuestion": "小花下午4時10分吃點心，吃點心花了33分鐘，吃完點心是下午什麼時候?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["410", "33"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "443",
+            "Number": ["410", "33"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：4時10分 $$ 33分鐘 =$n$$i$時$i$分",
+          "Answer": ["+", 4, 43]
+        }
+      },
+      {
+        "headQuestion": "小花下午2時36分吃點心，吃點心花了19分鐘，吃完點心是下午什麼時候?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["236", "19"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "255",
+            "Number": ["236", "19"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：2時36分 $$ 19分鐘 =$n$$i$時$i$分",
+          "Answer": ["+", 2, 55]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "一堂電腦課40分鐘，哥哥在下午8時55分下課，他是下午什麼時候開始上電腦課?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["855", "40"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "815",
+            "Number": ["855", "40"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：8時55分 $$ 40分 =$n$$i$時$i$分",
+          "Answer": ["-", 8, 15]
+        }
+      },
+      {
+        "headQuestion": "一堂英文課35分鐘，姐姐在下午6時40分下課，她是下午什麼時候開始上英文課?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["640", "35"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "605",
+            "Number": ["640", "35"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：6時40分 $$ 35分 =$n$$i$時$i$分",
+          "Answer": ["-", 6, 5]
+        }
+      },
+      {
+        "headQuestion": "一堂電腦課40分鐘，哥哥在下午7時58分下課，他是下午什麼時候開始上電腦課?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["758", "40"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "718",
+            "Number": ["758", "40"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：7時58分 $$ 40分 =$n$$i$時$i$分",
+          "Answer": ["-", 7, 18]
+        }
+      },
+      {
+        "headQuestion": "一堂英文課35分鐘，姐姐在下午5時59分下課，她是下午什麼時候開始上英文課?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["559", "35"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "524",
+            "Number": ["559", "35"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：5時59分 $$ 35分 =$n$$i$時$i$分",
+          "Answer": ["-", 5, 24]
+        }
+      },
+      {
+        "headQuestion": "一堂電腦課40分鐘，哥哥在下午6時47分下課，他是下午什麼時候開始上電腦課?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["647", "40"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "607",
+            "Number": ["647", "40"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：6時47分 $$ 40分 =$n$$i$時$i$分",
+          "Answer": ["-", 6, 7]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "爸爸在下午4時28分看完相聲，相聲共播放1小時10分鐘，相聲在下午什麼時候開始播放?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["428", "110"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "318",
+            "Number": ["428", "110"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：4時28分 $$ 1時10分 =$n$$i$時$i$分",
+          "Answer": ["-", 3, 18]
+        }
+      },
+      {
+        "headQuestion": "爸爸在下午5時46分看完相聲，相聲共播放1小時43分鐘，相聲在下午什麼時候開始播放?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["546", "143"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "403",
+            "Number": ["546", "143"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：5時46分 $$ 1時43分 =$n$$i$時$i$分",
+          "Answer": ["-", 4, 3]
+        }
+      },
+      {
+        "headQuestion": "哥哥在下午8時55分看完電影，電影共播放2小時17分鐘，電影在下午什麼時候開始播放?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["855", "217"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "638",
+            "Number": ["855", "217"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：8時55分 $$ 2時17分 =$n$$i$時$i$分",
+          "Answer": ["-", 6, 38]
+        }
+      },
+      {
+        "headQuestion": "哥哥在下午7時30分看完電影，電影共播放2小時11分鐘，電影在下午什麼時候開始播放?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["730", "211"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "519",
+            "Number": ["730", "211"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：7時30分 $$ 2時11分 =$n$$i$時$i$分",
+          "Answer": ["-", 5, 19]
+        }
+      },
+      {
+        "headQuestion": "哥哥在下午6時21分看完電影，電影共播放1小時14分鐘，電影在下午什麼時候開始播放?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["621", "114"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "507",
+            "Number": ["621", "114"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：6時21分 $$ 1時14分 =$n$$i$時$i$分",
+          "Answer": ["-", 5, 7]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "媽媽上午參加西瓜節活動，從上午9時26分開始，到上午11時45分結束，活動舉辦了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1145", "926"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "219",
+            "Number": ["1145", "926"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：11時45分 $$ 9時26分 =$n$$i$時$i$分",
+          "Answer": ["-", 2, 19]
+        }
+      },
+      {
+        "headQuestion": "媽媽上午參加西瓜節活動，從上午8時5分開始，到上午10時30分結束，活動舉辦了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1030", "805"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "225",
+            "Number": ["1030", "805"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：10時30分 $$ 8時5分 =$n$$i$時$i$分",
+          "Answer": ["-", 2, 25]
+        }
+      },
+      {
+        "headQuestion": "奶奶上午參加跳蚤市場活動，從上午8時40分開始，到上午12時56分結束，活動舉辦了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1256", "840"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "416",
+            "Number": ["1256", "840"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：12時56分 $$ 8時40分 =$n$$i$時$i$分",
+          "Answer": ["-", 4, 16]
+        }
+      },
+      {
+        "headQuestion": "奶奶上午參加跳蚤市場活動，從上午7時28分開始，到上午10時33分結束，活動舉辦了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1033", "728"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "305",
+            "Number": ["1033", "728"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：10時33分 $$ 7時28分 =$n$$i$時$i$分",
+          "Answer": ["-", 3, 5]
+        }
+      },
+      {
+        "headQuestion": "奶奶上午參加跳蚤市場活動，從上午9時15分開始，到上午12時24分結束，活動舉辦了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["1224", "915"],
+            "Symbol": "-"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "309",
+            "Number": ["1224", "915"],
+            "Symbol": "-"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：12時24分 $$ 9時15分 =$n$$i$時$i$分",
+          "Answer": ["-", 3, 9]
+        }
+      }
+    ],
+    [
+      {
+        "headQuestion": "姐姐整理房間花了1小時25分鐘，打掃客廳花了1小時7分鐘，一共花了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["125", "107"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "232",
+            "Number": ["125", "107"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：1時25分 $$ 1時7分 =$n$$i$時$i$分",
+          "Answer": ["+", 2, 32]
+        }
+      },
+      {
+        "headQuestion": "小明一家人去爬山，上山花了3小時40分鐘，下山花了2小時17分鐘，上山和下山一共花了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["340", "217"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "557",
+            "Number": ["340", "217"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：3時40分 $$ 2時17分 =$n$$i$時$i$分",
+          "Answer": ["+", 5, 57]
+        }
+      },
+      {
+        "headQuestion": "姐姐整理房間花了1小時33分鐘，打掃客廳花了2小時9分鐘，一共花了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["133", "209"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "342",
+            "Number": ["133", "209"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：1時33分 $$ 2時9分 =$n$$i$時$i$分",
+          "Answer": ["+", 3, 42]
+        }
+      },
+      {
+        "headQuestion": "小明一家人去爬山，上山花了2小時36分鐘，下山花了2小時11分鐘，上山和下山一共花了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["236", "211"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "447",
+            "Number": ["236", "211"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：2時36分 $$ 2時11分 =$n$$i$時$i$分",
+          "Answer": ["+", 4, 47]
+        }
+      },
+      {
+        "headQuestion": "姐姐整理房間花了2小時18分鐘，打掃客廳花了1小時33分鐘，一共花了多久時間?",
+        "calculator": {
+          "CarryAmount": 1,
+          "CustomeUnit": [null, "分", null, "時"],
+          "NumberAmount": 4,
+          "decimalPoint": 0,
+          "Preset": {
+            "Number": ["218", "133"],
+            "Symbol": "+"
+          },
+          "Answer": {
+            "Carry": [],
+            "Answer": "351",
+            "Number": ["218", "133"],
+            "Symbol": "+"
+          }
+        },
+        "markdown": {
+          "Render": "橫式：2時18分 $$ 1時33分 =$n$$i$時$i$分",
+          "Answer": ["+", 3, 51]
+        }
+      }
+    ]
+  ]
+}
