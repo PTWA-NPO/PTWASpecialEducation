@@ -55,11 +55,7 @@ export default {
   data() {
     return {
       configKonva: {},
-      configBG: {
-        x: 0,
-        y: 0,
-        strokeEnabled: false,
-      },
+      configBG: [],
       gridPos: {
         x: [],
         y: [],
@@ -107,12 +103,26 @@ export default {
           this.drawGrid();
           break;
         case "color":
-          this.configBG.fill = this.Data.background;
+          this.configBG = {
+            x: 0,
+            y: 0,
+            width: this.gameWidth,
+            height: this.gameHeight,
+            fill: this.Data.background,
+            strokeEnabled: false,
+          };
           break;
         case "image": {
           let image = new window.Image();
           image.src = getGameAssets(this.ID, this.Data.background);
-          this.configBG.image = image;
+          this.configBG = {
+            x: 0,
+            y: 0,
+            width: this.gameWidth,
+            height: this.gameHeight,
+            image: image,
+            strokeEnabled: false,
+          };
           break;
         }
       }
