@@ -217,9 +217,16 @@ export default {
       }
     },
     resetInputBG() {
-      this.$refs.inputRefs.forEach((input) => {
-        input.style.backgroundColor = "white";
-      });
+      if (!this.$refs.inputRefs) return;
+      // 兼容單一 input 的情況
+      if (Array.isArray(this.$refs.inputRefs)) {
+        this.$refs.inputRefs.forEach((input) => {
+          if (input) input.style.backgroundColor = "white";
+        });
+      } else {
+        // 單一 input
+        this.$refs.inputRefs.style.backgroundColor = "white";
+      }
     },
     showKeyboard(event, index) {
       this.clickedTarget = index;
