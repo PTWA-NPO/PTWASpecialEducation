@@ -21,7 +21,12 @@
                   v-else
                   :key="optionIndex"
                   class="option"
-                  :class="{ selected: selectedAnswers[qIndex] === optionIndex }"
+                  :class="{
+                    selected: selectedAnswers[qIndex] === optionIndex,
+                    wrong:
+                      wrongOptions.includes(qIndex) &&
+                      selectedAnswers[qIndex] === optionIndex,
+                  }"
                   @click="selectAnswer(qIndex, optionIndex)"
                 >
                   {{ option }}
@@ -204,6 +209,7 @@ export default {
       userAnswers: [],
       wrongBoxIndices: [],
       boxes: this.GameData.Boxes,
+      wrongOptions: [],
     };
   },
   computed: {
@@ -236,14 +242,18 @@ export default {
       return part === "$question$";
     },
     selectAnswer(qIndex, optionIndex) {
+      this.wrongOptions = []; // 重置錯誤選項
       this.selectedAnswers[qIndex] = optionIndex;
     },
     submitAnswer() {
       if (this.gameLevel === 1) {
         let allCorrect = true;
+        this.wrongOptions = []; // 重置錯誤選項
+
         this.currentQuestions.forEach((question, index) => {
           if (this.selectedAnswers[index] !== question.correctAnswer) {
             allCorrect = false;
+            this.wrongOptions.push(index); // 記錄錯誤的選項索引
           }
         });
 
@@ -413,7 +423,7 @@ export default {
     },
     handleDragend(e) {
       let id = e.target.index;
-      if (id < this.images.length) {
+      if (id < this.GameData.BlankSpace.length) {
         for (let block in this.configBlocks) {
           if (
             this.isSlotAvailable(block) &&
@@ -692,6 +702,11 @@ export default {
 .option.selected {
   border-color: $hyperlink-color;
   background-color: $success-color;
+}
+
+.option.wrong {
+  border-color: #ff3154;
+  background-color: rgba(255, 49, 84, 0.1);
 }
 
 .submit-btn {
