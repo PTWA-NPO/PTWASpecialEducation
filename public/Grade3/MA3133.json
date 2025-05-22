@@ -1,0 +1,2631 @@
+{
+  "id": "MA3071",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "觀察下圖找出規律，並回答問題"
+  },
+  "GameType": "NumberLock",
+  "GameConfig": {
+    "NumberPadAutoDisappear": false,
+    "layout": {
+      "top": true,
+      "down": true,
+      "pad": false
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
+  },
+  "Questions": [
+    [
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用1個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "1.png",
+                "ratio": {
+                  "width": 11.34,
+                  "height": 6.04
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "1-picture1.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 8,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "3張圖片用了幾個圖釘?$i$個",
+            "Answer": [4]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用1個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "1.png",
+                "ratio": {
+                  "width": 11.34,
+                  "height": 6.04
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "1-picture1.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 8,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture2.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 10,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "4張圖片用了幾個圖釘?$i$個",
+            "Answer": [5]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用1個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "1.png",
+                "ratio": {
+                  "width": 11.34,
+                  "height": 6.04
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "1-picture1.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 8,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture2.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 10,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture3.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 12,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "5張圖片用了幾個圖釘?$i$個",
+            "Answer": [6]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用1個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "1.png",
+                "ratio": {
+                  "width": 11.34,
+                  "height": 6.04
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "1-picture1.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 8,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture2.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 10,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture3.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 12,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture4.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 14,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "6張圖片用了幾個圖釘?$i$個",
+            "Answer": [7]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用1個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "1.png",
+                "ratio": {
+                  "width": 11.34,
+                  "height": 6.04
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "1-picture1.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 8,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture2.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 10,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture3.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 12,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture4.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 14,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-picture5.png",
+                "ratio": {
+                  "width": 3.5,
+                  "height": 4.6
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 5
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "1-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "7張圖片用了幾個圖釘?$i$個",
+            "Answer": [8]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用2個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "2.png",
+                "ratio": {
+                  "width": 13.71,
+                  "height": 6.3
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "2-picture1.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "3張圖片用了幾個圖釘?$i$個",
+            "Answer": [8]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用2個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "2.png",
+                "ratio": {
+                  "width": 13.71,
+                  "height": 6.3
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "2-picture1.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "4張圖片用了幾個圖釘?$i$個",
+            "Answer": [10]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用2個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "2.png",
+                "ratio": {
+                  "width": 13.71,
+                  "height": 6.3
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "2-picture1.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-picture2.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "5張圖片用了幾個圖釘?$i$個",
+            "Answer": [12]
+          }
+        }
+      },
+      {
+        "questionText": "老師把圖畫用圖釘固定，由左到右排一成排，每一張和下一張共用2個圖釘。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "2.png",
+                "ratio": {
+                  "width": 13.71,
+                  "height": 6.3
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "2-picture1.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-picture2.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-picture3.png",
+                "ratio": {
+                  "width": 3.3,
+                  "height": 4.8
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 11,
+                  "y": 5
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "2-thumbtack.png",
+                "ratio": {
+                  "width": 1.9,
+                  "height": 1.9
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "6張圖片用了幾個圖釘?$i$個",
+            "Answer": [14]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "用火柴棒拚圖形。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 30,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "3.png",
+                "ratio": {
+                  "width": 25.3,
+                  "height": 5.28
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖2用了幾根火柴棒?$i$根$n$圖4用了幾根火柴棒?$i$根",
+            "Answer": [5, 9]
+          }
+        }
+      },
+      {
+        "questionText": "用火柴棒拚圖形。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 30,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "3.png",
+                "ratio": {
+                  "width": 25.3,
+                  "height": 5.28
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖2用了幾根火柴棒?$i$根$n$圖5用了幾根火柴棒?$i$根",
+            "Answer": [5, 11]
+          }
+        }
+      },
+      {
+        "questionText": "用火柴棒拚圖形。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 30,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "3.png",
+                "ratio": {
+                  "width": 25.3,
+                  "height": 5.28
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖3用了幾根火柴棒?$i$根$n$圖6用了幾根火柴棒?$i$根",
+            "Answer": [7, 13]
+          }
+        }
+      },
+      {
+        "questionText": "用火柴棒拚圖形。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 30,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "3.png",
+                "ratio": {
+                  "width": 25.3,
+                  "height": 5.28
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖3用了幾根火柴棒?$i$根$n$圖7用了幾根火柴棒?$i$根",
+            "Answer": [7, 15]
+          }
+        }
+      },
+      {
+        "questionText": "用火柴棒拚圖形。",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 30,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "3.png",
+                "ratio": {
+                  "width": 25.3,
+                  "height": 5.28
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-a.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 16,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-b.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 19,
+                  "y": 7
+                }
+              },
+              {
+                "path": "3-c.png",
+                "ratio": {
+                  "width": 2.5,
+                  "height": 2.5
+                },
+                "snapToGrid": true,
+                "draggable": true,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖4用了幾根火柴棒?$i$根$n$圖8用了幾根火柴棒?$i$根",
+            "Answer": [9, 17]
+          }
+        }
+      }
+    ],
+    [
+      {
+        "questionText": "觀察下圖找出規律，並回答問題",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "4.png",
+                "ratio": {
+                  "width": 15.99,
+                  "height": 6.63
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖3疊了幾罐果汁?$i$罐$n$圖4疊了幾罐果汁?$i$罐",
+            "Answer": [6, 10]
+          }
+        }
+      },
+      {
+        "questionText": "觀察下圖找出規律，並回答問題",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "4.png",
+                "ratio": {
+                  "width": 15.99,
+                  "height": 6.63
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖2疊了幾罐果汁?$i$罐$n$圖4疊了幾罐果汁?$i$罐",
+            "Answer": [3, 10]
+          }
+        }
+      },
+      {
+        "questionText": "觀察下圖找出規律，並回答問題",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "4.png",
+                "ratio": {
+                  "width": 15.99,
+                  "height": 6.63
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖2疊了幾罐果汁?$i$罐$n$圖5疊了幾罐果汁?$i$罐",
+            "Answer": [3, 15]
+          }
+        }
+      },
+      {
+        "questionText": "觀察下圖找出規律，並回答問題",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "4.png",
+                "ratio": {
+                  "width": 15.99,
+                  "height": 6.63
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖3疊了幾罐果汁?$i$罐$n$圖6疊了幾罐果汁?$i$罐",
+            "Answer": [6, 21]
+          }
+        }
+      },
+      {
+        "questionText": "觀察下圖找出規律，並回答問題",
+        "topComponent": {
+          "Name": "DragImages",
+          "Data": {
+            "backgroundType": "color",
+            "background": "white",
+            "backgroundRatio": {
+              "width": 25,
+              "height": 10
+            },
+            "images": [
+              {
+                "path": "4.png",
+                "ratio": {
+                  "width": 15.99,
+                  "height": 6.63
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "draggable": false,
+                "presetPosition": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              },
+              {
+                "path": "4-a.png",
+                "ratio": {
+                  "width": 1.53,
+                  "height": 1.87
+                },
+                "snapToGrid": true,
+                "rotatable": false,
+                "presetPosition": {
+                  "x": 22,
+                  "y": 7
+                }
+              }
+            ]
+          }
+        },
+        "downComponent": {
+          "Name": "Markdown",
+          "Data": {
+            "Render": "圖3疊了幾罐果汁?$i$罐$n$圖5疊了幾罐果汁?$i$罐",
+            "Answer": [6, 15]
+          }
+        }
+      }
+    ]
+  ]
+}
