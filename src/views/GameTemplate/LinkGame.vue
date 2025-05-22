@@ -105,6 +105,7 @@ export default {
     InteractiveFractionVisual: defineAsyncComponent(
       () => import("@/components/InteractiveFractionVisual.vue")
     ),
+    Water: defineAsyncComponent(() => import("@/components/Water.vue")),
   },
   props: {
     GameData: {
@@ -422,7 +423,6 @@ export default {
       for (var i in this.LinkedPoints) {
         let Start = this.LinkedPoints[i][0];
         let End = this.LinkedPoints[i][1];
-        let Answer = this.GameData.Answer[i];
         let re = this.CheckAnswerisCorrect(Start, End);
         if (re) {
           CorrectItem += 1;
