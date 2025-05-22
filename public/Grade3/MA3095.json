@@ -1,0 +1,181 @@
+{
+  "id": "MA3095",
+  "introvideo": "hint1.mp4",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "[Insert question.]"
+  },
+  "GameType": "SelfDefine",
+  "GameConfig": {
+    "GlobalTitle": "[Insert title.]"
+  },
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "下面哪些蛋糕有顏色的部分是\\frac{4}{8}？",
+        "Type": "Paper",
+        "Numerator": 4,
+        "Denominator": 8,
+        "Factors": [4, 2],
+        "Option": 5,
+        "CorrectOption": 3,
+        "Color": "lightgreen",
+        "Itemdescription": "這是一個蛋糕"
+      },
+      {
+        "Question": "哪些蛋糕有顏色的部分是\\frac{3}{8}？",
+        "Type": "Paper",
+        "Numerator": 3,
+        "Denominator": 8,
+        "Factors": [4, 2],
+        "Option": 5,
+        "CorrectOption": 2,
+        "Color": "lightgreen",
+        "Itemdescription": "這是一個蛋糕"
+      },
+      {
+        "Question": "哪些蛋糕有顏色的部分是\\frac{2}{8}？",
+        "Type": "Paper",
+        "Numerator": 2,
+        "Denominator": 8,
+        "Factors": [4, 2],
+        "Option": 5,
+        "CorrectOption": 3,
+        "Color": "lightgreen",
+        "Itemdescription": "這是一個蛋糕"
+      },
+      {
+        "Question": "哪些蛋糕有顏色的部分是\\frac{5}{8}？",
+        "Type": "Paper",
+        "Numerator": 5,
+        "Denominator": 8,
+        "Factors": [4, 2],
+        "Option": 5,
+        "CorrectOption": 4,
+        "Color": "lightgreen",
+        "Itemdescription": "這是一個蛋糕"
+      },
+      {
+        "Question": "哪些蛋糕有顏色的部分是\\frac{6}{8}？",
+        "Type": "Paper",
+        "Numerator": 6,
+        "Denominator": 8,
+        "Factors": [4, 2],
+        "Option": 5,
+        "CorrectOption": 1,
+        "Color": "green",
+        "Itemdescription": "這是一個蛋糕"
+      }
+    ],
+    [
+      {
+        "Question": "哪些緞帶有顏色的部分是\\frac{8}{11}？",
+        "Type": "Ribbon",
+        "Numerator": 8,
+        "Denominator": 11,
+        "Option": 5,
+        "CorrectOption": 2,
+        "Itemdescription": "這是一個蛋糕",
+        "Color": "orange"
+      },
+      {
+        "Question": "哪些緞帶有顏色的部分是\\frac{5}{11}？",
+        "Type": "Ribbon",
+        "Numerator": 5,
+        "Denominator": 11,
+        "Option": 5,
+        "CorrectOption": 3,
+        "Itemdescription": "這是一個蛋糕",
+        "Color": "orange"
+      },
+      {
+        "Question": "哪些緞帶有顏色的部分是\\frac{7}{11}？",
+        "Type": "Ribbon",
+        "Numerator": 7,
+        "Denominator": 11,
+        "Option": 5,
+        "CorrectOption": 1,
+        "Itemdescription": "這是一個蛋糕",
+        "Color": "orange"
+      },
+      {
+        "Question": "哪些緞帶有顏色的部分是\\frac{2}{11}？",
+        "Type": "Ribbon",
+        "Numerator": 2,
+        "Denominator": 11,
+        "Option": 5,
+        "CorrectOption": 2,
+        "Itemdescription": "這是一個蛋糕",
+        "Color": "orange"
+      },
+      {
+        "Question": "哪些緞帶有顏色的部分是\\frac{6}{11}？",
+        "Type": "Ribbon",
+        "Numerator": 6,
+        "Denominator": 11,
+        "Option": 5,
+        "CorrectOption": 4,
+        "Itemdescription": "這是一個蛋糕",
+        "Color": "orange"
+      }
+    ],
+    [
+      {
+        "Question": "哪些巧克力有顏色的部分\\frac{1}{6}？",
+        "Type": "Paper",
+        "Numerator": 1,
+        "Denominator": 6,
+        "Factors": [2, 3],
+        "Option": 6,
+        "CorrectOption": 2,
+        "Itemdescription": "這是一個巧克力",
+        "Color": "brown"
+      },
+      {
+        "Question": "哪些巧克力有顏色的部分\\frac{2}{6}？",
+        "Type": "Paper",
+        "Numerator": 2,
+        "Denominator": 6,
+        "Factors": [2, 3],
+        "Option": 6,
+        "CorrectOption": 1,
+        "Itemdescription": "這是一個巧克力",
+        "Color": "brown"
+      },
+      {
+        "Question": "哪些巧克力有顏色的部分\\frac{3}{6}？",
+        "Type": "Paper",
+        "Numerator": 3,
+        "Denominator": 6,
+        "Factors": [2, 3],
+        "Option": 6,
+        "CorrectOption": 3,
+        "Itemdescription": "這是一個巧克力",
+        "Color": "brown"
+      },
+      {
+        "Question": "哪些巧克力有顏色的部分\\frac{4}{6}？",
+        "Type": "Paper",
+        "Numerator": 4,
+        "Denominator": 6,
+        "Factors": [2, 3],
+        "Option": 6,
+        "CorrectOption": 2,
+        "Itemdescription": "這是一個巧克力",
+        "Color": "brown"
+      },
+      {
+        "Question": "哪些巧克力有顏色的部分\\frac{5}{6}？",
+        "Type": "Paper",
+        "Numerator": 5,
+        "Denominator": 6,
+        "Factors": [2, 3],
+        "Option": 6,
+        "CorrectOption": 2,
+        "Itemdescription": "這是一個巧克力",
+        "Color": "brown"
+      }
+    ]
+  ]
+}
