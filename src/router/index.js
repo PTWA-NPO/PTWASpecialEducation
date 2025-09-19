@@ -10,14 +10,14 @@ const router = createRouter({
         requiresAuth: false,
         transition: "fade",
       },
-      component: () => import("@/views/HomePage.vue"),
+      component: () => import("@/features/home/pages/HomePage.vue"),
     },
     //將遊戲選擇整合至一個頁面
     {
       path: "/:id",
       name: "GameSelect",
       meta: { transition: "fade" },
-      component: () => import("@/views/GameSelect.vue"),
+      component: () => import("@/features/game-select/pages/GameSelect.vue"),
     },
     {
       path: "/:Grade/:Subject/:id/:GameName",
