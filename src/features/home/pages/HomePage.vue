@@ -1,6 +1,6 @@
 <template>
   <div class="index-container">
-    <NavBar />
+    <home-header />
     <div ref="gradeContainer" class="grade-container">
       <p class="title">請選擇年級</p>
       <div class="grade-select-menu">
@@ -18,24 +18,19 @@
         </div>
       </div>
     </div>
-    <footer class="" style="background-color: #f4c49f">
-      <div class="text-center p-3">
-        © 2025 版權所有:
-        <a class="text-white" href="https://programtheworld.tw/">
-          programtheworld.tw
-        </a>
-      </div>
-    </footer>
+    <home-footer />
   </div>
 </template>
 
 <script>
-import NavBar from "./NavBar.vue";
+import HomeHeader from "../components/HomeHeader.vue";
+import HomeFooter from "../components/HomeFooter.vue";
 import { getSystemAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "HomePage",
   components: {
-    NavBar,
+    HomeHeader,
+    HomeFooter,
   },
   data() {
     return {
