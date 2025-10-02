@@ -10,7 +10,7 @@
           class="grad-card-container"
         >
           <router-link
-            :to="{ name: 'GameSelect', params: { id: index + 1 } }"
+            :to="{ name: 'browser', params: { grade: index + 1 } }"
             class="submenu-link-block"
           >
             <img :src="card" class="img-fluid" alt="一年遊戲" />

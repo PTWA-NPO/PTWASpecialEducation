@@ -1,5 +1,5 @@
 <template>
-  <div class="game-card__container" @click="enterGame">
+  <div class="game-card__container">
     <div class="id-container">
       {{ gameInfo.id }}
     </div>
@@ -13,16 +13,12 @@
     <div class="card-info">
       <div class="info--top">
         <p class="title">
-          {{ gameInfo.name }}
+          {{ gameInfo.Name }}
         </p>
-        <a
-          class="btn btn-primary mx-2"
-          @click="MakeReadText(item.Name, item.Description)"
-          ><i class="bi bi-volume-up-fill"
-        /></a>
+        <a class="btn btn-primary mx-2"><i class="bi bi-volume-up-fill" /></a>
       </div>
       <p class="description">
-        {{ gameInfo.description }}
+        {{ gameInfo.Description }}
       </p>
     </div>
   </div>
@@ -37,7 +33,6 @@ export default {
       required: true,
     },
   },
-  emits: ["readText", "enterGame"],
   data() {
     return {
       image404: getSystemAssets("404-not-found.png", "general"),
@@ -45,18 +40,13 @@ export default {
     };
   },
   created() {
-    console.log(this.image404);
-    if (!this.gameInfo.imgSrc || this.gameInfo.imgSrc.includes("undefined")) {
+    if (!this.gameInfo.Img || this.gameInfo.Img.includes("undefined")) {
       this.imageSrc = this.image404;
     } else {
-      this.imageSrc = this.gameInfo.imgSrc;
+      this.imageSrc = this.gameInfo.Img;
     }
   },
-  methods: {
-    enterGame() {
-      this.$emit("enterGame");
-    },
-  },
+  methods: {},
 };
 </script>
 <style scoped lang="scss">
