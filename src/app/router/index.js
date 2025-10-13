@@ -15,7 +15,7 @@ const router = createRouter({
     //將遊戲選擇整合至一個頁面
     {
       path: "/:grade",
-      name: "GameBrowser",
+      name: "browser",
       meta: { transition: "fade" },
       component: () => import("@/features/game-browser/pages/GameBrowser.vue"),
     },
@@ -23,7 +23,7 @@ const router = createRouter({
       path: "/:grade/:subject/:id/:gameName",
       name: "game",
       meta: { transition: "fade" },
-      component: () => import("@/views/GameInterface.vue"),
+      component: () => import("@/features/game-runtime/page/GamePlayPage.vue"),
     },
     {
       path: "/DrawImage",
@@ -56,9 +56,9 @@ router.beforeEach((to, from, next) => {
   const grade = parseInt(normalizeParam(to.params.grade), 10);
   const id = parseInt(normalizeParam(to.params.id), 10);
   if ((!isNaN(grade) && grade > 3) || (!isNaN(id) && id > 3)) {
-    document.body.style.fontFamily = ""; // ?�年級�?ID大於3?�使?��?認�?�?
+    document.body.style.fontFamily = ""; // 當年級或ID大於3時使用默認字體
   } else {
-    document.body.style.fontFamily = "YuanQuan, sans-serif"; // ?��??��?使用YuanQuan字�?
+    document.body.style.fontFamily = "YuanQuan, sans-serif"; // 其他情況使用YuanQuan字體
   }
   next();
 });
