@@ -303,7 +303,7 @@
 </template>
 <script>
 import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
-import gameStore from "@/stores/game";
+import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
 import { getSystemAssets } from "@/utilitys/get_assets";
 

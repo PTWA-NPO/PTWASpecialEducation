@@ -93,9 +93,9 @@
 </template>
 
 <script>
-import FloatingCalculator from "@/components/game-system/FloatingCalculator.vue";
-import ScratchSheets from "@/components/game-system/ScratchSheets.vue";
-import MultiplicationTable from "@/components/game-system/MultiplicationTable.vue";
+import FloatingCalculator from "./FloatingCalculator.vue";
+import ScratchSheets from "./ScratchSheets.vue";
+import MultiplicationTable from "./MultiplicationTable.vue";
 
 export default {
   name: "CalculatorTool",

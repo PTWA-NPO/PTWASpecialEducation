@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+﻿import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -12,7 +12,6 @@ const router = createRouter({
       },
       component: () => import("@/features/home/pages/HomePage.vue"),
     },
-    //將遊戲選擇整合至一個頁面
     {
       path: "/:grade",
       name: "browser",
@@ -23,7 +22,7 @@ const router = createRouter({
       path: "/:grade/:subject/:id/:gameName",
       name: "game",
       meta: { transition: "fade" },
-      component: () => import("@/features/game-runtime/page/GamePlayPage.vue"),
+      component: () => import("@/features/game-runtime/pages/GamePlayPage.vue"),
     },
     {
       path: "/DrawImage",
