@@ -166,7 +166,7 @@ import { soundManager } from "@/utilitys/sound-manager.js";
 import TechModal from "@/features/game-runtime/components/TechModal.vue";
 import CalculatorTool from "@/features/game-runtime/components/CalculatorTool.vue";
 const selfDefineTemplates = import.meta.glob(
-  "@/views/PrivateTemplate/**/*.vue"
+  "@/features/games-oneoff/**/*.vue"
 );
 export default {
   name: "GamePlayPage",
@@ -327,7 +327,7 @@ export default {
     ]),
 
     selfdefinetemplate() {
-      const key = `/src/views/PrivateTemplate/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`;
+      const key = `/src/features/games-oneoff/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`;
       const loader = selfDefineTemplates[key];
 
       if (!loader) {
