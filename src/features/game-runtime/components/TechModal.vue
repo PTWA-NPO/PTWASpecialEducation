@@ -25,9 +25,9 @@ import {
   getGameAssets,
   getSystemAssets,
 } from "@/utilitys/get_assets.js";
-import gameStore from "@/stores/game";
+import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
-import BaseModal from "@/components/game-system/BaseModal.vue";
+import BaseModal from "./BaseModal.vue";
 export default {
   name: "TechVideo",
   components: {

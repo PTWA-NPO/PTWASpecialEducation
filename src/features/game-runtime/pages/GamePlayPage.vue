@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div id="GameView" ref="GameView">
     <!-- 背景圖片層 -->
     <div
@@ -150,23 +150,26 @@
 
 <script>
 import fetchJson from "@/utilitys/fetch-json.js";
-import * as Arr2CSV from "@/utilitys/array2csv.js";
-import GameStart from "@/components/game-system/GameStart.vue";
-import GameOver from "@/components/game-system/GameOver.vue";
-import GameHeader from "@/components/game-system/GameHeader.vue";
-import LevelAndTime from "@/components/game-system/LevelAndTime.vue";
-import MediaModal from "@/components/game-system/MediaModal.vue";
-import hintbutton from "@/components/game-system/hintbutton.vue";
+import * as Arr2CSV from "@/features/game-runtime/lib/array2csv.js";
+import GameStart from "@/features/game-runtime/components/GameStart.vue";
+import GameOver from "@/features/game-runtime/components/GameOver.vue";
+import GameHeader from "@/features/game-runtime/components/GameHeader.vue";
+import LevelAndTime from "@/features/game-runtime/components/LevelAndTime.vue";
+import MediaModal from "@/features/game-runtime/components/MediaModal.vue";
+import hintbutton from "@/features/game-runtime/components/hintbutton.vue";
 import * as ImportUrl from "@/utilitys/get_assets.js";
 import { defineAsyncComponent } from "vue";
-import EffectWindow from "@/components/game-system/EffectWindow.vue";
-import gameStore from "@/stores/game";
+import EffectWindow from "@/features/game-runtime/components/EffectWindow.vue";
+import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
 import { soundManager } from "@/utilitys/sound-manager.js";
-import TechModal from "@/components/game-system/TechModal.vue";
-import CalculatorTool from "@/components/game-system/CalculatorTool.vue";
+import TechModal from "@/features/game-runtime/components/TechModal.vue";
+import CalculatorTool from "@/features/game-runtime/components/CalculatorTool.vue";
+const selfDefineTemplates = import.meta.glob(
+  "@/views/PrivateTemplate/**/*.vue"
+);
 export default {
-  name: "GameInterface",
+  name: "GamePlayPage",
   components: {
     TechModal,
     hintbutton,
@@ -232,7 +235,7 @@ export default {
     ),
     EffectWindow,
     SideBar: defineAsyncComponent(
-      () => import("@/components/game-system/SideBar.vue")
+      () => import("@/features/game-runtime/components/SideBar.vue")
     ),
     CopyItem: defineAsyncComponent(
       () => import("@/views/GameTemplate/CopyItem.vue")
@@ -278,9 +281,9 @@ export default {
       Subject: "",
       Grade: "",
       Subjects: {
-        Math: "數學",
-        Chinese: "國語",
-        Technology: "多元科技",
+        math: "數學",
+        chinese: "國語",
+        technology: "多元科技",
       },
       GameConfig: {},
       GameData: {},
@@ -324,12 +327,15 @@ export default {
     ]),
 
     selfdefinetemplate() {
-      return defineAsyncComponent(
-        () =>
-          import(
-            `@/views/PrivateTemplate/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`
-          )
-      );
+      const key = `/src/views/PrivateTemplate/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`;
+      const loader = selfDefineTemplates[key];
+
+      if (!loader) {
+        console.warn(`Missing self-define template: ${key}`);
+        return () => null;
+      }
+
+      return defineAsyncComponent(loader);
     },
     hintInfo() {
       return {

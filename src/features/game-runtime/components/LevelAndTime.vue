@@ -47,7 +47,7 @@
 
 <script>
 import { mapWritableState } from "pinia";
-import gameStore from "@/stores/game";
+import gameStore from "@/features/game-runtime/model/game-store.js";
 
 export default {
   props: {
