@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="Board__container">
     <table class="Board__table">
       <tr v-if="unitArray">
@@ -64,8 +64,8 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
-// import { getGameAssets } from "@/utilitys/get_assets.js"; // Feel free to change your the method to get assets.
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+// import { getGameAssets } from "@/lib/get-assets.js"; // Feel free to change your the method to get assets.
 export default {
   name: "GenericBoard",
   components: {
@@ -98,14 +98,14 @@ export default {
       },
       currentTarget: null,
       operators: ["", "+", "-"],
-      crossedOutItems: new Set(), // 新增：記錄被劃掉的項目
+      crossedOutItems: new Set(), // ?啣?嚗??◤??????
     };
   },
   computed: {
     // Your computed properties here
   },
   watch: {
-    // 監聽配置變更，重新初始化計算板
+    // ???蔭霈嚗??啣?憪?閮???
     config: {
       handler() {
         this.initializeBoard();
@@ -123,11 +123,11 @@ export default {
     this.initializeBoard();
   },
   created() {
-    // 監聽 checkAnswer 事件
+    // ?? checkAnswer 鈭辣
     emitter.on("checkAnswer", this.markWrong);
   },
   beforeUnmount() {
-    // 移除事件監聽器
+    // 蝘駁鈭辣????
     emitter.off("checkAnswer", this.markWrong);
   },
   methods: {
@@ -138,7 +138,7 @@ export default {
           return;
         }
 
-        // 重置劃線狀態
+        // ?蔭?????
         this.crossedOutItems.clear();
 
         const { unit, carry, operation } = this.config.getGrid(this.data);
@@ -158,7 +158,7 @@ export default {
     },
     handleClick(item, rowIndex, itemIndex, event) {
       if (!item.editable) {
-        // 處理不可編輯項目的點擊 - 切換劃線狀態
+        // ??銝蝺刻摩?????- ???????
         const itemKey = `${rowIndex}-${itemIndex}`;
         if (this.crossedOutItems.has(itemKey)) {
           this.crossedOutItems.delete(itemKey);
@@ -177,7 +177,7 @@ export default {
       };
 
       if (item.editable === "operator") {
-        // 循環切換運算符號
+        // 敺芰????蝚西?
         const currentIndex = this.operators.indexOf(item.text);
         const nextIndex = (currentIndex + 1) % this.operators.length;
         this.operationArray[rowIndex][itemIndex].text =
@@ -193,7 +193,7 @@ export default {
       }
     },
     handleNumPadInput(input) {
-      if (input === "關閉") {
+      if (input === "??") {
         this.showNumPad = false;
         return;
       }
@@ -208,24 +208,24 @@ export default {
         ? targetArray[col]
         : targetArray[row][col];
 
-      if (input === "清除") {
+      if (input === "皜") {
         targetItem.text = "";
       } else {
         if (isCarryBorrow) {
-          // 進位借位欄位最多輸入2位數字
+          // ?脖???甈??憭撓??雿摮?
           if (targetItem.text.length >= 2) return;
           targetItem.text += input;
         } else {
-          // 一般欄位直接替換
+          // 銝?祆?雿?交??
           targetItem.text = input;
         }
       }
 
-      // 檢查答案並關閉數字鍵盤
+      // 瑼Ｘ蝑?銝阡??摮??
       const isCorrect = this.checkAnswer();
       this.$emit("replyAnswer", isCorrect);
 
-      // 進位借位欄位輸入完2位數字後關閉，一般欄位輸入後立即關閉
+      // ?脖???甈?頛詨摰?雿摮???嚗??祆?雿撓?亙?蝡??
       if (!isCarryBorrow || targetItem.text.length === 2) {
         this.showNumPad = false;
       }
@@ -233,12 +233,12 @@ export default {
     checkAnswer() {
       if (this.data.mode !== "checkAnswer") return true;
 
-      // 統一的答案檢查邏輯
+      // 蝯曹???獢炎?仿?頛?
       let isCorrect = true;
       for (let i = 0; i < this.operationArray.length; i++) {
         for (let j = 0; j < this.operationArray[i].length; j++) {
           const cell = this.operationArray[i][j];
-          // 只檢查有答案且可見且可編輯的欄位
+          // ?芣炎?交?蝑?銝閬??舐楊頛舐?甈?
           if (
             cell.visible &&
             cell.editable &&
@@ -256,13 +256,13 @@ export default {
       return isCorrect;
     },
     markWrong() {
-      // 重置所有錯誤標記
+      // ?蔭??隤斗?閮?
       this.resetWrongMarks();
 
-      // 檢查答案並標記錯誤
+      // 瑼Ｘ蝑?銝行?閮隤?
       this.checkAnswer();
 
-      // 標記錯誤的欄位
+      // 璅??航炊??雿?
       for (let i = 0; i < this.operationArray.length; i++) {
         for (let j = 0; j < this.operationArray[i].length; j++) {
           const cell = this.operationArray[i][j];
@@ -279,7 +279,7 @@ export default {
       }
     },
     resetWrongMarks() {
-      // 重置操作陣列的錯誤標記
+      // ?蔭??????隤斗?閮?
       for (let i = 0; i < this.operationArray.length; i++) {
         for (let j = 0; j < this.operationArray[i].length; j++) {
           const cell = this.operationArray[i][j];
@@ -402,3 +402,6 @@ button {
   color: white !important;
 }
 </style>
+
+
+
