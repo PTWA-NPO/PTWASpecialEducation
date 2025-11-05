@@ -1,0 +1,214 @@
+{
+  "id": "MA4052",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "選選看，完成長度單位的換算"
+  },
+  "GameType": "TrackGame",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "黑板的長度大約是 4",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "手掌的長度大約是 15",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "一台小客車全長大約 6",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "學校操場一圈大約是 200",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 2
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "媽媽的身高大約是 185",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "課本的厚度約有 6",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "馬拉松全長的距離大約是 42",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "金門跨海大橋的長度大約是 5",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "一枝鉛筆的長度大約是 14",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "高雄到台北的距離大約是 350",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "濁水溪的長度大約是 190",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "台北101的高度大約是 510",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 2
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "豪雨的降雨量約有 129",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "1元硬幣的直徑大約是 20",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "弟弟的運動鞋長 35",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "妹妹的身高大約是 140",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 1
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "繞斗六棒球場一圈大約 1",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "游泳池的長度大約 50",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "阿里山森林鐵路全長大約是 72",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "從花蓮到台東的距離大約 200",
+              "Size": "title-large"
+            },
+            "Selections": ["毫米", "公分", "公尺", "公里"],
+            "AnswerIndex": 3
+          }
+        ]
+      }
+    ]
+  ]
+}
