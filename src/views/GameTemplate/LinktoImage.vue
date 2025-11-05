@@ -59,8 +59,8 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 import KonvaFractionText from "@/components/KonvaFractionText.vue";
 
 export default {

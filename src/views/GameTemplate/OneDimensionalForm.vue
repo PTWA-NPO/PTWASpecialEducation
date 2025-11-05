@@ -60,9 +60,9 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
-import fetchJson from "@/utilitys/fetch-json";
+import fetchJson from "@/lib/fetch-json";
 export default {
   components: {
     TextOnly: defineAsyncComponent(() => import("@/components/TextOnly.vue")),

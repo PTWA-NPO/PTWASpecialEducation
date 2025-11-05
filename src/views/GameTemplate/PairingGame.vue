@@ -54,9 +54,9 @@
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-import { getComponents } from "@/utilitys/get-components";
+import { getComponents } from "@/lib/get-components.js";
 import draggable from "vuedraggable";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "PairingGame",
   components: {

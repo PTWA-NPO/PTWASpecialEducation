@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="img-container">
     <img :src="logoSrc" @click="$emit('goHome')" />
   </div>
@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import { SYSTEM_LOGO_SRC } from "@/constants/assets.js";
+import { SYSTEM_LOGO_SRC } from "@/shared/constants/assets.js";
 export default {
   name: "SelectHeader",
   props: {

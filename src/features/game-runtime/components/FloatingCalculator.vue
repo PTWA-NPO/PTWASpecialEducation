@@ -50,12 +50,12 @@ import {
   multiplyConfig,
   divisionConfig,
   decimalConfig,
-} from "@/components/components-utilitys/calculation-board/index.js";
+} from "@/components/utilities/calculation-board/index.js";
 
 const GenericBoard = defineAsyncComponent(
   () =>
     import(
-      "@/components/components-utilitys/calculation-board/GenericBoard.vue"
+      "@/components/utilities/calculation-board/GenericBoard.vue"
     )
 );
 

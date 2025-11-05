@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { getGameStaticAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getGameStaticAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 
 export default {
   name: "AirplaneGame",

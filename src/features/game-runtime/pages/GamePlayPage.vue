@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import fetchJson from "@/utilitys/fetch-json.js";
+import fetchJson from "@/lib/fetch-json.js";
 import * as Arr2CSV from "@/features/game-runtime/lib/array2csv.js";
 import GameStart from "@/features/game-runtime/components/GameStart.vue";
 import GameOver from "@/features/game-runtime/components/GameOver.vue";
@@ -157,12 +157,12 @@ import GameHeader from "@/features/game-runtime/components/GameHeader.vue";
 import LevelAndTime from "@/features/game-runtime/components/LevelAndTime.vue";
 import MediaModal from "@/features/game-runtime/components/MediaModal.vue";
 import hintbutton from "@/features/game-runtime/components/hintbutton.vue";
-import * as ImportUrl from "@/utilitys/get_assets.js";
+import * as ImportUrl from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
 import EffectWindow from "@/features/game-runtime/components/EffectWindow.vue";
 import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
-import { soundManager } from "@/utilitys/sound-manager.js";
+import { soundManager } from "@/lib/sound-manager.js";
 import TechModal from "@/features/game-runtime/components/TechModal.vue";
 import CalculatorTool from "@/features/game-runtime/components/CalculatorTool.vue";
 const selfDefineTemplates = import.meta.glob(
@@ -950,3 +950,6 @@ img.media-content {
   height: 100%;
 }
 </style>
+
+
+

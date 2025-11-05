@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <header>
     <nav
       class="container-fluid navbar navbar-expand-md navbar-light sticky-top justify-content-around justify-content-md-center"
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 export default {
   name: "GameHeader",
   props: {
@@ -120,7 +120,7 @@ header {
 
 .breadcrumb .breadcrumb-item {
   a {
-    color: #fff; /* 替換為你想要的顏色 */
+    color: #fff; /* ?踵??箔??唾?????*/
     font-size: 1.2em;
   }
 }
@@ -132,3 +132,5 @@ header {
   margin-right: 4px;
 }
 </style>
+
+

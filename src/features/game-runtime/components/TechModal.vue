@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!-- <img class="tech-modal__content" :src="mediaSrc" /> -->
   <base-modal @close="closeModal">
     <div class="tech-modal__container">
@@ -24,7 +24,7 @@ import {
   getDefaultHintAssets,
   getGameAssets,
   getSystemAssets,
-} from "@/utilitys/get_assets.js";
+} from "@/lib/get-assets.js";
 import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
 import BaseModal from "./BaseModal.vue";

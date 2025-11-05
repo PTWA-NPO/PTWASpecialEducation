@@ -33,7 +33,7 @@
 import MoneyGenerator from "@/components/MoneyGenerator.vue";
 import NumberBoard from "@/components/NumberBoard.vue";
 import MarkdownRenderer from "@/components/MarkdownRenderer.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "MA3013",
   components: {

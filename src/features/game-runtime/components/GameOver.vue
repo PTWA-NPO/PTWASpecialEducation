@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div id="Done" class="game-over__container">
     <video
       :src="fireworkSrc"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getSystemEffectAssets } from "@/utilitys/get_assets.js";
+import { getSystemEffectAssets } from "@/lib/get-assets.js";
 export default {
   name: "GameOver",
   emits: ["restart", "downloadRecord", "previousPage"],
@@ -74,3 +74,5 @@ button {
   max-width: 500px;
 }
 </style>
+
+

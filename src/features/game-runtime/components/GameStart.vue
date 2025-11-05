@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div v-if="gameStatus === 'NotStart'" class="game-start container">
     <div class="upper-container">
       <h1>{{ gameName }}</h1>
@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import * as Read from "@/utilitys/readtext.js";
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import * as Read from "@/lib/readtext.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 export default {
   name: "GameStart",
   props: {
@@ -148,3 +148,5 @@ export default {
   }
 }
 </style>
+
+

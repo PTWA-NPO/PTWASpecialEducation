@@ -61,7 +61,7 @@ import SubjectMenu from "../components/SubjectsMenu.vue";
 import GameSelectSidebar from "../components/GameBrowserSidebar.vue";
 import GameList from "../components/GameList.vue";
 import SearchResults from "../components/SearchResults.vue";
-import { UNDER_CONSTRUCTION_SRC } from "@/constants/assets.js";
+import { UNDER_CONSTRUCTION_SRC } from "@/shared/constants/assets.js";
 
 export default {
   name: "GameBrowserPage",

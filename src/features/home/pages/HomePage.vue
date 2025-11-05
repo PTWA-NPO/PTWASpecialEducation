@@ -25,7 +25,7 @@
 <script>
 import HomeHeader from "../components/HomeHeader.vue";
 import HomeFooter from "../components/HomeFooter.vue";
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 export default {
   name: "HomePage",
   components: {

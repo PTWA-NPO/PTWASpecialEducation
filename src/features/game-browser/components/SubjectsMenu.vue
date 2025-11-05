@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <p class="title">請選科目</p>
   <div class="subjects-menu__container">
     <div class="subject" @click="$emit('selectSubject', 'math')">
@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import { SUBJECT_LOGO_SRC } from "@/constants/assets.js";
+import { SUBJECT_LOGO_SRC } from "@/shared/constants/assets.js";
 export default {
   name: "SubjectMenu",
   props: {},

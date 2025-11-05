@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="container">
     <!-- Your component's HTML template goes here -->
     <img id="Show" :src="Src" alt="Hahah" />
@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
+import { getSlotComponentAssets } from "@/lib/get-assets.js";
 export default {
   name: "EffectWindow",
   props: {
@@ -54,3 +54,6 @@ export default {
   }
 }
 </style>
+
+
+

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="game-card__container">
     <div class="id-container">
       {{ gameInfo.id }}
@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 export default {
   name: "QuestionCard",
   props: {
@@ -95,3 +95,5 @@ export default {
   }
 }
 </style>
+
+

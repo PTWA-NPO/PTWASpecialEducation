@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 import { defineAsyncComponent } from "vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {
     numberIncrementor: defineAsyncComponent(

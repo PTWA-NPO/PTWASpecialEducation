@@ -160,7 +160,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 
 const COMPONENTS = {
   TextOnly: defineAsyncComponent(() => import("@/components/TextOnly.vue")),

@@ -302,10 +302,10 @@
   </div>
 </template>
 <script>
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 import gameStore from "@/features/game-runtime/model/game-store.js";
 import { mapWritableState } from "pinia";
-import { getSystemAssets } from "@/utilitys/get_assets";
+import { getSystemAssets } from "@/lib/get-assets.js";
 
 export default {
   name: "SideBar",

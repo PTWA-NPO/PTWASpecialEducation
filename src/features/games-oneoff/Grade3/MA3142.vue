@@ -21,8 +21,8 @@
   </div>
 </template>
 <script>
-import { getComponents } from "@/utilitys/get-components.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getComponents } from "@/lib/get-components.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "MA3142",
   components: {

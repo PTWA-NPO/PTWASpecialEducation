@@ -65,7 +65,7 @@
 
 <script>
 // import { Stage, Layer, Circle, Line } from 'vue-konva';
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 import { defineAsyncComponent } from "vue";
 export default {
   name: "LinkGame",

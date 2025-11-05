@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <v-image v-if="config.open && cat" :config="configBinCat" />
   <v-image v-else-if="config.open && !cat" :config="configBinOpen" />
   <v-image v-else :config="configBin" />
@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 export default {
   components: {},
 
@@ -91,3 +91,6 @@ export default {
   },
 };
 </script>
+
+
+
