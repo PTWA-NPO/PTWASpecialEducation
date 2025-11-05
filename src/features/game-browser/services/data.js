@@ -1,4 +1,4 @@
-import fetchJson from "@/utilitys/fetch-json.js";
+import fetchJson from "@/lib/fetch-json.js";
 import { convertGameDataImageURLs } from "../lib/normalize.js";
 
 const SubjectFileMap = {

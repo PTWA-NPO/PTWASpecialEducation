@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <bin
     :config="configBin"
     @get-bin-pos="
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 import { defineAsyncComponent } from "vue";
 export default {
   components: {
@@ -285,3 +285,4 @@ export default {
   },
 };
 </script>
+

@@ -3,7 +3,7 @@ import { loadSubjectData } from "../services/data.js";
 import { findGamesInSubjectData } from "../lib/search.js";
 import { session } from "../services/session.js";
 import { EXTERNAL_LINKS, SUBJECTS } from "../config.js";
-import * as TEXTREADER from "@/utilitys/readtext.js";
+import * as TEXTREADER from "@/lib/readtext.js";
 
 const defaultState = () => ({
   subjectData: {

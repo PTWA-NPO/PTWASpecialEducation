@@ -1,4 +1,4 @@
-// 路徑：@/components/components-utilitys/calculation-board/index.js
+// 路徑：@/components/utilities/calculation-board/index.js
 
 import multiplyConfig from "./multiply.js";
 import addsubConfig from "./addsub.js";

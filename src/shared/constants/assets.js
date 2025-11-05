@@ -1,4 +1,4 @@
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+﻿import { getSystemAssets } from "@/lib/get-assets.js";
 
 export const SYSTEM_LOGO_SRC = getSystemAssets("logo.png", "nav_bar");
 export const UNDER_CONSTRUCTION_SRC = getSystemAssets(
