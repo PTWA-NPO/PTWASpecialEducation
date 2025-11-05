@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div ref="container" class="container">
     <v-stage :config="configKonva">
       <v-layer>
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 
 export default {
   components: {},

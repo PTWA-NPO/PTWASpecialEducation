@@ -63,8 +63,7 @@
   </div>
 </template>
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import { getComponents } from "@/utilitys/get-components";
+import { getGameAssets } from "@/lib/get-assets.js";
 export default {
   name: "FillinBlank",
   components: {},

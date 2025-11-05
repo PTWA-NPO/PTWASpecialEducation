@@ -117,7 +117,7 @@
 <script>
 import draggable from "vuedraggable";
 import { defineAsyncComponent } from "vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "CompareGame",
   components: {

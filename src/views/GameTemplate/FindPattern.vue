@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 export default {
   components: {},
 

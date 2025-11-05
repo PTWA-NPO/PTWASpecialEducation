@@ -20,7 +20,7 @@
 </template>
 <script>
 import ImageContainer from "@/components/ImageContainer.vue";
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 //componentConfig Structure
 // SlotData = {
 //     "Name" : "SlotData",

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div ref="Outter" class="Outter">
     <div class="cups-container">
       <canvas
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { getSlotComponentAssets } from "../utilitys/get_assets";
+import { getSlotComponentAssets } from "@/lib/get-assets.js";
 export default {
   name: "WaterDisplay",
   props: {
@@ -63,7 +63,7 @@ export default {
         // Draw Cup
         const img = new Image();
         img.onload = () => {
-          // 1. 先畫水
+          // 1. Draw the water fill
           const ml =
             i === this.numberOfCups - 1
               ? this.remainingMl === 0
@@ -80,7 +80,7 @@ export default {
           ctx.fillStyle = "#bde0fe";
           ctx.fill();
 
-          // 2. 再畫杯子圖片（含刻度）
+          // 2. Overlay the cup image (with transparency)
           ctx.drawImage(
             img,
             0,
@@ -138,3 +138,5 @@ export default {
   align-items: center;
 }
 </style>
+
+

@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 
 export default {
   name: "BalloonShooting",

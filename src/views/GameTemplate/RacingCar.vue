@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import { getGameAssets, getGameStaticAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getGameAssets, getGameStaticAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 
 export default {
   props: {

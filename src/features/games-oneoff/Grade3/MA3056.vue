@@ -17,7 +17,8 @@
 
 <script>
 import DrawShapes from "@/components/DrawShapes.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+
 export default {
   name: "MA3056",
   components: {

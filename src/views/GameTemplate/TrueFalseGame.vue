@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="container">
     <div class="card">
       <p class="h3">
@@ -35,15 +35,15 @@
             <i class="bi bi-x-lg" />
           </button>
         </div>
-        <!-- 送出答案按鈕已移至 SideBar -->
+        <!-- ?蝑???撌脩宏??SideBar -->
       </div>
     </div>
   </div>
 </template>
 <script>
-import { getGameAssets } from "../../utilitys/get_assets";
-import { getComponents } from "@/utilitys/get-components.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import { getComponents } from "@/lib/get-components.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "TrueFalseGame",
   components: {
@@ -101,12 +101,12 @@ export default {
       const answer = this.Answer;
       if (answer === this.gameData.Answer) {
         this.$emit("play-effect", "CorrectSound");
-        this.$emit("add-record", [this.gameData.Answer, answer, "正確"]);
+        this.$emit("add-record", [this.gameData.Answer, answer, "甇?Ⅱ"]);
         this.$emit("next-question");
         console.log("check answer : True");
       } else {
         this.$emit("play-effect", "WrongSound");
-        this.$emit("add-record", [this.gameData.Answer, answer, "錯誤"]);
+        this.$emit("add-record", [this.gameData.Answer, answer, "?航炊"]);
         console.log("check answer : False");
       }
     },
@@ -208,3 +208,6 @@ button {
   scale: 1.1;
 }
 </style>
+
+
+

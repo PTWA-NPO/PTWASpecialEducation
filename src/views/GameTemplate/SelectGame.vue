@@ -59,9 +59,9 @@
   </div>
 </template>
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
-import { getComponents } from "@/utilitys/get-components.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getGameAssets } from "@/lib/get-assets.js";
+import { getComponents } from "@/lib/get-components.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "SelectGame",
   components: {

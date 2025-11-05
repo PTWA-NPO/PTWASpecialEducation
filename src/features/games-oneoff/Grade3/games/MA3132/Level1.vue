@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="level-container">
     <ImageContainer
       :game-id="gameId"
@@ -48,7 +48,7 @@
 <script>
 import ImageContainer from "@/components/ImageContainer.vue";
 import Markdown from "@/components/MarkdownRenderer.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 
 export default {
   name: "MA3132Level1",

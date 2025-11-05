@@ -1,11 +1,11 @@
-<template>
+﻿<template>
   <div class="image-container">
     <img :src="imgUrl" class="monay-image" />
   </div>
 </template>
 
 <script>
-import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
+import { getSlotComponentAssets } from "@/lib/get-assets.js";
 export default {
   props: {
     componentConfig: {
@@ -45,3 +45,6 @@ export default {
   object-fit: contain;
 }
 </style>
+
+
+

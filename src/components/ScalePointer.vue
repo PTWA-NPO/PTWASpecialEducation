@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import { getGameAssets, getSystemAssets } from "@/utilitys/get_assets.js";
-import * as canvasTools from "@/utilitys/canvasTools.js";
+import { getGameAssets, getSystemAssets } from "@/lib/get-assets.js";
+import * as canvasTools from "@/lib/canvasTools.js";
 
 export default {
   name: "ScalePointer",

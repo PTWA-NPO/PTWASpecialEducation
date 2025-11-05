@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div
     v-if="showMediaModal"
     class="mediaModal-overlay"
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 export default {
   props: {
     showMediaModal: {
@@ -166,3 +166,5 @@ img.media-content {
   font-size: 1.5rem;
 }
 </style>
+
+

@@ -98,14 +98,14 @@ export default {
       },
       currentTarget: null,
       operators: ["", "+", "-"],
-      crossedOutItems: new Set(), // ?啣?嚗??◤??????
+      crossedOutItems: new Set(), // 新增：記錄被劃掉的項目
     };
   },
   computed: {
     // Your computed properties here
   },
   watch: {
-    // ???蔭霈嚗??啣?憪?閮???
+    // 監聽配置變更，重新初始化計算板
     config: {
       handler() {
         this.initializeBoard();
@@ -123,11 +123,11 @@ export default {
     this.initializeBoard();
   },
   created() {
-    // ?? checkAnswer 鈭辣
+    // 監聽 checkAnswer 事件
     emitter.on("checkAnswer", this.markWrong);
   },
   beforeUnmount() {
-    // 蝘駁鈭辣????
+    // 移除事件監聽器
     emitter.off("checkAnswer", this.markWrong);
   },
   methods: {
@@ -138,7 +138,7 @@ export default {
           return;
         }
 
-        // ?蔭?????
+        // 重置劃線狀態
         this.crossedOutItems.clear();
 
         const { unit, carry, operation } = this.config.getGrid(this.data);
@@ -158,7 +158,7 @@ export default {
     },
     handleClick(item, rowIndex, itemIndex, event) {
       if (!item.editable) {
-        // ??銝蝺刻摩?????- ???????
+        // 處理不可編輯項目的點擊 - 切換劃線狀態
         const itemKey = `${rowIndex}-${itemIndex}`;
         if (this.crossedOutItems.has(itemKey)) {
           this.crossedOutItems.delete(itemKey);
@@ -177,7 +177,7 @@ export default {
       };
 
       if (item.editable === "operator") {
-        // 敺芰????蝚西?
+        // 循環切換運算符號
         const currentIndex = this.operators.indexOf(item.text);
         const nextIndex = (currentIndex + 1) % this.operators.length;
         this.operationArray[rowIndex][itemIndex].text =
@@ -212,20 +212,20 @@ export default {
         targetItem.text = "";
       } else {
         if (isCarryBorrow) {
-          // ?脖???甈??憭撓??雿摮?
+          // 進位借位欄位最多輸入2位數字
           if (targetItem.text.length >= 2) return;
           targetItem.text += input;
         } else {
-          // 銝?祆?雿?交??
+          // 一般欄位直接替換
           targetItem.text = input;
         }
       }
 
-      // 瑼Ｘ蝑?銝阡??摮??
+      // 檢查答案並關閉數字鍵盤
       const isCorrect = this.checkAnswer();
       this.$emit("replyAnswer", isCorrect);
 
-      // ?脖???甈?頛詨摰?雿摮???嚗??祆?雿撓?亙?蝡??
+      // 進位借位欄位輸入完2位數字後關閉，一般欄位輸入後立即關閉
       if (!isCarryBorrow || targetItem.text.length === 2) {
         this.showNumPad = false;
       }
@@ -233,12 +233,12 @@ export default {
     checkAnswer() {
       if (this.data.mode !== "checkAnswer") return true;
 
-      // 蝯曹???獢炎?仿?頛?
+      // 統一的答案檢查邏輯
       let isCorrect = true;
       for (let i = 0; i < this.operationArray.length; i++) {
         for (let j = 0; j < this.operationArray[i].length; j++) {
           const cell = this.operationArray[i][j];
-          // ?芣炎?交?蝑?銝閬??舐楊頛舐?甈?
+          // 只檢查有答案且可見且可編輯的欄位
           if (
             cell.visible &&
             cell.editable &&
@@ -256,13 +256,13 @@ export default {
       return isCorrect;
     },
     markWrong() {
-      // ?蔭??隤斗?閮?
+      // 重置所有錯誤標記
       this.resetWrongMarks();
 
-      // 瑼Ｘ蝑?銝行?閮隤?
+      // 檢查答案並標記錯誤
       this.checkAnswer();
 
-      // 璅??航炊??雿?
+      // 重置操作陣列的錯誤標記
       for (let i = 0; i < this.operationArray.length; i++) {
         for (let j = 0; j < this.operationArray[i].length; j++) {
           const cell = this.operationArray[i][j];
@@ -402,6 +402,3 @@ button {
   color: white !important;
 }
 </style>
-
-
-

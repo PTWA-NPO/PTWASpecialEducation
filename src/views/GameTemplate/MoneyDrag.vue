@@ -71,9 +71,9 @@
 
 <script>
 import draggable from "vuedraggable";
-import { getComponents } from "@/utilitys/get-components.js";
-import { getSystemAssets } from "@/utilitys/get_assets.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { getComponents } from "@/lib/get-components.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 
 export default {
   components: {

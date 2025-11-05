@@ -59,7 +59,7 @@
 
 <script>
 import FloatNumPad from "@/components/FloatNumPad.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "MA3171",
   components: {

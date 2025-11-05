@@ -38,7 +38,7 @@
   </div>
 </template>
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 export default {
   name: "FindTheItem",
   props: {

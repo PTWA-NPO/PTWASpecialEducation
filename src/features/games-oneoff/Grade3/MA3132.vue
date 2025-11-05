@@ -45,7 +45,7 @@
 import Level1 from "./games/MA3132/Level1.vue";
 import Level2 from "./games/MA3132/Level2.vue";
 import Level3 from "./games/MA3132/Level3.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "MA3132",
   components: {

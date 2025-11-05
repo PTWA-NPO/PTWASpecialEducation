@@ -2,7 +2,9 @@
   <div class="container">
     <div class="board">
       <div class="unit" :style="unitRowStyle">
-        <button v-for="(i, idx) in unitStyle" :key="idx" :style="i">{{ i.text }}</button>
+        <button v-for="(i, idx) in unitStyle" :key="idx" :style="i">
+          {{ i.text }}
+        </button>
       </div>
       <div ref="row" class="row" :style="btnRowStyle">
         <button
@@ -82,9 +84,9 @@
 </template>
 
 <script>
-import { getGameStaticAssets } from "@/utilitys/get_assets.js";
+import { getGameStaticAssets } from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
-import fetchJson from "@/utilitys/fetch-json";
+import fetchJson from "@/lib/fetch-json";
 export default {
   components: {
     drawingBoard: defineAsyncComponent(

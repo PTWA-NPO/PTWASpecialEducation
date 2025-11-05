@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <p class="h3">
       {{ gameData.Question.text }}
@@ -41,7 +41,7 @@
  * Game Data Structure Sample:
  *         {   
             "Question": {
-                "text": "請數數看題目中有多少支棒棒糖", // Question Text(This will be disply on the buttom of the canvas)
+                "text": "隢?貊?憿銝剜?憭??舀?璉?", // Question Text(This will be disply on the buttom of the canvas)
                 "Range": [5, 10] //The Range of the button: [ Min, Max ] (Note That we strongly recommend that the range should be less than 10)
             },
             "Answer": 8, //The answer of the question
@@ -49,7 +49,7 @@
         }
  * 
  */
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
 export default {
   Name: "NumberingGame",
@@ -95,11 +95,11 @@ export default {
     judgeAnswer(answer) {
       if (answer === this.gameData.Answer) {
         this.$emit("play-effect", "CorrectSound");
-        this.$emit("add-record", [this.gameData.Answer, answer, "正確"]);
+        this.$emit("add-record", [this.gameData.Answer, answer, "甇?Ⅱ"]);
         this.$emit("next-question");
       } else {
         this.$emit("play-effect", "WrongSound");
-        this.$emit("add-record", [this.gameData.Answer, answer, "錯誤"]);
+        this.$emit("add-record", [this.gameData.Answer, answer, "?航炊"]);
       }
     },
   },
@@ -142,3 +142,6 @@ p {
   }
 }
 </style>
+
+
+

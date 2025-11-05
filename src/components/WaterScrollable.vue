@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { getSlotComponentAssets } from "../utilitys/get_assets";
+import { getSlotComponentAssets } from "@/lib/get-assets.js";
 
 export default {
   name: "WaterScrollable",

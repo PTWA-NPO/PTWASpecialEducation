@@ -50,8 +50,8 @@ import {
   getGameAssets,
   getSystemAssets,
   getGameStaticAssets,
-} from "@/utilitys/get_assets.js";
-import { soundManager } from "@/utilitys/sound-manager.js";
+} from "@/lib/get-assets.js";
+import { soundManager } from "@/lib/sound-manager.js";
 export default {
   name: "NumberSearchGame",
   props: {

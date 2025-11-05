@@ -52,9 +52,9 @@
 </template>
 
 <script>
-import { getSystemAssets, getGameStaticAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets, getGameStaticAssets } from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
-import fetchJson from "@/utilitys/fetch-json";
+import fetchJson from "@/lib/fetch-json";
 
 export default {
   components: {

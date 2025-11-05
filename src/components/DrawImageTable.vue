@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="Container">
     <p>Do not use this, this will be no longer to maintains</p>
     <div class="division">
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 export default {
   name: "DrawImageTable",
   props: {

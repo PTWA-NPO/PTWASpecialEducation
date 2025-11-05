@@ -32,9 +32,9 @@
 </template>
 <script>
 // import { defineAsyncComponent } from "vue";
-// import { getGameStaticAssets } from "@/utilitys/get_assets.js"; // Feel free to change your the method to get assets.
-import { getComponents } from "@/utilitys/get-components.js";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+// import { getGameStaticAssets } from "@/lib/get-assets.js"; // Feel free to change your the method to get assets.
+import { getComponents } from "@/lib/get-components.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "MA3173",
   components: {

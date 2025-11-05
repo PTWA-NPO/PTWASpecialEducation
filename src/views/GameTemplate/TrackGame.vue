@@ -56,8 +56,8 @@
   </div>
 </template>
 <script>
-import { getComponents } from "@/utilitys/get-components.js";
-import { getGameStaticAssets } from "@/utilitys/get_assets";
+import { getComponents } from "@/lib/get-components.js";
+import { getGameStaticAssets } from "@/lib/get-assets.js";
 
 export default {
   name: "TrackGame",

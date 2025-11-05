@@ -75,7 +75,7 @@
 
 <script>
 import FractionText from "@/components/FractionText.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {
     FractionText,
