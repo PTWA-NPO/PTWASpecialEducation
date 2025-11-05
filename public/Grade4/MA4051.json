@@ -1,0 +1,307 @@
+{
+  "id": "MA4051",
+  "GameType": "TrueFalseGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想,再選選看"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Question": "距離泰安服務區還有3000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "1.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離泰安服務區還有300公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "1.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離湖口服務區還有500公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離湖口服務區還有5000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "2.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離仁德服務區還有5000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "3.png",
+              "Alt": ""
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "距離仁德服務區還有50公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "3.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離新化服務區還有2000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離新化服務區還有20公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "4.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "距離西湖服務區還有100公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5.png",
+              "Alt": ""
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "距離西湖服務區還有1000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "5.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從岡山到路竹是8000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "6.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從岡山到路竹是3000公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "6.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從花蓮到吉安是3000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "7.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從花蓮到北埔是400公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "7.png",
+              "Alt": ""
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "從桃園到鶯歌是800公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "8.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從桃園到內壢是6000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "8.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從台南到保安是7公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "9.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從台南到大橋是2000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "9.png",
+              "Alt": ""
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "從台北到萬華是200公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "10.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從台北到松山是6000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "10.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從台中到大慶是500公尺",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "11.png",
+              "Alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "Question": "從台中到太原是4000公尺",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "11.png",
+              "Alt": ""
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}
