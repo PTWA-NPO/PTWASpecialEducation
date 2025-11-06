@@ -295,6 +295,8 @@ export default {
           break;
 
         case 32:
+        case 39:
+        case 68:
           this.getCurrentOptionId("right");
           break;
       }

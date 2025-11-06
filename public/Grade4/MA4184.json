@@ -1,0 +1,258 @@
+{
+  "id": "MA4184",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想,再選選看。"
+  },
+  "GameType": "TrackGame",
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "63412用四捨五入法取概數到百位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["63410", "63420", "63400"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "50709用四捨五入法取概數到百位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["50900", "50700", "50800"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "30092用四捨五入法取概數到百位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["30090", "30000", "30100"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "82071用四捨五入法取概數到百位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["82100", "82010", "82070"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "12345用四捨五入法取概數到百位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["12400", "12340", "12300"],
+            "AnswerIndex": 2
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "21826用四捨五入法取概數到千位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["21800", "21000", "22000"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "50360用四捨五入法取概數到千位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["51000", "50000", "50300"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "31663用四捨五入法取概數到千位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["32000", "31700", "31000"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "82091用四捨五入法取概數到千位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["82100", "82000", "82090"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "74362用四捨五入法取概數到千位,是多少?",
+              "Size": "title-small"
+            },
+            "Selections": ["74400", "74300", "74000"],
+            "AnswerIndex": 2
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "63739用四捨五入法取概數到哪一位,是63700?",
+              "Size": "title-small"
+            },
+            "Selections": ["千", "百", "十"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "25580用四捨五入法取概數到哪一位,是26000?",
+              "Size": "title-small"
+            },
+            "Selections": ["千", "百", "十"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "12529用四捨五入法取概數到哪一位,是12530?",
+              "Size": "title-small"
+            },
+            "Selections": ["千", "百", "十"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "11785用四捨五入法取概數到哪一位,是11800?",
+              "Size": "title-small"
+            },
+            "Selections": ["千", "百", "十"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "47309用四捨五入法取概數到哪一位,是47000?",
+              "Size": "title-small"
+            },
+            "Selections": ["千", "百", "十"],
+            "AnswerIndex": 0
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到百位的結果是5800?",
+              "Size": "title-small"
+            },
+            "Selections": ["5746", "5832", "5859"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到百位的結果是30100?",
+              "Size": "title-small"
+            },
+            "Selections": ["29450", "30086", "30160"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到十位的結果是3820?",
+              "Size": "title-small"
+            },
+            "Selections": ["3829", "3821", "3812"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到十位的結果是2750?",
+              "Size": "title-small"
+            },
+            "Selections": ["2755", "2753", "2744"],
+            "AnswerIndex": 1
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到百位的結果是4300?",
+              "Size": "title-small"
+            },
+            "Selections": ["4360", "4306", "4209"],
+            "AnswerIndex": 1
+          }
+        ]
+      },
+      {
+        "Question": [
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到萬位的結果是50000?",
+              "Size": "title-small"
+            },
+            "Selections": ["50851", "55321", "56001"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到千位的結果是32000?",
+              "Size": "title-small"
+            },
+            "Selections": ["32560", "30910", "31663"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到萬位的結果是60000?",
+              "Size": "title-small"
+            },
+            "Selections": ["55000", "54321", "65003"],
+            "AnswerIndex": 0
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到千位的結果是60000?",
+              "Size": "title-small"
+            },
+            "Selections": ["65124", "56316", "60376"],
+            "AnswerIndex": 2
+          },
+          {
+            "name": "TextOnly",
+            "Data": {
+              "Text": "哪個數用「四捨五入法」取概數到千位的結果是21000?",
+              "Size": "title-small"
+            },
+            "Selections": ["20396", "21500", "20707"],
+            "AnswerIndex": 2
+          }
+        ]
+      }
+    ]
+  ]
+}
