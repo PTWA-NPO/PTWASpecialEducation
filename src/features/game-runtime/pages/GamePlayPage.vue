@@ -1,6 +1,6 @@
-ï»¿<template>
+<template>
   <div id="GameView" ref="GameView">
-    <!-- èƒŒæ™¯åœ–ç‰‡å±¤ -->
+    <!-- ­I´º¹Ï¤ù¼h -->
     <div
       v-if="scratchSheetBackground"
       class="scratchsheet-background"
@@ -179,96 +179,96 @@ export default {
     LevelAndTime,
     MediaModal,
     LinkGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/LinkGame.vue")
+      () => import("@/features/game-templates/link-game/LinkGame.vue")
     ),
     CompareGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/CompareGame.vue")
+      () => import("@/features/game-templates/compare-game/CompareGame.vue")
     ),
     TrueFalseGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/TrueFalseGame.vue")
+      () => import("@/features/game-templates/true-false-game/TrueFalseGame.vue")
     ),
     SelectGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SelectGame.vue")
+      () => import("@/features/game-templates/select-game/SelectGame.vue")
     ),
     ClassifyGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/ClassifyGame.vue")
+      () => import("@/features/game-templates/classify-game/ClassifyGame.vue")
     ),
     SortGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SortGame.vue")
+      () => import("@/features/game-templates/sort-game/SortGame.vue")
     ),
     FindTheItemGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FindTheItemGame.vue")
+      () => import("@/features/game-templates/find-the-item-game/FindTheItemGame.vue")
     ),
     AutoNumberingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/AutoNumberingGame.vue")
+      () => import("@/features/game-templates/auto-numbering-game/AutoNumberingGame.vue")
     ),
     NumberingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberingGame.vue")
+      () => import("@/features/game-templates/numbering-game/NumberingGame.vue")
     ),
     FillinBlank: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FillinBlank.vue")
+      () => import("@/features/game-templates/fillin-blank/FillinBlank.vue")
     ),
     PairingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/PairingGame.vue")
+      () => import("@/features/game-templates/pairing-game/PairingGame.vue")
     ),
     NumberLock: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberLock.vue")
+      () => import("@/features/game-templates/number-lock/NumberLock.vue")
     ),
     RacingCar: defineAsyncComponent(
-      () => import("@/views/GameTemplate/RacingCar.vue")
+      () => import("@/features/game-templates/racing-car/RacingCar.vue")
     ),
     WhackaMole: defineAsyncComponent(
-      () => import("@/views/GameTemplate/WhackaMole.vue")
+      () => import("@/features/game-templates/whacka-mole/WhackaMole.vue")
     ),
     MazeGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MazeGame.vue")
+      () => import("@/features/game-templates/maze-game/MazeGame.vue")
     ),
     SelectGameMulti: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SelectGameMulti.vue")
+      () => import("@/features/game-templates/select-game-multi/SelectGameMulti.vue")
     ),
     NumberSearchGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberSearchGame.vue")
+      () => import("@/features/game-templates/number-search-game/NumberSearchGame.vue")
     ),
 
     TrackGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/TrackGame.vue")
+      () => import("@/features/game-templates/track-game/TrackGame.vue")
     ),
     EffectWindow,
     SideBar: defineAsyncComponent(
       () => import("@/features/game-runtime/components/SideBar.vue")
     ),
     CopyItem: defineAsyncComponent(
-      () => import("@/views/GameTemplate/CopyItem.vue")
+      () => import("@/features/game-templates/copy-item/CopyItem.vue")
     ),
     AirplaneGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/AirplaneGame.vue")
+      () => import("@/features/game-templates/airplane-game/AirplaneGame.vue")
     ),
     ComponentTesters: defineAsyncComponent(
-      () => import("@/views/GameTemplate/componentTesters.vue")
+      () => import("@/features/game-templates/component-testers/componentTesters.vue")
     ), //for testing only
     BalloonShooting: defineAsyncComponent(
-      () => import("@/views/GameTemplate/BalloonShooting.vue")
+      () => import("@/features/game-templates/balloon-shooting/BalloonShooting.vue")
     ),
     LinkToImage: defineAsyncComponent(
-      () => import("@/views/GameTemplate/LinktoImage.vue")
+      () => import("@/features/game-templates/linkto-image/LinktoImage.vue")
     ),
     WordProblemWithCalculator: defineAsyncComponent(
-      () => import("@/views/GameTemplate/WordProblemWithCalculator.vue")
+      () => import("@/features/game-templates/word-problem-with-calculator/WordProblemWithCalculator.vue")
     ),
     MoneyDrag: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MoneyDrag.vue")
+      () => import("@/features/game-templates/money-drag/MoneyDrag.vue")
     ),
     MultiplyBoard: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MultiplyBoard.vue")
+      () => import("@/features/game-templates/multiply-board/MultiplyBoard.vue")
     ),
     FractionArithmetic: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FractionArithmetic.vue")
+      () => import("@/features/game-templates/fraction-arithmetic/FractionArithmetic.vue")
     ),
     FindPattern: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FindPattern.vue")
+      () => import("@/features/game-templates/find-pattern/FindPattern.vue")
     ),
     OneDimensionalForm: defineAsyncComponent(
-      () => import("@/views/GameTemplate/OneDimensionalForm.vue")
+      () => import("@/features/game-templates/one-dimensional-form/OneDimensionalForm.vue")
     ),
     CalculatorTool,
   },
@@ -276,14 +276,14 @@ export default {
     return {
       Dataloaded: false,
       // gameType: "loading",
-      download_data: [[]], //ä¸‹è¼‰çš„è³‡æ–™ï¼Œæ ¼å¼ç‚ºäºŒç¶­é™£åˆ—ã€‚
+      download_data: [[]], //¤U¸üªº¸ê®Æ¡A®æ¦¡¬°¤Gºû°}¦C¡C
       header: [],
       Subject: "",
       Grade: "",
       Subjects: {
-        math: "æ•¸å­¸",
-        chinese: "åœ‹èª",
-        technology: "å¤šå…ƒç§‘æŠ€",
+        math: "¼Æ¾Ç",
+        chinese: "°ê»y",
+        technology: "¦h¤¸¬ì§Ş",
       },
       GameConfig: {},
       GameData: {},
@@ -343,14 +343,14 @@ export default {
         MaxWrongTimes: this.MaxWrongTimes,
       };
     },
-    // è‡ªå‹•åˆ¤æ–·æ˜¯å¦éœ€è¦é€å‡ºç­”æ¡ˆæŒ‰éˆ•
+    // ¦Û°Ê§PÂ_¬O§_»İ­n°e¥Xµª®×«ö¶s
     shouldShowSubmitButton() {
-      // å¦‚æœ GameConfig ä¸­æœ‰æ˜ç¢ºè¨­å®šï¼Œå„ªå…ˆä½¿ç”¨
+      // ¦pªG GameConfig ¤¤¦³©ú½T³]©w¡AÀu¥ı¨Ï¥Î
       if (this.GameConfig.showSubmitButton !== undefined) {
         return this.GameConfig.showSubmitButton;
       }
 
-      // æ ¹æ“šéŠæˆ²é¡å‹è‡ªå‹•åˆ¤æ–·
+      // ®Ú¾Ú¹CÀ¸Ãş«¬¦Û°Ê§PÂ_
       const noSubmitButtonGames = [
         "WhackaMole",
         "RacingCar",
@@ -520,13 +520,13 @@ export default {
       const totalQuestions = this.GameData.Questions.length;
       let allQuestionsAnswered = true;
 
-      // æª¢æŸ¥æ˜¯å¦æœ‰æœªå›ç­”çš„å•é¡Œ
+      // ÀË¬d¬O§_¦³¥¼¦^µªªº°İÃD
       if (this.isAnyQuestionUnanswered()) {
         allQuestionsAnswered = false;
 
-        // å˜—è©¦å¾ç•¶å‰ç­‰ç´šä»¥å¾Œå°‹æ‰¾æœªå›ç­”çš„å•é¡Œ
+        // ¹Á¸Õ±q·í«eµ¥¯Å¥H«á´M§ä¥¼¦^µªªº°İÃD
         if (!this.findNextUnansweredQuestion(this.Nowlevel, totalQuestions)) {
-          // å¦‚æœæ‰¾ä¸åˆ°ä¸”ç•¶å‰æ˜¯æœ€å¾Œä¸€é¡Œï¼Œå‰‡å…è¨±å›åˆ°ä¹‹å‰çš„æœªç­”é¡Œç›®
+          // ¦pªG§ä¤£¨ì¥B·í«e¬O³Ì«á¤@ÃD¡A«h¤¹³\¦^¨ì¤§«eªº¥¼µªÃD¥Ø
           if (this.Nowlevel === totalQuestions) {
             this.findNextUnansweredQuestion(0, totalQuestions);
           }
@@ -557,7 +557,7 @@ export default {
         this.transitionName = "slide-right";
       }
       this.pauseTimer();
-      //FIXME å‚³è³‡æ–™é€²å…¥CSV
+      //FIXME ¶Ç¸ê®Æ¶i¤JCSV
       this.resetTimer();
       this.startTimer();
     },
@@ -580,9 +580,9 @@ export default {
       this.time = 0;
     },
     gameDataRecord(data, SelfDefine = false) {
-      //ç´€éŒ„éŠæˆ²è³‡æ–™
-      // default ["æ­£ç¢ºç­”æ¡ˆ","å­¸ç”Ÿä½œç­”ç­”æ¡ˆ","æ˜¯å¦æ­£ç¢º","ä½œç­”ç§’æ•¸(é—œå¡)","ä½œç­”ç§’æ•¸(ç¸½æ™‚é–“)"]
-      // dataæ ¼å¼[æ­£ç¢ºç­”æ¡ˆ,å­¸ç”Ÿä½œç­”ç­”æ¡ˆ,æ˜¯å¦æ­£ç¢º]
+      //¬ö¿ı¹CÀ¸¸ê®Æ
+      // default ["¥¿½Tµª®×","¾Ç¥Í§@µªµª®×","¬O§_¥¿½T","§@µª¬í¼Æ(Ãö¥d)","§@µª¬í¼Æ(Á`®É¶¡)"]
+      // data®æ¦¡[¥¿½Tµª®×,¾Ç¥Í§@µªµª®×,¬O§_¥¿½T]
       let record = [];
       if (SelfDefine) {
         record = Arr2CSV.ArrayTemplate2Record(
@@ -705,10 +705,10 @@ export default {
 <style scoped lang="scss">
 .scratchsheet-background {
   position: fixed;
-  bottom: 0; /* å°æ‡‰ç•«å¸ƒå®¹å™¨çš„ align-self: end */
+  bottom: 0; /* ¹ïÀ³µe¥¬®e¾¹ªº align-self: end */
   left: 0;
-  width: 85vw; /* å°æ‡‰ç•«å¸ƒå®¹å™¨çš„ width: 85% */
-  height: 90vh; /* å°æ‡‰ç•«å¸ƒå®¹å™¨çš„ height: 90% */
+  width: 85vw; /* ¹ïÀ³µe¥¬®e¾¹ªº width: 85% */
+  height: 90vh; /* ¹ïÀ³µe¥¬®e¾¹ªº height: 90% */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -717,27 +717,27 @@ export default {
 }
 
 .img-hover-zoom {
-  transition: transform 0.3s ease; /* å¹³æ»‘çš„éæ¸¡æ•ˆæœ */
+  transition: transform 0.3s ease; /* ¥­·Æªº¹L´ç®ÄªG */
 }
 
 .img-hover-zoom:hover {
-  transform: scale(1.07); /* æ”¾å¤§è‡³åŸå¤§å°çš„ 110% */
+  transform: scale(1.07); /* ©ñ¤j¦Ü­ì¤j¤pªº 110% */
 }
 
 .img-hover-zoom {
-  max-width: 100%; /* æˆ–è€…æ˜¯å¡ç‰‡å¯¬åº¦çš„ç™¾åˆ†æ¯” */
-  height: auto; /* ä¿æŒåœ–ç‰‡çš„æ¯”ä¾‹ */
+  max-width: 100%; /* ©ÎªÌ¬O¥d¤ù¼e«×ªº¦Ê¤À¤ñ */
+  height: auto; /* «O«ù¹Ï¤ùªº¤ñ¨Ò */
 }
 .list-group {
-  border: none !important; /* ç§»é™¤é‚Šæ¡† */
+  border: none !important; /* ²¾°£Ãä®Ø */
 }
 .list-group-item {
-  border: none !important; /* ç§»é™¤æ¯å€‹ list-group-item çš„é‚Šæ¡† */
+  border: none !important; /* ²¾°£¨C­Ó list-group-item ªºÃä®Ø */
 }
-/* å¦‚æœæŒ‰éˆ•å…§æœ‰åœ–ç‰‡ï¼Œä¹Ÿè¦ç¢ºä¿åœ–ç‰‡ä¸æœƒè¶…å‡ºæŒ‰éˆ•çš„å¯¬åº¦ */
+/* ¦pªG«ö¶s¤º¦³¹Ï¤ù¡A¤]­n½T«O¹Ï¤ù¤£·|¶W¥X«ö¶sªº¼e«× */
 .function-btn img {
   max-width: 100%;
-  height: auto; /* ä¿æŒåœ–ç‰‡çš„æ¯”ä¾‹ */
+  height: auto; /* «O«ù¹Ï¤ùªº¤ñ¨Ò */
 }
 
 //btn, container, row, col
@@ -784,7 +784,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: relative; /* æ·»åŠ ç›¸å°å®šä½ */
+  position: relative; /* ²K¥[¬Û¹ï©w¦ì */
   .games {
     width: 100%;
     height: 100%;
@@ -792,8 +792,8 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative; /* ç¢ºä¿å­å…ƒç´ æ­£ç¢ºå®šä½ */
-    min-height: 400px; /* è¨­ç½®æœ€å°é«˜åº¦é¿å…ä½ˆå±€è·³å‹• */
+    position: relative; /* ½T«O¤l¤¸¯À¥¿½T©w¦ì */
+    min-height: 400px; /* ³]¸m³Ì¤p°ª«×Á×§K§G§½¸õ°Ê */
   }
 
   overflow-x: auto;
@@ -941,7 +941,7 @@ img.media-content {
   font-size: 1.5rem;
 }
 
-/* é˜²æ­¢çµ„ä»¶è¼‰å…¥æ™‚çš„ä½ˆå±€è·³å‹• */
+/* ¨¾¤î²Õ¥ó¸ü¤J®Éªº§G§½¸õ°Ê */
 #GameContainer {
   display: flex;
   align-items: center;
@@ -950,6 +950,7 @@ img.media-content {
   height: 100%;
 }
 </style>
+
 
 
 
