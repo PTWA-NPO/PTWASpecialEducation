@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div id="GameView" ref="GameView">
     <!-- 背景圖片層 -->
     <div
@@ -179,96 +179,122 @@ export default {
     LevelAndTime,
     MediaModal,
     LinkGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/LinkGame.vue")
+      () => import("@/features/game-templates/link-game/LinkGame.vue")
     ),
     CompareGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/CompareGame.vue")
+      () => import("@/features/game-templates/compare-game/CompareGame.vue")
     ),
     TrueFalseGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/TrueFalseGame.vue")
+      () =>
+        import("@/features/game-templates/true-false-game/TrueFalseGame.vue")
     ),
     SelectGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SelectGame.vue")
+      () => import("@/features/game-templates/select-game/SelectGame.vue")
     ),
     ClassifyGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/ClassifyGame.vue")
+      () => import("@/features/game-templates/classify-game/ClassifyGame.vue")
     ),
     SortGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SortGame.vue")
+      () => import("@/features/game-templates/sort-game/SortGame.vue")
     ),
     FindTheItemGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FindTheItemGame.vue")
+      () =>
+        import(
+          "@/features/game-templates/find-the-item-game/FindTheItemGame.vue"
+        )
     ),
     AutoNumberingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/AutoNumberingGame.vue")
+      () =>
+        import(
+          "@/features/game-templates/auto-numbering-game/AutoNumberingGame.vue"
+        )
     ),
     NumberingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberingGame.vue")
+      () => import("@/features/game-templates/numbering-game/NumberingGame.vue")
     ),
     FillinBlank: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FillinBlank.vue")
+      () => import("@/features/game-templates/fillin-blank/FillinBlank.vue")
     ),
     PairingGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/PairingGame.vue")
+      () => import("@/features/game-templates/pairing-game/PairingGame.vue")
     ),
     NumberLock: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberLock.vue")
+      () => import("@/features/game-templates/number-lock/NumberLock.vue")
     ),
     RacingCar: defineAsyncComponent(
-      () => import("@/views/GameTemplate/RacingCar.vue")
+      () => import("@/features/game-templates/racing-car/RacingCar.vue")
     ),
     WhackaMole: defineAsyncComponent(
-      () => import("@/views/GameTemplate/WhackaMole.vue")
+      () => import("@/features/game-templates/whacka-mole/WhackaMole.vue")
     ),
     MazeGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MazeGame.vue")
+      () => import("@/features/game-templates/maze-game/MazeGame.vue")
     ),
     SelectGameMulti: defineAsyncComponent(
-      () => import("@/views/GameTemplate/SelectGameMulti.vue")
+      () =>
+        import(
+          "@/features/game-templates/select-game-multi/SelectGameMulti.vue"
+        )
     ),
     NumberSearchGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/NumberSearchGame.vue")
+      () =>
+        import(
+          "@/features/game-templates/number-search-game/NumberSearchGame.vue"
+        )
     ),
 
     TrackGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/TrackGame.vue")
+      () => import("@/features/game-templates/track-game/TrackGame.vue")
     ),
     EffectWindow,
     SideBar: defineAsyncComponent(
       () => import("@/features/game-runtime/components/SideBar.vue")
     ),
     CopyItem: defineAsyncComponent(
-      () => import("@/views/GameTemplate/CopyItem.vue")
+      () => import("@/features/game-templates/copy-item/CopyItem.vue")
     ),
     AirplaneGame: defineAsyncComponent(
-      () => import("@/views/GameTemplate/AirplaneGame.vue")
+      () => import("@/features/game-templates/airplane-game/AirplaneGame.vue")
     ),
     ComponentTesters: defineAsyncComponent(
-      () => import("@/views/GameTemplate/componentTesters.vue")
+      () =>
+        import(
+          "@/features/game-templates/component-testers/componentTesters.vue"
+        )
     ), //for testing only
     BalloonShooting: defineAsyncComponent(
-      () => import("@/views/GameTemplate/BalloonShooting.vue")
+      () =>
+        import("@/features/game-templates/balloon-shooting/BalloonShooting.vue")
     ),
     LinkToImage: defineAsyncComponent(
-      () => import("@/views/GameTemplate/LinktoImage.vue")
+      () => import("@/features/game-templates/linkto-image/LinktoImage.vue")
     ),
     WordProblemWithCalculator: defineAsyncComponent(
-      () => import("@/views/GameTemplate/WordProblemWithCalculator.vue")
+      () =>
+        import(
+          "@/features/game-templates/word-problem-with-calculator/WordProblemWithCalculator.vue"
+        )
     ),
     MoneyDrag: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MoneyDrag.vue")
+      () => import("@/features/game-templates/money-drag/MoneyDrag.vue")
     ),
     MultiplyBoard: defineAsyncComponent(
-      () => import("@/views/GameTemplate/MultiplyBoard.vue")
+      () => import("@/features/game-templates/multiply-board/MultiplyBoard.vue")
     ),
     FractionArithmetic: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FractionArithmetic.vue")
+      () =>
+        import(
+          "@/features/game-templates/fraction-arithmetic/FractionArithmetic.vue"
+        )
     ),
     FindPattern: defineAsyncComponent(
-      () => import("@/views/GameTemplate/FindPattern.vue")
+      () => import("@/features/game-templates/find-pattern/FindPattern.vue")
     ),
     OneDimensionalForm: defineAsyncComponent(
-      () => import("@/views/GameTemplate/OneDimensionalForm.vue")
+      () =>
+        import(
+          "@/features/game-templates/one-dimensional-form/OneDimensionalForm.vue"
+        )
     ),
     CalculatorTool,
   },
@@ -950,6 +976,3 @@ img.media-content {
   height: 100%;
 }
 </style>
-
-
-

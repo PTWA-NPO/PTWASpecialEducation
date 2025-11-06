@@ -1,4 +1,4 @@
-﻿import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -41,7 +41,10 @@ const router = createRouter({
     },
     {
       path: "/tester",
-      component: () => import("@/views/GameTemplate/componentTesters.vue"),
+      component: () =>
+        import(
+          "@/features/game-templates/component-testers/componentTesters.vue"
+        ),
     },
     {
       path: "/LinktoImageGameMaker",
