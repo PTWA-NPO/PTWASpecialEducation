@@ -239,7 +239,7 @@ export default {
     ]),
 
     selfdefinetemplate() {
-      const key = `/src/features/games-oneoff/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`;
+      const key = `/src/features/games-oneoff/Grade${this.$route.params.grade}/${this.$route.params.id}.vue`;
       const loader = oneOffTemplates[key];
 
       if (!loader) {
@@ -277,9 +277,9 @@ export default {
   },
   created() {
     this.gameID = this.$route.params.id;
-    this.Subject = this.$route.params.Subject;
-    this.Grade = this.$route.params.Grade;
-    this.gameName = this.$route.params.GameName;
+    this.Subject = this.$route.params.subject;
+    this.Grade = this.$route.params.grade;
+    this.gameName = this.$route.params.gameName;
     // this.gameID = this.$route.params.id;
     this.GameStatus = "NotStart";
     this.Nowlevel = 1;
@@ -603,7 +603,7 @@ export default {
     previousPage() {
       soundManager.stopAllSounds();
       this.exitFullScreen();
-      this.$router.replace({ path: `/${this.$route.params.Grade}` });
+      this.$router.replace({ path: `/${this.$route.params.grade}` });
     },
     saveCanvasBackground(canvasImage) {
       this.scratchSheetBackground = canvasImage;
