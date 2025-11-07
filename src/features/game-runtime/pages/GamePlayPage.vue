@@ -165,12 +165,12 @@ import { mapWritableState } from "pinia";
 import { soundManager } from "@/lib/sound-manager.js";
 import TechModal from "@/features/game-runtime/components/TechModal.vue";
 import CalculatorTool from "@/features/game-runtime/components/CalculatorTool.vue";
-const selfDefineTemplates = import.meta.glob(
-  "@/features/games-oneoff/**/*.vue"
-);
+import templateComponents from "@/features/game-runtime/lib/templateRegistry.js";
+const oneOffTemplates = import.meta.glob("@/features/games-oneoff/**/*.vue");
 export default {
   name: "GamePlayPage",
   components: {
+    ...templateComponents,
     TechModal,
     hintbutton,
     GameStart,
@@ -178,123 +178,9 @@ export default {
     GameHeader,
     LevelAndTime,
     MediaModal,
-    LinkGame: defineAsyncComponent(
-      () => import("@/features/game-templates/link-game/LinkGame.vue")
-    ),
-    CompareGame: defineAsyncComponent(
-      () => import("@/features/game-templates/compare-game/CompareGame.vue")
-    ),
-    TrueFalseGame: defineAsyncComponent(
-      () =>
-        import("@/features/game-templates/true-false-game/TrueFalseGame.vue")
-    ),
-    SelectGame: defineAsyncComponent(
-      () => import("@/features/game-templates/select-game/SelectGame.vue")
-    ),
-    ClassifyGame: defineAsyncComponent(
-      () => import("@/features/game-templates/classify-game/ClassifyGame.vue")
-    ),
-    SortGame: defineAsyncComponent(
-      () => import("@/features/game-templates/sort-game/SortGame.vue")
-    ),
-    FindTheItemGame: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/find-the-item-game/FindTheItemGame.vue"
-        )
-    ),
-    AutoNumberingGame: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/auto-numbering-game/AutoNumberingGame.vue"
-        )
-    ),
-    NumberingGame: defineAsyncComponent(
-      () => import("@/features/game-templates/numbering-game/NumberingGame.vue")
-    ),
-    FillinBlank: defineAsyncComponent(
-      () => import("@/features/game-templates/fillin-blank/FillinBlank.vue")
-    ),
-    PairingGame: defineAsyncComponent(
-      () => import("@/features/game-templates/pairing-game/PairingGame.vue")
-    ),
-    NumberLock: defineAsyncComponent(
-      () => import("@/features/game-templates/number-lock/NumberLock.vue")
-    ),
-    RacingCar: defineAsyncComponent(
-      () => import("@/features/game-templates/racing-car/RacingCar.vue")
-    ),
-    WhackaMole: defineAsyncComponent(
-      () => import("@/features/game-templates/whacka-mole/WhackaMole.vue")
-    ),
-    MazeGame: defineAsyncComponent(
-      () => import("@/features/game-templates/maze-game/MazeGame.vue")
-    ),
-    SelectGameMulti: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/select-game-multi/SelectGameMulti.vue"
-        )
-    ),
-    NumberSearchGame: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/number-search-game/NumberSearchGame.vue"
-        )
-    ),
-
-    TrackGame: defineAsyncComponent(
-      () => import("@/features/game-templates/track-game/TrackGame.vue")
-    ),
     EffectWindow,
     SideBar: defineAsyncComponent(
       () => import("@/features/game-runtime/components/SideBar.vue")
-    ),
-    CopyItem: defineAsyncComponent(
-      () => import("@/features/game-templates/copy-item/CopyItem.vue")
-    ),
-    AirplaneGame: defineAsyncComponent(
-      () => import("@/features/game-templates/airplane-game/AirplaneGame.vue")
-    ),
-    ComponentTesters: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/component-testers/componentTesters.vue"
-        )
-    ), //for testing only
-    BalloonShooting: defineAsyncComponent(
-      () =>
-        import("@/features/game-templates/balloon-shooting/BalloonShooting.vue")
-    ),
-    LinkToImage: defineAsyncComponent(
-      () => import("@/features/game-templates/linkto-image/LinktoImage.vue")
-    ),
-    WordProblemWithCalculator: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/word-problem-with-calculator/WordProblemWithCalculator.vue"
-        )
-    ),
-    MoneyDrag: defineAsyncComponent(
-      () => import("@/features/game-templates/money-drag/MoneyDrag.vue")
-    ),
-    MultiplyBoard: defineAsyncComponent(
-      () => import("@/features/game-templates/multiply-board/MultiplyBoard.vue")
-    ),
-    FractionArithmetic: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/fraction-arithmetic/FractionArithmetic.vue"
-        )
-    ),
-    FindPattern: defineAsyncComponent(
-      () => import("@/features/game-templates/find-pattern/FindPattern.vue")
-    ),
-    OneDimensionalForm: defineAsyncComponent(
-      () =>
-        import(
-          "@/features/game-templates/one-dimensional-form/OneDimensionalForm.vue"
-        )
     ),
     CalculatorTool,
   },
@@ -354,7 +240,7 @@ export default {
 
     selfdefinetemplate() {
       const key = `/src/features/games-oneoff/Grade${this.$route.params.Grade}/${this.$route.params.id}.vue`;
-      const loader = selfDefineTemplates[key];
+      const loader = oneOffTemplates[key];
 
       if (!loader) {
         console.warn(`Missing self-define template: ${key}`);
