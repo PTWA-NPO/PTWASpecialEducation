@@ -110,26 +110,27 @@ export default {
       this.options = canvasTools.shuffleOptions(this.gameData.Options);
       this.currentOptionId = Math.floor(Math.random() * this.options.length);
       this.gameWidth = this.$refs.container.clientWidth * 0.8;
+      this.gameHeight = this.gameWidth / 2;
       this.configKonva.width = this.gameWidth;
-      this.configKonva.height = this.gameWidth / 2;
+      this.configKonva.height = this.gameHeight;
       this.drawRoad();
       this.drawTunnel();
-      this.drawOptions();
       this.drawTextBox();
+      this.drawOptions();
       this.drawCar();
       this.setBtnStyle();
     },
     drawRoad() {
       const roadImg = new window.Image();
       roadImg.src = getGameStaticAssets("RacingCar", "road.png");
-      this.laneWidth = this.gameWidth / 2 / this.options.length;
+      this.laneHeight = this.gameHeight / this.options.length;
       this.roadX = 0;
       for (let i = 0; i < this.options.length; i++) {
         const road = {
           x: 0,
-          y: this.laneWidth * i,
+          y: this.laneHeight * i,
           width: this.gameWidth * 2.225,
-          height: this.laneWidth,
+          height: this.laneHeight,
           image: roadImg,
         };
         this.configRoad.push(road);
@@ -145,33 +146,49 @@ export default {
       for (let i = 0; i < this.options.length; i++) {
         const tunnel = {
           x: canvasTools.offset(this.configRoad[i], this.tunnelOffset).x,
-          y: this.laneWidth * i,
-          width: this.laneWidth * 2,
-          height: this.laneWidth,
+          y: this.laneHeight * i,
+          width: this.laneHeight * 2,
+          height: this.laneHeight,
           image: tunnelImg,
         };
         this.configTunnel.push(tunnel);
       }
     },
+    drawTextBox() {
+      this.boxWidth = this.laneHeight * 1;
+      this.boxHeight = this.laneHeight * 0.5;
+      this.textBoxOffset = {
+        x: this.gameWidth + this.laneHeight * 0.75,
+        y: this.laneHeight * 0.25,
+      };
+      for (let i = 0; i < this.options.length; i++) {
+        const box = {
+          cornerRadius: this.laneHeight * 0.1,
+          stroke: "black",
+          fill: "white",
+          x: canvasTools.offset(this.configRoad[i], this.textBoxOffset).x,
+          y: canvasTools.offset(this.configRoad[i], this.textBoxOffset).y,
+          width: this.boxWidth,
+          height: this.boxHeight,
+        };
+        this.configTextBox.push(box);
+      }
+    },
     drawOptions() {
       this.optionOffset = {
-        x: this.gameWidth + this.laneWidth * 0.85,
-        y: this.laneWidth * 0.325,
+        x: this.gameWidth + this.laneHeight * 0.85,
+        y: this.laneHeight * 0.325,
       };
-      let fontSize = this.laneWidth * 0.4;
       for (let i = 0; i < this.options.length; i++) {
-        if (this.options[i].length > 5) {
-          fontSize = this.laneWidth * 0.15;
-        } else if (this.options[i].length > 3) {
-          fontSize = this.laneWidth * 0.2;
-        }
+        const len = (this.options[i].toString()).length;
+        const fontSize = this.boxWidth / len;
         const option = {
           x: canvasTools.offset(this.configRoad[i], this.optionOffset).x,
           y: canvasTools.offset(this.configRoad[i], this.optionOffset).y,
           fontSize,
           text: this.options[i],
           wrap: "word",
-          width: this.laneWidth * 0.8,
+          width: this.boxWidth * 0.8,
           align: "center",
           padding: 5,
           lineHeight: 1.2,
@@ -179,31 +196,13 @@ export default {
         this.configOption.push(option);
       }
     },
-    drawTextBox() {
-      this.textBoxOffset = {
-        x: this.gameWidth + this.laneWidth * 0.75,
-        y: this.laneWidth * 0.25,
-      };
-      for (let i = 0; i < this.options.length; i++) {
-        const box = {
-          cornerRadius: this.laneWidth * 0.1,
-          stroke: "black",
-          fill: "white",
-          x: canvasTools.offset(this.configRoad[i], this.textBoxOffset).x,
-          y: canvasTools.offset(this.configRoad[i], this.textBoxOffset).y,
-          height: this.laneWidth * 0.5,
-          width: this.laneWidth * 1,
-        };
-        this.configTextBox.push(box);
-      }
-    },
     drawCar() {
       const carImg = new window.Image();
       carImg.src = getGameStaticAssets("RacingCar", "car.png");
       this.configCar.image = carImg;
-      this.configCar.height = this.laneWidth * 0.8;
-      this.configCar.width = this.laneWidth * 0.8;
-      this.carOffset = { x: this.laneWidth * 0.2, y: this.laneWidth * 0.1 };
+      this.configCar.height = this.laneHeight * 0.8;
+      this.configCar.width = this.laneHeight * 0.8;
+      this.carOffset = { x: this.laneHeight * 0.2, y: this.laneHeight * 0.1 };
       this.configCar.x = canvasTools.offset(
         this.configRoad[this.currentOptionId],
         this.carOffset
@@ -381,8 +380,8 @@ export default {
       const smoke = {
         x: canvasTools.center(this.configCar).x,
         y: canvasTools.center(this.configCar).y,
-        height: this.laneWidth * 0.1,
-        width: this.laneWidth * 0.1,
+        height: this.laneHeight * 0.1,
+        width: this.laneHeight * 0.1,
         image: smokeImg,
         opacity: 1,
       };
@@ -403,7 +402,7 @@ export default {
           }
         } else {
           this.configSmoke[i].x -= 2;
-          if (this.configSmoke[i].width < this.laneWidth) {
+          if (this.configSmoke[i].width < this.laneHeight) {
             this.configSmoke[i].width++;
             this.configSmoke[i].height++;
             this.configSmoke[i].y = canvasTools.center(this.configCar).y;
