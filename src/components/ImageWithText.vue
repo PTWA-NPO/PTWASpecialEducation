@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="image-with-text">
     <ImageContainer
       :game-id="gameId"
@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { getGameAssets } from "@/lib/get-assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 import ImageContainer from "@/components/ImageContainer.vue";
 export default {
   name: "ImageWithText",
@@ -57,6 +57,3 @@ export default {
   }
 }
 </style>
-
-
-

@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div ref="container" class="gameContainer">
     <v-stage :config="configKonva">
       <v-layer>
@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/lib/get-assets.js";
-import { getSystemAssets } from "@/lib/get-assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 export default {
   components: {},
   props: {
@@ -281,15 +281,15 @@ export default {
       const width = target.width();
       const height = target.height();
 
-      // ? x 摨扳?
+      // 限制 x 座標
       const newX = Math.max(0, Math.min(target.x(), this.gameWidth - width));
       target.x(newX);
 
-      // ? y 摨扳?
+      // 限制 y 座標
       const newY = Math.max(0, Math.min(target.y(), this.gameHeight - height));
       target.y(newY);
 
-      // ?湔 configImage 銝剔?雿蔭
+      // 更新 configImage 中的位置
       const id = target.attrs.index;
       this.configImage[id].x = newX;
       this.configImage[id].y = newY;
@@ -363,6 +363,3 @@ export default {
   height: 100%;
 }
 </style>
-
-
-

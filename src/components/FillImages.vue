@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div ref="container">
     <v-stage :config="configKonva">
       <v-layer>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/lib/get-assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   components: {},
 
@@ -152,6 +152,3 @@ export default {
   },
 };
 </script>
-
-
-

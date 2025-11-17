@@ -1,9 +1,9 @@
-﻿<template>
+<template>
   <div class="YOUR-SLOT-COMPONENT-NAME__container"></div>
 </template>
 
 <script>
-import { getGameAssets } from "@/lib/get-assets.js"; // Feel free to change your the method to get assets.
+import { getGameAssets } from "@/utilitys/get_assets.js"; // Feel free to change your the method to get assets.
 export default {
   name: "SlotComponentTemplate",
   components: {
@@ -44,6 +44,3 @@ export default {
 <style lang="scss" scoped>
 /* Add your styles here */
 </style>
-
-
-
