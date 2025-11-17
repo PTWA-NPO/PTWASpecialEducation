@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import GenericBoard from "@/components/components-utilitys/calculation-board/GenericBoard.vue";
+import GenericBoard from "@/components/utilities/calculation-board/GenericBoard.vue";
 // 引入各題型的 config 設定
 import {
   multiplyConfig,
   addsubConfig,
   divisionConfig,
   decimalConfig,
-} from "@/components/components-utilitys/calculation-board";
+} from "@/components/utilities/calculation-board";
 
 export default {
   name: "CalculationBoard",
