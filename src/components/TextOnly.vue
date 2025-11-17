@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="word">
     <p ref="textOnlyContainer">
       {{ componentConfig.Text }}
@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import { FONT_PACK } from "@/lib/get-scss-variables.js";
+import { FONT_PACK } from "@/utilitys/get-scss-variables";
 export default {
   name: "TextOnly",
   props: {
@@ -55,4 +55,3 @@ div {
   }
 }
 </style>
-

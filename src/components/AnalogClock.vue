@@ -1,10 +1,10 @@
-﻿<template>
+<template>
   <div id="Outter" ref="Outter" class="Outter">
     <canvas id="clock" ref="Clock" />
   </div>
 </template>
 <script>
-import { getSlotComponentAssets } from "@/lib/get-assets.js";
+import { getSlotComponentAssets } from "../utilitys/get_assets";
 export default {
   name: "AnalogClock",
   props: {
@@ -134,5 +134,3 @@ export default {
   justify-content: center;
 }
 </style>
-
-

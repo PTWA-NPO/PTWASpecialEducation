@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div ref="container">
     <v-stage
       :config="configKonva"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/lib/get-assets.js";
+import { getSystemAssets } from "@/utilitys/get_assets.js";
 
 export default {
   components: {},
