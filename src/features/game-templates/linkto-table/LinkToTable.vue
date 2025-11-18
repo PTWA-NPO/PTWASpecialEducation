@@ -113,12 +113,6 @@ export default {
       RectCornerRaduis: 15,
       TableStartY: 20, // 表格開始的Y座標 (往上移)
       shuffledSelections: [], // 打亂後的選項
-      randomColorlist: [
-        "F6BD60",
-        "F5CAC3",
-        "84A59D",
-        "F28482",
-      ],
     };
   },
   created() {
@@ -362,16 +356,8 @@ export default {
         width,
         height,
         cornerRadius: this.RectCornerRaduis,
-        // fill: this.randomColor(),
         fill: "#F6BD60",
       });
-    },
-    randomColor() {
-      return ` #${
-        this.randomColorlist[
-          Math.floor(Math.random() * (this.randomColorlist.length - 1))
-        ]
-      }`;
     },
     configRect() {
       // 計算表格的底部位置
