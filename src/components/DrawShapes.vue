@@ -228,11 +228,11 @@ export default {
     slope(id) {
       const pointSet = this.getPointSetFromLine(id);
       if (pointSet[0].x === pointSet[1].x) return "vertical";
-      else
-        return (
-          (pointSet[0].y - pointSet[1].y) /
-          (pointSet[0].x - pointSet[1].x)
-        ).toFixed(2);
+
+      const k =
+        (pointSet[0].y - pointSet[1].y) / (pointSet[0].x - pointSet[1].x);
+
+      return Math.round(k * 100) / 100;
     },
     isParallel(id1, id2) {
       if (this.slope(id1) === this.slope(id2)) return true;
