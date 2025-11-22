@@ -1,19 +1,10 @@
 <template>
-<<<<<<< HEAD
   <div class="link-to-table">
     <div class="link-to-table__header">
       <a class="link-to-table__title">{{ gameData.Question }}</a>
     </div>
     <div class="link-to-table__game-area">
       <div class="link-to-table__stage">
-=======
-  <div class="OutterContainer container">
-    <div class="title">
-      <a>{{ gameData.Question }}</a>
-    </div>
-    <div class="game-area">
-      <div class="main-stage">
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
         <v-stage
           ref="stage"
           :config="stageConfig"
@@ -80,11 +71,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
-=======
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
 import KonvaFractionText from "@/components/KonvaFractionText.vue";
 
 export default {
@@ -126,15 +113,6 @@ export default {
       RectCornerRaduis: 15,
       TableStartY: 20, // 表格開始的Y座標 (往上移)
       shuffledSelections: [], // 打亂後的選項
-<<<<<<< HEAD
-=======
-      randomColorlist: [
-        "F6BD60",
-        "F5CAC3",
-        "84A59D",
-        "F28482",
-      ],
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
     };
   },
   created() {
@@ -378,23 +356,9 @@ export default {
         width,
         height,
         cornerRadius: this.RectCornerRaduis,
-<<<<<<< HEAD
         fill: "#F6BD60",
       });
     },
-=======
-        // fill: this.randomColor(),
-        fill: "#F6BD60",
-      });
-    },
-    randomColor() {
-      return ` #${
-        this.randomColorlist[
-          Math.floor(Math.random() * (this.randomColorlist.length - 1))
-        ]
-      }`;
-    },
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
     configRect() {
       // 計算表格的底部位置
       const config = this.gameData.TableConfig;
@@ -485,16 +449,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-<<<<<<< HEAD
 .link-to-table {
-=======
-.OutterContainer {
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: $gap--small;
-<<<<<<< HEAD
 
   &__header {
     @extend .container-basic;
@@ -512,15 +471,11 @@ export default {
   }
 
   &__game-area {
-=======
-  .game-area {
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
   }
-<<<<<<< HEAD
 
   &__stage {
     display: flex;
@@ -529,27 +484,3 @@ export default {
   }
 }
 </style>
-=======
-}
-
-.title {
-  @extend .container-basic;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $primary-color;
-  padding: $gap--small;
-  width: 100%;
-  a {
-    font-size: $text-medium;
-    font-weight: $text-bold;
-  }
-}
-
-.main-stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-</style>
->>>>>>> e5b404c (feature/add-MA4181~MA4184-json, add LinkToTable-template)
