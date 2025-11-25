@@ -2,7 +2,6 @@
   <div ref="container">
     <div class="question">
       <h2>{{ gameData.Question }}</h2>
-      <button @click="checkAnswer">提交答案</button>
     </div>
     <v-stage :config="configKonva">
       <v-layer>
@@ -45,6 +44,7 @@
 <script>
 import { getGameAssets } from "@/lib/get-assets.js";
 import * as canvasTools from "@/lib/canvasTools.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {},
 
@@ -71,6 +71,14 @@ export default {
       draggableKey: 0,
       answers: [],
     };
+  },
+
+  created() {
+    emitter.on("submitAnswer", this.checkAnswer);
+  },
+
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswer);
   },
 
   mounted() {
