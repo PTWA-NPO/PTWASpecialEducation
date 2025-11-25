@@ -547,6 +547,17 @@
         "Title": "3 - 尋找規律",
         "Section": [
           {
+            "Title": "圖形的規律",
+            "Games": [
+              {
+                "id": "MA3131",
+                "Name": "圖形的規律",
+                "Description": "按照規律，填填看",
+                "Img": "MA3131.PNG"
+              }
+            ]
+          },
+          {
             "Title": "數字的規律",
             "Games": [
               {
