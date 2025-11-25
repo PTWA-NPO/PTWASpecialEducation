@@ -176,19 +176,19 @@ export default {
     },
     drawOptions() {
       this.optionOffset = {
-        x: this.gameWidth + this.laneHeight * 0.85,
+        x: this.gameWidth + this.laneHeight * 0.75,
         y: this.laneHeight * 0.325,
       };
       for (let i = 0; i < this.options.length; i++) {
         const len = (this.options[i].toString()).length;
-        const fontSize = this.boxWidth / len;
+        const fontSize = (this.boxWidth / len) * 0.8;
         const option = {
           x: canvasTools.offset(this.configRoad[i], this.optionOffset).x,
           y: canvasTools.offset(this.configRoad[i], this.optionOffset).y,
           fontSize,
           text: this.options[i],
           wrap: "word",
-          width: this.boxWidth * 0.8,
+          width: this.boxWidth,
           align: "center",
           padding: 5,
           lineHeight: 1.2,

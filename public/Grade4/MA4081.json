@@ -1,0 +1,122 @@
+{
+  "id": "MA4081",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "計算時,要先算括號內的數,還是由左而右計算?"
+  },
+  "GameType": "RacingCar",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "25-13+2",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 1
+      },
+      {
+        "Question": "100-(25+25)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "18+3-9",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 1
+      },
+      {
+        "Question": "(32-22)-3",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      }
+    ],
+    [
+      {
+        "Question": "40-(19+7)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "50-12+5",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 1
+      },
+      {
+        "Question": "12+13+7",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 1
+      },
+      {
+        "Question": "60-(15+8)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      }
+    ],
+    [
+      {
+        "Question": "40+(23-10)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "(50-20)-10",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "(54-12)-5",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "55-(20-10)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      }
+    ],
+    [
+      {
+        "Question": "5+12-10",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 1
+      },
+      {
+        "Question": "15+(25+13)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "21+(25+13)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "32+(29-6)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      }
+    ],
+    [
+      {
+        "Question": "58+(21-18)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "(42+13)-6",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "(56+28)-10",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      },
+      {
+        "Question": "43-(18+11)",
+        "Options": ["先算括號", "由左而右"],
+        "Answer": 0
+      }
+    ]
+  ]
+}
