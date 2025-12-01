@@ -12,135 +12,160 @@
       {
         "Question": "8x3x2",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "8x3x2=24x2=48"
       },
       {
         "Question": "12÷(2x2)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "12÷(2x2)=12÷4=3"
       },
       {
         "Question": "6x4÷12",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "6x4÷12=24÷12=2"
       },
       {
         "Question": "(28÷7)x1",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(28÷7)x1=4x1=4"
       },
       {
         "Question": "30x(20÷5)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "30x(20÷5)=30x4=120"
       }
     ],
     [
       {
         "Question": "5x3x4",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "5x3x4=15x4=60"
       },
       {
         "Question": "9x4x4",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "9x4x4=36x4=144"
       },
       {
         "Question": "4x7x3",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "4x7x3=28x3=84"
       },
       {
         "Question": "6x5x5",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "6x5x5=30x5=150"
       },
       {
         "Question": "18÷(3x2)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "18÷(3x2)=18÷6=3"
       }
     ],
     [
       {
         "Question": "72÷(4x3)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "72÷(4x3)=72÷12=6"
       },
       {
         "Question": "81÷(3x3)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "81÷(3x3)=81÷9=9"
       },
       {
         "Question": "24÷(2x2)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "24÷(2x2)=24÷4=6"
       },
       {
         "Question": "12x4÷8",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "12x4÷8=48÷8=6"
       },
       {
         "Question": "11x6÷3",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "11x6÷3=66÷3=22"
       }
     ],
     [
       {
         "Question": "8x8÷4",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "8x8÷4=64÷4=16"
       },
       {
         "Question": "14x6÷7",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "14x6÷7=84÷7=12"
       },
       {
         "Question": "(40÷4)x2",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(40÷4)x2=10x2=20"
       },
       {
         "Question": "(54÷6)x3",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(54÷6)x3=9x3=27"
       },
       {
         "Question": "(52÷4)x4",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(52÷4)x4=13x4=52"
       }
     ],
     [
       {
         "Question": "(98÷7)x5",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(98÷7)x5=14x5=70"
       },
       {
         "Question": "25x(24÷6)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "25x(24÷6)=25x4=100"
       },
       {
         "Question": "15x(24÷8)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "15x(24÷8)=15x3=45"
       },
       {
         "Question": "35x(45÷9)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "35x(45÷9)=35x5=175"
       },
       {
         "Question": "18x(42÷7)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "18x(42÷7)=18x6=108"
       }
     ]
   ]

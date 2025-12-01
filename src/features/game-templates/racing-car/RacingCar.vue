@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="gameContainer">
-    <div>
+    <div class="canvasWrapper">
       <h2>{{ gameData.Question }}</h2>
       <v-stage :config="configKonva">
         <v-layer>
@@ -41,6 +41,14 @@
           <v-image :config="configEndingImage" />
         </v-layer>
       </v-stage>
+
+      <!-- DOM Overlay Message - Shows after correct answer -->
+      <div v-if="showMessage" class="overlay-message">
+        <div class="message-content">
+          <p>{{ messageText }}</p>
+          <button class="confirm-button" @click="handleConfirm">確認</button>
+        </div>
+      </div>
     </div>
     <div id="btnContainer">
       <img :src="upBtn" class="controlBtn" @click="getCurrentOptionId('up')" />
@@ -96,6 +104,9 @@ export default {
       upBtn: getGameStaticAssets("RacingCar", "arrowUp.jpg"),
       rightBtn: getGameStaticAssets("RacingCar", "arrowRight.jpg"),
       downBtn: getGameStaticAssets("RacingCar", "arrowDown.jpg"),
+
+      showMessage: false,
+      messageText: "",
     };
   },
 
@@ -339,9 +350,15 @@ export default {
           this.options[this.currentOptionId],
           "正確",
         ]);
-        this.drawSmoke();
-        this.endingFrameCount = 0;
-        requestAnimationFrame(this.endingAnimation);
+
+        // Check if there's a custom message to show
+        if (this.gameData.CorrectMessage) {
+          this.messageText = this.gameData.CorrectMessage;
+          this.showMessage = true;
+        } else {
+          // No message, proceed directly to ending animation
+          this.startEndingAnimation();
+        }
       } else {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
@@ -462,6 +479,15 @@ export default {
       this.configEndingImage.x = canvasTools.corner(this.configEndingImage).x;
       this.configEndingImage.y = canvasTools.corner(this.configEndingImage).y;
     },
+    startEndingAnimation() {
+      this.drawSmoke();
+      this.endingFrameCount = 0;
+      requestAnimationFrame(this.endingAnimation);
+    },
+    handleConfirm() {
+      this.showMessage = false;
+      this.startEndingAnimation();
+    },
   },
 };
 </script>
@@ -472,6 +498,56 @@ export default {
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.canvasWrapper {
+  position: relative;
+}
+
+.overlay-message {
+  position: absolute;
+  top: 50%;
+  left: 62.5%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  .message-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    min-width: 400px;
+
+    p {
+      margin: 0 0 30px 0;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .confirm-button {
+      padding: 15px 40px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:active {
+        background-color: #004085;
+      }
+    }
+  }
 }
 
 #btnContainer {

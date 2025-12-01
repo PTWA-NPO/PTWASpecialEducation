@@ -12,110 +12,130 @@
       {
         "Question": "25-13+2",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "25-13+2=12+2=14"
       },
       {
         "Question": "100-(25+25)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "100-(25+25)=100-50=50"
       },
       {
         "Question": "18+3-9",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "18+3-9=21-9=12"
       },
       {
         "Question": "(32-22)-3",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(32-22)-3=10-3=7"
       }
     ],
     [
       {
         "Question": "40-(19+7)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "40-(19+7)=40-26=14"
       },
       {
         "Question": "50-12+5",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "50-12+5=38+5=43"
       },
       {
         "Question": "12+13+7",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "12+13+7=25+7=32"
       },
       {
         "Question": "60-(15+8)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "60-(15+8)=60-23=37"
       }
     ],
     [
       {
         "Question": "40+(23-10)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "40+(23-10)=40+13=53"
       },
       {
         "Question": "(50-20)-10",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(50-20)-10=30-10=20"
       },
       {
         "Question": "(54-12)-5",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(54-12)-5=42-5=37"
       },
       {
         "Question": "55-(20-10)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "55-(20-10)=55-10=45"
       }
     ],
     [
       {
         "Question": "5+12-10",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 1
+        "Answer": 1,
+        "CorrectMessage": "5+12-10=17-10=7"
       },
       {
         "Question": "15+(25+13)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "15+(25+13)=15+38=53"
       },
       {
         "Question": "21+(25+13)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "21+(25+13)=21+38=59"
       },
       {
         "Question": "32+(29-6)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "32+(29-6)=32+23=55"
       }
     ],
     [
       {
         "Question": "58+(21-18)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "58+(21-18)=58+3=61"
       },
       {
         "Question": "(42+13)-6",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(42+13)-6=55-6=49"
       },
       {
         "Question": "(56+28)-10",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "(56+28)-10=84-10=74"
       },
       {
         "Question": "43-(18+11)",
         "Options": ["先算括號", "由左而右"],
-        "Answer": 0
+        "Answer": 0,
+        "CorrectMessage": "43-(18+11)=43-29=14"
       }
     ]
   ]
