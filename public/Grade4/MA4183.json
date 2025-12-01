@@ -1,0 +1,497 @@
+{
+  "id": "MA4183",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "用無條件捨去法取概數,將答案連到正確位置"
+  },
+  "GameType": "LinkToTable",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["2000", "2600", "2620"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["2621", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "2000" },
+          { "position": [1, 2], "Connect2": "2600" },
+          { "position": [1, 3], "Connect2": "2620" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["9000", "9800", "9880"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["9888", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "9000" },
+          { "position": [1, 2], "Connect2": "9800" },
+          { "position": [1, 3], "Connect2": "9880" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["3000", "3400", "3460"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["3462", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "3000" },
+          { "position": [1, 2], "Connect2": "3400" },
+          { "position": [1, 3], "Connect2": "3460" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["5000", "5300", "5320"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["5327", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "5000" },
+          { "position": [1, 2], "Connect2": "5300" },
+          { "position": [1, 3], "Connect2": "5320" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["9000", "9900", "9990"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["9999", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "9000" },
+          { "position": [1, 2], "Connect2": "9900" },
+          { "position": [1, 3], "Connect2": "9990" }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["38000", "38600", "38640"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["38644", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "38000" },
+          { "position": [1, 2], "Connect2": "38600" },
+          { "position": [1, 3], "Connect2": "38640" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["40000", "40300", "40310"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["40319", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "40000" },
+          { "position": [1, 2], "Connect2": "40300" },
+          { "position": [1, 3], "Connect2": "40310" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["70000", "70200", "70210"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["70216", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "70000" },
+          { "position": [1, 2], "Connect2": "70200" },
+          { "position": [1, 3], "Connect2": "70210" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["39000", "39800", "39810"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["39812", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "39000" },
+          { "position": [1, 2], "Connect2": "39800" },
+          { "position": [1, 3], "Connect2": "39810" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["50000", "50100", "50120"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到千位", "取到百位", "取到十位"],
+          ["50122", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "50000" },
+          { "position": [1, 2], "Connect2": "50100" },
+          { "position": [1, 3], "Connect2": "50120" }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["70000", "72000", "72300"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["72302", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "70000" },
+          { "position": [1, 2], "Connect2": "72000" },
+          { "position": [1, 3], "Connect2": "72300" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["20000", "26000", "26020"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["26021", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "20000" },
+          { "position": [1, 2], "Connect2": "26000" },
+          { "position": [1, 3], "Connect2": "26020" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["40000", "45000", "45620"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["45622", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "40000" },
+          { "position": [1, 2], "Connect2": "45000" },
+          { "position": [1, 3], "Connect2": "45620" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["70000", "77000", "77040"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["77049", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "70000" },
+          { "position": [1, 2], "Connect2": "77000" },
+          { "position": [1, 3], "Connect2": "77040" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["10000", "13000", "13900"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["13901", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "10000" },
+          { "position": [1, 2], "Connect2": "13000" },
+          { "position": [1, 3], "Connect2": "13900" }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["310000", "314000", "314920"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["314926", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "310000" },
+          { "position": [1, 2], "Connect2": "314000" },
+          { "position": [1, 3], "Connect2": "314920" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["540000", "542000", "542100"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["542109", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "540000" },
+          { "position": [1, 2], "Connect2": "542000" },
+          { "position": [1, 3], "Connect2": "542100" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["730000", "734000", "734810"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["734812", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "730000" },
+          { "position": [1, 2], "Connect2": "734000" },
+          { "position": [1, 3], "Connect2": "734810" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["780000", "786000", "786030"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["786034", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "780000" },
+          { "position": [1, 2], "Connect2": "786000" },
+          { "position": [1, 3], "Connect2": "786030" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["820000", "821000", "821020"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["821022", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "820000" },
+          { "position": [1, 2], "Connect2": "821000" },
+          { "position": [1, 3], "Connect2": "821020" }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["8730000", "8739000", "8739920"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["8739921", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "8730000" },
+          { "position": [1, 2], "Connect2": "8739000" },
+          { "position": [1, 3], "Connect2": "8739920" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["1780000", "1786000", "1786030"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["1786034", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "1780000" },
+          { "position": [1, 2], "Connect2": "1786000" },
+          { "position": [1, 3], "Connect2": "1786030" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["3360000", "3362000", "3362010"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["3362015", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "3360000" },
+          { "position": [1, 2], "Connect2": "3362000" },
+          { "position": [1, 3], "Connect2": "3362010" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["1170000", "1172000", "1172940"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["1172943", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "1170000" },
+          { "position": [1, 2], "Connect2": "1172000" },
+          { "position": [1, 3], "Connect2": "1172940" }
+        ]
+      },
+      {
+        "Question": "用無條件捨去法取概數",
+        "Selections": ["3450000", "3453000", "3453450"],
+        "TableConfig": {
+          "rows": 2,
+          "cols": 4,
+          "cellWidth": 150,
+          "cellHeight": 70
+        },
+        "TableData": [
+          ["原來的數", "取到萬位", "取到千位", "取到十位"],
+          ["3453456", "", "", ""]
+        ],
+        "MountPoint": [
+          { "position": [1, 1], "Connect2": "3450000" },
+          { "position": [1, 2], "Connect2": "3453000" },
+          { "position": [1, 3], "Connect2": "3453450" }
+        ]
+      }
+    ]
+  ]
+}

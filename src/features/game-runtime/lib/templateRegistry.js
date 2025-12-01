@@ -1,5 +1,4 @@
 import { defineAsyncComponent } from "vue";
-
 const templateLoaders = {
   LinkGame: () => import("@/features/game-templates/link-game/LinkGame.vue"),
   CompareGame: () =>
@@ -56,6 +55,8 @@ const templateLoaders = {
     import("@/features/game-templates/balloon-shooting/BalloonShooting.vue"),
   LinkToImage: () =>
     import("@/features/game-templates/linkto-image/LinktoImage.vue"),
+  LinkToTable: () =>
+    import("@/features/game-templates/linkto-table/LinktoTable.vue"),
   WordProblemWithCalculator: () =>
     import(
       "@/features/game-templates/word-problem-with-calculator/WordProblemWithCalculator.vue"

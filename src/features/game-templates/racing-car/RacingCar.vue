@@ -1,6 +1,6 @@
 <template>
   <div ref="container" class="gameContainer">
-    <div>
+    <div class="canvasWrapper">
       <h2>{{ gameData.Question }}</h2>
       <v-stage :config="configKonva">
         <v-layer>
@@ -41,6 +41,14 @@
           <v-image :config="configEndingImage" />
         </v-layer>
       </v-stage>
+
+      <!-- DOM Overlay Message - Shows after correct answer -->
+      <div v-if="showMessage" class="overlay-message">
+        <div class="message-content">
+          <p>{{ messageText }}</p>
+          <button class="confirm-button" @click="handleConfirm">確認</button>
+        </div>
+      </div>
     </div>
     <div id="btnContainer">
       <img :src="upBtn" class="controlBtn" @click="getCurrentOptionId('up')" />
@@ -96,6 +104,9 @@ export default {
       upBtn: getGameStaticAssets("RacingCar", "arrowUp.jpg"),
       rightBtn: getGameStaticAssets("RacingCar", "arrowRight.jpg"),
       downBtn: getGameStaticAssets("RacingCar", "arrowDown.jpg"),
+
+      showMessage: false,
+      messageText: "",
     };
   },
 
@@ -110,26 +121,27 @@ export default {
       this.options = canvasTools.shuffleOptions(this.gameData.Options);
       this.currentOptionId = Math.floor(Math.random() * this.options.length);
       this.gameWidth = this.$refs.container.clientWidth * 0.8;
+      this.gameHeight = this.gameWidth / 2;
       this.configKonva.width = this.gameWidth;
-      this.configKonva.height = this.gameWidth / 2;
+      this.configKonva.height = this.gameHeight;
       this.drawRoad();
       this.drawTunnel();
-      this.drawOptions();
       this.drawTextBox();
+      this.drawOptions();
       this.drawCar();
       this.setBtnStyle();
     },
     drawRoad() {
       const roadImg = new window.Image();
       roadImg.src = getGameStaticAssets("RacingCar", "road.png");
-      this.laneWidth = this.gameWidth / 2 / this.options.length;
+      this.laneHeight = this.gameHeight / this.options.length;
       this.roadX = 0;
       for (let i = 0; i < this.options.length; i++) {
         const road = {
           x: 0,
-          y: this.laneWidth * i,
+          y: this.laneHeight * i,
           width: this.gameWidth * 2.225,
-          height: this.laneWidth,
+          height: this.laneHeight,
           image: roadImg,
         };
         this.configRoad.push(road);
@@ -145,33 +157,49 @@ export default {
       for (let i = 0; i < this.options.length; i++) {
         const tunnel = {
           x: canvasTools.offset(this.configRoad[i], this.tunnelOffset).x,
-          y: this.laneWidth * i,
-          width: this.laneWidth * 2,
-          height: this.laneWidth,
+          y: this.laneHeight * i,
+          width: this.laneHeight * 2,
+          height: this.laneHeight,
           image: tunnelImg,
         };
         this.configTunnel.push(tunnel);
       }
     },
+    drawTextBox() {
+      this.boxWidth = this.laneHeight * 1;
+      this.boxHeight = this.laneHeight * 0.5;
+      this.textBoxOffset = {
+        x: this.gameWidth + this.laneHeight * 0.75,
+        y: this.laneHeight * 0.25,
+      };
+      for (let i = 0; i < this.options.length; i++) {
+        const box = {
+          cornerRadius: this.laneHeight * 0.1,
+          stroke: "black",
+          fill: "white",
+          x: canvasTools.offset(this.configRoad[i], this.textBoxOffset).x,
+          y: canvasTools.offset(this.configRoad[i], this.textBoxOffset).y,
+          width: this.boxWidth,
+          height: this.boxHeight,
+        };
+        this.configTextBox.push(box);
+      }
+    },
     drawOptions() {
       this.optionOffset = {
-        x: this.gameWidth + this.laneWidth * 0.85,
-        y: this.laneWidth * 0.325,
+        x: this.gameWidth + this.laneHeight * 0.75,
+        y: this.laneHeight * 0.325,
       };
-      let fontSize = this.laneWidth * 0.4;
       for (let i = 0; i < this.options.length; i++) {
-        if (this.options[i].length > 5) {
-          fontSize = this.laneWidth * 0.15;
-        } else if (this.options[i].length > 3) {
-          fontSize = this.laneWidth * 0.2;
-        }
+        const len = (this.options[i].toString()).length;
+        const fontSize = (this.boxWidth / len) * 0.8;
         const option = {
           x: canvasTools.offset(this.configRoad[i], this.optionOffset).x,
           y: canvasTools.offset(this.configRoad[i], this.optionOffset).y,
           fontSize,
           text: this.options[i],
           wrap: "word",
-          width: this.laneWidth * 0.8,
+          width: this.boxWidth,
           align: "center",
           padding: 5,
           lineHeight: 1.2,
@@ -179,31 +207,13 @@ export default {
         this.configOption.push(option);
       }
     },
-    drawTextBox() {
-      this.textBoxOffset = {
-        x: this.gameWidth + this.laneWidth * 0.75,
-        y: this.laneWidth * 0.25,
-      };
-      for (let i = 0; i < this.options.length; i++) {
-        const box = {
-          cornerRadius: this.laneWidth * 0.1,
-          stroke: "black",
-          fill: "white",
-          x: canvasTools.offset(this.configRoad[i], this.textBoxOffset).x,
-          y: canvasTools.offset(this.configRoad[i], this.textBoxOffset).y,
-          height: this.laneWidth * 0.5,
-          width: this.laneWidth * 1,
-        };
-        this.configTextBox.push(box);
-      }
-    },
     drawCar() {
       const carImg = new window.Image();
       carImg.src = getGameStaticAssets("RacingCar", "car.png");
       this.configCar.image = carImg;
-      this.configCar.height = this.laneWidth * 0.8;
-      this.configCar.width = this.laneWidth * 0.8;
-      this.carOffset = { x: this.laneWidth * 0.2, y: this.laneWidth * 0.1 };
+      this.configCar.height = this.laneHeight * 0.8;
+      this.configCar.width = this.laneHeight * 0.8;
+      this.carOffset = { x: this.laneHeight * 0.2, y: this.laneHeight * 0.1 };
       this.configCar.x = canvasTools.offset(
         this.configRoad[this.currentOptionId],
         this.carOffset
@@ -295,6 +305,8 @@ export default {
           break;
 
         case 32:
+        case 39:
+        case 68:
           this.getCurrentOptionId("right");
           break;
       }
@@ -338,9 +350,15 @@ export default {
           this.options[this.currentOptionId],
           "正確",
         ]);
-        this.drawSmoke();
-        this.endingFrameCount = 0;
-        requestAnimationFrame(this.endingAnimation);
+
+        // Check if there's a custom message to show
+        if (this.gameData.CorrectMessage) {
+          this.messageText = this.gameData.CorrectMessage;
+          this.showMessage = true;
+        } else {
+          // No message, proceed directly to ending animation
+          this.startEndingAnimation();
+        }
       } else {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
@@ -379,8 +397,8 @@ export default {
       const smoke = {
         x: canvasTools.center(this.configCar).x,
         y: canvasTools.center(this.configCar).y,
-        height: this.laneWidth * 0.1,
-        width: this.laneWidth * 0.1,
+        height: this.laneHeight * 0.1,
+        width: this.laneHeight * 0.1,
         image: smokeImg,
         opacity: 1,
       };
@@ -401,7 +419,7 @@ export default {
           }
         } else {
           this.configSmoke[i].x -= 2;
-          if (this.configSmoke[i].width < this.laneWidth) {
+          if (this.configSmoke[i].width < this.laneHeight) {
             this.configSmoke[i].width++;
             this.configSmoke[i].height++;
             this.configSmoke[i].y = canvasTools.center(this.configCar).y;
@@ -461,6 +479,15 @@ export default {
       this.configEndingImage.x = canvasTools.corner(this.configEndingImage).x;
       this.configEndingImage.y = canvasTools.corner(this.configEndingImage).y;
     },
+    startEndingAnimation() {
+      this.drawSmoke();
+      this.endingFrameCount = 0;
+      requestAnimationFrame(this.endingAnimation);
+    },
+    handleConfirm() {
+      this.showMessage = false;
+      this.startEndingAnimation();
+    },
   },
 };
 </script>
@@ -471,6 +498,56 @@ export default {
   width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+.canvasWrapper {
+  position: relative;
+}
+
+.overlay-message {
+  position: absolute;
+  top: 50%;
+  left: 62.5%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  .message-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    min-width: 400px;
+
+    p {
+      margin: 0 0 30px 0;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .confirm-button {
+      padding: 15px 40px;
+      font-size: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:active {
+        background-color: #004085;
+      }
+    }
+  }
 }
 
 #btnContainer {

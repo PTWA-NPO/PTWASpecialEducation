@@ -1,0 +1,151 @@
+{
+  "id": "MA4181",
+  "GameType": "TrueFalseGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "下面敘述的數量,是用概數表示的選O,不是的選X。"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Question": "玉山的高度約3950公尺。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "教室裡有23張椅子。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "一客牛排定價350元。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "成年大貓熊的體重約100公斤。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "從臺北坐火車到高雄,大概要3小時30分鐘。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      }
+    ],
+    [
+      {
+        "Question": "披薩店的訂購電話是2825252。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "加10公升汽油大約要300元。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "電影票一張270元。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "三年A班有30位學生。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "一首歌約4分5秒。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      }
+    ],
+    [
+      {
+        "Question": "101大樓的高度約510公尺。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "1分鐘有60秒鐘。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "濁水溪全長約187公里。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "爸爸的生日在4月5日。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "12月有31天。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      }
+    ],
+    [
+      {
+        "Question": "大巨蛋體育園區可容納約4萬人。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "妹妹有3個好朋友。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "弟弟花了快30分鐘才把功課寫完。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "媽媽一個月的薪水是34500元。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "爸爸的身高約180公分。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      }
+    ],
+    [
+      {
+        "Question": "哥哥的存錢筒裡有357元。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "一支手機大約30000元。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "美術館一個月的參觀人次約有14萬人。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "學校操場一圈400公尺。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "一箱西瓜大約重20公斤。",
+        "Answer": true,
+        "SlotComponents": [{ "Name": "" }]
+      },
+      {
+        "Question": "1天有24小時。",
+        "Answer": false,
+        "SlotComponents": [{ "Name": "" }]
+      }
+    ]
+  ]
+}
