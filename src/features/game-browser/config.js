@@ -4,3 +4,6 @@ export const EXTERNAL_LINKS = {
 };
 
 export const SUBJECTS = ["math", "chinese", "technology"];
+
+// 在這裡填入要隱藏的遊戲 ID
+export const HIDDEN_GAMES = [];

@@ -17,5 +17,5 @@ export async function getJsonData(subjectLower, grade) {
 
 export async function loadSubjectData(subjectLower, grade) {
   const raw = await getJsonData(subjectLower, grade);
-  return convertGameDataImageURLs(raw);
+  return await convertGameDataImageURLs(raw, grade);
 }
