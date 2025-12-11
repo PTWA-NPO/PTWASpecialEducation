@@ -23,6 +23,8 @@
       :config="circle"
       @dragmove="denominatorDragMove"
       @dragend="denominatorDragEnd"
+      @click="removeValue(index)"
+      @tap="removeValue(index)"
     />
   </template>
 
@@ -41,6 +43,8 @@
       :config="rect"
       @dragmove="denominatorDragMove"
       @dragend="denominatorDragEnd"
+      @click="removeValue(index)"
+      @tap="removeValue(index)"
     />
   </template>
 
@@ -187,7 +191,7 @@ export default {
           0.02
         );
         for (let i = 0; i < this.fill.length; ++i) {
-          if (this.fill[i] > 0) {
+          if (this.configDenominator.fillShape[i]) {
             this.configDenominator.fillShape[i].endRadians = this.animateValue(
               this.configDenominator.fillShape[i].endRadians,
               Math.PI * 2 * this.fill[i],
@@ -203,7 +207,7 @@ export default {
           1
         );
         for (let i = 0; i < this.fill.length; ++i) {
-          if (this.fill[i] > 0) {
+          if (this.configDenominator.fillShape[i]) {
             this.configDenominator.fillShape[i].width = this.animateValue(
               this.configDenominator.fillShape[i].width,
               this.rectAttr.width * this.fill[i],
@@ -498,6 +502,14 @@ export default {
         // 1.01 for float tolerance? Original was <= 1.
         // Original: if (this.fill[i] + 1 / this.numerator <= 1)
         this.fill[index] += 1 / this.numerator;
+        this.$emit("addFill", this.fill);
+      }
+    },
+
+    removeValue(index) {
+      if (this.fill[index] - 1 / this.numerator >= -0.01) {
+        this.fill[index] -= 1 / this.numerator;
+        if (this.fill[index] < 0) this.fill[index] = 0;
         this.$emit("addFill", this.fill);
       }
     },
