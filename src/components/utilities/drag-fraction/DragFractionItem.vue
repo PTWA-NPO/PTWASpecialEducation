@@ -84,6 +84,10 @@ export default {
       required: true,
       validator: (v) => ["circle", "rect"].includes(v),
     },
+    defaultGridOnTop: {
+      type: [Boolean, Object],
+      default: false,
+    },
   },
 
   emits: ["addFill"],
@@ -178,6 +182,45 @@ export default {
 
     initialize() {
       this.drawNumerator();
+      if (this.defaultGridOnTop) {
+        this.drawDenominator();
+        const firstIdx = 0;
+
+        let config = {};
+        if (typeof this.defaultGridOnTop === "object") {
+          config = this.defaultGridOnTop;
+        }
+
+        if (config.slices !== undefined) {
+          this.configDenominator.slice[firstIdx].slices = config.slices;
+        }
+
+        // Default to center of boundaries if no config
+        let targetX =
+          this.boundaries.left +
+          (this.boundaries.right - this.boundaries.left) * 0.5;
+        let targetY =
+          this.boundaries.up +
+          (this.boundaries.down - this.boundaries.up) * 0.5;
+
+        if (config.x !== undefined) targetX = this.gameWidth * config.x;
+        if (config.y !== undefined) targetY = this.gameHeight * config.y;
+
+        // Ensure inside boundaries
+        targetX = Math.max(targetX, this.boundaries.left);
+        targetX = Math.min(targetX, this.boundaries.right);
+        targetY = Math.max(targetY, this.boundaries.up);
+        targetY = Math.min(targetY, this.boundaries.down);
+
+        // Move first grid
+        this.configDenominator.frame[firstIdx].x = targetX;
+        this.configDenominator.frame[firstIdx].y = targetY;
+        this.configDenominator.fillShape[firstIdx].x = targetX;
+        this.configDenominator.fillShape[firstIdx].y = targetY;
+        this.configDenominator.fillShape[firstIdx].visible = true;
+        this.configDenominator.slice[firstIdx].x = targetX;
+        this.configDenominator.slice[firstIdx].y = targetY;
+      }
       this.drawDenominator();
       this.drawBin();
     },

@@ -13,6 +13,7 @@
           :numerator="numerator"
           :denominator="denominator"
           :shape="componentConfig.shape"
+          :default-grid-on-top="componentConfig.defaultGridOnTop"
           @add-fill="addFill"
         />
       </v-layer>
