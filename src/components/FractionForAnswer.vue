@@ -4,20 +4,39 @@
       <span v-if="componentConfig.prefix" class="prefix">{{
         componentConfig.prefix
       }}</span>
-      <div class="fraction-container">
-        <input
-          ref="numerator"
-          class="fraction-input numerator"
-          type="text"
-          @click="showNumPad('numerator', $event)"
-        />
+      <div
+        class="fraction-container"
+        :style="{ fontSize: `${containerScale}em` }"
+      >
+        <!-- 分子部分 -->
+        <template v-if="isNumeratorInput">
+          <input
+            ref="numerator"
+            class="fraction-input numerator"
+            type="text"
+            @click="showNumPad('numerator', $event)"
+            @input="handleNativeInput"
+          />
+        </template>
+        <span v-else class="fraction-text numerator">{{
+          componentConfig.numerator
+        }}</span>
+
         <span class="line"></span>
-        <input
-          ref="denominator"
-          class="fraction-input denominator"
-          type="text"
-          @click="showNumPad('denominator', $event)"
-        />
+
+        <!-- 分母部分 -->
+        <template v-if="isDenominatorInput">
+          <input
+            ref="denominator"
+            class="fraction-input denominator"
+            type="text"
+            @click="showNumPad('denominator', $event)"
+            @input="handleNativeInput"
+          />
+        </template>
+        <span v-else class="fraction-text denominator">{{
+          componentConfig.denominator
+        }}</span>
       </div>
       <span v-if="componentConfig.suffix" class="suffix">{{
         componentConfig.suffix
@@ -58,7 +77,28 @@ export default {
       activeInputRef: "",
       // 定義常數
       numPadOffset: 10, // 虛擬鍵盤與目標輸入框的間距
+      containerScale: 1,
     };
+  },
+  computed: {
+    // 判斷分子是否為輸入框
+    isNumeratorInput() {
+      const blankPart = this.componentConfig.blank_part;
+      // 預設為輸入框 (undefined or 'both' or 'numerator')
+      if (!blankPart || blankPart === "both" || blankPart === "numerator") {
+        return true;
+      }
+      return false;
+    },
+    // 判斷分母是否為輸入框
+    isDenominatorInput() {
+      const blankPart = this.componentConfig.blank_part;
+      // 預設為輸入框 (undefined or 'both' or 'denominator')
+      if (!blankPart || blankPart === "both" || blankPart === "denominator") {
+        return true;
+      }
+      return false;
+    },
   },
   methods: {
     showNumPad(inputRef, event) {
@@ -88,10 +128,28 @@ export default {
       }
     },
     validateAnswer() {
-      const userNumerator = parseInt(this.$refs.numerator.value, 10);
-      const userDenominator = parseInt(this.$refs.denominator.value, 10);
+      let userNumerator, userDenominator;
 
-      // 檢查是否有輸入值和分母不為0
+      // 取得或設定分子數值
+      if (this.isNumeratorInput) {
+        // 如果是輸入框，從 input 讀值
+        userNumerator = parseInt(this.$refs.numerator.value, 10);
+      } else {
+        // 如果不是輸入框，直接使用正確答案的數值
+        userNumerator = this.componentConfig.numerator;
+      }
+
+      // 取得或設定分母數值
+      if (this.isDenominatorInput) {
+        // 如果是輸入框，從 input 讀值
+        userDenominator = parseInt(this.$refs.denominator.value, 10);
+      } else {
+        // 如果不是輸入框，直接使用正確答案的數值
+        userDenominator = this.componentConfig.denominator;
+      }
+
+      // 檢查是否有輸入值 (針對輸入框的部分檢查 NaN)
+      // 若是純顯示部分，上面的邏輯已經assign了 componentConfig 的值 (假設 config 正確則不會是 NaN)
       if (
         isNaN(userNumerator) ||
         isNaN(userDenominator) ||
@@ -106,7 +164,11 @@ export default {
         this.componentConfig.numerator / this.componentConfig.denominator;
       const userValue = userNumerator / userDenominator;
 
-      const isCorrect = correctValue === userValue;
+      // 比較浮點數 (雖然這裡大多是整數除法，但為了保險可以用 epsilon，不過目前邏輯是用恆等)
+      // 小學生題目通常數值單純，直接比較即可
+      const isCorrect =
+        Math.abs(correctValue - userValue) < Number.EPSILON * 10 ||
+        correctValue === userValue;
 
       const correctAnswer = `${this.componentConfig.numerator}/${this.componentConfig.denominator}`;
       const userAnswer = `${userNumerator}/${userDenominator}`;
@@ -121,16 +183,67 @@ export default {
     closeNumPad() {
       this.virtualNumpadSwitch = false;
     },
-    clearActiveInput() {
-      if (this.activeInputRef) {
-        this.$refs[this.activeInputRef].value = "";
-      }
+    handleNativeInput() {
+      this.adjustInputWidth();
+      this.validateAnswer();
     },
     updateInputValue(label) {
       if (this.activeInputRef) {
         const input = this.$refs[this.activeInputRef];
         input.value += label;
+        this.adjustInputWidth();
       }
+    },
+    clearActiveInput() {
+      if (this.activeInputRef) {
+        const input = this.$refs[this.activeInputRef];
+        input.value = "";
+        this.adjustInputWidth();
+        this.validateAnswer();
+      }
+    },
+    adjustInputWidth() {
+      // 找出所有 active 的 input
+      const inputs = [];
+      if (this.isNumeratorInput && this.$refs.numerator) {
+        inputs.push(this.$refs.numerator);
+      }
+      if (this.isDenominatorInput && this.$refs.denominator) {
+        inputs.push(this.$refs.denominator);
+      }
+
+      if (inputs.length === 0) return;
+
+      // 計算最大長度
+      let maxLength = 3; // 預設 3
+      inputs.forEach((input) => {
+        if (input.value.length > maxLength) {
+          maxLength = input.value.length;
+        }
+      });
+
+      // 計算縮放比例 (基準 3 個字不縮放)
+      const baseLength = 3;
+      const scale = Math.min(1, baseLength / maxLength);
+
+      // 套用寬度到所有 input
+      inputs.forEach((input) => {
+        // 使用 ch 單位，大概 1ch = 1 個數字寬度
+        // 加上 padding/border 的餘裕 (+2 ch)
+        // 這裡統一設定，如果長度 <= 3 其實 4ch 就夠 (預設width: 4ch)
+        // 但為了同步，如果有一個 > 3，所有的都要變大
+        // 當縮放時，字體變小，ch 也會變小，所以寬度數值依然適用
+        if (maxLength > 3) {
+          input.style.width = maxLength + 2 + "ch";
+        } else {
+          input.style.width = ""; // 回復 CSS 預設 (4ch)
+        }
+
+        // 套用縮放字體
+        // input.style.fontSize = `${scale}em`; // Moved to container level
+      });
+
+      this.containerScale = scale;
     },
   },
 };
@@ -142,8 +255,10 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1em;
   margin: 0 auto;
+  container-type: inline-size; /* Enable container queries */
+  font-size: clamp(1rem, 15cqw, 3rem); /* Respond to container width */
 }
 
 .fraction-container {
@@ -151,29 +266,36 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.2em;
 }
 
-.fraction-input {
+.fraction-input,
+.fraction-text {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  align-items: center;
+  justify-content: center;
+  /* min-width: 4ch; Removed redundant min-width */
+  width: 4ch;
+  max-width: 100%; /* Ensure input doesn't overflow container */
+  padding: 0 0.2em;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1em; /* Inherit or use em */
 }
 
 .line {
   display: block;
-  border-top: 0.2rem solid black;
+  border-top: 0.1em solid black;
   width: 100%;
-  margin: 2px 0;
+  margin: 0.1em 0;
+  transform: scaleX(1.25); /* Widen the line visually */
 }
 
 .prefix,
 .suffix {
-  font-size: 1.5rem;
+  font-size: 1em;
   display: flex;
   align-items: center;
   align-items: center;
