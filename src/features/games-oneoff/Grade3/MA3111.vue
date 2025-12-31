@@ -4,27 +4,16 @@
       <h1 class="game__question-description">{{ questionDescription }}</h1>
     </div>
     <div class="game__interaction-area">
-      <div class="game__fraction-panel">
-        <FractionDisplay
-          :component-config="questionFraction"
-          :game-id="gameId"
-          class="game__fraction-display"
-        ></FractionDisplay>
-        <FractionChart
-          :component-config="chartData"
-          :game-id="gameId"
-          class="game__chart-container"
-          @mounted="calculateChartSize"
-        ></FractionChart>
-        <button class="game__check-answer-btn" @click="checkAnswer">
-          送出答案
-        </button>
-      </div>
+      <FractionForAnswer
+        :component-config="inputFractionConfig"
+        class="game__fraction-input"
+        @reply-answer="handleInputAnswer"
+      ></FractionForAnswer>
       <DragFraction
         :component-config="configFraction"
         :game-id="gameId"
         class="game__answer-area"
-        @reply-answer="drag"
+        @reply-answer="handleDragAnswer"
         @record-answer="handleRecordAnswer"
       ></DragFraction>
     </div>
@@ -33,15 +22,15 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import FractionChart from "@/components/FractionChart.vue";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+
 export default {
   components: {
-    FractionChart,
-    FractionDisplay: defineAsyncComponent(
-      () => import("@/components/FractionDisplay.vue")
-    ),
     DragFraction: defineAsyncComponent(
       () => import("@/components/DragFraction.vue")
+    ),
+    FractionForAnswer: defineAsyncComponent(
+      () => import("@/components/FractionForAnswer.vue")
     ),
   },
   props: {
@@ -57,36 +46,35 @@ export default {
   emits: ["add-record", "play-effect", "next-question"],
   data() {
     return {
+      inputFractionConfig: this.gameData.question.fraction,
       configFraction: this.gameData.answerData,
-      chartWidth: 0,
-      chartHeight: 0,
-      isAnswerCorrect: false,
+      isInputCorrect: false,
+      isDragCorrect: false,
       questionDescription: this.gameData.question.description,
       questionFraction: this.gameData.question.fraction,
-      chartData: {
-        shape: this.gameData.answerData.shape,
-        numerator: this.gameData.answerData.answer.numerator, // 分子
-        denominator: this.gameData.answerData.answer.denominator, // 分母
-      },
+      answerData: this.gameData.answerData.answer,
     };
   },
-  computed: {},
+  mounted() {
+    emitter.on("submitAnswer", this.checkAnswer);
+  },
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswer);
+  },
   methods: {
-    drag(answer) {
-      this.isAnswerCorrect = answer;
+    handleInputAnswer(isCorrect) {
+      this.isInputCorrect = isCorrect;
     },
-    calculateChartSize() {
-      const fractionChart = this.$refs.fractionChart;
-      if (fractionChart) {
-        this.chartWidth = fractionChart.offsetWidth * 0.85 || 150; // 確保有預設值
-        this.chartHeight = fractionChart.offsetHeight * 0.85 || 150; // 確保有預設值
-      } else {
-        console.error("FractionChart not found!");
-      }
+    handleDragAnswer(isCorrect) {
+      this.isDragCorrect = isCorrect;
     },
     checkAnswer() {
-      this.$emit("add-record", this.recordedAnswer);
-      if (this.isAnswerCorrect) {
+      if (this.recordedAnswer) {
+        this.$emit("add-record", this.recordedAnswer);
+      }
+
+      // Check if both the fraction input and the drag fraction are correct
+      if (this.isInputCorrect && this.isDragCorrect) {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("next-question", true);
       } else {
@@ -125,38 +113,30 @@ export default {
 
 .game__interaction-area {
   display: flex;
+  gap: 2rem;
   align-items: center;
+  justify-content: center;
   height: 80%;
   width: 100%;
 }
 
 .game__fraction-panel {
   display: flex;
-  flex-direction: column;
-  width: 30%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
   height: 100%;
   padding: $padding--small;
 }
 
 .game__fraction-display {
-  flex: 2;
+  flex: 0 0 auto;
 }
 
-.game__chart-container {
-  flex: 3;
-  justify-content: center;
-  align-items: center;
-}
-
-.game__answer-area {
-  width: 70%;
-  height: 100%;
-}
-
-.game__check-answer-btn {
-  flex: 1;
-  border: none;
-  background-color: $submit-color;
+.game__fraction-input {
+  width: 30%;
 }
 
 .game-section--border {
