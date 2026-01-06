@@ -347,23 +347,6 @@ export default {
         ) {
           // Only allow dropping if the original question type was DefaultDragBox
           if (this.checkOriginalType(this.currentQuestionIndex)) {
-            // Use date-index attribute to identify the correct slot
-            console.group("[DBG] HANDLE END");
-            console.log("selectedElement:", this.selectedElement);
-            // Derive the element for logging if needed
-            if (this.selectedElement) {
-              console.log(
-                "Dragged Data:",
-                this.formDataConcat[this.selectedElement.columnIndex][
-                  this.selectedElement.elementIndex
-                ]
-              );
-            }
-            console.log("drop position:", clientX, clientY);
-            console.log("hit box:", box);
-            console.log("data-index:", box.dataset.index);
-            console.log("parsed slotIndex:", parseInt(box.dataset.index, 10));
-            console.groupEnd();
             const slotIndex = parseInt(box.dataset.index, 10);
             this.handleDragBox(this.currentQuestionIndex, slotIndex);
           }
@@ -374,15 +357,6 @@ export default {
       this.isDragging = false;
       this.selectedElement = null;
       this.dragPosition = { x: 0, y: 0 };
-    },
-
-    isOverlapping(rect1, rect2) {
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
     },
 
     getDragStyle(columnIndex, elementIndex) {
@@ -417,51 +391,11 @@ export default {
         this.questionData[questionIndex].Slots[slotIndex].Data =
           draggedElement.Data;
       } else {
-        // Fallback for non-slot questions (shouldn't happen with current logic but safe)
+        // Fallback for non-slot questions
         this.questionData[questionIndex].Type = draggedElement.Type;
         this.questionData[questionIndex].Data = draggedElement.Data;
       }
       this.updateKey++;
-
-      // We don't check answer immediately on drag usually?
-      // Actually original logic updated 'this.answer[index]' inside handleDragBox switch/case.
-      // We should probably defer answer checking or update it here.
-      // The original code did:
-      /*
-      switch (this.questionData[index].Type) {
-        case "ImageContainer":
-           this.answer[index] = ...
-           break;
-        case "TextOnly":
-           this.answer[index] = ...
-           break;
-      }
-      */
-      // With multiple slots, 'answer' for the question is a composite of all slots.
-      // Let's rely on 'checkAnswer' (called by SUBMIT or auto-check if desired).
-      // But wait! The original code used an event listener 'submitAnswer' to call 'checkAnswer'.
-      // AND 'handleDragBox' updated 'this.answer[index]'.
-
-      // We need to update the answer state for this slot.
-      // Let's store slot answers in a temporary structure or just compute them on submit.
-      // But since we removed the "Submit" button and use emitter,
-      // AND users might want instant feedback or just on submit.
-
-      // Let's keep `this.answer` logic but robustly.
-      // Getting answer from Dragged Element:
-      let draggedValue = null;
-      if (draggedElement.Type === "ImageContainer") {
-        draggedValue = draggedElement.Data.Src;
-      } else if (draggedElement.Type === "TextOnly") {
-        draggedValue = draggedElement.Data.Text;
-      }
-
-      // Store this partial answer?
-      // Actually, `checkAnswer` uses `this.answer`.
-      // Let's make `this.answer[questionIndex]` an array of slot answers?
-      // OR just don't update `this.answer` here and let `checkAnswer` derive it from `Slots`.
-      // The latter is cleaner: `checkAnswer` should look at `Slots` vs `ExpectedAnswer`.
-      // So we remove the switch/case here.
     },
     checkAnswer() {
       // Logic: Compare current slots with expected answer.
@@ -485,16 +419,11 @@ export default {
         });
 
         // Compare with defined answers
-        // question.Data.answer is usually a string or array.
-        // In the updated JSON, it's an array for multi-answer?
-        // User JSON: "answer": ["10:20...", "10:30..."]
-
         const expected = question.Data.answer;
         let isCorrect = false;
 
         if (Array.isArray(expected)) {
-          // If array, strict match by index? Or set match?
-          // Usually sequential match for fill-in-blanks.
+          // Strict match for all slots
           isCorrect = userAnswers.every((ans, i) => ans === expected[i]);
         } else {
           // Single answer string
@@ -514,11 +443,7 @@ export default {
           this.$emit("add-record", [`第 ${qIndex + 1}題答案`, "錯誤", "錯誤"]);
         }
       } else {
-        // Fallback for other types (like NumberIncrementor or Markdown which might self-manage)
-        // Actually Markdown types usually emit specific events or aren't interactive in this way?
-        // The checkAnswer logic here seems primarily for the DragAndDrop form flow.
-        // Other components usually handle their own interaction or update `this.answer` via `handleAnswer`.
-
+        // Fallback for non-drag components
         if (this.answer[qIndex]) {
           // ... existing logic for non-drag components ...
           this.$emit("play-effect", "CorrectSound");
@@ -603,9 +528,6 @@ export default {
   min-height: 10%;
   font-size: 1.5rem;
   padding: 10px;
-  /* align-items: center; */ /* Removed to allow text flow */
-  /* display: flex; */
-  /* flex-wrap: wrap; */
   display: block; /* Use block for standard text flow */
   line-height: 1.8; /* Improve readability for mixed content */
 }
