@@ -1,0 +1,274 @@
+{
+  "id": "MA4181",
+  "GameType": "TrueFalseGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "下面敘述的數量,是用概數表示的選O,不是的選X。"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Question": "玉山的高度約3950公尺。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "1.png"
+            }
+          }
+        ]
+      },
+      {
+        "Question": "教室裡有23張椅子。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "2.png" }
+          }
+        ]
+      },
+      {
+        "Question": "一客牛排定價350元。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "3.png" }
+          }
+        ]
+      },
+      {
+        "Question": "成年大貓熊的體重約100公斤。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "4.png" }
+          }
+        ]
+      },
+      {
+        "Question": "從臺北坐火車到高雄,大概要3小時30分鐘。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "5.png" }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "披薩店的訂購電話是2825252。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "6.png" }
+          }
+        ]
+      },
+      {
+        "Question": "加10公升汽油大約要300元。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "7.png" }
+          }
+        ]
+      },
+      {
+        "Question": "電影票一張270元。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "8.png" }
+          }
+        ]
+      },
+      {
+        "Question": "三年A班有30位學生。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "9.png" }
+          }
+        ]
+      },
+      {
+        "Question": "一首歌約4分5秒。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "10.png" }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "101大樓的高度約510公尺。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "11.png" }
+          }
+        ]
+      },
+      {
+        "Question": "1分鐘有60秒鐘。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "12.png" }
+          }
+        ]
+      },
+      {
+        "Question": "濁水溪全長約187公里。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "13.png" }
+          }
+        ]
+      },
+      {
+        "Question": "爸爸的生日在4月5日。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "14.png" }
+          }
+        ]
+      },
+      {
+        "Question": "12月有31天。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "15.png" }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "大巨蛋體育園區可容納約4萬人。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "16.png" }
+          }
+        ]
+      },
+      {
+        "Question": "妹妹有3個好朋友。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "17.png" }
+          }
+        ]
+      },
+      {
+        "Question": "弟弟花了快30分鐘才把功課寫完。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "18.png" }
+          }
+        ]
+      },
+      {
+        "Question": "媽媽一個月的薪水是34500元。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "19.png" }
+          }
+        ]
+      },
+      {
+        "Question": "爸爸的身高約180公分。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "20.png" }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "哥哥的存錢筒裡有357元。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "21.png" }
+          }
+        ]
+      },
+      {
+        "Question": "一支手機大約30000元。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "22.png" }
+          }
+        ]
+      },
+      {
+        "Question": "美術館一個月的參觀人次約有14萬人。",
+        "Answer": true,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "23.png" }
+          }
+        ]
+      },
+      {
+        "Question": "學校操場一圈400公尺。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "24.png" }
+          }
+        ]
+      },
+
+      {
+        "Question": "1天有24小時。",
+        "Answer": false,
+        "SlotComponents": [
+          {
+            "Name": "ImageContainer",
+            "Data": { "Src": "25.png" }
+          }
+        ]
+      }
+    ]
+  ]
+}
