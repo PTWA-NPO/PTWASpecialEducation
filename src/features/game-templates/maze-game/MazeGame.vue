@@ -72,6 +72,7 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
+      isGameStarted: false,
       isBgImage: false,
       configKonva: {},
       configBg: {
@@ -347,18 +348,22 @@ export default {
         case 37:
         case 65:
           this.entityInfo.player.movement = "left";
+          this.isGameStarted = true;
           break;
         case 39:
         case 68:
           this.entityInfo.player.movement = "right";
+          this.isGameStarted = true;
           break;
         case 38:
         case 87:
           this.entityInfo.player.movement = "up";
+          this.isGameStarted = true;
           break;
         case 40:
         case 83:
           this.entityInfo.player.movement = "down";
+          this.isGameStarted = true;
           break;
       }
     },
@@ -380,14 +385,16 @@ export default {
     },
     update() {
       this.movePlayer();
-      this.moveGhost({
-        config: this.configGhost_1,
-        entity: this.entityInfo.ghost_1,
-      });
-      this.moveGhost({
-        config: this.configGhost_2,
-        entity: this.entityInfo.ghost_2,
-      });
+      if (this.isGameStarted) {
+        this.moveGhost({
+          config: this.configGhost_1,
+          entity: this.entityInfo.ghost_1,
+        });
+        this.moveGhost({
+          config: this.configGhost_2,
+          entity: this.entityInfo.ghost_2,
+        });
+      }
       this.playerAnimation(this.entityInfo.player);
     },
 
@@ -681,6 +688,7 @@ export default {
       ) {
         this.initializeEnemyPosition();
         this.initializePlayerPosition();
+        this.isGameStarted = false;
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
           this.gameData.Options[this.gameData.Answer],
@@ -718,6 +726,7 @@ export default {
         } else {
           this.initializeEnemyPosition();
           this.initializePlayerPosition();
+          this.isGameStarted = false;
           this.$emit("play-effect", "WrongSound");
           this.$emit("add-record", [
             this.gameData.Options[this.gameData.Answer],
@@ -747,6 +756,7 @@ export default {
     },
     moveByJoystick(direction) {
       this.entityInfo.player.movement = direction;
+      this.isGameStarted = true;
     },
 
     playerAnimation(entity) {
