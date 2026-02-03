@@ -28,15 +28,19 @@
                 v-for="(cell, cellIndex) in row.cells"
                 :key="cellIndex"
                 :colspan="cell.colspan"
-                class="ma3192__schedule-table__cell ma3192__schedule-table__cell--draggable"
-                @mousedown="handleStart($event, rowIndex, cellIndex)"
-                @mousemove="handleMove"
-                @mouseup="handleEnd"
-                @touchstart.prevent="handleStart($event, rowIndex, cellIndex)"
-                @touchmove.prevent="handleMove"
-                @touchend="handleEnd"
+                class="ma3192__schedule-table__cell"
               >
-                {{ cell.text }}
+                <div
+                  class="draggable-item"
+                  @mousedown="handleStart($event, rowIndex, cellIndex)"
+                  @mousemove="handleMove"
+                  @mouseup="handleEnd"
+                  @touchstart.prevent="handleStart($event, rowIndex, cellIndex)"
+                  @touchmove.prevent="handleMove"
+                  @touchend="handleEnd"
+                >
+                  {{ cell.text }}
+                </div>
               </td>
             </tr>
           </tbody>
@@ -48,38 +52,44 @@
               <th colspan="3">車次</th>
             </tr>
             <tr>
-              <th
-                class="ma3192__schedule-table__cell ma3192__schedule-table__cell--draggable"
-                @mousedown="handleStart($event, 0, 0)"
-                @mousemove="handleMove"
-                @mouseup="handleEnd"
-                @touchstart.prevent="handleStart($event, 0, 0)"
-                @touchmove.prevent="handleMove"
-                @touchend="handleEnd"
-              >
-                110
+              <th class="ma3192__schedule-table__cell">
+                <div
+                  class="draggable-item"
+                  @mousedown="handleStart($event, 0, 0)"
+                  @mousemove="handleMove"
+                  @mouseup="handleEnd"
+                  @touchstart.prevent="handleStart($event, 0, 0)"
+                  @touchmove.prevent="handleMove"
+                  @touchend="handleEnd"
+                >
+                  110
+                </div>
               </th>
-              <th
-                class="ma3192__schedule-table__cell ma3192__schedule-table__cell--draggable"
-                @mousedown="handleStart($event, 0, 0)"
-                @mousemove="handleMove"
-                @mouseup="handleEnd"
-                @touchstart.prevent="handleStart($event, 0, 0)"
-                @touchmove.prevent="handleMove"
-                @touchend="handleEnd"
-              >
-                122
+              <th class="ma3192__schedule-table__cell">
+                <div
+                  class="draggable-item"
+                  @mousedown="handleStart($event, 0, 0)"
+                  @mousemove="handleMove"
+                  @mouseup="handleEnd"
+                  @touchstart.prevent="handleStart($event, 0, 0)"
+                  @touchmove.prevent="handleMove"
+                  @touchend="handleEnd"
+                >
+                  122
+                </div>
               </th>
-              <th
-                class="ma3192__schedule-table__cell ma3192__schedule-table__cell--draggable"
-                @mousedown="handleStart($event, 0, 0)"
-                @mousemove="handleMove"
-                @mouseup="handleEnd"
-                @touchstart.prevent="handleStart($event, 0, 0)"
-                @touchmove.prevent="handleMove"
-                @touchend="handleEnd"
-              >
-                116
+              <th class="ma3192__schedule-table__cell">
+                <div
+                  class="draggable-item"
+                  @mousedown="handleStart($event, 0, 0)"
+                  @mousemove="handleMove"
+                  @mouseup="handleEnd"
+                  @touchstart.prevent="handleStart($event, 0, 0)"
+                  @touchmove.prevent="handleMove"
+                  @touchend="handleEnd"
+                >
+                  116
+                </div>
               </th>
             </tr>
           </thead>
@@ -549,10 +559,8 @@ export default {
 }
 
 .ma3192__schedule-table__cell {
-  cursor: move;
-  user-select: none;
-  position: relative;
-  text-align: center;
+  padding: 0;
+  /* height: 100%; */
 }
 
 .ma3192__schedule-table tr:nth-child(even) {
@@ -571,22 +579,32 @@ export default {
   display: none;
 }
 
-.ma3192__schedule-table__cell--draggable {
+.draggable-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: move;
   user-select: none;
-  position: relative;
+  background-color: transparent; /* Or inherit */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  transition:
+    box-shadow 0.2s,
+    background-color 0.2s;
+  padding: 4px;
+  box-sizing: border-box; /* Ensure padding doesn't add to width */
 }
 
-.ma3192__schedule-table__cell--draggable:active {
+.draggable-item:active {
   opacity: 0.7;
 }
 
-.ma3192__schedule-table__cell--draggable.dragging {
-  background: rgba(255, 255, 255, 0.829);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+.draggable-item.dragging {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin: 0;
   pointer-events: none;
   position: fixed !important;
   z-index: 1000;
