@@ -8,6 +8,17 @@
     }"
   >
     <div
+      v-if="paperMoneyGroups['10000'].length > 0"
+      :key="containerRef"
+      class="MoneyContainer papaer-money"
+    >
+      <MoneyDisplay
+        v-for="(item, index) in paperMoneyGroups['10000']"
+        :key="`10000-${index}`"
+        :component-config="{ denomination: item }"
+      />
+    </div>
+    <div
       v-if="paperMoneyGroups['1000'].length > 0"
       :key="containerRef"
       class="MoneyContainer papaer-money"
@@ -70,6 +81,7 @@ const props = defineProps({
 });
 
 const paperMoneyGroups = ref({
+  10000: [],
   1000: [],
   500: [],
   100: [],
@@ -104,6 +116,9 @@ const processPaperMoney = (amount, denomination) => {
 
 const loadData = () => {
   // 處理紙鈔
+  if (componentConfig.value.TenThousands) {
+    processPaperMoney(componentConfig.value.TenThousands, "10000");
+  }
   if (componentConfig.value.Thousands) {
     processPaperMoney(componentConfig.value.Thousands, "1000");
   }
