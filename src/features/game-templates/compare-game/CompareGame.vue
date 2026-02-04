@@ -273,6 +273,7 @@ export default {
 
 <style scoped lang="scss">
 .compare-game {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -294,12 +295,23 @@ export default {
 
   &__question-area {
     width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__question-container {
+    flex: 1;
+    max-height: 300px;
   }
 
   &__question-row {
     display: grid;
     grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
-    height: 40vh;
+    height: 100%;
 
     &--wrong {
       background-color: #cc0627c6;
