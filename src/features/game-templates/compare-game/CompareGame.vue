@@ -1,53 +1,53 @@
 <template>
-  <div class="OutterContainer">
-    <div class="Head">
+  <div class="compare-game">
+    <div class="compare-game__header">
       <p
         v-if="gameData.QuestionText && gameData.QuestionText !== ''"
-        class="h1 Title"
+        class="h1 compare-game__title"
       >
         {{ gameData.QuestionText }}
       </p>
       <p
         v-if="gameData.Description && gameData.Description !== ''"
-        class="h2 SubTitle"
+        class="h2 compare-game__subtitle"
       >
         {{ gameData.Description }}
       </p>
     </div>
     <hr />
-    <div class="QuestionArea">
+    <div class="compare-game__question-area">
       <div
         v-for="(item, index) in gameData.Datas"
         :key="index"
-        class="QuestionContainer"
+        class="compare-game__question-container"
       >
         <section
-          class="QuestionRow"
+          class="compare-game__question-row"
           :class="{
-            'QuestionRow-Wrong': Answered[index] === false,
-            'QuestionRow-Right': Answered[index] === true,
+            'compare-game__question-row--wrong': userAnswer[index] === false,
+            'compare-game__question-row--right': userAnswer[index] === true,
           }"
         >
-          <div class="CompareCard Left">
+          <div class="compare-game__card compare-game__card--left">
             <component
               :is="item[0].Name"
-              :component-data="item[0].Data"
+              :component-config="item[0].Data"
               :game-id="gameId"
-              @reply-answer="SlotComponentReplyAnswer(0, $event)"
+              @reply-answer="handleSlotComponentReply(index, 0, $event)"
             />
           </div>
-          <div class="SymbolContainer">
+          <div class="compare-game__symbol-wrapper">
             <draggable
-              :list="Answers[index]"
+              :list="userSymbolAnswer[index]"
               group="Symbols"
               :sort="false"
               item-key="name"
-              class="CompareSymbol"
-              @change="Add(index)"
-              @add="CheckDrop"
+              class="compare-game__drop-zone"
+              @change="onDragChange(index)"
+              @add="onDrop"
             >
               <template #item="{ element }">
-                <div class="clickable Options">
+                <div class="compare-game__symbol-card">
                   <p class="h1">
                     {{ element.Text }}
                   </p>
@@ -55,28 +55,28 @@
               </template>
             </draggable>
           </div>
-          <div class="CompareCard Right">
+          <div class="compare-game__card compare-game__card--right">
             <component
               :is="item[1].Name"
-              :component-data="item[1].Data"
+              :component-config="item[1].Data"
               :game-id="gameId"
-              @reply-answer="SlotComponentReplyAnswer(1, $event)"
+              @reply-answer="handleSlotComponentReply(index, 1, $event)"
             />
           </div>
         </section>
       </div>
     </div>
-    <section class="OptionBar">
-      <div class="Left">
+    <section v-if="gameData.Answer" class="compare-game__footer">
+      <div class="compare-game__options-container">
         <draggable
-          :list="Symbol"
+          :list="symbolList"
           :sort="false"
           item-key="name"
           :group="{ name: 'Symbols', pull: 'clone', put: false }"
-          class="Options"
+          class="compare-game__options-list"
         >
           <template #item="{ element }">
-            <div class="OptionBarItems clickable">
+            <div class="compare-game__option-item compare-game__symbol-card">
               <p class="h1">
                 {{ element.Text }}
               </p>
@@ -84,14 +84,6 @@
           </template>
         </draggable>
       </div>
-      <!-- <button
-        v-if="gameConfig.CheckAnswerMode === 'Button'"
-        class="SucessButton"
-        @click="CheckAllAnswer"
-      >
-        送出答案
-      </button> -->
-      <!-- <button @click="Triger" class="btn btn-primary">Triger</button> -->
     </section>
   </div>
 </template>
@@ -100,6 +92,7 @@ import draggable from "vuedraggable";
 import { defineAsyncComponent } from "vue";
 import { getComponents } from "@/lib/get-components.js";
 import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+
 export default {
   name: "CompareGame",
   components: {
@@ -135,249 +128,267 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
-      SelectedGroup: 0,
-      TotalQuestion: null,
-      Answered: [],
-      Answers: [],
-      ImageDatas: [],
-      Symbol: [],
-      SlotComponentanswer: ["", ""], // Two SubComponents
-      BSESymbol: [
+      selectedGroup: 0,
+      userAnswer: [],
+      userSymbolAnswer: [],
+      slotComponentAnswers: [],
+      symbolList: [
         {
-          tag: "Big",
+          tag: "greater",
           Text: ">",
         },
         {
-          tag: "Small",
+          tag: "less",
           Text: "<",
         },
         {
-          tag: "Equal",
+          tag: "equal",
           Text: "=",
         },
       ],
     };
   },
   created() {
-    this.TotalQuestion = this.gameData.Datas.length;
-    this.gameData.Datas.forEach(() => {
-      this.Answered.push(null);
-      this.Answers.push([]);
-      const TempImg = [];
-      this.ImageDatas.push(TempImg);
+    if (!this.gameData.Answer) {
+      this.userSymbolAnswer = this.gameData.showSymbol.map((item) => {
+        return [
+          {
+            tag: item,
+            Text: item === "greater" ? ">" : item === "less" ? "<" : "=",
+          },
+        ];
+      });
+    }
+    this.gameData.Datas.forEach((item) => {
+      this.userAnswer.push(null);
+      if (this.gameData.Answer) {
+        this.userSymbolAnswer.push([]);
+      }
+      this.slotComponentAnswers.push(item.map((subItem) => !subItem.verify));
     });
-    this.Symbol = this.BSESymbol;
-    emitter.on("submitAnswer", this.CheckAllAnswer);
+    emitter.on("submitAnswer", this.submitAnswer);
   },
   beforeUnmount() {
-    emitter.off("submitAnswer", this.CheckAllAnswer);
+    emitter.off("submitAnswer", this.submitAnswer);
   },
   methods: {
-    Add(index) {
-      console.log("check drop");
-      this.SelectedGroup = index;
-      console.log(this.SelectedGroup);
+    onDragChange(index) {
+      this.selectedGroup = index;
     },
-    CheckDrop(newVal) {
-      console.log(newVal.newIndex);
-      const tmp = this.Answers[this.SelectedGroup][newVal.newIndex];
-      this.Answers[this.SelectedGroup] = [tmp];
-      this.RealTimeCheckAnswer();
+    onDrop(newVal) {
+      const tmp = this.userSymbolAnswer[this.selectedGroup][newVal.newIndex];
+      this.userSymbolAnswer[this.selectedGroup] = [tmp];
+      this.checkAnswerRealTime();
       if (this.gameConfig.CheckAnswerMode !== "OnFill") {
-        this.Answered[this.SelectedGroup] = null;
+        this.userAnswer[this.selectedGroup] = null;
       }
     },
-    RealTimeCheckAnswer() {
+    checkAnswerRealTime() {
       if (this.gameConfig.CheckAnswerMode === "OnFill") {
         if (
-          this.gameData.Answer[this.SelectedGroup] ===
-          this.Answers[this.SelectedGroup][0].tag
+          this.checkSymbolMatch(
+            this.gameData.Answer[this.selectedGroup],
+            this.userSymbolAnswer[this.selectedGroup][0].tag
+          )
         ) {
           this.$emit("play-effect", "CorrectSound");
-          this.Answered[this.SelectedGroup] = true;
+          this.userAnswer[this.selectedGroup] = true;
         } else {
-          this.Answered[this.SelectedGroup] = false;
+          this.userAnswer[this.selectedGroup] = false;
           this.$emit("play-effect", "WrongSound");
         }
-        if (this.CheckAnsweredAll()) {
-          // this.$emit('play-effect', 'Harray',)
-          console.log("All Answered");
+        if (this.checkAllAnswered()) {
           // this.$emit('next-question');
         }
       }
     },
-    CheckAnsweredAll() {
-      for (const i in this.Answered) {
-        if (this.Answered[i] === false || this.Answered[0][i] === null) {
+    checkAllAnswered() {
+      for (const i in this.userAnswer) {
+        if (this.userAnswer[i] === false || this.userAnswer[i] === null) {
           return false;
         }
       }
       return true;
     },
-    CheckAllAnswer() {
+    submitAnswer() {
       let check = true;
-      for (const i in this.gameData.Answer) {
-        if (this.gameData.Answer[i] === this.Answers[i][0].tag) {
-          //FIXME: UnEfficient
-          this.Answered[i] = true;
-        } else {
-          this.Answered[i] = false;
-          check = false;
-        }
-      }
-      if (this.gameData.SlotComponentVerifycation === true) {
-        // Check if the SlotComponent is correct
-        let temp = true;
-        this.SlotComponentanswer.forEach((element) => {
-          if (element !== true) {
-            temp = false;
+      if (this.gameData.Answer) {
+        this.gameData.Answer.forEach((correctAnswer, i) => {
+          // 檢查使用者是否有作答，避免 Crash
+          const userAnsObj = this.userSymbolAnswer[i]?.[0];
+
+          if (
+            userAnsObj &&
+            this.checkSymbolMatch(correctAnswer, userAnsObj.tag)
+          ) {
+            this.userAnswer[i] = true;
+          } else {
+            this.userAnswer[i] = false;
+            check = false;
           }
         });
-        console.log("Temp", temp);
-        if (temp === false) {
-          check = false;
-        }
       }
+      if (
+        this.gameData.SlotComponentVerifycation &&
+        !this.slotComponentAnswers.flat().every(Boolean)
+      ) {
+        check = false;
+      }
+
       if (check === false) {
         this.$emit("play-effect", "WrongSound");
         this.$emit("add-record", [
-          this.gameData.Answer[0],
-          this.Answers[0][0].tag,
+          this.gameData.Answer ? this.gameData.Answer[0] : "",
+          this.userSymbolAnswer[0][0].tag,
           "錯誤",
         ]);
       } else {
         this.$emit("play-effect", "CorrectSound");
         this.$emit("add-record", [
-          this.gameData.Answer[0],
-          this.Answers[0][0].tag,
+          this.gameData.Answer ? this.gameData.Answer[0] : "",
+          this.userSymbolAnswer[0][0].tag,
           "正確",
         ]);
         this.$emit("next-question");
       }
     },
-    SlotComponentReplyAnswer(index, answer) {
-      this.SlotComponentanswer[index] = answer;
+    handleSlotComponentReply(rowIndex, colIndex, answer) {
+      this.slotComponentAnswers[rowIndex][colIndex] = answer;
+    },
+    checkSymbolMatch(answer, userTag) {
+      if (!userTag) return false;
+      const greater = ["Big", "more", "greater", ">"];
+      const less = ["Small", "less", "<"];
+      const equal = ["Equal", "equal", "="];
+
+      if (greater.includes(answer) && greater.includes(userTag)) return true;
+      if (less.includes(answer) && less.includes(userTag)) return true;
+      if (equal.includes(answer) && equal.includes(userTag)) return true;
+
+      return false;
     },
   },
 };
 </script>
 
 <style scoped lang="scss">
-.Head {
-  width: 100%;
-  padding-left: 2rem;
-  .Title {
-    font-size: 2rem;
-  }
-  .SubTitle {
-    font-size: 1.5rem;
-  }
-}
-.QuestionRow-Wrong {
-  background-color: #cc0627c6;
-}
-.QuestionRow-Right {
-  background-color: rgba(255, 255, 255, 1);
-}
-.OutterContainer {
+.compare-game {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  .QuestionArea {
+
+  &__header {
     width: 100%;
-    .QuestionContainer {
-      .QuestionRow {
-        /* display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                align-items: center; */
-        display: grid;
-        grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
-        height: 40vh;
-        .Options {
-          background-color: #fff;
-        }
-        .Left {
-          grid-column: 2/3;
-        }
-        .Right {
-          grid-column: 4/5;
-        }
-        .CompareCard {
-          border: solid 3px #aaa;
-          border-radius: 20px;
-          component {
-            width: 100%;
-            height: 100%;
-          }
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 1rem;
-        }
-        .SymbolContainer {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .CompareSymbol {
-            grid-column: 3/4;
-            margin: 2em;
-            width: 7rem;
-            height: 5rem;
-            border: solid 3px #aaa;
-            border-radius: 12px;
-            border-color: #aaa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 1rem;
-          }
-        }
-      }
+    padding-left: 2rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+  }
+
+  &__question-area {
+    width: 100%;
+  }
+
+  &__question-row {
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
+    height: 40vh;
+
+    &--wrong {
+      background-color: #cc0627c6;
+    }
+
+    &--right {
+      background-color: rgba(255, 255, 255, 1);
     }
   }
-}
-.clickable {
-  cursor: pointer;
-  border: solid 2px #aaa;
-  border-radius: 12px;
-  width: 5rem;
-  text-align: center;
-}
-.OptionBar {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2rem;
-  gap: 2rem;
-  .Left {
+
+  &__card {
+    border: solid 3px #aaa;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    component {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--left {
+      grid-column: 2/3;
+    }
+
+    &--right {
+      grid-column: 4/5;
+    }
+  }
+
+  &__symbol-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__drop-zone {
+    grid-column: 3/4;
+    margin: 2em;
+    width: 7rem;
+    height: 5rem;
+    border: solid 3px #aaa;
+    border-radius: 12px;
+    border-color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+    gap: 2rem;
+  }
+
+  &__options-container {
     width: 60%;
     margin: 0 2rem;
-    .Options {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 2rem;
-      .OptionBarItems {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-      }
-    }
   }
-  .SucessButton {
-    padding: 1rem;
-    width: 40%;
-    background-color: $submit-color;
-    border: none;
+
+  &__options-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__option-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__symbol-card {
+    cursor: pointer;
+    border: solid 2px #aaa;
     border-radius: 12px;
-    font-size: x-large;
+    width: 5rem;
+    text-align: center;
   }
 }
+
 :deep(.number-board-container) {
   height: 70%;
   width: 90%;
