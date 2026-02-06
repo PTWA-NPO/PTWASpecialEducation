@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     drawClock() {
-      const container = this.$refs.konvaContainer.parentElement;
+      const container = this.$refs.konvaContainer;
       this.width = container.offsetWidth;
       this.height = container.offsetHeight;
 
