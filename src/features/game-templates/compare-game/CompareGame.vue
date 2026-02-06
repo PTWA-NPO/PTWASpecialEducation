@@ -21,14 +21,14 @@
         :key="index"
         class="compare-game__question-container"
       >
-        <section
-          class="compare-game__question-row"
-          :class="{
-            'compare-game__question-row--wrong': userAnswer[index] === false,
-            'compare-game__question-row--right': userAnswer[index] === true,
-          }"
-        >
-          <div class="compare-game__card compare-game__card--left">
+        <section class="compare-game__question-row">
+          <div
+            class="compare-game__card compare-game__card--left"
+            :class="{
+              'compare-game__card--wrong':
+                isSubmitted && slotComponentAnswers[index][0] === false,
+            }"
+          >
             <component
               :is="item[0].Name"
               :component-config="item[0].Data"
@@ -43,19 +43,29 @@
               :sort="false"
               item-key="name"
               class="compare-game__drop-zone"
+              :class="{
+                'compare-game__drop-zone--wrong':
+                  isSubmitted && userAnswer[index] === false,
+              }"
               @change="onDragChange(index)"
               @add="onDrop"
             >
               <template #item="{ element }">
                 <div class="compare-game__symbol-card">
-                  <p class="h1">
+                  <p class="compare-game__symbol-text">
                     {{ element.Text }}
                   </p>
                 </div>
               </template>
             </draggable>
           </div>
-          <div class="compare-game__card compare-game__card--right">
+          <div
+            class="compare-game__card compare-game__card--right"
+            :class="{
+              'compare-game__card--wrong':
+                isSubmitted && slotComponentAnswers[index][1] === false,
+            }"
+          >
             <component
               :is="item[1].Name"
               :component-config="item[1].Data"
@@ -77,7 +87,7 @@
         >
           <template #item="{ element }">
             <div class="compare-game__option-item compare-game__symbol-card">
-              <p class="h1">
+              <p class="compare-game__symbol-text">
                 {{ element.Text }}
               </p>
             </div>
@@ -128,6 +138,7 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
+      isSubmitted: false,
       selectedGroup: 0,
       userAnswer: [],
       userSymbolAnswer: [],
@@ -176,6 +187,7 @@ export default {
       this.selectedGroup = index;
     },
     onDrop(newVal) {
+      this.isSubmitted = false;
       const tmp = this.userSymbolAnswer[this.selectedGroup][newVal.newIndex];
       this.userSymbolAnswer[this.selectedGroup] = [tmp];
       this.checkAnswerRealTime();
@@ -185,6 +197,7 @@ export default {
     },
     checkAnswerRealTime() {
       if (this.gameConfig.CheckAnswerMode === "OnFill") {
+        this.isSubmitted = true;
         if (
           this.checkSymbolMatch(
             this.gameData.Answer[this.selectedGroup],
@@ -211,6 +224,7 @@ export default {
       return true;
     },
     submitAnswer() {
+      this.isSubmitted = true;
       let check = true;
       if (this.gameData.Answer) {
         this.gameData.Answer.forEach((correctAnswer, i) => {
@@ -253,6 +267,7 @@ export default {
       }
     },
     handleSlotComponentReply(rowIndex, colIndex, answer) {
+      this.isSubmitted = false;
       this.slotComponentAnswers[rowIndex][colIndex] = answer;
     },
     checkSymbolMatch(answer, userTag) {
@@ -312,14 +327,6 @@ export default {
     display: grid;
     grid-template-columns: 0.5fr 4fr 1fr 4fr 0.5fr;
     height: 100%;
-
-    &--wrong {
-      background-color: #cc0627c6;
-    }
-
-    &--right {
-      background-color: rgba(255, 255, 255, 1);
-    }
   }
 
   &__card {
@@ -342,6 +349,9 @@ export default {
     &--right {
       grid-column: 4/5;
     }
+    &--wrong {
+      border: solid 5px #cc0627;
+    }
   }
 
   &__symbol-wrapper {
@@ -362,6 +372,9 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 1rem 1rem;
+    &--wrong {
+      background-color: #cc0627c6;
+    }
   }
 
   &__footer {
@@ -390,14 +403,20 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    border: 3px solid #aaa;
+    border-radius: 12px;
+    background-color: #fff;
   }
 
   &__symbol-card {
     cursor: pointer;
-    border: solid 2px #aaa;
-    border-radius: 12px;
     width: 5rem;
     text-align: center;
+  }
+  &__symbol-text {
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
   }
 }
 
