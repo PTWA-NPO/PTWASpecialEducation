@@ -117,6 +117,9 @@ export default {
     DrawImage: getComponents("DrawImage"),
     NumberBoard: getComponents("NumberBoard"),
     FractionDisplay: getComponents("FractionDisplay"),
+    MoneyGenerator: defineAsyncComponent(
+      () => import("@/components/MoneyGenerator.vue")
+    ),
   },
   props: {
     gameData: {

@@ -1,0 +1,94 @@
+{
+  "id": "MA3154",
+  "GameType": "CompareGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "在口裡填入>、<或="
+  },
+  "GameConfig": {
+    "CustomeSymbol": true,
+    "SystemSymbol": "BigSmall",
+    "WithImage": false,
+    "CheckAnswerMode": "Button"
+  },
+
+  "Questions": [
+    [
+      {
+        "SlotComponentVerifycation": true,
+        "QuestionText": "共有多少元?記在定位板上",
+        "Datas": [
+          [
+            {
+              "Name": "MoneyGenerator",
+              "Data": {
+                "Thousands": 10
+              },
+              "verify": false
+            },
+            {
+              "Name": "NumberBoard",
+              "Data": {
+                "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+                "Number": 10000,
+                "isInput": true
+              },
+              "verify": true
+            }
+          ],
+          [
+            {
+              "Name": "MoneyGenerator",
+              "Data": {
+                "Thousands": 10
+              },
+              "verify": false
+            },
+            {
+              "Name": "MoneyGenerator",
+              "Data": {
+                "TenThousands": 1
+              },
+              "verify": false
+            }
+          ]
+        ],
+        "showSymbol": ["equal", "equal"]
+      }
+    ],
+    [
+      {
+        "SlotComponentVerifycation": true,
+        "QuestionText": "共有多少元?記在定位板上",
+        "Datas": [
+          [
+            {
+              "Name": "MoneyGenerator",
+              "Data": {
+                "TenThousands": 3,
+                "Thousands": 0,
+                "FiveHundreds": 0,
+                "Hundreds": 2,
+                "Fifties": 0,
+                "Tens": 0,
+                "Fives": 0,
+                "Ones": 0
+              },
+              "verify": false
+            },
+            {
+              "Name": "NumberBoard",
+              "Data": {
+                "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+                "Number": 30200,
+                "isInput": true
+              },
+              "verify": true
+            }
+          ]
+        ],
+        "showSymbol": ["equal"]
+      }
+    ]
+  ]
+}
