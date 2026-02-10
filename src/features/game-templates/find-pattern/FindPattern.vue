@@ -20,6 +20,11 @@
       </v-layer>
 
       <v-layer>
+        <v-rect
+          v-for="(zone, index) in configAnswerZones"
+          :key="index"
+          :config="zone"
+        />
         <v-image
           v-for="(block, index) in configBlocks"
           :key="index"
@@ -69,6 +74,7 @@ export default {
       configDraggables: [],
       configFillings: [],
       draggableKey: 0,
+      configAnswerZones: [],
       answers: [],
     };
   },
@@ -91,6 +97,7 @@ export default {
         width: this.gameData.Map[0].length,
         height: this.gameData.Map.length,
       };
+      this.configAnswerZones = [];
       const gameRatio = this.setGameRatio();
 
       this.drawCanvas(gameRatio);
@@ -160,7 +167,18 @@ export default {
             answerIndex: this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
-          if (!block.visible) this.answers.push(null);
+          if (!block.visible) {
+            this.answers.push(null);
+            this.configAnswerZones.push({
+              x: block.x + 2,
+              y: block.y + 2,
+              width: block.width - 4,
+              height: block.height - 4,
+              stroke: "black",
+              strokeWidth: 2,
+              dash: [10, 5],
+            });
+          }
         }
       }
     },
@@ -192,6 +210,17 @@ export default {
             answerIndex: this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
+          if (block.answerIndex !== null) {
+            this.configAnswerZones.push({
+              x: block.x + 2,
+              y: block.y + 2,
+              width: block.width - 4,
+              height: block.height - 4,
+              stroke: "black",
+              strokeWidth: 2,
+              dash: [10, 5],
+            });
+          }
         }
       }
     },
