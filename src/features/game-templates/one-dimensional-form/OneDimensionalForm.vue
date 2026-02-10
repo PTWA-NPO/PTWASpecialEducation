@@ -20,16 +20,25 @@
           <div
             v-for="(element, elementIndex) in formDataConcat[index]"
             :key="elementIndex"
-            :style="getDragStyle(index, elementIndex)"
-            @mousedown="handleStart($event, index, elementIndex)"
-            @touchstart.prevent="handleStart($event, index, elementIndex)"
+            class="grid-cell"
           >
-            <component
-              :is="element.Type"
-              :component-config="element.Data"
-              :game-id="gameId"
-              @copy.prevent
-            />
+            <div
+              class="grid-cell-content"
+              :style="getDragStyle(index, elementIndex)"
+              :class="{
+                'grid-cell-content--draggable':
+                  formDataConcat[index][elementIndex].Draggable,
+              }"
+              @mousedown="handleStart($event, index, elementIndex)"
+              @touchstart.prevent="handleStart($event, index, elementIndex)"
+            >
+              <component
+                :is="element.Type"
+                :component-config="element.Data"
+                :game-id="gameId"
+                @copy.prevent
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -481,12 +490,9 @@ export default {
   width: 100%;
   display: flex;
   background-color: lightblue;
-  padding-bottom: 10px;
 }
 .column {
   flex: 1;
-  padding-left: 5px;
-  padding-right: 5px;
   display: block;
   justify-items: center;
 }
@@ -497,10 +503,31 @@ export default {
 .formElements {
   font-size: 2rem;
   display: grid;
-  gap: 5px;
+  gap: 0;
   height: 80%;
   width: fit-content;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
+.grid-cell {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+.grid-cell-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--draggable {
+    border: 1px dashed gray;
+  }
+}
+
 .question {
   min-height: 10%;
   font-size: 1.5rem;
