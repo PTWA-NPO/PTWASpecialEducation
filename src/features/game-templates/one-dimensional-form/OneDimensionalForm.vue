@@ -53,30 +53,30 @@
               style="display: inline"
             >
               <div
-                class="questionContent"
                 v-show="
                   currentQuestion.Slots[part.slotIndex].Type ===
                   'DefaultDragBox'
                 "
+                class="questionContent"
                 :data-index="part.slotIndex"
               >
                 <div class="defaultDragBox" />
               </div>
               <!-- Boxed answer component (if filled) -->
               <div
-                class="answer-component"
-                :class="{ bordered: checkOriginalType(currentQuestionIndex) }"
                 v-if="
                   currentQuestion.Slots[part.slotIndex].Type !==
                   'DefaultDragBox'
                 "
+                class="answer-component"
+                :class="{ bordered: checkOriginalType(currentQuestionIndex) }"
                 :data-index="part.slotIndex"
               >
                 <component
                   :is="currentQuestion.Slots[part.slotIndex].Type"
+                  :key="updateKey"
                   :component-config="currentQuestion.Slots[part.slotIndex].Data"
                   :game-id="gameId"
-                  :key="updateKey"
                   @reply-answer="handleAnswer($event, currentQuestionIndex)"
                 />
               </div>
@@ -325,14 +325,6 @@ export default {
         clientY = event.clientY;
       }
 
-      // Create a virtual rect for the pointer to check overlap
-      const pointerRect = {
-        left: clientX,
-        right: clientX,
-        top: clientY,
-        bottom: clientY,
-      };
-
       for (let boxIndex = 0; boxIndex < dragBoxes.length; boxIndex++) {
         const box = dragBoxes[boxIndex];
         const boxRect = box.getBoundingClientRect();
@@ -407,9 +399,6 @@ export default {
 
       // If it's a drag box type:
       if (this.checkOriginalType(qIndex)) {
-        let correctCount = 0;
-        let totalSlots = slots.length;
-
         // Collect user answers from slots
         const userAnswers = slots.map((slot) => {
           if (slot.Type === "DefaultDragBox") return null;
@@ -471,18 +460,6 @@ export default {
     nextQuestion() {
       this.transitionName = "slide-left";
       this.currentQuestionIndex++;
-    },
-    splitQuestion(questionText) {
-      if (!questionText) return ["$box$"];
-      // If text contains $box$ placeholder, split by it
-      if (questionText.indexOf("$box$") !== -1) {
-        return questionText.split(/(\$box\$)/g);
-      }
-      // Otherwise, return text then box (legacy behavior)
-      return [questionText, "$box$"];
-    },
-    isPlaceHolder(part) {
-      return part === "$box$";
     },
     checkOriginalType(index) {
       if (!this.gameData.Questions || !this.gameData.Questions[index])
