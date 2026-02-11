@@ -54,24 +54,24 @@
         "Form": "BreakfastShop",
         "Questions": [
           {
-            "Text": "吐司系列中，哪一種最便宜?",
+            "Text": "吐司系列中，哪一種最貴?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "strawberry-toast.jpg"
+              "answer": "kara-chicken-toast.jpg"
             }
           },
           {
-            "Text": "哪一種餐點價格和卡拉雞吐司一樣?",
+            "Text": "哪一種餐點價格和火腿蛋吐司一樣?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "double-beef-burger.jpg"
+              "answer": "pork-cutlet-burger.jpg"
             }
           },
           {
             "Type": "MarkdownRenderer",
             "Data": {
               "Render": "哥哥想要買一份培根漢堡和一杯豆漿，一共要付多少錢呢?$i$元",
-              "Answer": [40]
+              "Answer": [45]
             }
           }
         ]
@@ -94,10 +94,10 @@
             }
           },
           {
-            "Text": "哪一種餐點價格和鮪魚蛋吐司一樣?",
+            "Text": "哪一種飲料價格和紅茶一樣?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "pork-cutlet-burger.jpg"
+              "answer": "soy-milk.jpg"
             }
           },
           {
@@ -120,24 +120,24 @@
         "Form": "BreakfastShop",
         "Questions": [
           {
-            "Text": "飲料系列中，哪一種最便宜?",
+            "Text": "飲料系列中，哪一種最貴?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "black-tea.jpg"
+              "answer": "ovitine.jpg"
             }
           },
           {
-            "Text": "哪一種餐點價格和火腿蛋吐司一樣?",
+            "Text": "哪一種餐點價格和牛肉漢堡一樣?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "pork-cutlet-burger.jpg"
+              "answer": "tuna-egg-toast.jpg"
             }
           },
           {
             "Type": "MarkdownRenderer",
             "Data": {
               "Render": "媽媽想要買一份牛肉漢堡和一杯阿華田，一共要付多少錢呢?$i$元",
-              "Answer": [85]
+              "Answer": [65]
             }
           }
         ]
@@ -153,10 +153,10 @@
         "Form": "BreakfastShop",
         "Questions": [
           {
-            "Text": "飲料系列中，哪一種最貴?",
+            "Text": "漢堡系列中，哪一種最便宜?",
             "Type": "DefaultDragBox",
             "Data": {
-              "answer": "ovitine.jpg"
+              "answer": "cheese-burger.jpg"
             }
           },
           {
@@ -170,7 +170,7 @@
             "Type": "MarkdownRenderer",
             "Data": {
               "Render": "爸爸想要買一份火腿蛋吐司和一杯豆漿，一共要付多少錢呢?$i$元",
-              "Answer": [40]
+              "Answer": [50]
             }
           }
         ]
