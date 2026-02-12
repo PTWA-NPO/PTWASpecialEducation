@@ -524,6 +524,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ffd6e070;
   &--draggable {
     border: 1px dashed gray;
   }
