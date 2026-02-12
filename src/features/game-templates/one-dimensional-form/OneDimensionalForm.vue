@@ -505,13 +505,14 @@ export default {
   display: grid;
   gap: 0;
   height: 80%;
+  gap: 0;
+  height: 80%;
   width: fit-content;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
 }
 .grid-cell {
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-left: -1px;
   display: flex;
   justify-content: center;
   align-items: center;
