@@ -604,7 +604,8 @@
                 "id": "MA3131",
                 "Name": "圖形的規律",
                 "Description": "按照規律，填填看",
-                "Img": "MA3131.PNG"
+                "Img": "MA3131.PNG",
+                "status": "ready"
               }
             ]
           },
@@ -950,7 +951,8 @@
                 "id": "MA3191",
                 "Name": "報讀一維表格",
                 "Description": "看圖回答問題",
-                "Img": "MA3191.PNG"
+                "Img": "MA3191.PNG",
+                "status": "ready"
               }
             ]
           },
