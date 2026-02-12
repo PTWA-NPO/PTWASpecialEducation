@@ -1,0 +1,514 @@
+{
+  "id": "MA3191",
+  "introvideo": "",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "看圖回答問題"
+  },
+  "GameType": "OneDimensionalForm",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "價目表",
+            "Size": "large"
+          }
+        },
+        "Form": "BreakfastShop",
+        "Questions": [
+          {
+            "Text": "漢堡系列中，哪一種最貴?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "double-beef-burger.jpg"
+            }
+          },
+          {
+            "Text": "哪一種餐點價格和鮪魚蛋吐司一樣?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "beef-burger.jpg"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "阿美想要買一份豬排漢堡和一杯阿華田，一共要付多少錢呢?$i$元",
+              "Answer": [60]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "價目表",
+            "Size": "large"
+          }
+        },
+        "Form": "BreakfastShop",
+        "Questions": [
+          {
+            "Text": "吐司系列中，哪一種最貴?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "kara-chicken-toast.jpg"
+            }
+          },
+          {
+            "Text": "哪一種餐點價格和火腿蛋吐司一樣?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "pork-cutlet-burger.jpg"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "哥哥想要買一份培根漢堡和一杯豆漿，一共要付多少錢呢?$i$元",
+              "Answer": [45]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "價目表",
+            "Size": "large"
+          }
+        },
+        "Form": "BreakfastShop",
+        "Questions": [
+          {
+            "Text": "漢堡系列中，哪一種最便宜?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "cheese-burger.jpg"
+            }
+          },
+          {
+            "Text": "哪一種飲料價格和紅茶一樣?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "soy-milk.jpg"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "姊姊想要買一份巧克力吐司和一杯奶茶，一共要付多少錢呢?$i$元",
+              "Answer": [35]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "價目表",
+            "Size": "large"
+          }
+        },
+        "Form": "BreakfastShop",
+        "Questions": [
+          {
+            "Text": "飲料系列中，哪一種最貴?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "ovitine.jpg"
+            }
+          },
+          {
+            "Text": "哪一種餐點價格和牛肉漢堡一樣?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "tuna-egg-toast.jpg"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "媽媽想要買一份牛肉漢堡和一杯阿華田，一共要付多少錢呢?$i$元",
+              "Answer": [65]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "價目表",
+            "Size": "large"
+          }
+        },
+        "Form": "BreakfastShop",
+        "Questions": [
+          {
+            "Text": "漢堡系列中，哪一種最便宜?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "cheese-burger.jpg"
+            }
+          },
+          {
+            "Text": "哪一種餐點價格和草莓吐司一樣?",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "chocolate-toast.jpg"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "爸爸想要買一份火腿蛋吐司和一杯豆漿，一共要付多少錢呢?$i$元",
+              "Answer": [50]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "台南市立美術館票價表",
+            "Size": "large"
+          }
+        },
+        "Form": "TainanMuseum",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "就讀台北市立國小三年級的樂樂和爸爸、媽媽去參觀，票價一共是多少元?$i$元",
+              "Answer": [500]
+            }
+          },
+          {
+            "Text": "奶奶去台南市立美術館，不需要收費，請問奶奶是使用哪種票種?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "設籍台南市65歲以上市民"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "高雄旅行社舉辦台南市立美術館一日遊的活動，有15人報名，一個人的票價是多少元?$i$元",
+              "Answer": [150]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "十鼓文創園區的票價表",
+            "Size": "large"
+          }
+        },
+        "Form": "TenDrum",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "星期日早上，就讀高中二年級的哥哥和一位同學去十鼓玩，票價一共是多少元?$i$元",
+              "Answer": [880]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "為了慶祝妹妹5歲生日，一大早媽媽就帶妹妹去十鼓玩，票價一共是多少元?$i$元",
+              "Answer": [719]
+            }
+          },
+          {
+            "Text": "就讀大學的姐姐，與三位大學同學相約去十鼓看夜景，她們要買哪種票種呢?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "星光票(17:30後入園)"
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "十鼓文創園區的票價表",
+            "Size": "large"
+          }
+        },
+        "Form": "TenDrum",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "暑假早上就讀國小三年級的樂樂和媽媽去十鼓玩，票價一共是多少元?$i$元",
+              "Answer": [869]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "為了慶祝哥哥考上大學，爸爸一大早帶哥哥去十鼓玩，票價一共是多少元?$i$元",
+              "Answer": [899]
+            }
+          },
+          {
+            "Text": "哥哥帶從台北下來玩的朋友去十鼓看夜景，他們要買哪種票種呢?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "星光票(17:30後入園)"
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "國立故宮博物院的票價表",
+            "Size": "large"
+          }
+        },
+        "Form": "NationalPalaceMuseum",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "爺爺和奶奶這星期日要去故宮參觀，票價一共是多少元?$i$元",
+              "Answer": [150]
+            }
+          },
+          {
+            "Text": "哥哥與兩個同學星期六去故宮參觀，不需要收費，請問他們是使用哪種票種?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "年齡未滿18歲者"
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "爸爸的公司員工旅遊，共有50人一起去參觀故宮，一個人的票價是多少元?$i$元",
+              "Answer": [150]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "國立故宮博物院的票價表",
+            "Size": "large"
+          }
+        },
+        "Form": "NationalPalaceMuseum",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "叔叔帶從美國來的一位朋友去故宮參觀，票價一共是多少元?$i$元",
+              "Answer": [500]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "為了慶祝姐姐18歲生日，媽媽帶姐姐去故宮參觀，票價一共是多少元?$i$元",
+              "Answer": [300]
+            }
+          },
+          {
+            "Text": "韓國旅行社辦理故宮參觀的活動，共有28名韓國遊客報名，他們需要使用哪種票種呢?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "10人以上外籍團體參觀券"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "海洋公園的活動時刻表",
+            "Size": "large"
+          }
+        },
+        "Form": "OceanPark",
+        "Questions": [
+          {
+            "Text": "妮妮一家人在10:35到達，這個時候正在進行哪兩個活動呢?$box$、$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["10:20大洋池的生態奧秘", "10:30吉祥物見面會"]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "海洋公園的節目演出每場活動的開始時間間隔多久?$i$分鐘",
+              "Answer": [45]
+            }
+          },
+          {
+            "Text": "美美想要觀看海豚傳說及美人魚的神秘傳說兩場表演，她應該選擇哪個時段的美人魚的神秘傳說呢?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["13:50美人魚的神秘傳說"]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "海洋公園的活動時刻表",
+            "Size": "large"
+          }
+        },
+        "Form": "OceanPark",
+        "Questions": [
+          {
+            "Text": "小新一家人在11:15到達，這個時候正在進行哪兩個活動呢?$box$、$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["11:15海豚傳說", "11:00美人魚的神秘傳說"]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "海洋公園的節目演出每場活動的開始時間間隔多久?$i$分鐘",
+              "Answer": [45]
+            }
+          },
+          {
+            "Text": "小新觀看完奇妙海洋慶典表演後，還可以去看哪場活動表演呢?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["16:10大洋池的生態奧秘"]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "快樂農場的活動時刻表",
+            "Size": "large"
+          }
+        },
+        "Form": "HappyFarm-1",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "第一個活動結束是$[上,下]$午$i$時$i$分",
+              "Answer": ["上", 9, 40]
+            }
+          },
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "上午的每場活動結束時，間隔多久會開始下一場活動?$i$分鐘",
+              "Answer": [20]
+            }
+          },
+          {
+            "Text": "有哪2個活動時間會重疊?$box$、$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["14:30果醬DIY", "15:00吉祥物見面會"]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "快樂農場的活動時刻表",
+            "Size": "large"
+          }
+        },
+        "Form": "HappyFarm-2",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "最後一個活動結束是$[上,下]$午$i$時$i$分",
+              "Answer": ["下", 3, 50]
+            }
+          },
+          {
+            "Text": "美美一家在10:30抵達，這個時候正在進行什麼活動?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "10:10可愛動物餵食區"
+            }
+          },
+          {
+            "Text": "有哪2個活動時間會重疊?$box$、$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["10:10可愛動物餵食區", "14:10果醬DIY"]
+            }
+          }
+        ]
+      },
+      {
+        "FormTitle": {
+          "Type": "TextOnly",
+          "Data": {
+            "Text": "快樂農場的活動時刻表",
+            "Size": "large"
+          }
+        },
+        "Form": "HappyFarm-3",
+        "Questions": [
+          {
+            "Type": "MarkdownRenderer",
+            "Data": {
+              "Render": "中午休息時間結束後的第一個活動是$[上,下]$午$i$時$i$分開始",
+              "Answer": ["下", 1, 10]
+            }
+          },
+          {
+            "Text": "美美一家在10:30抵達，這個時候什麼活動剛結束?$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": "9:30吉祥物見面會"
+            }
+          },
+          {
+            "Text": "有哪2個活動時間會重疊?$box$、$box$",
+            "Type": "DefaultDragBox",
+            "Data": {
+              "answer": ["14:30綿羊餵食秀", "15:10果醬DIY"]
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}

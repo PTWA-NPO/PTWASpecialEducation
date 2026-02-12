@@ -2,7 +2,6 @@
   <div ref="container">
     <div class="question">
       <h2>{{ gameData.Question }}</h2>
-      <button @click="checkAnswer">提交答案</button>
     </div>
     <v-stage :config="configKonva">
       <v-layer>
@@ -21,6 +20,11 @@
       </v-layer>
 
       <v-layer>
+        <v-rect
+          v-for="(zone, index) in configAnswerZones"
+          :key="index"
+          :config="zone"
+        />
         <v-image
           v-for="(block, index) in configBlocks"
           :key="index"
@@ -45,6 +49,7 @@
 <script>
 import { getGameAssets } from "@/lib/get-assets.js";
 import * as canvasTools from "@/lib/canvasTools.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {},
 
@@ -69,8 +74,17 @@ export default {
       configDraggables: [],
       configFillings: [],
       draggableKey: 0,
+      configAnswerZones: [],
       answers: [],
     };
+  },
+
+  created() {
+    emitter.on("submitAnswer", this.checkAnswer);
+  },
+
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswer);
   },
 
   mounted() {
@@ -83,6 +97,7 @@ export default {
         width: this.gameData.Map[0].length,
         height: this.gameData.Map.length,
       };
+      this.configAnswerZones = [];
       const gameRatio = this.setGameRatio();
 
       this.drawCanvas(gameRatio);
@@ -152,7 +167,18 @@ export default {
             answerIndex: this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
-          if (!block.visible) this.answers.push(null);
+          if (!block.visible) {
+            this.answers.push(null);
+            this.configAnswerZones.push({
+              x: block.x + 2,
+              y: block.y + 2,
+              width: block.width - 4,
+              height: block.height - 4,
+              stroke: "black",
+              strokeWidth: 2,
+              dash: [10, 5],
+            });
+          }
         }
       }
     },
@@ -184,6 +210,17 @@ export default {
             answerIndex: this.isBlankSpace(i, j),
           };
           this.configBlocks.push(block);
+          if (block.answerIndex !== null) {
+            this.configAnswerZones.push({
+              x: block.x + 2,
+              y: block.y + 2,
+              width: block.width - 4,
+              height: block.height - 4,
+              stroke: "black",
+              strokeWidth: 2,
+              dash: [10, 5],
+            });
+          }
         }
       }
     },
@@ -259,7 +296,6 @@ export default {
           this.blockWidth * 0.5
         ) {
           this.snapBack(e);
-          console.log(this.answers);
           return;
         }
         for (const block in this.configBlocks) {
@@ -280,7 +316,6 @@ export default {
             this.configDraggables[id].answerIndex =
               this.configBlocks[block].answerIndex;
             this.snapBack(e);
-            console.log(this.answers);
             return;
           }
         }
@@ -288,10 +323,8 @@ export default {
         this.configDraggables.splice(id, 1);
         this.draggableKey++;
       }
-      console.log(this.answers);
     },
     handleClick(e) {
-      console.log(e.target.attrs.answerIndex);
       if (
         this.gameData.AnswerType === "Drag" ||
         e.target.attrs.answerIndex == null
@@ -320,10 +353,11 @@ export default {
         this.gameData.FillRotation[rotationIndex];
     },
     isSlotAvailable(block) {
-      if (this.configBlocks[block].answerIndex) {
-        if (this.answers[this.configBlocks[block].answerIndex] === null)
-          return true;
-      } else return false;
+      const answerIndex = this.configBlocks[block].answerIndex;
+      if (answerIndex !== null && answerIndex !== undefined) {
+        return this.answers[answerIndex] === null;
+      }
+      return false;
     },
     snapBack(e) {
       const id = e.target.index;
@@ -344,36 +378,44 @@ export default {
     },
     getClickRotationIndex(block, click) {
       const rotation = (canvasTools.angle(block, click) * 180) / Math.PI;
-      for (const i in this.rotationDividers) {
+
+      for (let i = 0; i < this.rotationDividers.length; i++) {
         if (i === 0) {
           if (
-            rotation < this.rotationDividers[i] ||
-            rotation > this.rotationDividers[this.rotationDividers.length - 1]
-          )
-            return i;
+            rotation < this.rotationDividers[0] ||
+            rotation >= this.rotationDividers[this.rotationDividers.length - 1]
+          ) {
+            return 0;
+          }
         } else {
           if (
-            rotation > this.rotationDividers[Number(i) - 1] &&
+            rotation >= this.rotationDividers[i - 1] &&
             rotation < this.rotationDividers[i]
-          )
+          ) {
             return i;
+          }
         }
       }
+      return 0;
     },
     checkAnswer() {
       let isCorrect = true;
       const wrongAnswers = [];
-      for (const i in this.answers) {
-        const blockID = {
-          x: this.gameData.BlankSpace[i].x,
-          y: this.gameData.BlankSpace[i].y,
-        };
-        const correctAnswerID = this.gameData.Map[blockID.y][blockID.x];
-        if (this.answers[i] !== correctAnswerID) {
+
+      for (let i = 0; i < this.answers.length; i++) {
+        const blank = this.gameData.BlankSpace[i];
+        const { x, y } = blank;
+
+        const correctAnswerID = Number(this.gameData.Map[y][x]);
+        const rawAnswer = this.answers[i];
+        const userAnswer = rawAnswer == null ? null : Number(rawAnswer);
+
+        if (userAnswer !== correctAnswerID) {
           isCorrect = false;
           wrongAnswers.push(i);
         }
       }
+
       this.emitAnswer(isCorrect);
       if (!isCorrect) this.removeWrongAnswers(wrongAnswers);
     },

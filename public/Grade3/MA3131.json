@@ -1,0 +1,308 @@
+{
+  "id": "MA3131",
+  "introvideo": "",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "按照規律，填填看"
+  },
+  "GameType": "FindPattern",
+  "GameConfig": {},
+  "Hint": {},
+  "Questions": [
+    [
+      {
+        "Question": "請觀察顏色的變化後，放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["blue-heart.png", "red-heart.png"],
+        "Map": [[0, 1, 0, 1, 0, 1, 0, 1]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "請觀察顏色的變化後，放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["blue-heart.png", "red-heart.png"],
+        "Map": [[1, 0, 1, 0, 1, 0, 1, 0]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "請觀察顏色的變化後，放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["blue-heart.png", "red-heart.png"],
+        "Map": [[1, 0, 1, 0, 1, 0, 1, 0]],
+        "BlankSpace": [
+          { "x": 3, "y": 0 },
+          { "x": 6, "y": 0 }
+        ]
+      },
+      {
+        "Question": "請觀察顏色的變化後，放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["blue-heart.png", "red-heart.png"],
+        "Map": [[0, 1, 0, 1, 0, 1, 0, 1]],
+        "BlankSpace": [
+          { "x": 2, "y": 0 },
+          { "x": 6, "y": 0 }
+        ]
+      },
+      {
+        "Question": "請觀察顏色的變化後，放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["blue-heart.png", "red-heart.png"],
+        "Map": [[1, 0, 1, 0, 1, 0, 1, 0]],
+        "BlankSpace": [
+          { "x": 3, "y": 0 },
+          { "x": 4, "y": 0 }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "觀察箭頭的方向變化，放入正確的答案吧",
+        "AnswerType": "Drag",
+        "Images": ["up.png", "right.png", "down.png", "left.png"],
+        "Map": [[0, 1, 0, 1, 0, 1]],
+        "BlankSpace": [
+          { "x": 4, "y": 0 },
+          { "x": 5, "y": 0 }
+        ]
+      },
+      {
+        "Question": "觀察箭頭的方向變化，放入正確的答案吧",
+        "AnswerType": "Drag",
+        "Images": ["up.png", "right.png", "down.png", "left.png"],
+        "Map": [[1, 2, 3, 1, 2, 3, 1, 2]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "觀察箭頭的方向變化，放入正確的答案吧",
+        "AnswerType": "Drag",
+        "Images": ["up.png", "right.png", "down.png", "left.png"],
+        "Map": [[3, 0, 2, 3, 0, 2, 3, 0]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "3-frame.png",
+        "Fill": "3-fill.png",
+        "FillRotation": [0, 72, 144, 216, 288],
+        "Map": [[0, 1, 2, 3, 4, 0, 1, 2]],
+        "BlankSpace": [
+          { "x": 5, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "3-frame.png",
+        "Fill": "3-fill.png",
+        "FillRotation": [0, 72, 144, 216, 288],
+        "Map": [[1, 2, 3, 4, 0, 1, 2, 3]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "3-frame.png",
+        "Fill": "3-fill.png",
+        "FillRotation": [0, 72, 144, 216, 288],
+        "Map": [[0, 4, 3, 2, 1, 0, 4, 3]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "3-frame.png",
+        "Fill": "3-fill.png",
+        "FillRotation": [0, 72, 144, 216, 288],
+        "Map": [[3, 2, 1, 0, 4, 3, 2, 1]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "3-frame.png",
+        "Fill": "3-fill.png",
+        "FillRotation": [0, 72, 144, 216, 288],
+        "Map": [[3, 4, 0, 1, 2, 3, 4, 0]],
+        "BlankSpace": [
+          { "x": 6, "y": 0 },
+          { "x": 7, "y": 0 }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "4-frame.png",
+        "Fill": "4-fill.png",
+        "FillRotation": [0, 90, 180, 270],
+        "Map": [[0, 1, 2, 3, 0, 1, 2, 3, 0]],
+        "BlankSpace": [
+          { "x": 7, "y": 0 },
+          { "x": 8, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "4-frame.png",
+        "Fill": "4-fill.png",
+        "FillRotation": [0, 90, 180, 270],
+        "Map": [[1, 2, 3, 0, 1, 2, 3, 0, 1]],
+        "BlankSpace": [
+          { "x": 7, "y": 0 },
+          { "x": 8, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "4-frame.png",
+        "Fill": "4-fill.png",
+        "FillRotation": [0, 90, 180, 270],
+        "Map": [[2, 3, 0, 1, 2, 3, 0, 1, 2]],
+        "BlankSpace": [
+          { "x": 7, "y": 0 },
+          { "x": 8, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "4-frame.png",
+        "Fill": "4-fill.png",
+        "FillRotation": [0, 90, 180, 270],
+        "Map": [[3, 0, 1, 2, 3, 0, 1, 2, 3]],
+        "BlankSpace": [
+          { "x": 7, "y": 0 },
+          { "x": 8, "y": 0 }
+        ]
+      },
+      {
+        "Question": "按照規律，想想看接下來要怎麼塗色",
+        "AnswerType": "Fill",
+        "Frame": "4-frame.png",
+        "Fill": "4-fill.png",
+        "FillRotation": [0, 90, 180, 270],
+        "Map": [[3, 2, 1, 0, 3, 2, 1, 0, 3]],
+        "BlankSpace": [
+          { "x": 7, "y": 0 },
+          { "x": 8, "y": 0 }
+        ]
+      }
+    ],
+    [
+      {
+        "Question": "觀察圖形的規律，在空格處放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["5-1.png", "5-2.png", "5-3.png", "5-4.png", "5-5.png"],
+        "Map": [
+          [0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0]
+        ],
+        "BlankSpace": [
+          { "x": 5, "y": 2 },
+          { "x": 7, "y": 3 }
+        ]
+      },
+      {
+        "Question": "觀察圖形的規律，在空格處放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["5-1.png", "5-2.png", "5-3.png", "5-4.png", "5-5.png"],
+        "Map": [
+          [0, 2, 3, 0, 4, 1, 0, 2, 3, 0, 4, 1, 0],
+          [0, 1, 4, 0, 3, 2, 0, 1, 4, 0, 3, 2, 0],
+          [0, 4, 1, 0, 2, 3, 0, 4, 1, 0, 2, 3, 0],
+          [0, 3, 2, 0, 1, 4, 0, 3, 2, 0, 1, 4, 0],
+          [0, 2, 3, 0, 4, 1, 0, 2, 3, 0, 4, 1, 0],
+          [0, 1, 4, 0, 3, 2, 0, 1, 4, 0, 3, 2, 0]
+        ],
+        "BlankSpace": [
+          { "x": 2, "y": 1 },
+          { "x": 7, "y": 5 }
+        ]
+      },
+      {
+        "Question": "觀察圖形的規律，在空格處放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["5-1.png", "5-2.png", "5-3.png", "5-4.png", "5-5.png"],
+        "Map": [
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 3, 2, 0, 3, 2, 0, 3, 2, 0, 3, 2, 0],
+          [0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 3, 2, 0, 3, 2, 0, 3, 2, 0, 3, 2, 0]
+        ],
+        "BlankSpace": [
+          { "x": 3, "y": 1 },
+          { "x": 8, "y": 3 }
+        ]
+      },
+      {
+        "Question": "觀察圖形的規律，在空格處放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["5-1.png", "5-2.png", "5-3.png", "5-4.png", "5-5.png"],
+        "Map": [
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          [0, 4, 1, 0, 4, 1, 0, 4, 1, 0, 4, 1, 0],
+          [0, 3, 2, 0, 3, 2, 0, 3, 2, 0, 3, 2, 0],
+          [0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0],
+          [0, 1, 4, 0, 1, 4, 0, 1, 4, 0, 1, 4, 0],
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ],
+        "BlankSpace": [
+          { "x": 2, "y": 2 },
+          { "x": 8, "y": 4 }
+        ]
+      },
+      {
+        "Question": "觀察圖形的規律，在空格處放入正確的答案",
+        "AnswerType": "Drag",
+        "Images": ["5-1.png", "5-2.png", "5-3.png", "5-4.png", "5-5.png"],
+        "Map": [
+          [4, 2, 1, 4, 1, 4, 2, 1, 4, 1, 4, 2, 1],
+          [1, 0, 3, 3, 2, 1, 0, 3, 3, 2, 1, 0, 3],
+          [3, 4, 2, 2, 3, 3, 4, 2, 2, 3, 3, 4, 2],
+          [4, 2, 1, 1, 4, 4, 2, 1, 1, 4, 4, 2, 1],
+          [1, 0, 3, 4, 1, 1, 0, 3, 4, 1, 1, 0, 3],
+          [3, 4, 2, 3, 2, 3, 4, 2, 3, 2, 3, 4, 2]
+        ],
+        "BlankSpace": [
+          { "x": 2, "y": 2 },
+          { "x": 8, "y": 4 }
+        ]
+      }
+    ]
+  ]
+}

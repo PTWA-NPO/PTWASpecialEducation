@@ -547,6 +547,17 @@
         "Title": "3 - 尋找規律",
         "Section": [
           {
+            "Title": "圖形的規律",
+            "Games": [
+              {
+                "id": "MA3131",
+                "Name": "圖形的規律",
+                "Description": "按照規律，填填看",
+                "Img": "MA3131.PNG"
+              }
+            ]
+          },
+          {
             "Title": "數字的規律",
             "Games": [
               {
@@ -851,6 +862,17 @@
       {
         "Title": "9 - 統計表",
         "Section": [
+          {
+            "Title": "報讀一維表格",
+            "Games": [
+              {
+                "id": "MA3191",
+                "Name": "報讀一維表格",
+                "Description": "看圖回答問題",
+                "Img": "MA3191.PNG"
+              }
+            ]
+          },
           {
             "Title": "報讀二維表格",
             "Games": [

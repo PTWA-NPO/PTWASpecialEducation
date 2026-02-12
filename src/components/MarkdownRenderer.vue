@@ -231,12 +231,12 @@ export default {
       };
     },
     fillToInput(content) {
-      if (content === "??") {
+      if (content === "關閉") {
         this.isShowNumPad = false;
         return;
       }
       if (this.clickedTarget !== null) {
-        if (content === "皜") {
+        if (content === "清除") {
           this.elements[this.clickedTarget].content = "";
           this.checkAnswer();
           return;
