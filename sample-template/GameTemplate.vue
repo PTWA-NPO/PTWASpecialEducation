@@ -1,11 +1,11 @@
-<template>
+﻿<template>
   <div class="YOUR-GAME-NAME__container">
     <!-- <component :is="componentName" :Data="componentsData" :ID="ID" @replyAnswer="replyAnswerFunc" /> -->
   </div>
 </template>
 <script>
 import { defineAsyncComponent } from "vue";
-import { getGameStaticAssets } from "@/utilitys/get_assets.js"; // Feel free to change your the method to get assets.
+import { getGameStaticAssets } from "@/lib/get-assets.js"; // Feel free to change your the method to get assets.
 export default {
   name: "YourGameName",
   components: {
@@ -47,3 +47,6 @@ export default {
 </script>
 
 <style scoped lang="scss"></style>
+
+
+

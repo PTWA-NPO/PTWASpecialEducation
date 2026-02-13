@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div ref="container">
     <v-stage
       :config="configKonva"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { getSystemAssets } from "@/utilitys/get_assets.js";
+import { getSystemAssets } from "@/lib/get-assets.js";
 
 export default {
   components: {},
@@ -204,6 +204,8 @@ export default {
         )
       )
         this.configLine.splice(id, 1);
+
+      this.mergeLastTwoIfColinear();
       this.verify();
     },
 
@@ -228,11 +230,11 @@ export default {
     slope(id) {
       const pointSet = this.getPointSetFromLine(id);
       if (pointSet[0].x === pointSet[1].x) return "vertical";
-      else
-        return (
-          (pointSet[0].y - pointSet[1].y) /
-          (pointSet[0].x - pointSet[1].x)
-        ).toFixed(2);
+
+      const k =
+        (pointSet[0].y - pointSet[1].y) / (pointSet[0].x - pointSet[1].x);
+
+      return Math.round(k * 100) / 100;
     },
     isParallel(id1, id2) {
       if (this.slope(id1) === this.slope(id2)) return true;
@@ -473,6 +475,90 @@ export default {
         }
       }
       this.$emit("replyAnswer", false);
+    },
+
+    mergeLastTwoIfColinear() {
+      const lastTwo = this.getLastTwoUserLines();
+      if (!lastTwo) return;
+
+      const [a, b] = lastTwo;
+      if (!this.areColinear(a, b)) return;
+      if (!this.areTouching(a, b)) return;
+
+      this.mergeLines(a, b);
+    },
+
+    // 取得最後兩條「使用者畫的線」（排除棕色 given 線）
+    getLastTwoUserLines() {
+      const userLines = this.configLine.filter(
+        (line) => line.stroke !== "brown"
+      );
+      if (userLines.length < 2) return null;
+
+      const a = userLines[userLines.length - 2];
+      const b = userLines[userLines.length - 1];
+      return [a, b];
+    },
+
+    getLinePoints(line) {
+      return {
+        p1: { x: line.points[0], y: line.points[1] },
+        p2: { x: line.points[2], y: line.points[3] },
+      };
+    },
+
+    areColinear(a, b) {
+      const { p1: p1a, p2: p2a } = this.getLinePoints(a);
+      const { p1: p1b, p2: p2b } = this.getLinePoints(b);
+
+      const sameY = p1a.y === p2a.y && p1b.y === p2b.y && p1a.y === p1b.y;
+      const sameX = p1a.x === p2a.x && p1b.x === p2b.x && p1a.x === p1b.x;
+
+      return sameY || sameX;
+    },
+
+    areTouching(a, b) {
+      const { p1: p1a, p2: p2a } = this.getLinePoints(a);
+      const { p1: p1b, p2: p2b } = this.getLinePoints(b);
+
+      const isSame = (p, q) => p.x === q.x && p.y === q.y;
+
+      return (
+        isSame(p1a, p1b) ||
+        isSame(p1a, p2b) ||
+        isSame(p2a, p1b) ||
+        isSame(p2a, p2b)
+      );
+    },
+
+    mergeLines(a, b) {
+      const { p1: p1a, p2: p2a } = this.getLinePoints(a);
+      const { p1: p1b, p2: p2b } = this.getLinePoints(b);
+
+      const isHorizontal = p1a.y === p2a.y;
+      const isVertical = p1a.x === p2a.x;
+
+      if (!isHorizontal && !isVertical) return;
+
+      if (isHorizontal) {
+        const y = p1a.y;
+        const xs = [p1a.x, p2a.x, p1b.x, p2b.x];
+        const minX = Math.min(...xs);
+        const maxX = Math.max(...xs);
+        a.points = [minX, y, maxX, y];
+      } else if (isVertical) {
+        const x = p1a.x;
+        const ys = [p1a.y, p2a.y, p1b.y, p2b.y];
+        const minY = Math.min(...ys);
+        const maxY = Math.max(...ys);
+        a.points = [x, minY, x, maxY];
+      }
+
+      // 從 configLine 裡刪掉 b（用參考比對）
+      const index = this.configLine.indexOf(b);
+      if (index !== -1) {
+        this.configLine.splice(index, 1);
+      }
     },
   },
 };

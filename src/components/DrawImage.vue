@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="Container">
     <p v-if="componentConfig.Text !== undefined">
       {{ componentConfig.Text }}
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
-import { getGameAssets } from "@/utilitys/get_assets.js";
+import { getSlotComponentAssets } from "@/lib/get-assets.js";
+import { getGameAssets } from "@/lib/get-assets.js";
 export default {
   name: "DrawImage",
   props: {
@@ -93,7 +93,7 @@ export default {
       }
     }
 
-    // 初始化每個格子中的圖片為圖片1，並將 clickedStatus 初始化為 false
+    // ?????摮葉?????1嚗蒂撠?clickedStatus ??? false
     this.Items = Array(this.componentConfig.Mother).fill(this.image1);
     this.clickedStatus = Array(this.componentConfig.Mother).fill(false);
   },
@@ -176,8 +176,8 @@ export default {
   display: inline-block;
   text-align: center;
   font-size: 2rem;
-  line-height: 2; /* 設置行高 */
-  vertical-align: middle; /* 垂直對齊 */
+  line-height: 2; /* 閮剔蔭銵? */
+  vertical-align: middle; /* ?撠? */
   .Child {
     margin: 0;
   }
@@ -192,3 +192,6 @@ export default {
   }
 }
 </style>
+
+
+

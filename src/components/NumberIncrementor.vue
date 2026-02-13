@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="number-incrementor__container">
     <div class="number-display">
       <span v-if="componentConfig.prefix" class="prefix">{{
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   name: "NumberIncrementor",
   props: {
@@ -151,3 +151,4 @@ export default {
   }
 }
 </style>
+
