@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="repeat-image-container" :style="gridStyle">
     <img
       v-for="index in count"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/lib/get-assets.js";
+import { getGameAssets } from "@/utilitys/get_assets.js";
 export default {
   name: "RepeatImage",
   props: {

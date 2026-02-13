@@ -12,15 +12,13 @@
                 "id": "MA3011",
                 "Name": "數到10000",
                 "Description": "把一樣的數連起來",
-                "Img": "MA3011.png",
-                "status": "ready"
+                "Img": "MA3011.png"
               },
               {
                 "id": "MA3012",
                 "Name": "累加、累減",
                 "Description": "按照順序填填看",
-                "Img": "MA3012.PNG",
-                "status": "ready"
+                "Img": "MA3012.PNG"
               }
             ]
           },
@@ -31,22 +29,19 @@
                 "id": "MA3013",
                 "Name": "錢的換算",
                 "Description": "數數看，並填入正確的數字",
-                "Img": "MA3013.png",
-                "status": "ready"
+                "Img": "MA3013.png"
               },
               {
                 "id": "MA3014",
                 "Name": "點數錢幣",
                 "Description": "先點數錢幣，再選選看",
-                "Img": "MA3014.png",
-                "status": "ready"
+                "Img": "MA3014.png"
               },
               {
                 "id": "MA3015",
                 "Name": "拿出正確的錢幣",
                 "Description": "拿出正確的錢幣",
-                "Img": "MA3015.png",
-                "status": "ready"
+                "Img": "MA3015.png"
               }
             ]
           },
@@ -57,8 +52,7 @@
                 "id": "MA3016",
                 "Name": "比大小",
                 "Description": "在口裡填入>、<或=",
-                "Img": "MA3016.png",
-                "status": "ready"
+                "Img": "MA3016.png"
               }
             ]
           },
@@ -69,15 +63,13 @@
                 "id": "MA3017",
                 "Name": "填寫數線",
                 "Description": "口裡的數是多少?填填看",
-                "Img": "MA3017.png",
-                "status": "ready"
+                "Img": "MA3017.png"
               },
               {
                 "id": "MA3018",
                 "Name": "數線應用",
                 "Description": "在數線上做做看",
-                "Img": "MA3018.png",
-                "status": "ready"
+                "Img": "MA3018.png"
               }
             ]
           }
@@ -93,8 +85,7 @@
                 "id": "MA3021",
                 "Name": "三、四位數的加法(計算+應用)",
                 "Description": "用直式算算看",
-                "Img": "MA3021.png",
-                "status": "ready"
+                "Img": "MA3021.png"
               }
             ]
           },
@@ -105,15 +96,13 @@
                 "id": "MA3022",
                 "Name": "三位數的減法(計算+應用)",
                 "Description": "用直式算算看",
-                "Img": "MA3022.png",
-                "status": "ready"
+                "Img": "MA3022.png"
               },
               {
                 "id": "MA3023",
                 "Name": "四位數的減法(計算+應用)",
                 "Description": "用直式算算看",
-                "Img": "MA3023.png",
-                "status": "ready"
+                "Img": "MA3023.png"
               }
             ]
           },
@@ -124,8 +113,7 @@
                 "id": "MA3024",
                 "Name": "加減估算",
                 "Description": "估估看，哪一個數最接近正確答案?",
-                "Img": "MA3024.png",
-                "status": "ready"
+                "Img": "MA3024.png"
               }
             ]
           }
@@ -141,22 +129,19 @@
                 "id": "MA3031",
                 "Name": "量量看",
                 "Description": "將物品量一量，再填填看",
-                "Img": "MA3031.png",
-                "status": "ready"
+                "Img": "MA3031.png"
               },
               {
                 "id": "MA3032",
                 "Name": "長度單位換算",
                 "Description": "選選看，完成公分和毫米的換算",
-                "Img": "MA3032.png",
-                "status": "ready"
+                "Img": "MA3032.png"
               },
               {
                 "id": "MA3033",
                 "Name": "比大小",
                 "Description": "在口裡填入>、<或=",
-                "Img": "MA3033.png",
-                "status": "ready"
+                "Img": "MA3033.png"
               }
             ]
           },
@@ -167,15 +152,13 @@
                 "id": "MA3034",
                 "Name": "長度的計算(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3034.png",
-                "status": "ready"
+                "Img": "MA3034.png"
               },
               {
                 "id": "MA3035",
                 "Name": "長度的計算(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3035.png",
-                "status": "ready"
+                "Img": "MA3035.png"
               }
             ]
           }
@@ -191,8 +174,7 @@
                 "id": "MA3041",
                 "Name": "二位數乘以一位數(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3041.PNG",
-                "status": "ready"
+                "Img": "MA3041.PNG"
               }
             ]
           },
@@ -203,8 +185,7 @@
                 "id": "MA3042",
                 "Name": "三位數乘以一位數(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3042.PNG",
-                "status": "ready"
+                "Img": "MA3042.PNG"
               }
             ]
           },
@@ -215,8 +196,7 @@
                 "id": "MA3043",
                 "Name": "連乘的兩步驟問題(應用題)",
                 "Description": "用直式算算看",
-                "Img": "MA3043.png",
-                "status": "ready"
+                "Img": "MA3043.png"
               }
             ]
           },
@@ -227,8 +207,7 @@
                 "id": "MA3044",
                 "Name": "乘法估算",
                 "Description": "估估看，把最接近正確答案的算式或答案找出來。",
-                "Img": "MA3044.png",
-                "status": "ready"
+                "Img": "MA3044.png"
               }
             ]
           }
@@ -244,8 +223,7 @@
                 "id": "MA3051",
                 "Name": "什麼是角",
                 "Description": "分類看看，哪些是角?哪些不是角?",
-                "Img": "MA3051.png",
-                "status": "ready"
+                "Img": "MA3051.png"
               }
             ]
           },
@@ -256,8 +234,7 @@
                 "id": "MA3052",
                 "Name": "角的大小比較",
                 "Description": "比比看，哪個角最大?哪個角最小?",
-                "Img": "MA3052.png",
-                "status": "ready"
+                "Img": "MA3052.png"
               }
             ]
           },
@@ -268,8 +245,7 @@
                 "id": "MA3053",
                 "Name": "認識直角、銳角和鈍角",
                 "Description": "用三角板比比看，圖片中的角是什麼角?",
-                "Img": "MA3053.png",
-                "status": "ready"
+                "Img": "MA3053.png"
               }
             ]
           },
@@ -280,22 +256,19 @@
                 "id": "MA3054",
                 "Name": "認識正方形和長方形",
                 "Description": "用三角板做做看",
-                "Img": "MA3054.PNG",
-                "status": "ready"
+                "Img": "MA3054.PNG"
               },
               {
                 "id": "MA3055",
                 "Name": "哪些是正方形、哪些是長方形",
                 "Description": "分類看看，哪些圖形是正方形?哪些圖形是長方形?哪些圖形都不是?",
-                "Img": "MA3055.PNG",
-                "status": "ready"
+                "Img": "MA3055.PNG"
               },
               {
                 "id": "MA3056",
                 "Name": "畫出正方形或長方形",
                 "Description": "在邊長為1cm的方格紙上畫畫看",
-                "Img": "MA3056.png",
-                "status": "ready"
+                "Img": "MA3056.png"
               }
             ]
           }
@@ -311,8 +284,7 @@
                 "id": "MA3061",
                 "Name": "認識平方公分",
                 "Description": "下面圖形的面積各是多少平方公分?",
-                "Img": "MA3061.png",
-                "status": "ready"
+                "Img": "MA3061.png"
               }
             ]
           },
@@ -323,8 +295,7 @@
                 "id": "MA3062",
                 "Name": "切割拼湊算面積",
                 "Description": "下面圖形的面積各是多少平方公分?",
-                "Img": "MA3062.png",
-                "status": "ready"
+                "Img": "MA3062.png"
               }
             ]
           },
@@ -335,8 +306,7 @@
                 "id": "MA3063",
                 "Name": "估估看面積有多大",
                 "Description": "估估看，下面圖形的面積大約有多少",
-                "Img": "MA3063.PNG",
-                "status": "ready"
+                "Img": "MA3063.PNG"
               }
             ]
           }
@@ -352,8 +322,7 @@
                 "id": "MA3071",
                 "Name": "除法算式(整除)",
                 "Description": "用除法算式記記看",
-                "Img": "MA3071.PNG",
-                "status": "ready"
+                "Img": "MA3071.PNG"
               }
             ]
           },
@@ -364,15 +333,13 @@
                 "id": "MA3072",
                 "Name": "除法連連看",
                 "Description": "連連看，認識正確的除法算式",
-                "Img": "MA3072.PNG",
-                "status": "ready"
+                "Img": "MA3072.PNG"
               },
               {
                 "id": "MA3073",
                 "Name": "除法算式(餘數)",
                 "Description": "用除法算式記記看",
-                "Img": "MA3073.PNG",
-                "status": "ready"
+                "Img": "MA3073.PNG"
               }
             ]
           },
@@ -383,8 +350,7 @@
                 "id": "MA3074",
                 "Name": "除法直式計算",
                 "Description": "用除法直式算算看",
-                "Img": "MA3074.PNG",
-                "status": "ready"
+                "Img": "MA3074.PNG"
               }
             ]
           },
@@ -395,8 +361,7 @@
                 "id": "MA3075",
                 "Name": "除法應用",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3075.PNG",
-                "status": "ready"
+                "Img": "MA3075.PNG"
               }
             ]
           },
@@ -407,8 +372,7 @@
                 "id": "MA3076",
                 "Name": "奇數偶數",
                 "Description": "哪些數是偶數?哪些數是奇數?",
-                "Img": "MA3076.png",
-                "status": "ready"
+                "Img": "MA3076.png"
               }
             ]
           }
@@ -424,8 +388,7 @@
                 "id": "MA3081",
                 "Name": "認識毫升",
                 "Description": "將量杯填滿至指定的公升數",
-                "Img": "MA3081.png",
-                "status": "ready"
+                "Img": "MA3081.png"
               }
             ]
           },
@@ -436,15 +399,13 @@
                 "id": "MA3082",
                 "Name": "比大小",
                 "Description": "在口裡填入>、<或=",
-                "Img": "MA3082.png",
-                "status": "ready"
+                "Img": "MA3082.png"
               },
               {
                 "id": "MA3083",
                 "Name": "毫升公升連連看",
                 "Description": "把一樣多的容量連起來",
-                "Img": "MA3083.png",
-                "status": "ready"
+                "Img": "MA3083.png"
               }
             ]
           },
@@ -455,15 +416,13 @@
                 "id": "MA3084",
                 "Name": "容積的加減(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3084.png",
-                "status": "ready"
+                "Img": "MA3084.png"
               },
               {
                 "id": "MA3085",
                 "Name": "容積的加減(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3085.png",
-                "status": "ready"
+                "Img": "MA3085.png"
               }
             ]
           }
@@ -479,8 +438,7 @@
                 "id": "MA3092",
                 "Name": "分數連連看",
                 "Description": "塗色的部分共是多少?將正確的分數連起來。",
-                "Img": "MA3092.png",
-                "status": "ready"
+                "Img": "MA3092.png"
               }
             ]
           },
@@ -491,8 +449,7 @@
                 "id": "MA3093",
                 "Name": "幾分之幾(離散量情境的分數概念)",
                 "Description": "移動物品，再填填看",
-                "Img": "MA3093.PNG",
-                "status": "ready"
+                "Img": "MA3093.PNG"
               }
             ]
           },
@@ -503,8 +460,7 @@
                 "id": "MA3095",
                 "Name": "分數數詞序列二",
                 "Description": "想一想，再選選看",
-                "Img": "MA3095.PNG",
-                "status": "ready"
+                "Img": "MA3095.PNG"
               }
             ]
           },
@@ -515,8 +471,7 @@
                 "id": "MA3096",
                 "Name": "分數的大小比較",
                 "Description": "塗一塗，再比比看，在口裡填入>、<或=",
-                "Img": "MA3096.PNG",
-                "status": "ready"
+                "Img": "MA3096.PNG"
               }
             ]
           }
@@ -537,15 +492,13 @@
                 "id": "MA3121",
                 "Name": "二位數除以一位數(計算題)",
                 "Description": "用除法直式算算看",
-                "Img": "MA3121.PNG",
-                "status": "ready"
+                "Img": "MA3121.PNG"
               },
               {
                 "id": "MA3122",
                 "Name": "二位數除以一位數(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3122.PNG",
-                "status": "ready"
+                "Img": "MA3122.PNG"
               }
             ]
           },
@@ -556,15 +509,13 @@
                 "id": "MA3123",
                 "Name": "三位數除以一位數(計算題)",
                 "Description": "用除法直式算算看",
-                "Img": "MA3123.PNG",
-                "status": "ready"
+                "Img": "MA3123.PNG"
               },
               {
                 "id": "MA3124",
                 "Name": "三位數除以一位數(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3124.PNG",
-                "status": "ready"
+                "Img": "MA3124.PNG"
               }
             ]
           },
@@ -575,8 +526,7 @@
                 "id": "MA3125",
                 "Name": "加與除的兩步驟問題(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3125.PNG",
-                "status": "ready"
+                "Img": "MA3125.PNG"
               }
             ]
           },
@@ -587,8 +537,7 @@
                 "id": "MA3126",
                 "Name": "減與除的兩步驟問題(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3126.PNG",
-                "status": "ready"
+                "Img": "MA3126.PNG"
               }
             ]
           }
@@ -598,26 +547,13 @@
         "Title": "3 - 尋找規律",
         "Section": [
           {
-            "Title": "圖形的規律",
-            "Games": [
-              {
-                "id": "MA3131",
-                "Name": "圖形的規律",
-                "Description": "按照規律，填填看",
-                "Img": "MA3131.PNG",
-                "status": "ready"
-              }
-            ]
-          },
-          {
             "Title": "數字的規律",
             "Games": [
               {
                 "id": "MA3132",
                 "Name": "數字的規律",
                 "Description": "看圖回答問題",
-                "Img": "MA3132.PNG",
-                "status": "ready"
+                "Img": "MA3132.PNG"
               }
             ]
           },
@@ -628,8 +564,7 @@
                 "id": "MA3133",
                 "Name": "數形規律的應用",
                 "Description": "觀察下圖找出規律，並回答問題",
-                "Img": "MA3133.PNG",
-                "status": "ready"
+                "Img": "MA3133.PNG"
               }
             ]
           }
@@ -645,8 +580,7 @@
                 "id": "MA3141",
                 "Name": "認識1公斤秤",
                 "Description": "觀察秤面，填入正確的數字",
-                "Img": "MA3141.PNG",
-                "status": "ready"
+                "Img": "MA3141.PNG"
               }
             ]
           },
@@ -657,8 +591,7 @@
                 "id": "MA3142",
                 "Name": "認識3公斤秤",
                 "Description": "將指針旋轉到題目指定的位置",
-                "Img": "MA3142.png",
-                "status": "ready"
+                "Img": "MA3142.png"
               }
             ]
           },
@@ -669,8 +602,7 @@
                 "id": "MA3143",
                 "Name": "重量的量感與估測",
                 "Description": "選擇適當的重量單位",
-                "Img": "MA3143.png",
-                "status": "ready"
+                "Img": "MA3143.png"
               }
             ]
           },
@@ -681,15 +613,13 @@
                 "id": "MA3144",
                 "Name": "公斤和公克的換算",
                 "Description": "填填看，完成公斤和公克的換算",
-                "Img": "MA3144.PNG",
-                "status": "ready"
+                "Img": "MA3144.PNG"
               },
               {
                 "id": "MA3145",
                 "Name": "比大小",
                 "Description": "在口裡填入>、<或=",
-                "Img": "MA3145.png",
-                "status": "ready"
+                "Img": "MA3145.png"
               }
             ]
           },
@@ -700,8 +630,7 @@
                 "id": "MA3146",
                 "Name": "重量的加減(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3146.PNG",
-                "status": "ready"
+                "Img": "MA3146.PNG"
               }
             ]
           }
@@ -717,8 +646,7 @@
                 "id": "MA3151",
                 "Name": "認識一位小數",
                 "Description": "用分數或小數回答問題",
-                "Img": "MA3151.png",
-                "status": "ready"
+                "Img": "MA3151.png"
               }
             ]
           },
@@ -729,15 +657,13 @@
                 "id": "MA3152",
                 "Name": "認識十分位1",
                 "Description": "想一想，再選選看",
-                "Img": "MA3152.PNG",
-                "status": "ready"
+                "Img": "MA3152.PNG"
               },
               {
                 "id": "MA3153",
                 "Name": "認識十分位2",
                 "Description": "在定位板上記記看，並回答問題",
-                "Img": "MA3153.png",
-                "status": "ready"
+                "Img": "MA3153.png"
               }
             ]
           },
@@ -748,8 +674,7 @@
                 "id": "MA3154",
                 "Name": "小數的大小比較",
                 "Description": "在口裡填入>、<或=",
-                "Img": "MA3154.PNG",
-                "status": "ready"
+                "Img": "MA3154.PNG"
               }
             ]
           },
@@ -760,15 +685,13 @@
                 "id": "MA3155",
                 "Name": "小數的加減(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3155.PNG",
-                "status": "ready"
+                "Img": "MA3155.PNG"
               },
               {
                 "id": "MA3156",
                 "Name": "小數的加減(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3156.PNG",
-                "status": "ready"
+                "Img": "MA3156.PNG"
               }
             ]
           },
@@ -779,8 +702,7 @@
                 "id": "MA3157",
                 "Name": "量量看",
                 "Description": "將物品量一量，再填填看",
-                "Img": "MA3157.PNG",
-                "status": "ready"
+                "Img": "MA3157.PNG"
               }
             ]
           }
@@ -796,29 +718,25 @@
                 "id": "MA3161",
                 "Name": "認識圓",
                 "Description": "將圓形的各部位名稱拉到對應位置",
-                "Img": "MA3161.png",
-                "status": "ready"
+                "Img": "MA3161.png"
               },
               {
                 "id": "MA3162",
                 "Name": "直徑與半徑",
                 "Description": "分分看，哪些是直徑?哪些是半徑?哪些都不是?",
-                "Img": "MA3162.png",
-                "status": "ready"
+                "Img": "MA3162.png"
               },
               {
                 "id": "MA3163",
                 "Name": "直徑、半徑、圓心",
                 "Description": "看圖回答問題",
-                "Img": "MA3163.png",
-                "status": "ready"
+                "Img": "MA3163.png"
               },
               {
                 "id": "MA3164",
                 "Name": "判斷半徑是直徑的一半",
                 "Description": "移動圓到圓心，再填填看",
-                "Img": "MA3164.PNG",
-                "status": "ready"
+                "Img": "MA3164.PNG"
               }
             ]
           }
@@ -834,8 +752,7 @@
                 "id": "MA3171",
                 "Name": "乘與除的互逆關係",
                 "Description": "想一想，再填填看",
-                "Img": "MA3171.PNG",
-                "status": "ready"
+                "Img": "MA3171.PNG"
               }
             ]
           },
@@ -846,15 +763,13 @@
                 "id": "MA3174",
                 "Name": "被乘數未知的問題(計算+應用)",
                 "Description": "用算式記記看",
-                "Img": "MA3174.PNG",
-                "status": "ready"
+                "Img": "MA3174.PNG"
               },
               {
                 "id": "MA3175",
                 "Name": "乘數未知的問題(計算+應用)",
                 "Description": "用算式記記看",
-                "Img": "MA3175.PNG",
-                "status": "ready"
+                "Img": "MA3175.PNG"
               }
             ]
           },
@@ -865,15 +780,13 @@
                 "id": "MA3176",
                 "Name": "被除數未知的問題(計算+應用)",
                 "Description": "用算式記記看",
-                "Img": "MA3176.PNG",
-                "status": "ready"
+                "Img": "MA3176.PNG"
               },
               {
                 "id": "MA3177",
                 "Name": "除數未知的問題(計算+應用)",
                 "Description": "用算式記記看",
-                "Img": "MA3177.PNG",
-                "status": "ready"
+                "Img": "MA3177.PNG"
               }
             ]
           }
@@ -889,15 +802,13 @@
                 "id": "MA3181",
                 "Name": "時間配對",
                 "Description": "將電子鐘與正確的時間配對",
-                "Img": "MA3181.png",
-                "status": "ready"
+                "Img": "MA3181.png"
               },
               {
                 "id": "MA3182",
                 "Name": "時間連連看",
                 "Description": "把一樣的時間連起來",
-                "Img": "MA3182.png",
-                "status": "ready"
+                "Img": "MA3182.png"
               }
             ]
           },
@@ -908,15 +819,13 @@
                 "id": "MA3183",
                 "Name": "時間單位換算",
                 "Description": "選選看，完成時間的換算",
-                "Img": "MA3183.png",
-                "status": "ready"
+                "Img": "MA3183.png"
               },
               {
                 "id": "MA3184",
                 "Name": "能理解並運用適當的時間單位",
                 "Description": "選選看適合的時間單位",
-                "Img": "MA3184.png",
-                "status": "ready"
+                "Img": "MA3184.png"
               }
             ]
           },
@@ -927,15 +836,13 @@
                 "id": "MA3185",
                 "Name": "時分的加減(計算題)",
                 "Description": "用直式算算看",
-                "Img": "MA3185.png",
-                "status": "ready"
+                "Img": "MA3185.png"
               },
               {
                 "id": "MA3186",
                 "Name": "時分的加減(應用題)",
                 "Description": "把做法和答案記下來",
-                "Img": "MA3186.PNG",
-                "status": "ready"
+                "Img": "MA3186.PNG"
               }
             ]
           }
@@ -945,26 +852,13 @@
         "Title": "9 - 統計表",
         "Section": [
           {
-            "Title": "報讀一維表格",
-            "Games": [
-              {
-                "id": "MA3191",
-                "Name": "報讀一維表格",
-                "Description": "看圖回答問題",
-                "Img": "MA3191.PNG",
-                "status": "ready"
-              }
-            ]
-          },
-          {
             "Title": "報讀二維表格",
             "Games": [
               {
                 "id": "MA3192",
                 "Name": "報讀二維表格",
                 "Description": "看圖回答問題",
-                "Img": "MA3192.PNG",
-                "status": "ready"
+                "Img": "MA3192.PNG"
               }
             ]
           }

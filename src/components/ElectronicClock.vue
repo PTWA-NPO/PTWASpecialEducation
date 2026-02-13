@@ -4,7 +4,7 @@
 
 <script>
 import Konva from "konva";
-import { getSlotComponentAssets } from "@/lib/get-assets.js";
+import { getSlotComponentAssets } from "@/utilitys/get_assets.js";
 
 export default {
   name: "ElectronicClock",
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     drawClock() {
-      const container = this.$refs.konvaContainer;
+      const container = this.$refs.konvaContainer.parentElement;
       this.width = container.offsetWidth;
       this.height = container.offsetHeight;
 

@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="markdown-container">
     <template v-for="(element, index) in elements" :key="index">
       <component
@@ -60,7 +60,7 @@
 <script>
 import FloatNumPad from "@/components/FloatNumPad.vue";
 import FloatOperatorPad from "@/components/FloatOperatorPad.vue";
-import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+import { subComponentsVerifyAnswer as emitter } from "@/utilitys/mitt.js";
 export default {
   name: "MarkdownRenderer",
   components: {
@@ -282,7 +282,7 @@ export default {
       this.checkAnswer();
     },
     handleOperatorSelect(content) {
-      if (content === "??") {
+      if (content === "關閉") {
         this.isShowOperatorPad = false;
         return;
       }
