@@ -4,7 +4,7 @@
       <a>{{ gameData.Question }}</a>
     </div>
     <div class="game-area">
-      <div class="main-stage">
+      <div ref="stageContainer" class="main-stage">
         <v-stage
           ref="stage"
           :config="stageConfig"
@@ -81,6 +81,7 @@ export default {
   emits: ["play-effect", "add-record", "next-question"],
   data() {
     return {
+      bgImageObj: null,
       stageConfig: {
         width: 700,
         height: 500,
@@ -114,61 +115,19 @@ export default {
     };
   },
   created() {
-    const BGImage = new window.Image();
-    BGImage.src = getGameAssets(this.gameId, this.gameData.BGSrc);
+    this.bgImageObj = new window.Image();
+    this.bgImageObj.src = getGameAssets(this.gameId, this.gameData.BGSrc);
 
-    // 當圖片載入完成後再進行縮放和定位計算
-    BGImage.onload = () => {
-      const StageHeight = this.stageConfig.height - this.SelectionHeight * 2;
-
-      const imgWidth = BGImage.width;
-      const imgHeight = BGImage.height;
-
-      // 計算寬高比
-      const ration = imgWidth / imgHeight;
-
-      // 計算適合的寬度和高度，使其不超過stage的寬高
-      let NewImageWidth, NewImageHeight;
-
-      if (this.stageConfig.width / StageHeight > ration) {
-        // 如果stage更寬，根據高度來縮放
-        NewImageHeight = StageHeight - 30;
-        NewImageWidth = NewImageHeight * ration;
-      } else {
-        // 如果stage更高，根據寬度來縮放
-        NewImageWidth = this.stageConfig.width - 30;
-        NewImageHeight = NewImageWidth / ration;
-      }
-
-      // 計算圖片的位置，使其居中顯示
-      const NewX = (this.stageConfig.width - NewImageWidth) / 2;
-      const NewY = (StageHeight - NewImageHeight) / 2;
-      console.log(NewX, NewY);
-      // 設定ImageConfig
-      this.ImageConfig = {
-        image: BGImage,
-        width: NewImageWidth,
-        height: NewImageHeight,
-        x: NewX,
-        y: NewY + this.SelectionHeight,
-      };
-
-      console.log(this.ImageConfig.x, this.ImageConfig.y);
-      this.gameData.MountPoint.forEach((item) => {
-        this.ImageMountPoint.push({
-          x: item.x + NewX,
-          y: item.y + NewY + this.SelectionHeight,
-          radius: 10,
-          fill: "orange",
-        });
-      });
+    // 當圖片載入完成後進行版面配置
+    this.bgImageObj.onload = () => {
+      this.renderLayout();
     };
 
-    this.configRect();
-    this.configPoint();
     emitter.on("submitAnswer", this.CheckAllAnswer);
   },
   mounted() {
+    window.addEventListener("resize", this.handleResize);
+
     // Stage border
     // this.InitAnswer();
     const layer = this.$refs.layer.getNode();
@@ -179,9 +138,111 @@ export default {
     RectContainer.draw();
   },
   beforeUnmount() {
+    window.removeEventListener("resize", this.handleResize);
     emitter.off("submitAnswer", this.CheckAllAnswer);
   },
   methods: {
+    handleResize() {
+      // 視窗改變時，重新計算所有比例
+      this.renderLayout();
+    },
+    renderLayout() {
+      if (!this.$refs.stageContainer) return;
+
+      let containerWidth = this.$refs.stageContainer.offsetWidth;
+      let containerHeight = this.$refs.stageContainer.offsetHeight;
+
+      // 防呆：如果父容器被隱藏或尚未撐開，給個預設寬高
+      if (containerWidth < 100) containerWidth = window.innerWidth * 0.9;
+      if (containerHeight < 100) containerHeight = window.innerHeight - 150;
+
+      this.stageConfig.width = containerWidth;
+      this.stageConfig.height = containerHeight;
+
+      if (!this.bgImageObj || !this.bgImageObj.width) return;
+
+      // 清除舊物件與連線（因為畫布大小變更，舊有座標已不適用）
+      this.rects = [];
+      this.Texts = [];
+      this.FractionTexts = [];
+      this.ImageMountPoint = [];
+      this.lines = [];
+      this.linksByRect.clear();
+      this.linksByPoint.clear();
+      this.currentLineId = null;
+
+      // 重新依據新寬高排列頭尾的選項
+      this.configRect(containerWidth, containerHeight);
+
+      // 計算扣除上下選項後，圖片能顯示的中心範圍
+      const StageHeight = containerHeight - this.SelectionHeight * 2;
+      const imgWidth = this.bgImageObj.width;
+      const imgHeight = this.bgImageObj.height;
+      const ration = imgWidth / imgHeight;
+
+      let NewImageWidth, NewImageHeight;
+      if (containerWidth / StageHeight > ration) {
+        NewImageHeight = Math.max(StageHeight - 30, 100);
+        NewImageWidth = NewImageHeight * ration;
+      } else {
+        NewImageWidth = Math.max(containerWidth - 30, 100);
+        NewImageHeight = NewImageWidth / ration;
+      }
+
+      const NewX = (containerWidth - NewImageWidth) / 2;
+      const NewY = (StageHeight - NewImageHeight) / 2;
+
+      this.ImageConfig = {
+        image: this.bgImageObj,
+        width: NewImageWidth,
+        height: NewImageHeight,
+        x: NewX,
+        y: NewY + this.SelectionHeight,
+      };
+
+      // 計算題目的目標點坐標縮放
+      // (假設企劃當初是在 700x500 的邏輯尺寸裡面定義這些點的位置)
+      const origStageHeight = 500 - this.SelectionHeight * 2;
+      let origNewImageWidth;
+      if (700 / origStageHeight > ration) {
+        origNewImageWidth = (origStageHeight - 30) * ration;
+      } else {
+        origNewImageWidth = 700 - 30;
+      }
+
+      // 得出新畫面相較於舊企劃畫面的放大縮小比例
+      const scaleFactor = NewImageWidth / origNewImageWidth;
+
+      this.gameData.MountPoint.forEach((item) => {
+        // 考慮到有時 JSON 的 target point x/y 會有大小寫的差別 (防止意外 NaN)
+        const itemX = item.x !== undefined ? item.x : item.X;
+        const itemY = item.y !== undefined ? item.y : item.Y;
+
+        this.ImageMountPoint.push({
+          x: itemX * scaleFactor + NewX,
+          y: itemY * scaleFactor + NewY + this.SelectionHeight,
+          radius: 10 * Math.max(scaleFactor, 0.5), // 連線圓點大小跟著縮放
+          fill: "orange",
+        });
+      });
+
+      this.configPoint(); // 重建配對解答組
+
+      // 強迫畫面依照順序重繪
+      this.$nextTick(() => {
+        if (this.$refs.layer) {
+          this.$refs.layer.getNode().moveToBottom();
+          this.$refs.layer.getNode().batchDraw();
+        }
+        if (this.$refs.RectContainer) {
+          this.$refs.RectContainer.getNode().moveToTop();
+          this.$refs.RectContainer.getNode().batchDraw();
+        }
+        if (this.$refs.LineLayer) {
+          this.$refs.LineLayer.getNode().batchDraw();
+        }
+      });
+    },
     StartDrawing(rectIndex) {
       // 若該 rect 已連過線，先刪除舊線
       const oldId = this.linksByRect.get(rectIndex);
@@ -354,12 +415,12 @@ export default {
         ]
       }`;
     },
-    configRect() {
+    configRect(containerWidth, containerHeight) {
       //Config Rect
       if (this.gameData.Selections.length <= 4) {
         // 小於等於4，一行排列
         const RectWidth =
-          (this.stageConfig.width -
+          (containerWidth -
             (this.gameData.Selections.length + 1) * this.MinGap) /
           this.gameData.Selections.length;
 
@@ -380,7 +441,7 @@ export default {
         });
       } else {
         const RectWidth =
-          (this.stageConfig.width -
+          (containerWidth -
             (this.gameData.Selections.length / 2 + 1) * this.MinGap) /
           (this.gameData.Selections.length / 2);
         this.gameData.Selections.forEach((item, index) => {
@@ -401,13 +462,13 @@ export default {
           } else {
             this.addRect(
               this.MinGap + parseInt(index / 2) * (RectWidth + this.MinGap),
-              this.stageConfig.height - this.SelectionHeight,
+              containerHeight - this.SelectionHeight,
               RectWidth,
               this.SelectionHeight
             );
             this.addText({
               x: this.MinGap + parseInt(index / 2) * (RectWidth + this.MinGap),
-              y: this.stageConfig.height - this.SelectionHeight / 2 - 10,
+              y: containerHeight - this.SelectionHeight / 2 - 10,
               text: item,
               width: RectWidth,
               rectIndex: index,
@@ -450,11 +511,17 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: $gap--small;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
   .game-area {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+    width: 100%;
+    flex: 1; /* 會自動佔滿剩餘高度 */
+    justify-content: center;
   }
 }
 
@@ -476,6 +543,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .Functions {
