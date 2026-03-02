@@ -11,16 +11,63 @@
           @pointermove="Drawing"
           @pointerup="EndDrawing"
         >
+          <!-- Bottom Layer: NumberSeries & Main Background -->
           <v-layer ref="RectContainer">
+            <v-image v-if="ImageConfig" :config="ImageConfig" />
+            <v-group
+              v-for="(item, index) in seriesRects"
+              :key="'s-rect-' + index"
+              :config="{ x: item.x, y: item.y }"
+            >
+              <v-image
+                v-if="item.image"
+                :config="{
+                  image: item.image,
+                  width: item.width,
+                  height: item.height,
+                  opacity: item.isBlank ? 0.6 : 1,
+                }"
+              />
+              <v-rect
+                v-else
+                :config="{
+                  width: item.width,
+                  height: item.height,
+                  cornerRadius: item.cornerRadius,
+                  fill: item.fill,
+                  stroke: item.stroke,
+                  strokeWidth: item.strokeWidth,
+                  dash: item.dash,
+                }"
+              />
+            </v-group>
+            <v-text
+              v-for="(item, index) in seriesTexts"
+              :key="'s-text-' + index"
+              :config="item"
+            />
+            <!-- Dots -->
+            <v-circle
+              v-for="(item, index) in ImageMountPoint"
+              :key="'mount-point-' + index"
+              :config="item"
+            />
+          </v-layer>
+          <!-- Middle Layer: Lines -->
+          <v-layer ref="LineLayer">
+            <v-line v-for="line in lines" :key="line.id" :config="line" />
+          </v-layer>
+          <!-- Top Layer: Answer Selections -->
+          <v-layer ref="layer">
             <v-rect
               v-for="(item, index) in rects"
-              :key="index"
+              :key="'sel-rect-' + index"
               :config="item"
               @pointerdown="StartDrawing(index)"
             />
             <v-text
               v-for="(item, index) in Texts"
-              :key="index"
+              :key="'text-' + index"
               :config="item"
               @pointerdown="StartDrawing(index)"
             />
@@ -41,17 +88,6 @@
               />
             </v-group>
           </v-layer>
-          <v-layer ref="layer">
-            <v-image :config="ImageConfig" />
-            <v-circle
-              v-for="(item, index) in ImageMountPoint"
-              :key="index"
-              :config="item"
-            />
-          </v-layer>
-          <v-layer ref="LineLayer">
-            <v-line v-for="line in lines" :key="line.id" :config="line" />
-          </v-layer>
         </v-stage>
       </div>
     </div>
@@ -59,7 +95,7 @@
 </template>
 
 <script>
-import { getGameAssets } from "@/lib/get-assets.js";
+import { getGameAssets, getGameStaticAssets } from "@/lib/get-assets.js";
 import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 import KonvaFractionText from "@/components/KonvaFractionText.vue";
 
@@ -93,7 +129,12 @@ export default {
       linksByPoint: new Map(), // pointIndex -> lineId
       Texts: [],
       FractionTexts: [],
-      ImageConfig: {},
+      seriesRects: [],
+      seriesTexts: [],
+      numberSeriesItems: [],
+      localSelections: [],
+      localMountPoints: [],
+      ImageConfig: null,
       ImageMountPoint: [],
       MinGap: 10,
       Pair: [],
@@ -115,26 +156,44 @@ export default {
     };
   },
   created() {
+    this.setupData();
     this.bgImageObj = new window.Image();
-    this.bgImageObj.src = getGameAssets(this.gameId, this.gameData.BGSrc);
 
-    // 當圖片載入完成後進行版面配置
-    this.bgImageObj.onload = () => {
+    const bgSrc = this.gameData.BGSrc;
+    if (bgSrc) {
+      this.bgImageObj.src = getGameAssets(this.gameId, bgSrc);
+    } else if (
+      this.gameData.NumberSeries &&
+      this.gameData.NumberSeries.length > 0
+    ) {
+      // 若為數列題且沒有設定 BGSrc, 則隨機使用系統預設的 bg1~bg4.png 作為格子背景
+      const randomBg = `bg${Math.floor(Math.random() * 4) + 1}.png`;
+      this.bgImageObj.src = getGameStaticAssets("linkto-image", randomBg);
+    }
+
+    if (this.bgImageObj.src) {
+      // 當圖片載入完成後進行版面配置
+      this.bgImageObj.onload = () => {
+        this.renderLayout();
+      };
+    } else {
       this.renderLayout();
-    };
+    }
 
     emitter.on("submitAnswer", this.CheckAllAnswer);
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
 
-    // Stage border
-    // this.InitAnswer();
     const layer = this.$refs.layer.getNode();
-    layer.moveToBottom();
+    layer.moveToTop();
     layer.draw();
+
+    const lineLayer = this.$refs.LineLayer.getNode();
+    lineLayer.draw();
+
     const RectContainer = this.$refs.RectContainer.getNode();
-    RectContainer.moveToTop();
+    RectContainer.moveToBottom();
     RectContainer.draw();
   },
   beforeUnmount() {
@@ -159,91 +218,202 @@ export default {
       this.stageConfig.width = containerWidth;
       this.stageConfig.height = containerHeight;
 
-      if (!this.bgImageObj || !this.bgImageObj.width) return;
+      const hasImage = this.bgImageObj && this.bgImageObj.width > 0;
+      if (
+        !hasImage &&
+        !(this.gameData.NumberSeries && this.gameData.NumberSeries.length > 0)
+      )
+        return;
 
       // 清除舊物件與連線（因為畫布大小變更，舊有座標已不適用）
       this.rects = [];
       this.Texts = [];
       this.FractionTexts = [];
+      this.seriesRects = [];
+      this.seriesTexts = [];
       this.ImageMountPoint = [];
       this.lines = [];
       this.linksByRect.clear();
       this.linksByPoint.clear();
       this.currentLineId = null;
+      this.localMountPoints = [];
+
+      // 計算 seriesRects 如果有的話
+      if (this.numberSeriesItems && this.numberSeriesItems.length > 0) {
+        const seriesLength = this.numberSeriesItems.length;
+        const cellWidth = Math.min(
+          (containerWidth - (seriesLength + 1) * this.MinGap) / seriesLength,
+          150
+        );
+        const cellHeight = 80;
+        const totalBlockWidth =
+          seriesLength * cellWidth + (seriesLength - 1) * this.MinGap;
+        const startX = (containerWidth - totalBlockWidth) / 2;
+        const startY = (containerHeight - cellHeight) / 2;
+
+        this.numberSeriesItems.forEach((item, index) => {
+          const x = startX + index * (cellWidth + this.MinGap);
+          const y = startY;
+
+          const rectConfig = {
+            x,
+            y,
+            width: cellWidth,
+            height: cellHeight,
+            cornerRadius: this.RectCornerRaduis,
+            fill: item.isBlank
+              ? "transparent"
+              : hasImage
+                ? "transparent"
+                : this.randomColor(),
+            stroke: item.isBlank
+              ? "#9CA3AF"
+              : hasImage
+                ? "transparent"
+                : "#4B5563",
+            strokeWidth: 2,
+            dash: item.isBlank ? [5, 5] : [],
+            image: hasImage ? this.bgImageObj : null,
+          };
+          this.seriesRects.push(rectConfig);
+
+          if (item.isBlank) {
+            this.localMountPoints.push({
+              x: x + cellWidth / 2,
+              y: y + cellHeight / 2,
+              Connect2: item.value,
+              isAbsolute: true,
+            });
+          } else {
+            const fractionData = this.parseLatexFraction(item.value);
+            if (fractionData) {
+              this.FractionTexts.push({
+                x: x + cellWidth / 2,
+                y: y + cellHeight / 2 - 10,
+                numerator: fractionData.numerator,
+                denominator: fractionData.denominator,
+                fontSize: Math.max(this.FontSize - 4, 12),
+                color: "#111827",
+                align: "center",
+                rectIndex: -1,
+              });
+            } else {
+              this.seriesTexts.push({
+                x,
+                y: y + (cellHeight - this.FontSize) / 2,
+                width: cellWidth,
+                text: item.value,
+                fontSize: this.FontSize,
+                align: "center",
+                fill: "#111827",
+              });
+            }
+          }
+        });
+      } else {
+        this.localMountPoints = this.gameData.MountPoint || [];
+      }
 
       // 重新依據新寬高排列頭尾的選項
       this.configRect(containerWidth, containerHeight);
 
       // 計算扣除上下選項後，圖片能顯示的中心範圍
       const StageHeight = containerHeight - this.SelectionHeight * 2;
-      const imgWidth = this.bgImageObj.width;
-      const imgHeight = this.bgImageObj.height;
-      const ration = imgWidth / imgHeight;
+      let NewImageWidth = 100,
+        NewImageHeight = 100,
+        NewX = 0,
+        NewY = 0,
+        scaleFactor = 1;
 
-      let NewImageWidth, NewImageHeight;
-      if (containerWidth / StageHeight > ration) {
-        NewImageHeight = Math.max(StageHeight - 30, 100);
-        NewImageWidth = NewImageHeight * ration;
+      if (hasImage) {
+        const imgWidth = this.bgImageObj.width;
+        const imgHeight = this.bgImageObj.height;
+        const ration = imgWidth / imgHeight;
+
+        if (containerWidth / StageHeight > ration) {
+          NewImageHeight = Math.max(StageHeight - 30, 100);
+          NewImageWidth = NewImageHeight * ration;
+        } else {
+          NewImageWidth = Math.max(containerWidth - 30, 100);
+          NewImageHeight = NewImageWidth / ration;
+        }
+
+        NewX = (containerWidth - NewImageWidth) / 2;
+        NewY = (StageHeight - NewImageHeight) / 2;
+
+        this.ImageConfig = {
+          image: this.bgImageObj,
+          width: NewImageWidth,
+          height: NewImageHeight,
+          x: NewX,
+          y: NewY + this.SelectionHeight,
+        };
+
+        // 計算題目的目標點坐標縮放
+        if (
+          hasImage &&
+          !(this.gameData.NumberSeries && this.gameData.NumberSeries.length > 0)
+        ) {
+          // (假設企劃當初是在 700x500 的邏輯尺寸裡面定義這些點的位置)
+          const origStageHeight = 500 - this.SelectionHeight * 2;
+          let origNewImageWidth;
+          if (700 / origStageHeight > ration) {
+            origNewImageWidth = (origStageHeight - 30) * ration;
+          } else {
+            origNewImageWidth = 700 - 30;
+          }
+
+          // 得出新畫面相較於舊企劃畫面的放大縮小比例
+          scaleFactor = NewImageWidth / origNewImageWidth;
+        } else {
+          // 如果是 NumberSeries，則全域不顯示此背景底圖
+          this.ImageConfig = null;
+        }
       } else {
-        NewImageWidth = Math.max(containerWidth - 30, 100);
-        NewImageHeight = NewImageWidth / ration;
+        this.ImageConfig = null;
       }
 
-      const NewX = (containerWidth - NewImageWidth) / 2;
-      const NewY = (StageHeight - NewImageHeight) / 2;
+      this.localMountPoints.forEach((item) => {
+        if (item.isAbsolute) {
+          this.ImageMountPoint.push({
+            x: item.x,
+            y: item.y,
+            radius: 10,
+            fill: "orange",
+          });
+        } else {
+          // 考慮到有時 JSON 的 target point x/y 會有大小寫的差別 (防止意外 NaN)
+          const itemX = item.x !== undefined ? item.x : item.X;
+          const itemY = item.y !== undefined ? item.y : item.Y;
 
-      this.ImageConfig = {
-        image: this.bgImageObj,
-        width: NewImageWidth,
-        height: NewImageHeight,
-        x: NewX,
-        y: NewY + this.SelectionHeight,
-      };
-
-      // 計算題目的目標點坐標縮放
-      // (假設企劃當初是在 700x500 的邏輯尺寸裡面定義這些點的位置)
-      const origStageHeight = 500 - this.SelectionHeight * 2;
-      let origNewImageWidth;
-      if (700 / origStageHeight > ration) {
-        origNewImageWidth = (origStageHeight - 30) * ration;
-      } else {
-        origNewImageWidth = 700 - 30;
-      }
-
-      // 得出新畫面相較於舊企劃畫面的放大縮小比例
-      const scaleFactor = NewImageWidth / origNewImageWidth;
-
-      this.gameData.MountPoint.forEach((item) => {
-        // 考慮到有時 JSON 的 target point x/y 會有大小寫的差別 (防止意外 NaN)
-        const itemX = item.x !== undefined ? item.x : item.X;
-        const itemY = item.y !== undefined ? item.y : item.Y;
-
-        this.ImageMountPoint.push({
-          x: itemX * scaleFactor + NewX,
-          y: itemY * scaleFactor + NewY + this.SelectionHeight,
-          radius: 10 * Math.max(scaleFactor, 0.5), // 連線圓點大小跟著縮放
-          fill: "orange",
-        });
+          this.ImageMountPoint.push({
+            x: itemX * scaleFactor + NewX,
+            y: itemY * scaleFactor + NewY + this.SelectionHeight,
+            radius: 10 * Math.max(scaleFactor, 0.5), // 連線圓點大小跟著縮放
+            fill: "orange",
+          });
+        }
       });
 
       this.configPoint(); // 重建配對解答組
 
       // 強迫畫面依照順序重繪
       this.$nextTick(() => {
-        if (this.$refs.layer) {
-          this.$refs.layer.getNode().moveToBottom();
-          this.$refs.layer.getNode().batchDraw();
-        }
         if (this.$refs.RectContainer) {
-          this.$refs.RectContainer.getNode().moveToTop();
+          this.$refs.RectContainer.getNode().moveToBottom();
           this.$refs.RectContainer.getNode().batchDraw();
         }
         if (this.$refs.LineLayer) {
-          this.$refs.LineLayer.getNode().batchDraw();
+          this.$refs.LineLayer.getNode().batchDraw(); // 在 RectContainer 之上
+        }
+        if (this.$refs.layer) {
+          this.$refs.layer.getNode().moveToTop();
+          this.$refs.layer.getNode().batchDraw(); // 選項與橘色點在最高層
         }
       });
     },
     StartDrawing(rectIndex) {
+      if (rectIndex === -1) return;
       // 若該 rect 已連過線，先刪除舊線
       const oldId = this.linksByRect.get(rectIndex);
       if (oldId) this.removeLine(oldId);
@@ -417,14 +587,13 @@ export default {
     },
     configRect(containerWidth, containerHeight) {
       //Config Rect
-      if (this.gameData.Selections.length <= 4) {
+      if (this.localSelections.length <= 4) {
         // 小於等於4，一行排列
         const RectWidth =
-          (containerWidth -
-            (this.gameData.Selections.length + 1) * this.MinGap) /
-          this.gameData.Selections.length;
+          (containerWidth - (this.localSelections.length + 1) * this.MinGap) /
+          this.localSelections.length;
 
-        this.gameData.Selections.forEach((item, index) => {
+        this.localSelections.forEach((item, index) => {
           this.addRect(
             this.MinGap + index * (RectWidth + this.MinGap),
             0,
@@ -442,9 +611,9 @@ export default {
       } else {
         const RectWidth =
           (containerWidth -
-            (this.gameData.Selections.length / 2 + 1) * this.MinGap) /
-          (this.gameData.Selections.length / 2);
-        this.gameData.Selections.forEach((item, index) => {
+            (this.localSelections.length / 2 + 1) * this.MinGap) /
+          (this.localSelections.length / 2);
+        this.localSelections.forEach((item, index) => {
           if (index % 2 === 0) {
             this.addRect(
               this.MinGap + parseInt(index / 2) * (RectWidth + this.MinGap),
@@ -479,20 +648,16 @@ export default {
     },
     configPoint() {
       this.Pair = [];
-      for (const i in this.gameData.MountPoint) {
-        for (const j in this.gameData.Selections) {
-          if (typeof this.gameData.MountPoint[i].Connect2 === "string") {
-            if (
-              this.gameData.MountPoint[i].Connect2 ===
-              this.gameData.Selections[j]
-            ) {
+      for (const i in this.localMountPoints) {
+        for (const j in this.localSelections) {
+          if (typeof this.localMountPoints[i].Connect2 === "string") {
+            if (this.localMountPoints[i].Connect2 === this.localSelections[j]) {
               this.Pair.push([i, j]);
             }
           } else {
-            for (const k in this.gameData.MountPoint[i].Connect2) {
+            for (const k in this.localMountPoints[i].Connect2) {
               if (
-                this.gameData.MountPoint[i].Connect2[k] ===
-                this.gameData.Selections[j]
+                this.localMountPoints[i].Connect2[k] === this.localSelections[j]
               ) {
                 this.Pair.push([i, j]);
               }
@@ -500,6 +665,43 @@ export default {
           }
         }
       }
+    },
+    setupData() {
+      this.localSelections = [];
+      this.localMountPoints = [];
+      this.numberSeriesItems = [];
+      this.seriesRects = [];
+      this.seriesTexts = [];
+
+      if (this.gameData.NumberSeries && this.gameData.NumberSeries.length > 0) {
+        const selections = [];
+        this.gameData.NumberSeries.forEach((item) => {
+          let isBlank = false;
+          let value = item;
+          const match = item.match(/^\((.*)\)$/);
+          if (match) {
+            isBlank = true;
+            value = match[1];
+            selections.push(value);
+          }
+          this.numberSeriesItems.push({
+            original: item,
+            value,
+            isBlank,
+          });
+        });
+        this.localSelections = this.shuffleArray(selections);
+      } else {
+        this.localSelections = this.gameData.Selections || [];
+      }
+    },
+    shuffleArray(array) {
+      const res = [...array];
+      for (let i = res.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [res[i], res[j]] = [res[j], res[i]];
+      }
+      return res;
     },
   },
 };
