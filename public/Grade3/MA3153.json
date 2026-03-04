@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "在定位板上記記看，並回答問題"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

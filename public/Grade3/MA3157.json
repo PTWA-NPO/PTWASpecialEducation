@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "將物品量一量，再填填看"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

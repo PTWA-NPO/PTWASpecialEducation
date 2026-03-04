@@ -1,6 +1,6 @@
 {
   "id": "MA3018",
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "introvideo": "MA3018.mp4",
   "IntroText": {
     "Type": "PlainText",

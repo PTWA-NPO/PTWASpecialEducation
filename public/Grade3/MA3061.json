@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "下面圖形的面積各是多少平方公分?"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

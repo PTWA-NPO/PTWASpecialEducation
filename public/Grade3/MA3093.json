@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "移動物品，再填填看"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {
