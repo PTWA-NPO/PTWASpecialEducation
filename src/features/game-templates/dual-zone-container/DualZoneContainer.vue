@@ -1,10 +1,14 @@
 <template>
-  <div class="outter-container">
-    <div class="left-column">
+  <div class="outter-container" :style="containerStyle">
+    <div class="left-column" :style="columnStyle">
       <div v-if="gameData.questionText" class="text-area">
         {{ gameData.questionText }}
       </div>
-      <div v-if="gameConfig.layout.top" class="game-area--top game-area">
+      <div
+        v-if="gameConfig.layout.top"
+        class="game-area--top game-area"
+        :style="topStyle"
+      >
         <component
           :is="gameData.topComponent.Name"
           :component-config="gameData.topComponent.Data"
@@ -15,7 +19,11 @@
       <div v-if="gameData.middleText" class="text-area">
         {{ gameData.middleText }}
       </div>
-      <div v-if="gameConfig.layout.down" class="game-area--down game-area">
+      <div
+        v-if="gameConfig.layout.down"
+        class="game-area--down game-area"
+        :style="downStyle"
+      >
         <component
           :is="gameData.downComponent.Name"
           :component-config="gameData.downComponent.Data"
@@ -93,7 +101,55 @@ export default {
       downComponentsAnswer: false,
     };
   },
-  computed: {},
+  computed: {
+    topStyle() {
+      if (this.gameConfig?.layout?.topRatio !== undefined) {
+        return {
+          flex: this.gameConfig.layout.topRatio,
+          flexShrink: 1,
+          minHeight: 0,
+        };
+      }
+      // If downRatio is defined but top is not, top should just hug its content
+      if (this.gameConfig?.layout?.downRatio !== undefined) {
+        return { flex: "0 0 auto", flexShrink: 0 };
+      }
+      return {};
+    },
+    downStyle() {
+      if (this.gameConfig?.layout?.downRatio !== undefined) {
+        return {
+          flex: this.gameConfig.layout.downRatio,
+          flexShrink: 1,
+          minHeight: 0,
+        };
+      }
+      // If topRatio is defined but down is not, we need to override the default CSS flex: 1
+      // so the bottom part just hugs its content.
+      if (this.gameConfig?.layout?.topRatio !== undefined) {
+        return { flex: "0 0 auto", flexShrink: 0 };
+      }
+      return {};
+    },
+    containerStyle() {
+      if (
+        this.gameConfig?.layout?.topRatio !== undefined ||
+        this.gameConfig?.layout?.downRatio !== undefined
+      ) {
+        return { height: "79vh" };
+      }
+      return {};
+    },
+    columnStyle() {
+      if (
+        this.gameConfig?.layout?.topRatio !== undefined ||
+        this.gameConfig?.layout?.downRatio !== undefined
+      ) {
+        return { height: "100%" };
+      }
+      return {};
+    },
+  },
   created() {
     const NewArr = [];
     let cnt = 0;
