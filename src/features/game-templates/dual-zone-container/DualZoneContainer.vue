@@ -1,35 +1,40 @@
 <template>
   <div class="outter-container" :style="containerStyle">
     <div class="left-column" :style="columnStyle">
-      <div v-if="gameData.questionText" class="text-area">
+      <div v-if="gameData.questionText" class="text-area question-text">
         {{ gameData.questionText }}
       </div>
       <div
-        v-if="gameConfig.layout.top"
-        class="game-area--top game-area"
-        :style="topStyle"
+        class="game-components-wrapper"
+        :class="{ 'is-row': gameConfig?.layout?.direction === 'row' }"
       >
-        <component
-          :is="gameData.topComponent.Name"
-          :component-config="gameData.topComponent.Data"
-          :game-id="gameId"
-          @reply-answer="topReply"
-        ></component>
-      </div>
-      <div v-if="gameData.middleText" class="text-area">
-        {{ gameData.middleText }}
-      </div>
-      <div
-        v-if="gameConfig.layout.down"
-        class="game-area--down game-area"
-        :style="downStyle"
-      >
-        <component
-          :is="gameData.downComponent.Name"
-          :component-config="gameData.downComponent.Data"
-          :game-id="gameId"
-          @reply-answer="downReply"
-        ></component>
+        <div
+          v-if="gameConfig.layout.top"
+          class="game-area--top game-area"
+          :style="topStyle"
+        >
+          <component
+            :is="gameData.topComponent.Name"
+            :component-config="gameData.topComponent.Data"
+            :game-id="gameId"
+            @reply-answer="topReply"
+          ></component>
+        </div>
+        <div v-if="gameData.middleText" class="text-area middle-text">
+          {{ gameData.middleText }}
+        </div>
+        <div
+          v-if="gameConfig.layout.down"
+          class="game-area--down game-area"
+          :style="downStyle"
+        >
+          <component
+            :is="gameData.downComponent.Name"
+            :component-config="gameData.downComponent.Data"
+            :game-id="gameId"
+            @reply-answer="downReply"
+          ></component>
+        </div>
       </div>
     </div>
     {{ NowSelect }}
@@ -77,6 +82,9 @@ export default {
     NumberLineVisualizer: defineAsyncComponent(
       () => import("@/components/NumberLineVisualizer.vue")
     ),
+    ThreeRowNumberBoard: defineAsyncComponent(
+      () => import("@/components/ThreeRowNumberBoard.vue")
+    ),
   },
   props: {
     gameData: {
@@ -103,33 +111,38 @@ export default {
   },
   computed: {
     topStyle() {
+      const style = {};
       if (this.gameConfig?.layout?.topRatio !== undefined) {
-        return {
-          flex: this.gameConfig.layout.topRatio,
-          flexShrink: 1,
-          minHeight: 0,
-        };
+        style.flex = this.gameConfig.layout.topRatio;
+        style.flexShrink = 1;
+      } else if (this.gameConfig?.layout?.downRatio !== undefined) {
+        style.flex = "0 0 auto";
+        style.flexShrink = 0;
       }
-      // If downRatio is defined but top is not, top should just hug its content
-      if (this.gameConfig?.layout?.downRatio !== undefined) {
-        return { flex: "0 0 auto", flexShrink: 0 };
+
+      if (this.gameConfig?.layout?.direction === "row") {
+        style.minWidth = 0;
+      } else {
+        style.minHeight = 0;
       }
-      return {};
+      return style;
     },
     downStyle() {
+      const style = {};
       if (this.gameConfig?.layout?.downRatio !== undefined) {
-        return {
-          flex: this.gameConfig.layout.downRatio,
-          flexShrink: 1,
-          minHeight: 0,
-        };
+        style.flex = this.gameConfig.layout.downRatio;
+        style.flexShrink = 1;
+      } else if (this.gameConfig?.layout?.topRatio !== undefined) {
+        style.flex = "0 0 auto";
+        style.flexShrink = 0;
       }
-      // If topRatio is defined but down is not, we need to override the default CSS flex: 1
-      // so the bottom part just hugs its content.
-      if (this.gameConfig?.layout?.topRatio !== undefined) {
-        return { flex: "0 0 auto", flexShrink: 0 };
+
+      if (this.gameConfig?.layout?.direction === "row") {
+        style.minWidth = 0;
+      } else {
+        style.minHeight = 0;
       }
-      return {};
+      return style;
     },
     containerStyle() {
       if (
@@ -278,6 +291,33 @@ export default {
     font-size: $text-medium;
     white-space: pre-wrap;
   }
+
+  .game-components-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $gap--small;
+    flex: 1;
+    min-height: 0;
+
+    &.is-row {
+      flex-direction: row;
+
+      .game-area {
+        min-width: 0;
+        &--top {
+          flex: 1; /* In row mode, if no ratio is set, we typically want equal width */
+        }
+        &--down {
+          flex: 1;
+        }
+      }
+
+      .middle-text {
+        align-self: center;
+      }
+    }
+  }
+
   .game-area {
     min-height: 0;
     display: flex;
