@@ -23,6 +23,7 @@ const componentsMapping = {
   DragImages: () => import("@/components/DragImages.vue"),
   FractionDisplay: () => import("@/components/FractionDisplay.vue"),
   CalculationBoard: () => import("@/components/CalculationBoard.vue"),
+  PhoneCalculator: () => import("@/components/PhoneCalculator.vue"),
 };
 export function GetComponents(name) {
   console.warn(
