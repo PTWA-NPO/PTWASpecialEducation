@@ -1,6 +1,6 @@
 <template>
-  <div :class="$attrs.class">
-    <div ref="container" class="fraction-for-answer">
+  <div :class="[$attrs.class, 'fraction-for-answer-wrapper']">
+    <div ref="container" class="fraction-for-answer" :style="{ '--estimated-width': estimatedWidthEm }">
       <span v-if="componentConfig.prefix" class="prefix">{{
         componentConfig.prefix
       }}</span>
@@ -81,6 +81,20 @@ export default {
     };
   },
   computed: {
+    estimatedWidthEm() {
+      let ems = 3.5; // fraction default content width
+      let gapCount = 0;
+      if (this.componentConfig.prefix) {
+        ems += String(this.componentConfig.prefix).length;
+        gapCount++;
+      }
+      if (this.componentConfig.suffix) {
+        ems += String(this.componentConfig.suffix).length;
+        gapCount++;
+      }
+      ems += gapCount * 1; // account for 1em gap per item
+      return ems;
+    },
     // 判斷分子是否為輸入框
     isNumeratorInput() {
       const blankPart = this.componentConfig.blank_part;
@@ -250,6 +264,12 @@ export default {
 </script>
 
 <style scoped>
+.fraction-for-answer-wrapper {
+  width: 100%;
+  height: 100%;
+  container-type: size;
+}
+
 .fraction-for-answer {
   display: flex;
   flex-direction: row;
@@ -257,8 +277,13 @@ export default {
   justify-content: center;
   gap: 1em;
   margin: 0 auto;
-  container-type: inline-size; /* Enable container queries */
-  font-size: clamp(1rem, 15cqw, 3rem); /* Respond to container width */
+  width: 100%;
+  height: 100%;
+  font-size: clamp(
+    1rem,
+    min(30cqh, calc(100cqw / var(--estimated-width, 3.5))),
+    3rem
+  ); /* Respond to container min dimension depending on texts */
 }
 
 .fraction-container {
@@ -267,6 +292,8 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 0.2em;
+  width: auto;
+  height: 100%;
 }
 
 .fraction-input,
@@ -275,14 +302,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
-  justify-content: center;
-  /* min-width: 4ch; Removed redundant min-width */
   width: 4ch;
-  max-width: 100%; /* Ensure input doesn't overflow container */
+  max-width: 100%;
+  min-height: 0; /* Important for flex items to not overflow vertically */
   padding: 0 0.2em;
   text-align: center;
-  font-size: 1em; /* Inherit or use em */
+  font-size: 0.8em; /* Inherit font size */
+  box-sizing: border-box;
 }
 
 .line {
@@ -291,13 +317,13 @@ export default {
   width: 100%;
   margin: 0.1em 0;
   transform: scaleX(1.25); /* Widen the line visually */
+  flex-shrink: 0;
 }
 
 .prefix,
 .suffix {
   font-size: 1em;
   display: flex;
-  align-items: center;
   align-items: center;
   white-space: nowrap;
 }

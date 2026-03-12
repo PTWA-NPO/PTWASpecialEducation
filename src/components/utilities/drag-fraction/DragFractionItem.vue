@@ -138,8 +138,9 @@ export default {
 
   methods: {
     setAttributes() {
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
       if (this.shape === "circle") {
-        this.radius = this.gameWidth * 0.075;
+        this.radius = minDim * 0.1;
         this.numeratorSnapTo = {
           x: this.gameWidth * 0.875,
           y: this.gameHeight * 0.2,
@@ -152,12 +153,12 @@ export default {
           up: this.radius,
           down: this.gameHeight - this.radius,
           left: this.radius,
-          right: this.gameWidth * 0.75 - this.radius,
+          right: this.gameWidth * 0.75 - this.radius, // 0.75 ratio is sidebar boundary
         };
       } else {
         this.rectAttr = {
-          width: this.gameWidth * 0.2,
-          height: this.gameHeight * 0.15,
+          width: minDim * 0.25,
+          height: minDim * 0.2,
         };
         this.numeratorSnapTo = canvasTools.corner({
           x: this.gameWidth * 0.875,
@@ -175,7 +176,7 @@ export default {
           up: 0,
           down: this.gameHeight - this.rectAttr.height,
           left: 0,
-          right: this.gameWidth * 0.75 - this.rectAttr.width,
+          right: this.gameWidth * 0.75 - this.rectAttr.width, // 0.75 ratio is sidebar boundary
         };
       }
     },
@@ -215,11 +216,13 @@ export default {
         // Move first grid
         this.configDenominator.frame[firstIdx].x = targetX;
         this.configDenominator.frame[firstIdx].y = targetY;
+        this.configDenominator.frame[firstIdx].visible = true;
         this.configDenominator.fillShape[firstIdx].x = targetX;
         this.configDenominator.fillShape[firstIdx].y = targetY;
         this.configDenominator.fillShape[firstIdx].visible = true;
         this.configDenominator.slice[firstIdx].x = targetX;
         this.configDenominator.slice[firstIdx].y = targetY;
+        this.configDenominator.slice[firstIdx].visible = true;
       }
       this.drawDenominator();
       this.drawBin();
@@ -319,15 +322,16 @@ export default {
       };
 
       // Frame
-      let frame = {
+      const frame = {
         ...commonProps,
         fill: "white",
         stroke: "white",
         draggable: true,
+        visible: false,
       };
 
       // Fill Shape (Circle/Rect)
-      let fillShape = {
+      const fillShape = {
         ...commonProps,
         strokeEnabled: false,
         visible: false,
@@ -336,7 +340,7 @@ export default {
       };
 
       // Slice
-      let slice = {
+      const slice = {
         ...commonProps,
         stroke: "black",
         sceneFunc:
@@ -344,6 +348,7 @@ export default {
             ? this.circleSliceSceneFunc
             : this.rectSliceSceneFunc,
         slices: this.denominator,
+        visible: false,
       };
 
       if (this.shape === "circle") {
@@ -373,9 +378,10 @@ export default {
     },
 
     drawBin() {
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
       this.configBin.x = this.gameWidth * 0.01;
       this.configBin.y = this.gameHeight * 0.8;
-      this.configBin.width = this.gameWidth * 0.15;
+      this.configBin.width = minDim * 0.2;
     },
 
     // Scene Functions

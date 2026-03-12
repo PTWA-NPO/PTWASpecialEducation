@@ -8,51 +8,47 @@
         ></FractionText>
       </h1>
     </div>
-    <div class="check-calculation">
-      <DragFraction
-        :component-config="checkCalculationData"
-        :game-id="gameId"
-        class="check-calculation-components"
-      ></DragFraction>
-      <div class="calculation-container">
-        <div class="question__math-expression">
-          <FractionDisplay
-            :component-config="questionLeftTerm"
-            :game-id="gameId"
-            class="math-expression__fraction"
-          ></FractionDisplay>
-          <span
-            class="question__math-symbol"
-            :class="{ clickable: mode === 'application' }"
-            @click="toggleOperation"
-          >
-            {{
-              mode === "application"
-                ? userOperation === " "
-                  ? "?"
-                  : userOperation
-                : operation
-            }}
-          </span>
-          <FractionDisplay
-            :component-config="questionRightTerm"
-            :game-id="gameId"
-            class="math-expression__fraction"
-          ></FractionDisplay>
-          <span class="question__math-symbol">&#61;</span>
-          <FractionForAnswer
-            ref="fractionsComponent"
-            :component-config="answerData"
-            :game-id="gameId"
-            @record-answer="handleRecordAnswer"
-            @reply-answer="handleValidation"
-          ></FractionForAnswer>
-        </div>
-        <!-- <button class="check-answer-btn" @click="triggerValidation">
-          送出答案
-        </button> -->
+    <div class="calculation-container">
+      <div class="question__math-expression">
+        <FractionDisplay
+          :component-config="questionLeftTerm"
+          :game-id="gameId"
+          class="math-expression__fraction"
+        ></FractionDisplay>
+        <span
+          class="question__math-symbol"
+          :class="{ clickable: mode === 'application' }"
+          @click="toggleOperation"
+        >
+          {{
+            mode === "application"
+              ? userOperation === " "
+                ? "?"
+                : userOperation
+              : operation
+          }}
+        </span>
+        <FractionDisplay
+          :component-config="questionRightTerm"
+          :game-id="gameId"
+          class="math-expression__fraction"
+        ></FractionDisplay>
+        <span class="question__math-symbol">&#61;</span>
+        <FractionForAnswer
+          ref="fractionsComponent"
+          :component-config="answerData"
+          :game-id="gameId"
+          class="math-expression__answer"
+          @record-answer="handleRecordAnswer"
+          @reply-answer="handleValidation"
+        ></FractionForAnswer>
       </div>
     </div>
+    <DragFraction
+      :component-config="checkCalculationData"
+      :game-id="gameId"
+      class="check-calculation-components"
+    ></DragFraction>
   </div>
 </template>
 
@@ -144,11 +140,10 @@ export default {
 .game {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  gap: $gap--small;
 }
 
 .question-and-answer {
@@ -156,24 +151,29 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 20%;
   gap: $gap--small;
 }
 
 .question__math-expression {
   width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0.5rem;
-  gap: $gap--tiny;
+  padding: 1rem;
+  gap: 2rem;
   @extend .game-section--border;
 }
 
+.math-expression__fraction {
+  flex: 1;
+  width: auto;
+}
+
 .question__math-symbol {
-  font-size: 2.5rem;
-  width: 50px;
-  height: 50px;
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,20 +194,11 @@ export default {
 }
 
 .calculation-container {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: $gap--small;
   width: 100%;
-}
-
-.check-calculation {
-  display: flex;
-  gap: $gap--small;
-  height: 80%;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  height: 30%;
 }
 
 .game-section--border {
@@ -216,14 +207,7 @@ export default {
 }
 
 .check-calculation-components {
-  flex: 3;
-}
-
-.check-answer-btn {
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  background-color: $submit-color;
+  flex: 1;
 }
 
 .question__math-symbol.clickable {
@@ -232,5 +216,13 @@ export default {
   transition: color 0.2s;
   border: 2px solid #000;
   border-radius: 8px;
+}
+
+.math-expression__answer {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 </style>

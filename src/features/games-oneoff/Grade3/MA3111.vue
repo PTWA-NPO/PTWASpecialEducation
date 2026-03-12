@@ -51,8 +51,6 @@ export default {
       isInputCorrect: false,
       isDragCorrect: false,
       questionDescription: this.gameData.question.description,
-      questionFraction: this.gameData.question.fraction,
-      answerData: this.gameData.answerData.answer,
     };
   },
   mounted() {
@@ -136,11 +134,17 @@ export default {
 }
 
 .game__fraction-input {
-  width: 30%;
+  max-height: 150px;
+  width: 20% !important;
+  flex: 0 0 20%;
 }
 
 .game-section--border {
   border: $border--normal solid #000;
   border-radius: $border-radius;
+}
+
+.game__answer-area {
+  flex: 1;
 }
 </style>

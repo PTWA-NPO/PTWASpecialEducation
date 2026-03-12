@@ -76,8 +76,8 @@ export default {
       componentKey: 0,
 
       arrowSpecs: [
-        { x: 0.825, y: 0.35, operator: "numeratorMinus" },
-        { x: 0.925, y: 0.35, operator: "numeratorPlus" },
+        { x: 0.825, y: 0.4, operator: "numeratorMinus" },
+        { x: 0.925, y: 0.4, operator: "numeratorPlus" },
         { x: 0.825, y: 0.85, operator: "denominatorMinus" },
         { x: 0.925, y: 0.85, operator: "denominatorPlus" },
       ],
@@ -91,17 +91,10 @@ export default {
 
   methods: {
     initializeScene() {
-      if (
-        this.$refs.container.clientWidth * 0.75 <=
-          this.$refs.container.clientHeight ||
-        this.$refs.container.clientHeight === 0
-      ) {
-        this.gameWidth = this.$refs.container.clientWidth;
-        this.gameHeight = this.gameWidth * 0.75;
-      } else {
-        this.gameHeight = this.$refs.container.clientHeight;
-        this.gameWidth = this.gameHeight / 0.75;
-      }
+      // Use the actual container dimensions instead of a fixed 3:4 ratio
+      this.gameWidth = this.$refs.container.clientWidth;
+      this.gameHeight = this.$refs.container.clientHeight;
+
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
       this.configBG.width = this.gameWidth;
@@ -115,14 +108,16 @@ export default {
     },
 
     drawArrow() {
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
       this.configArrow = this.arrowSpecs.map((spec) => ({
         x: this.gameWidth * spec.x,
         y: this.gameHeight * spec.y,
         operator: spec.operator,
         stroke: "#BA3F38",
         fill: "#BA3F38",
-        length: this.gameWidth * 0.05,
+        length: minDim * 0.05,
         sceneFunc: this.arrowSceneFunc,
+        visible: !spec.operator.includes("denominator"),
       }));
     },
 
@@ -141,33 +136,43 @@ export default {
     },
 
     drawNumber() {
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
+      const fontSize = Math.max(minDim * 0.08, 30); // Prevent becoming too small
+
       this.configNumeratorOne = {
-        x: this.gameWidth * 0.86,
-        y: this.gameHeight * 0.29,
+        x: this.gameWidth * 0.825,
+        y: this.gameHeight * 0.4 - fontSize,
         text: `1`,
-        fontSize: this.gameWidth * 0.045,
+        fontSize,
+        width: this.gameWidth * 0.1, // Full width between arrows
+        align: "center",
       };
 
       this.configNumeratorLine = {
         x: this.gameWidth * 0.85,
-        y: this.gameHeight * 0.345,
+        y: this.gameHeight * 0.4,
         points: [0, 0, this.gameWidth * 0.05, 0],
         stroke: "black",
-        strokeWidth: 3,
+        strokeWidth: Math.max(minDim * 0.005, 3), // Ensure line doesn't vanish
       };
 
       this.configNumeratorNumber = {
-        x: this.gameWidth * 0.86,
-        y: this.gameHeight * 0.35,
-        text: this.numerator,
-        fontSize: this.gameWidth * 0.045,
+        x: this.gameWidth * 0.825,
+        y: this.gameHeight * 0.4 + 5, // Just below the line
+        text: this.numerator.toString(),
+        fontSize,
+        width: this.gameWidth * 0.1,
+        align: "center",
       };
 
       this.configDenominatorNumber = {
-        x: this.gameWidth * 0.83,
+        x: this.gameWidth * 0.825,
         y: this.gameHeight * 0.835,
         text: `${this.denominator}等分`,
-        fontSize: this.gameWidth * 0.03,
+        fontSize: Math.max(minDim * 0.04, 18),
+        width: this.gameWidth * 0.1,
+        align: "center",
+        visible: false,
       };
     },
 
@@ -184,9 +189,7 @@ export default {
     },
 
     drawAfterAdjusted() {
-      this.configNumeratorNumber.text = this.numerator;
-      this.configNumeratorNumber.x =
-        this.numerator >= 10 ? this.gameWidth * 0.85 : this.gameWidth * 0.86;
+      this.configNumeratorNumber.text = this.numerator.toString();
       this.configDenominatorNumber.text = `${this.denominator}等分`;
 
       const updateArrowColor = (idx, active) => {
