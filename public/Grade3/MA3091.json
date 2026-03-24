@@ -5,15 +5,23 @@
     "Type": "PlainText",
     "Content": "用分數板排排看"
   },
-  "GameType": "SelfDefine",
-  "GameConfig": {},
+  "GameType": "DragFractionGame",
+  "GameConfig": {
+    "checkSidePanel": false,
+    "checkDragAnswer": true
+  },
   "Hint": {},
   "Questions": [
     [
       {
         "question": {
-          "fraction": "\\frac{1}{2}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{2}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -31,8 +39,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{3}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{3}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -50,8 +63,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{4}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{4}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -69,8 +87,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{5}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{5}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -88,8 +111,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{6}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{6}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -109,8 +137,13 @@
     [
       {
         "question": {
-          "fraction": "\\frac{1}{7}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{7}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -128,8 +161,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{8}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{8}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -147,8 +185,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{9}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{9}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -166,8 +209,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{10}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{10}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -185,8 +233,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{1}{11}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{1}{11}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -206,8 +259,13 @@
     [
       {
         "question": {
-          "fraction": "\\frac{2}{4}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{2}{4}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -225,8 +283,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{4}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{4}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -244,8 +307,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{2}{5}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{2}{5}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -263,8 +331,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{5}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{5}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -282,8 +355,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{4}{5}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{4}{5}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -303,8 +381,13 @@
     [
       {
         "question": {
-          "fraction": "\\frac{4}{8}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{4}{8}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -322,8 +405,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{6}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{6}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -341,8 +429,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{2}{7}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{2}{7}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -360,8 +453,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{5}{7}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{5}{7}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -379,8 +477,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{7}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{7}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -400,8 +503,13 @@
     [
       {
         "question": {
-          "fraction": "\\frac{3}{9}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{9}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -419,8 +527,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{4}{9}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{4}{9}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -438,8 +551,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{3}{10}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{3}{10}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -457,8 +575,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{5}{10}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{5}{10}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -476,8 +599,13 @@
       },
       {
         "question": {
-          "fraction": "\\frac{7}{10}",
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionDisplay",
+            "data": {
+              "Content": "\\frac{7}{10}"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",

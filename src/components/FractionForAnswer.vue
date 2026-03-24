@@ -1,6 +1,10 @@
 <template>
   <div :class="[$attrs.class, 'fraction-for-answer-wrapper']">
-    <div ref="container" class="fraction-for-answer" :style="{ '--estimated-width': estimatedWidthEm }">
+    <div
+      ref="container"
+      class="fraction-for-answer"
+      :style="{ '--estimated-width': estimatedWidthEm }"
+    >
       <span v-if="componentConfig.prefix" class="prefix">{{
         componentConfig.prefix
       }}</span>
@@ -304,10 +308,10 @@ export default {
   justify-content: center;
   width: 4ch;
   max-width: 100%;
+  max-height: 2em;
   min-height: 0; /* Important for flex items to not overflow vertically */
   padding: 0 0.2em;
   text-align: center;
-  font-size: 0.8em; /* Inherit font size */
   box-sizing: border-box;
 }
 
@@ -322,7 +326,7 @@ export default {
 
 .prefix,
 .suffix {
-  font-size: 1em;
+  /* font-size: 1em; */
   display: flex;
   align-items: center;
   white-space: nowrap;
