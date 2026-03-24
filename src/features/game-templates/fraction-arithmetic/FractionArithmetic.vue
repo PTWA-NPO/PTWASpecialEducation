@@ -45,7 +45,7 @@
       </div>
     </div>
     <DragFraction
-      :component-config="checkCalculationData"
+      :component-config="dragFractionData"
       :game-id="gameId"
       class="check-calculation-components"
     ></DragFraction>
@@ -88,7 +88,7 @@ export default {
       questionLeftTerm: this.gameData.question.leftTerm,
       questionRightTerm: this.gameData.question.rightTerm,
       operation: this.gameData.question.operationType,
-      checkCalculationData: this.gameData.acheckCalculationData,
+      dragFractionData: this.gameData.dragFractionData,
       answerData: this.gameData.answer,
       isAnswerRight: false,
       mode: isApplication ? "application" : "arithmetic",
