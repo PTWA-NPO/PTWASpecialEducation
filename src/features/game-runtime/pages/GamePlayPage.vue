@@ -155,7 +155,6 @@ import GameStart from "@/features/game-runtime/components/GameStart.vue";
 import GameOver from "@/features/game-runtime/components/GameOver.vue";
 import GameHeader from "@/features/game-runtime/components/GameHeader.vue";
 import LevelAndTime from "@/features/game-runtime/components/LevelAndTime.vue";
-import MediaModal from "@/features/game-runtime/components/MediaModal.vue";
 import hintbutton from "@/features/game-runtime/components/hintbutton.vue";
 import * as ImportUrl from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
@@ -177,7 +176,6 @@ export default {
     GameOver,
     GameHeader,
     LevelAndTime,
-    MediaModal,
     EffectWindow,
     SideBar: defineAsyncComponent(
       () => import("@/features/game-runtime/components/SideBar.vue")
