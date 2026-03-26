@@ -132,6 +132,7 @@ export default {
   table-layout: fixed;
   border-collapse: collapse;
   max-width: 350px;
+  max-height: 300px;
 
   &__row {
     width: 100%;
