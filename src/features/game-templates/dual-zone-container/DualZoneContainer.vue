@@ -42,49 +42,13 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
 import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+import { basicComponents } from "@/lib/basicComponentsRegistry.js";
 
 export default {
   name: "NumberLock",
   components: {
-    TextOnly: defineAsyncComponent(() => import("@/components/TextOnly.vue")),
-    MarkdownRenderer: defineAsyncComponent(
-      () => import("@/components/MarkdownRenderer.vue")
-    ),
-    NumberLine: defineAsyncComponent(
-      () => import("@/components/NumberLine.vue")
-    ),
-    NumberLineWithBlank: defineAsyncComponent(
-      () => import("@/components/NumberLineWithBlank.vue")
-    ),
-    DragOnNumberLine: defineAsyncComponent(
-      () => import("@/components/DragOnNumberLine.vue")
-    ),
-    ImageContainer: defineAsyncComponent(
-      () => import("@/components/ImageContainer.vue")
-    ),
-    InteractiveMathEquation: defineAsyncComponent(
-      () => import("@/components/InteractiveMathEquation.vue")
-    ),
-    RepeatImage: defineAsyncComponent(
-      () => import("@/components/RepeatImage.vue")
-    ),
-    DragImages: defineAsyncComponent(
-      () => import("@/components/DragImages.vue")
-    ),
-    NumberBoard: defineAsyncComponent(
-      () => import("@/components/NumberBoard.vue")
-    ),
-    FractionForAnswer: defineAsyncComponent(
-      () => import("@/components/FractionForAnswer.vue")
-    ),
-    NumberLineVisualizer: defineAsyncComponent(
-      () => import("@/components/NumberLineVisualizer.vue")
-    ),
-    ThreeRowNumberBoard: defineAsyncComponent(
-      () => import("@/components/ThreeRowNumberBoard.vue")
-    ),
+    ...basicComponents
   },
   props: {
     gameData: {
@@ -301,9 +265,12 @@ export default {
 
     &.is-row {
       flex-direction: row;
+      align-items: stretch;
 
       .game-area {
         min-width: 0;
+        height: 100%;
+        align-self: stretch;
         &--top {
           flex: 1; /* In row mode, if no ratio is set, we typically want equal width */
         }
