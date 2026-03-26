@@ -35,9 +35,6 @@ export const basicComponents = {
   NumberLineVisualizer: defineAsyncComponent(
     () => import("@/components/NumberLineVisualizer.vue")
   ),
-  ThreeRowNumberBoard: defineAsyncComponent(
-    () => import("@/components/ThreeRowNumberBoard.vue")
-  ),
   MoneyGenerator: defineAsyncComponent(
     () => import("@/components/MoneyGenerator.vue")
   ),
