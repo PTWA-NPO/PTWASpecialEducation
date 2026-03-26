@@ -1,93 +1,436 @@
 {
-  "id": "MA3154",
-  "GameType": "CompareGame",
+  "id": "MA4011",
+  "GameType": "DualZoneContainer",
   "IntroText": {
     "Type": "PlainText",
-    "Content": "在口裡填入>、<或="
+    "Content": "共有多少元?記在定位板上"
   },
   "GameConfig": {
-    "CustomeSymbol": true,
-    "SystemSymbol": "BigSmall",
-    "WithImage": false,
-    "CheckAnswerMode": "Button"
+    "layout": {
+      "direction": "row",
+      "top": true,
+      "down": true,
+      "pad": false,
+      "topRatio": 1,
+      "downRatio": 1
+    },
+    "checkAnswer": {
+      "top": false,
+      "down": true
+    }
   },
 
   "Questions": [
     [
       {
-        "SlotComponentVerifycation": true,
-        "QuestionText": "共有多少元?記在定位板上",
-        "Datas": [
-          [
-            {
-              "Name": "MoneyGenerator",
-              "Data": {
-                "Thousands": 10
-              },
-              "verify": false
-            },
-            {
-              "Name": "NumberBoard",
-              "Data": {
-                "Unit": ["萬位", "千位", "百位", "十位", "個位"],
-                "Number": 10000,
-                "isInput": true
-              },
-              "verify": true
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "Thousands": 10
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 10000,
+            "isInput": true
+          },
+          "verify": true
+        },
+        "passMedia": {
+          "type": "component",
+          "component": {
+            "Name": "ImageContainer",
+            "Data": {
+              "Src": "MA4011-1.PNG"
             }
-          ],
-          [
-            {
-              "Name": "MoneyGenerator",
-              "Data": {
-                "Thousands": 10
-              },
-              "verify": false
-            },
-            {
-              "Name": "MoneyGenerator",
-              "Data": {
-                "TenThousands": 1
-              },
-              "verify": false
-            }
-          ]
-        ],
-        "showSymbol": ["equal", "equal"]
+          }
+        }
       }
     ],
     [
       {
-        "SlotComponentVerifycation": true,
-        "QuestionText": "共有多少元?記在定位板上",
-        "Datas": [
-          [
-            {
-              "Name": "MoneyGenerator",
-              "Data": {
-                "TenThousands": 3,
-                "Thousands": 0,
-                "FiveHundreds": 0,
-                "Hundreds": 2,
-                "Fifties": 0,
-                "Tens": 0,
-                "Fives": 0,
-                "Ones": 0
-              },
-              "verify": false
-            },
-            {
-              "Name": "NumberBoard",
-              "Data": {
-                "Unit": ["萬位", "千位", "百位", "十位", "個位"],
-                "Number": 30200,
-                "isInput": true
-              },
-              "verify": true
-            }
-          ]
-        ],
-        "showSymbol": ["equal"]
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 3, "Hundreds": 2 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 30200,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 2, "Hundreds": 3 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 20300,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 3, "Hundreds": 5 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 30500,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 5, "Hundreds": 8 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 50800,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 8, "Hundreds": 4 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 80400,
+            "isInput": true
+          },
+          "verify": true
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 5, "Thousands": 2 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 52000,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 6, "Thousands": 3 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 63000,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 4, "Thousands": 1 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 41000,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 2, "Thousands": 4 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 24000,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": { "TenThousands": 7, "Thousands": 4 },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 74000,
+            "isInput": true
+          },
+          "verify": true
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 4,
+            "Thousands": 1,
+            "Hundreds": 6,
+            "Tens": 5
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 41650,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 5,
+            "Thousands": 3,
+            "Hundreds": 2,
+            "Tens": 1
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 53210,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 3,
+            "Thousands": 8,
+            "Hundreds": 5,
+            "Tens": 2
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 38520,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 4,
+            "Thousands": 2,
+            "Hundreds": 2,
+            "Tens": 3
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 42230,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 5,
+            "Thousands": 4,
+            "Hundreds": 8,
+            "Tens": 6
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 54860,
+            "isInput": true
+          },
+          "verify": true
+        }
+      }
+    ],
+    [
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 1,
+            "Thousands": 5,
+            "Hundreds": 5,
+            "Tens": 6,
+            "Ones": 3
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 15563,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 1,
+            "Thousands": 6,
+            "Hundreds": 8,
+            "Tens": 5,
+            "Ones": 2
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 16852,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 3,
+            "Thousands": 5,
+            "Hundreds": 4,
+            "Tens": 6,
+            "Ones": 5
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 35465,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 4,
+            "Thousands": 5,
+            "Hundreds": 3,
+            "Tens": 8,
+            "Ones": 4
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 45384,
+            "isInput": true
+          },
+          "verify": true
+        }
+      },
+      {
+        "topComponent": {
+          "Name": "MoneyGenerator",
+          "Data": {
+            "TenThousands": 2,
+            "Thousands": 6,
+            "Hundreds": 8,
+            "Tens": 4,
+            "Ones": 8
+          },
+          "verify": false
+        },
+        "downComponent": {
+          "Name": "NumberBoard",
+          "Data": {
+            "Unit": ["萬位", "千位", "百位", "十位", "個位"],
+            "Number": 26848,
+            "isInput": true
+          },
+          "verify": true
+        }
       }
     ]
   ]
