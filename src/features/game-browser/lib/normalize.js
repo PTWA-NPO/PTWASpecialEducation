@@ -1,24 +1,5 @@
-﻿import { getGameAssets } from "@/lib/get-assets.js";
-import axios from "axios";
+import { getGameAssets } from "@/lib/get-assets.js";
 import { HIDDEN_GAMES } from "../config.js";
-
-/**
- * 檢查遊戲檔案是否存在
- * @param {string} gameId - 遊戲 ID
- * @param {string} grade - 年級
- * @returns {Promise<boolean>} - 檔案是否存在
- */
-async function checkGameFileExists(gameId, grade) {
-  try {
-    const url = `./Grade${grade}/${gameId}.json`;
-    // 使用 HEAD 請求檢查檔案是否存在,不下載整個檔案
-    await axios.head(url);
-    return true;
-  } catch (error) {
-    // 檔案不存在或其他錯誤
-    return false;
-  }
-}
 
 /**
  * 過濾掉不存在的遊戲,並移除空的 Section 和 Chapter
@@ -26,7 +7,7 @@ async function checkGameFileExists(gameId, grade) {
  * @param {string} grade - 年級
  * @returns {Promise<Array>} - 過濾後的資料
  */
-async function filterNonExistentGames(datas, grade) {
+async function filterNonExistentGames(datas) {
   const filteredDatas = [];
 
   for (const semester of datas || []) {
@@ -36,15 +17,14 @@ async function filterNonExistentGames(datas, grade) {
       const filteredSections = [];
 
       for (const section of chapter?.Section || []) {
-        // 平行檢查所有遊戲檔案是否存在
+        // 平行檢查所有遊戲
         const gameChecks = await Promise.all(
           (section?.Games || []).map(async (game) => {
             // 如果遊戲在隱藏清單中，或被標記為隱藏，直接視為不存在
             if (HIDDEN_GAMES.includes(game.id) || game.hidden) {
               return { game, exists: false };
             }
-            const exists = await checkGameFileExists(game.id, grade);
-            return { game, exists };
+            return { game, exists: true };
           })
         );
 
@@ -82,11 +62,10 @@ async function filterNonExistentGames(datas, grade) {
 }
 
 export async function convertGameDataImageURLs(
-  originalDatas = [],
-  grade = "0"
+  originalDatas = []
 ) {
   // 先過濾掉不存在的遊戲
-  const filteredDatas = await filterNonExistentGames(originalDatas, grade);
+  const filteredDatas = await filterNonExistentGames(originalDatas);
 
   // 再轉換圖片 URL
   for (const semester of filteredDatas || []) {
