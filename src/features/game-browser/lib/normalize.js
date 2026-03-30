@@ -7,7 +7,7 @@ import { HIDDEN_GAMES } from "../config.js";
  * @param {string} grade - 年級
  * @returns {Promise<Array>} - 過濾後的資料
  */
-async function filterNonExistentGames(datas) {
+function filterNonExistentGames(datas) {
   const filteredDatas = [];
 
   for (const semester of datas || []) {
@@ -17,21 +17,11 @@ async function filterNonExistentGames(datas) {
       const filteredSections = [];
 
       for (const section of chapter?.Section || []) {
-        // 平行檢查所有遊戲
-        const gameChecks = await Promise.all(
-          (section?.Games || []).map(async (game) => {
-            // 如果遊戲在隱藏清單中，或被標記為隱藏，直接視為不存在
-            if (HIDDEN_GAMES.includes(game.id) || game.hidden) {
-              return { game, exists: false };
-            }
-            return { game, exists: true };
-          })
-        );
-
         // 只保留存在的遊戲
-        const existingGames = gameChecks
-          .filter((check) => check.exists)
-          .map((check) => check.game);
+        const existingGames = (section?.Games || []).filter((game) => {
+          // 如果遊戲在隱藏清單中，或被標記為隱藏，直接視為不存在
+          return !HIDDEN_GAMES.includes(game.id) && !game.hidden;
+        });
 
         // 如果這個 Section 有遊戲,才加入
         if (existingGames.length > 0) {
@@ -61,11 +51,11 @@ async function filterNonExistentGames(datas) {
   return filteredDatas;
 }
 
-export async function convertGameDataImageURLs(
+export function convertGameDataImageURLs(
   originalDatas = []
 ) {
   // 先過濾掉不存在的遊戲
-  const filteredDatas = await filterNonExistentGames(originalDatas);
+  const filteredDatas = filterNonExistentGames(originalDatas);
 
   // 再轉換圖片 URL
   for (const semester of filteredDatas || []) {

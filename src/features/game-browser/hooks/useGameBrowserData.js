@@ -1,4 +1,4 @@
-import { reactive, computed, toRefs } from "vue";
+import { reactive, computed, toRefs, markRaw } from "vue";
 import { loadSubjectData } from "../services/data.js";
 import { findGamesInSubjectData } from "../lib/search.js";
 import { session } from "../services/session.js";
@@ -60,10 +60,8 @@ export function useGameBrowserData() {
 
   async function ensureSubjectLoaded(subjectLower) {
     if (state.subjectData[subjectLower]) return;
-    state.subjectData[subjectLower] = await loadSubjectData(
-      subjectLower,
-      state.grade
-    );
+    const data = await loadSubjectData(subjectLower, state.grade);
+    state.subjectData[subjectLower] = markRaw(data);
   }
 
   function maybeOpenExternalLink(subjectLower) {
