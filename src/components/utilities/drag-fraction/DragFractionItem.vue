@@ -88,6 +88,10 @@ export default {
       type: [Boolean, Object],
       default: false,
     },
+    clearTrigger: {
+      type: Number,
+      default: 0,
+    },
   },
 
   emits: ["addFill"],
@@ -121,6 +125,30 @@ export default {
       binPosition: {},
       fill: [],
     };
+  },
+
+  watch: {
+    clearTrigger(newVal, oldVal) {
+      if (newVal > oldVal) {
+        if (this.defaultGridOnTop) {
+          const frame = this.configDenominator.frame[0];
+          if (frame && !frame.visible) {
+            this.restoreDefaultGridOnTop();
+          }
+
+          this.fill[0] = 0;
+          const fillShape = this.configDenominator.fillShape[0];
+          if (fillShape) {
+            if (this.shape === "circle") {
+              fillShape.endRadians = 0;
+            } else {
+              fillShape.width = 0;
+            }
+          }
+          this.$emit("addFill", this.fill);
+        }
+      }
+    },
   },
 
   beforeMount() {
@@ -573,11 +601,64 @@ export default {
     },
 
     destroy(id) {
-      this.configDenominator.frame[id] = null;
-      this.configDenominator.fillShape[id] = null;
-      this.configDenominator.slice[id] = null;
+      if (this.configDenominator.frame[id]) {
+        this.configDenominator.frame[id].visible = false;
+      }
+      if (this.configDenominator.fillShape[id]) {
+        this.configDenominator.fillShape[id].visible = false;
+      }
+      if (this.configDenominator.slice[id]) {
+        this.configDenominator.slice[id].visible = false;
+      }
       this.fill[id] = 0;
       this.$emit("addFill", this.fill);
+    },
+
+    restoreDefaultGridOnTop() {
+      const idx = 0;
+
+      if (this.shape === "circle") {
+        this.configDenominator.fillShape[idx].startRadians = 0;
+        this.configDenominator.fillShape[idx].endRadians = 0;
+      } else {
+        this.configDenominator.fillShape[idx].width = 0;
+      }
+
+      this.fill[idx] = 0;
+
+      let config = {};
+      if (typeof this.defaultGridOnTop === "object") {
+        config = this.defaultGridOnTop;
+      }
+
+      if (config.slices !== undefined) {
+        this.configDenominator.slice[idx].slices = config.slices;
+      }
+
+      let targetX =
+        this.boundaries.left +
+        (this.boundaries.right - this.boundaries.left) * 0.5;
+      let targetY =
+        this.boundaries.up +
+        (this.boundaries.down - this.boundaries.up) * 0.5;
+
+      if (config.x !== undefined) targetX = this.gameWidth * config.x;
+      if (config.y !== undefined) targetY = this.gameHeight * config.y;
+
+      targetX = Math.max(targetX, this.boundaries.left);
+      targetX = Math.min(targetX, this.boundaries.right);
+      targetY = Math.max(targetY, this.boundaries.up);
+      targetY = Math.min(targetY, this.boundaries.down);
+
+      this.configDenominator.frame[idx].x = targetX;
+      this.configDenominator.frame[idx].y = targetY;
+      this.configDenominator.frame[idx].visible = true;
+      this.configDenominator.fillShape[idx].x = targetX;
+      this.configDenominator.fillShape[idx].y = targetY;
+      this.configDenominator.fillShape[idx].visible = true;
+      this.configDenominator.slice[idx].x = targetX;
+      this.configDenominator.slice[idx].y = targetY;
+      this.configDenominator.slice[idx].visible = true;
     },
   },
 };

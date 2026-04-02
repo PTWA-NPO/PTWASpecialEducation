@@ -7,6 +7,7 @@
       </v-layer>
       <v-layer>
         <DragFractionItem
+          ref="dragFractionItem"
           :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
@@ -14,6 +15,7 @@
           :denominator="denominator"
           :shape="componentConfig.shape"
           :default-grid-on-top="componentConfig.defaultGridOnTop"
+          :clear-trigger="clearTrigger"
           @add-fill="addFill"
         />
       </v-layer>
@@ -35,6 +37,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {
     DragFractionItem: defineAsyncComponent(
@@ -74,6 +77,8 @@ export default {
       numerator: 3,
       denominator: 3,
       componentKey: 0,
+      currentTotal: 0,
+      clearTrigger: 0,
 
       arrowSpecs: [
         { x: 0.825, y: 0.4, operator: "numeratorMinus" },
@@ -87,6 +92,14 @@ export default {
   mounted() {
     this.initializeScene();
     this.componentKey++;
+  },
+
+  created() {
+    emitter.on("submitAnswer", this.checkAnswerHandler);
+  },
+
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswerHandler);
   },
 
   methods: {
@@ -212,6 +225,7 @@ export default {
       for (const fraction in fill) {
         total += fill[fraction];
       }
+      this.currentTotal = total;
       if (this.componentConfig.verifyOption === "answer") {
         const answer =
           this.componentConfig.answer.numerator /
@@ -225,6 +239,18 @@ export default {
         ]);
       } else if (this.componentConfig.verifyOption === "value") {
         this.$emit("replyAnswer", total.toFixed(2));
+      }
+    },
+
+    checkAnswerHandler() {
+      if (this.componentConfig.verifyOption === "answer") {
+        const answer =
+          this.componentConfig.answer.numerator /
+          this.componentConfig.answer.denominator;
+        const isCorrect = answer.toFixed(2) === this.currentTotal.toFixed(2);
+        if (!isCorrect) {
+          this.clearTrigger++;
+        }
       }
     },
   },
