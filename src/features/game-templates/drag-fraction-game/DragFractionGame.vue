@@ -4,20 +4,21 @@
       <h1 class="game__question-description">{{ questionDescription }}</h1>
     </div>
     <div class="game__interaction-area">
-      <div class="game__fraction-panel">
-        <FractionDisplay
-          :component-config="questionFraction"
-          class="game__fraction-display"
-        ></FractionDisplay>
-        <!-- <button class="game__submit" @click="submit">送出答案</button> -->
+      <div class="game__side-panel">
+        <component
+          :is="sidePanelComponent"
+          :component-config="sidePanelConfig"
+          :game-id="gameId"
+          @reply-answer="handleSidePanelAnswer"
+        />
       </div>
       <DragFraction
-        :component-config="configFraction"
+        :component-config="answerData"
         :game-id="gameId"
         class="game__answer-area"
-        @reply-answer="drag"
+        @reply-answer="handleDragAnswer"
         @record-answer="handleRecordAnswer"
-      ></DragFraction>
+      />
     </div>
   </div>
 </template>
@@ -25,15 +26,23 @@
 <script>
 import { defineAsyncComponent } from "vue";
 import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+
+const SIDE_PANEL_COMPONENTS = {
+  FractionDisplay: defineAsyncComponent(
+    () => import("@/components/FractionDisplay.vue")
+  ),
+  FractionForAnswer: defineAsyncComponent(
+    () => import("@/components/FractionForAnswer.vue")
+  ),
+};
+
 export default {
-  name: "MA3091",
+  name: "DragFractionGame",
   components: {
-    FractionDisplay: defineAsyncComponent(
-      () => import("@/components/FractionDisplay.vue")
-    ),
     DragFraction: defineAsyncComponent(
       () => import("@/components/DragFraction.vue")
     ),
+    ...SIDE_PANEL_COMPONENTS,
   },
   props: {
     gameData: {
@@ -44,34 +53,49 @@ export default {
       type: String,
       required: true,
     },
+    gameConfig: {
+      type: Object,
+      required: true,
+    },
   },
   emits: ["add-record", "play-effect", "next-question"],
   data() {
     return {
-      configFraction: this.gameData.answerData,
-      isAnswerCorrect: false,
       questionDescription: this.gameData.question.description,
-      questionFraction: { Content: this.gameData.question.fraction },
+      sidePanelComponent:
+        this.gameData.question.sidePanel?.name || "FractionDisplay",
+      sidePanelConfig: this.gameData.question.sidePanel?.data,
+      answerData: this.gameData.answerData,
+      // FractionDisplay has no answer to validate; default to true
+      isSidePanelCorrect: !this.gameConfig.checkSidePanel,
+      isDragCorrect: !this.gameConfig.checkDragAnswer,
     };
   },
-  computed: {},
-  created() {
+  mounted() {
     emitter.on("submitAnswer", this.checkAnswer);
   },
   beforeUnmount() {
     emitter.off("submitAnswer", this.checkAnswer);
   },
   methods: {
-    drag(answer) {
-      this.isAnswerCorrect = answer;
+    handleSidePanelAnswer(isCorrect) {
+      this.isSidePanelCorrect = isCorrect;
+    },
+    handleDragAnswer(isCorrect) {
+      this.isDragCorrect = isCorrect;
     },
     checkAnswer() {
-      this.$emit("add-record", this.recordedAnswer);
-      if (this.isAnswerCorrect) {
+      if (this.recordedAnswer) {
+        this.$emit("add-record", this.recordedAnswer);
+      }
+
+      if (this.isSidePanelCorrect && this.isDragCorrect) {
         this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", this.recordedAnswer);
         this.$emit("next-question", true);
       } else {
         this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", this.recordedAnswer);
       }
     },
     handleRecordAnswer(record) {
@@ -88,7 +112,7 @@ export default {
   gap: 0.5rem;
   height: 100%;
   width: 100%;
-  justify-content: space-between;
+  overflow: hidden;
 }
 
 .game__question-area {
@@ -106,32 +130,27 @@ export default {
 
 .game__interaction-area {
   display: flex;
+  gap: 2rem;
   align-items: center;
-  height: 80%;
+  justify-content: center;
+  flex: 1;
   width: 100%;
+  min-height: 0;
 }
 
-.game__fraction-panel {
+.game__side-panel {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
   height: 100%;
   padding: $padding--small;
 }
 
-.game__fraction-display {
-  flex: 4;
-}
-
 .game__answer-area {
-  width: 70%;
-  height: 100%;
-}
-
-.game__check-answer-btn {
   flex: 1;
-  border: none;
-  background-color: $submit-color;
+  height: 100%;
 }
 
 .game-section--border {

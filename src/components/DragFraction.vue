@@ -5,24 +5,17 @@
         <v-rect :config="configBG" />
         <v-rect :config="configSideBar" />
       </v-layer>
-      <v-layer v-if="componentConfig.shape === 'circle'">
-        <circleFraction
+      <v-layer>
+        <DragFractionItem
+          ref="dragFractionItem"
           :key="componentKey"
           :game-width="gameWidth"
           :game-height="gameHeight"
           :numerator="numerator"
           :denominator="denominator"
-          @add-fill="addFill"
-        />
-      </v-layer>
-
-      <v-layer v-if="componentConfig.shape === 'rect'">
-        <rectFraction
-          :key="componentKey"
-          :game-width="gameWidth"
-          :game-height="gameHeight"
-          :numerator="numerator"
-          :denominator="denominator"
+          :shape="componentConfig.shape"
+          :default-grid-on-top="componentConfig.defaultGridOnTop"
+          :clear-trigger="clearTrigger"
           @add-fill="addFill"
         />
       </v-layer>
@@ -44,19 +37,11 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 export default {
   components: {
-    circleFraction: defineAsyncComponent(
-      () =>
-        import(
-          "@/components/utilities/drag-fraction/DragFractionCircle.vue"
-        )
-    ),
-    rectFraction: defineAsyncComponent(
-      () =>
-        import(
-          "@/components/utilities/drag-fraction/DragFractionRect.vue"
-        )
+    DragFractionItem: defineAsyncComponent(
+      () => import("@/components/utilities/drag-fraction/DragFractionItem.vue")
     ),
   },
 
@@ -92,6 +77,15 @@ export default {
       numerator: 3,
       denominator: 3,
       componentKey: 0,
+      currentTotal: 0,
+      clearTrigger: 0,
+
+      arrowSpecs: [
+        { x: 0.825, y: 0.4, operator: "numeratorMinus" },
+        { x: 0.925, y: 0.4, operator: "numeratorPlus" },
+        { x: 0.825, y: 0.85, operator: "denominatorMinus" },
+        { x: 0.925, y: 0.85, operator: "denominatorPlus" },
+      ],
     };
   },
 
@@ -100,23 +94,20 @@ export default {
     this.componentKey++;
   },
 
+  created() {
+    emitter.on("submitAnswer", this.checkAnswerHandler);
+  },
+
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswerHandler);
+  },
+
   methods: {
     initializeScene() {
-      console.log(
-        this.$refs.container.clientWidth,
-        this.$refs.container.clientHeight
-      );
-      if (
-        this.$refs.container.clientWidth * 0.75 <=
-          this.$refs.container.clientHeight ||
-        this.$refs.container.clientHeight === 0
-      ) {
-        this.gameWidth = this.$refs.container.clientWidth;
-        this.gameHeight = this.gameWidth * 0.75;
-      } else {
-        this.gameHeight = this.$refs.container.clientHeight;
-        this.gameWidth = this.gameHeight / 0.75;
-      }
+      // Use the actual container dimensions instead of a fixed 3:4 ratio
+      this.gameWidth = this.$refs.container.clientWidth;
+      this.gameHeight = this.$refs.container.clientHeight;
+
       this.configKonva.width = this.gameWidth;
       this.configKonva.height = this.gameHeight;
       this.configBG.width = this.gameWidth;
@@ -126,44 +117,23 @@ export default {
       this.configSideBar.x = this.gameWidth * 0.75;
       this.drawArrow();
       this.drawNumber();
+      this.drawAfterAdjusted(); // Init state
     },
 
     drawArrow() {
-      const arrowPosition = [
-        {
-          x: this.gameWidth * 0.825,
-          y: this.gameHeight * 0.35,
-          operator: "numeratorMinus",
-        },
-        {
-          x: this.gameWidth * 0.925,
-          y: this.gameHeight * 0.35,
-          operator: "numeratorPlus",
-        },
-        {
-          x: this.gameWidth * 0.825,
-          y: this.gameHeight * 0.85,
-          operator: "denominatorMinus",
-        },
-        {
-          x: this.gameWidth * 0.925,
-          y: this.gameHeight * 0.85,
-          operator: "denominatorPlus",
-        },
-      ];
-      for (const pos in arrowPosition) {
-        const arrow = {
-          stroke: "#BA3F38",
-          fill: "#BA3F38",
-          length: this.gameWidth * 0.05,
-          sceneFunc: this.arrowSceneFunc,
-        };
-        arrow.x = arrowPosition[pos].x;
-        arrow.y = arrowPosition[pos].y;
-        arrow.operator = arrowPosition[pos].operator;
-        this.configArrow.push(arrow);
-      }
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
+      this.configArrow = this.arrowSpecs.map((spec) => ({
+        x: this.gameWidth * spec.x,
+        y: this.gameHeight * spec.y,
+        operator: spec.operator,
+        stroke: "#BA3F38",
+        fill: "#BA3F38",
+        length: minDim * 0.05,
+        sceneFunc: this.arrowSceneFunc,
+        visible: !spec.operator.includes("denominator"),
+      }));
     },
+
     arrowSceneFunc(context, shape) {
       const length = shape.getAttr("length");
       context.beginPath();
@@ -177,83 +147,85 @@ export default {
       context.fillStrokeShape(shape);
       context.closePath();
     },
+
     drawNumber() {
-      this.configNumeratorOne.x = this.gameWidth * 0.86;
-      this.configNumeratorOne.y = this.gameHeight * 0.29;
-      this.configNumeratorOne.text = `1`;
-      this.configNumeratorOne.fontSize = this.gameWidth * 0.045;
+      const minDim = Math.min(this.gameWidth, this.gameHeight);
+      const fontSize = Math.max(minDim * 0.08, 30); // Prevent becoming too small
 
-      this.configNumeratorLine.x = this.gameWidth * 0.85;
-      this.configNumeratorLine.y = this.gameHeight * 0.345;
-      this.configNumeratorLine.points = [0, 0, this.gameWidth * 0.05, 0];
-      this.configNumeratorLine.stroke = "black";
-      this.configNumeratorLine.strokeWidth = 3;
+      this.configNumeratorOne = {
+        x: this.gameWidth * 0.825,
+        y: this.gameHeight * 0.4 - fontSize,
+        text: `1`,
+        fontSize,
+        width: this.gameWidth * 0.1, // Full width between arrows
+        align: "center",
+      };
 
-      this.configNumeratorNumber.x = this.gameWidth * 0.86;
-      this.configNumeratorNumber.y = this.gameHeight * 0.35;
-      this.configNumeratorNumber.text = this.numerator;
-      this.configNumeratorNumber.fontSize = this.gameWidth * 0.045;
+      this.configNumeratorLine = {
+        x: this.gameWidth * 0.85,
+        y: this.gameHeight * 0.4,
+        points: [0, 0, this.gameWidth * 0.05, 0],
+        stroke: "black",
+        strokeWidth: Math.max(minDim * 0.005, 3), // Ensure line doesn't vanish
+      };
 
-      this.configDenominatorNumber.x = this.gameWidth * 0.83;
-      this.configDenominatorNumber.y = this.gameHeight * 0.835;
-      this.configDenominatorNumber.text = `${this.denominator}等分`;
-      this.configDenominatorNumber.fontSize = this.gameWidth * 0.03;
+      this.configNumeratorNumber = {
+        x: this.gameWidth * 0.825,
+        y: this.gameHeight * 0.4 + 5, // Just below the line
+        text: this.numerator.toString(),
+        fontSize,
+        width: this.gameWidth * 0.1,
+        align: "center",
+      };
+
+      this.configDenominatorNumber = {
+        x: this.gameWidth * 0.825,
+        y: this.gameHeight * 0.835,
+        text: `${this.denominator}等分`,
+        fontSize: Math.max(minDim * 0.04, 18),
+        width: this.gameWidth * 0.1,
+        align: "center",
+        visible: false,
+      };
     },
+
     adjustNumber(e) {
-      switch (e.target.attrs.operator) {
-        case "numeratorMinus":
-          if (this.numerator > 2) this.numerator--;
-          break;
-        case "numeratorPlus":
-          if (this.numerator < 12) this.numerator++;
-          break;
-        case "denominatorMinus":
-          if (this.denominator > 2) this.denominator--;
-          break;
-        case "denominatorPlus":
-          if (this.denominator < 12) this.denominator++;
-          break;
-      }
+      const op = e.target.attrs.operator;
+      if (op === "numeratorMinus" && this.numerator > 2) this.numerator--;
+      else if (op === "numeratorPlus" && this.numerator < 12) this.numerator++;
+      else if (op === "denominatorMinus" && this.denominator > 2)
+        this.denominator--;
+      else if (op === "denominatorPlus" && this.denominator < 12)
+        this.denominator++;
+
       this.drawAfterAdjusted();
     },
+
     drawAfterAdjusted() {
-      this.configNumeratorNumber.text = this.numerator;
-      if (this.numerator >= 10)
-        this.configNumeratorNumber.x = this.gameWidth * 0.85;
-      else this.configNumeratorNumber.x = this.gameWidth * 0.86;
+      this.configNumeratorNumber.text = this.numerator.toString();
       this.configDenominatorNumber.text = `${this.denominator}等分`;
 
-      if (this.numerator === 2) {
-        this.configArrow[0].fill = "#505050";
-        this.configArrow[0].stroke = "#505050";
-      } else if (this.numerator === 12) {
-        this.configArrow[1].fill = "#505050";
-        this.configArrow[1].stroke = "#505050";
-      } else {
-        this.configArrow[0].fill = "#BA3F38";
-        this.configArrow[0].stroke = "#BA3F38";
-        this.configArrow[1].fill = "#BA3F38";
-        this.configArrow[1].stroke = "#BA3F38";
-      }
+      const updateArrowColor = (idx, active) => {
+        const color = active ? "#BA3F38" : "#505050";
+        if (this.configArrow[idx]) {
+          this.configArrow[idx].fill = color;
+          this.configArrow[idx].stroke = color;
+        }
+      };
 
-      if (this.denominator === 2) {
-        this.configArrow[2].fill = "#505050";
-        this.configArrow[2].stroke = "#505050";
-      } else if (this.denominator === 12) {
-        this.configArrow[3].fill = "#505050";
-        this.configArrow[3].stroke = "#505050";
-      } else {
-        this.configArrow[2].fill = "#BA3F38";
-        this.configArrow[2].stroke = "#BA3F38";
-        this.configArrow[3].fill = "#BA3F38";
-        this.configArrow[3].stroke = "#BA3F38";
-      }
+      // Arrows: 0=Num-, 1=Num+, 2=Den-, 3=Den+
+      updateArrowColor(0, this.numerator > 2);
+      updateArrowColor(1, this.numerator < 12);
+      updateArrowColor(2, this.denominator > 2);
+      updateArrowColor(3, this.denominator < 12);
     },
+
     addFill(fill) {
       let total = 0;
       for (const fraction in fill) {
         total += fill[fraction];
       }
+      this.currentTotal = total;
       if (this.componentConfig.verifyOption === "answer") {
         const answer =
           this.componentConfig.answer.numerator /
@@ -267,6 +239,18 @@ export default {
         ]);
       } else if (this.componentConfig.verifyOption === "value") {
         this.$emit("replyAnswer", total.toFixed(2));
+      }
+    },
+
+    checkAnswerHandler() {
+      if (this.componentConfig.verifyOption === "answer") {
+        const answer =
+          this.componentConfig.answer.numerator /
+          this.componentConfig.answer.denominator;
+        const isCorrect = answer.toFixed(2) === this.currentTotal.toFixed(2);
+        if (!isCorrect) {
+          this.clearTrigger++;
+        }
       }
     },
   },

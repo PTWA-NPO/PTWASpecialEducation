@@ -61,6 +61,8 @@ const templateLoaders = {
     import(
       "@/features/game-templates/one-dimensional-form/OneDimensionalForm.vue"
     ),
+  DragFractionGame: () =>
+    import("@/features/game-templates/drag-fraction-game/DragFractionGame.vue"),
 };
 
 export const templateComponents = Object.fromEntries(

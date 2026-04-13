@@ -5,15 +5,26 @@
     "Type": "PlainText",
     "Content": "用分數板排排看"
   },
-  "GameType": "SelfDefine",
-  "GameConfig": {},
+  "GameType": "DragFractionGame",
+  "GameConfig": {
+    "checkSidePanel": true,
+    "checkDragAnswer": true
+  },
   "Hint": {},
   "Questions": [
     [
       {
         "question": {
-          "fraction": { "Content": "\\frac{2}{2}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 2,
+              "denominator": 2,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -21,13 +32,26 @@
           "answer": {
             "numerator": 2,
             "denominator": 2
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 2
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{3}{3}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 3,
+              "denominator": 3,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -35,13 +59,26 @@
           "answer": {
             "numerator": 3,
             "denominator": 3
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 3
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{4}{4}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 4,
+              "denominator": 4,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -49,13 +86,26 @@
           "answer": {
             "numerator": 4,
             "denominator": 4
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 4
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{2}{2}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 2,
+              "denominator": 2,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -63,13 +113,26 @@
           "answer": {
             "numerator": 2,
             "denominator": 2
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 2
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{3}{3}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 3,
+              "denominator": 3,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -77,6 +140,11 @@
           "answer": {
             "numerator": 3,
             "denominator": 3
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 3
           }
         }
       }
@@ -84,8 +152,16 @@
     [
       {
         "question": {
-          "fraction": { "Content": "\\frac{4}{4}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 4,
+              "denominator": 4,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -93,13 +169,26 @@
           "answer": {
             "numerator": 4,
             "denominator": 4
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 4
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{5}{5}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 5,
+              "denominator": 5,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -107,13 +196,26 @@
           "answer": {
             "numerator": 5,
             "denominator": 5
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 5
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{6}{6}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 6,
+              "denominator": 6,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -121,13 +223,26 @@
           "answer": {
             "numerator": 6,
             "denominator": 6
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 6
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{4}{4}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 4,
+              "denominator": 4,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -135,13 +250,26 @@
           "answer": {
             "numerator": 4,
             "denominator": 4
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 4
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{5}{5}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 5,
+              "denominator": 5,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -149,6 +277,11 @@
           "answer": {
             "numerator": 5,
             "denominator": 5
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 5
           }
         }
       }
@@ -156,8 +289,16 @@
     [
       {
         "question": {
-          "fraction": { "Content": "\\frac{6}{6}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 6,
+              "denominator": 6,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -165,13 +306,26 @@
           "answer": {
             "numerator": 6,
             "denominator": 6
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 6
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{7}{7}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 7,
+              "denominator": 7,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -179,13 +333,26 @@
           "answer": {
             "numerator": 7,
             "denominator": 7
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 7
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{4}{4}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 4,
+              "denominator": 4,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -193,13 +360,26 @@
           "answer": {
             "numerator": 4,
             "denominator": 4
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 4
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{7}{7}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 7,
+              "denominator": 7,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -207,13 +387,26 @@
           "answer": {
             "numerator": 7,
             "denominator": 7
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 7
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{8}{8}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 8,
+              "denominator": 8,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -221,6 +414,11 @@
           "answer": {
             "numerator": 8,
             "denominator": 8
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 8
           }
         }
       }
@@ -228,8 +426,16 @@
     [
       {
         "question": {
-          "fraction": { "Content": "\\frac{10}{10}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 10,
+              "denominator": 10,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -237,13 +443,26 @@
           "answer": {
             "numerator": 10,
             "denominator": 10
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 10
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{9}{9}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 9,
+              "denominator": 9,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -251,13 +470,26 @@
           "answer": {
             "numerator": 9,
             "denominator": 9
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 9
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{9}{9}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 9,
+              "denominator": 9,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -265,13 +497,26 @@
           "answer": {
             "numerator": 9,
             "denominator": 9
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 9
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{9}{9}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 9,
+              "denominator": 9,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -279,13 +524,26 @@
           "answer": {
             "numerator": 9,
             "denominator": 9
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 9
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{8}{8}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 8,
+              "denominator": 8,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -293,6 +551,11 @@
           "answer": {
             "numerator": 8,
             "denominator": 8
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 8
           }
         }
       }
@@ -300,8 +563,16 @@
     [
       {
         "question": {
-          "fraction": { "Content": "\\frac{11}{11}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 11,
+              "denominator": 11,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -309,13 +580,26 @@
           "answer": {
             "numerator": 11,
             "denominator": 11
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 11
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{12}{12}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 12,
+              "denominator": 12,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "circle",
@@ -323,13 +607,26 @@
           "answer": {
             "numerator": 12,
             "denominator": 12
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 12
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{10}{10}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 10,
+              "denominator": 10,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -337,13 +634,26 @@
           "answer": {
             "numerator": 10,
             "denominator": 10
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 10
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{12}{12}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 12,
+              "denominator": 12,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -351,13 +661,26 @@
           "answer": {
             "numerator": 12,
             "denominator": 12
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 12
           }
         }
       },
       {
         "question": {
-          "fraction": { "Content": "\\frac{11}{11}" },
-          "description": "用分數板排排看，並回答問題"
+          "description": "用分數板排排看，並回答問題",
+          "sidePanel": {
+            "name": "FractionForAnswer",
+            "data": {
+              "numerator": 11,
+              "denominator": 11,
+              "blank_part": "numerator",
+              "suffix": " = 1"
+            }
+          }
         },
         "answerData": {
           "shape": "rect",
@@ -365,6 +688,11 @@
           "answer": {
             "numerator": 11,
             "denominator": 11
+          },
+          "defaultGridOnTop": {
+            "x": 0.2,
+            "y": 0.3,
+            "slices": 11
           }
         }
       }
