@@ -17,6 +17,7 @@
           <input
             ref="numerator"
             class="fraction-input numerator"
+            :class="{ 'answer-error': isAnswerIncorrect }"
             type="text"
             @click="showNumPad('numerator', $event)"
             @input="handleNativeInput"
@@ -33,6 +34,7 @@
           <input
             ref="denominator"
             class="fraction-input denominator"
+            :class="{ 'answer-error': isAnswerIncorrect }"
             type="text"
             @click="showNumPad('denominator', $event)"
             @input="handleNativeInput"
@@ -56,6 +58,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
 
 export default {
   name: "FractionForAnswer",
@@ -71,6 +74,7 @@ export default {
     },
   },
   emits: ["recordAnswer", "replyAnswer"],
+
   data() {
     return {
       virtualNumpadSwitch: false,
@@ -82,8 +86,10 @@ export default {
       // 定義常數
       numPadOffset: 10, // 虛擬鍵盤與目標輸入框的間距
       containerScale: 1,
+      isAnswerIncorrect: false, // 答案錯誤時顯示紅色邊框
     };
   },
+
   computed: {
     estimatedWidthEm() {
       let ems = 3.5; // fraction default content width
@@ -118,6 +124,15 @@ export default {
       return false;
     },
   },
+
+  created() {
+    emitter.on("submitAnswer", this.checkAnswerHandler);
+  },
+
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.checkAnswerHandler);
+  },
+
   methods: {
     showNumPad(inputRef, event) {
       const inputRect = event.target.getBoundingClientRect();
@@ -140,6 +155,7 @@ export default {
           this.closeNumPad();
           break;
         default:
+          this.clearError();
           this.updateInputValue(label);
           this.validateAnswer();
           break;
@@ -197,11 +213,23 @@ export default {
         userAnswer,
         isCorrect ? "正確" : "錯誤",
       ]);
+
+      return isCorrect;
     },
     closeNumPad() {
       this.virtualNumpadSwitch = false;
     },
+    checkAnswerHandler() {
+      const isCorrect = this.validateAnswer();
+      if (isCorrect === false) {
+        this.isAnswerIncorrect = true;
+      }
+    },
+    clearError() {
+      this.isAnswerIncorrect = false;
+    },
     handleNativeInput() {
+      this.clearError();
       this.adjustInputWidth();
       this.validateAnswer();
     },
@@ -313,6 +341,16 @@ export default {
   padding: 0 0.2em;
   text-align: center;
   box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.fraction-input.answer-error {
+  border-color: #e53935;
+  background-color: #ffebee;
+  color: #c62828;
+  outline-color: #e53935;
 }
 
 .line {
