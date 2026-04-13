@@ -476,6 +476,13 @@
             "Title": "幾分之幾(一)",
             "Games": [
               {
+                "id": "MA3091",
+                "Name": "幾分之幾(連續量情境的分數概念)",
+                "Description": "用分數版排排看。",
+                "Img": "MA3091.png",
+                "status": "ready"
+              },
+              {
                 "id": "MA3092",
                 "Name": "分數連連看",
                 "Description": "塗色的部分共是多少?將正確的分數連起來。",
@@ -527,6 +534,61 @@
   {
     "lableName": "下學期",
     "gameItem": [
+      {
+        "Title": "1 - 分數的加減",
+        "Section": [
+          {
+            "Title": "和1一樣大的分數",
+            "Games": [
+              {
+                "id": "MA3111",
+                "Name": "和1一樣大的分數",
+                "Description": "用除法直式算算看",
+                "Img": "MA3111.PNG",
+                "status": "ready"
+              }
+            ]
+          },
+          {
+            "Title": "分數的加法",
+            "Games": [
+              {
+                "id": "MA3112",
+                "Name": "分數的加法(計算題)",
+                "Description": "先用分數板排排看，再算算看",
+                "Img": "MA3112.PNG",
+                "status": "ready"
+              },
+              {
+                "id": "MA3113",
+                "Name": "分數的加法(應用題)",
+                "Description": "把做法和答案記下來",
+                "Img": "MA3113.PNG",
+                "status": "ready"
+              }
+            ]
+          },
+          {
+            "Title": "分數的減法",
+            "Games": [
+              {
+                "id": "MA3114",
+                "Name": "分數的減法(計算題)",
+                "Description": "先用分數板排排看，再算算看",
+                "Img": "MA3114.PNG",
+                "status": "ready"
+              },
+              {
+                "id": "MA3115",
+                "Name": "分數的減法(應用題)",
+                "Description": "把做法和答案記下來",
+                "Img": "MA3115.PNG",
+                "status": "ready"
+              }
+            ]
+          }
+        ]
+      },
       {
         "Title": "2 - 除法",
         "Section": [
