@@ -62,18 +62,7 @@
           <div class="mx-auto">開始</div>
         </div>
       </button>
-      <button
-        v-if="gameStatus === 'Progressing' && showSubmitButton"
-        class="btn btn-primary text-nowrap img-hover-zoom"
-        @click="submitAnswer()"
-      >
-        <div class="d-flex align-items-center">
-          <div class="">
-            <i class="bi bi-check" />
-          </div>
-          <div class="mx-auto">送出答案</div>
-        </div>
-      </button>
+
       <button
         class="btn btn-primary text-nowrap img-hover-zoom"
         @click="reloadPage()"
@@ -220,6 +209,22 @@
       <slot name="hint" />
     </div>
 
+    <!-- 送出答案（固定在底部） -->
+    <div class="BottomActions">
+      <button
+        v-if="gameStatus === 'Progressing' && showSubmitButton"
+        class="btn btn-success text-nowrap img-hover-zoom"
+        @click="submitAnswer()"
+      >
+        <div class="d-flex align-items-center">
+          <div class="">
+            <i class="bi bi-check" />
+          </div>
+          <div class="mx-auto">送出答案</div>
+        </div>
+      </button>
+    </div>
+
     <!-- 重現代碼 -->
     <div
       id="reappear"
@@ -298,7 +303,6 @@
         </div>
       </div>
     </div>
-    {{ isFullScreen }}
   </div>
 </template>
 <script>
@@ -463,6 +467,22 @@ export default {
         max-width: 40px;
         max-height: 40px;
       }
+    }
+  }
+  .BottomActions {
+    margin-top: auto;
+    padding: 1rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      align-self: center;
+      width: 93%;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      height: 4rem;
+      padding: 0.4rem;
     }
   }
   .Title {
