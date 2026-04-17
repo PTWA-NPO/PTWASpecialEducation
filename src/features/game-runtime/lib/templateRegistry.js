@@ -61,6 +61,8 @@ const templateLoaders = {
     import(
       "@/features/game-templates/one-dimensional-form/OneDimensionalForm.vue"
     ),
+  BarChartGame: () =>
+    import("@/features/game-templates/bar-chart-game/BarChartGame.vue"),
 };
 
 export const templateComponents = Object.fromEntries(

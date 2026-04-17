@@ -1,0 +1,348 @@
+{
+  "id": "MA40A3",
+  "GameType": "BarChartGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "想一想,再選選看"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Questions": [
+          {
+            "Description": "下面是花朵國小四年A班學生喜歡的海洋動物統計表，將統計表的資料畫成長條圖：",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 5,
+              "Y": 14,
+              "Title": "花朵國小四年A班學生喜歡的海洋動物長條圖",
+              "Axis": {
+                "X": "種類",
+                "Y": "人數(人)"
+              },
+              "XItems": ["海馬", "水獺", "海龜", "海豚", "鯨魚"],
+              "YTicks": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28],
+              "Values": [6, 12, 22, 28, 10],
+              "AsQuestions": {
+                "values": [1, 2, 3, 4, 5]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "花朵國小四年A班學生喜歡的海洋動物統計表",
+              "rows": [
+                ["海馬", "水獺", "海龜", "海豚", "鯨魚"],
+                [6, 12, 22, 28, 10]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是大米國小全校學生最喜歡的夜市小吃統計表，將統計表的資料畫成長條圖：",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 5,
+              "Y": 20,
+              "Title": "大米國小全校學生最喜歡的夜市小吃長條圖",
+              "Axis": {
+                "X": "種類",
+                "Y": "人數(人)"
+              },
+              "XItems": ["鹹酥雞", "章魚燒", "蚵仔煎", "臭豆腐", "蔥油餅"],
+              "YTicks": [
+                0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,
+                34, 36, 38, 40
+              ],
+              "Values": [40, 16, 30, 28, 36],
+              "AsQuestions": {
+                "values": [1, 2, 3, 4, 5]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "大米國小全校學生最喜歡的夜市小吃統計表",
+              "rows": [
+                ["鹹酥雞", "章魚燒", "蚵仔煎", "臭豆腐", "蔥油餅"],
+                [40, 16, 30, 28, 36]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是大米國小四年A班學生喜歡的飲料口味統計表，將統計表的資料畫成長條圖：",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 5,
+              "Y": 6,
+              "Title": "大米國小四年A班學生喜歡的飲料口味長條圖",
+              "Axis": {
+                "X": "種類",
+                "Y": "人數(人)"
+              },
+              "XItems": ["奶茶", "紅茶", "綠茶", "麥茶", "烏龍茶"],
+              "YTicks": [0, 2, 4, 6, 8, 10, 12],
+              "Values": [12, 8, 2, 10, 8],
+              "AsQuestions": {
+                "values": [1, 2, 3, 4, 5]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "大米國小四年A班學生喜歡的飲料口味統計表",
+              "rows": [
+                ["奶茶", "紅茶", "綠茶", "麥茶", "烏龍茶"],
+                [12, 8, 2, 10, 8]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是快樂國小四年級學生喜歡的科目人數統計表，將統計表的資料畫成長條圖：",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 5,
+              "Y": 11,
+              "Title": "快樂國小四年級學生喜歡的科目人數長條圖",
+              "Axis": {
+                "X": "科目",
+                "Y": "人數(人)"
+              },
+              "XItems": ["國語", "數學", "體育", "美術", "音樂"],
+              "YTicks": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
+              "Values": [18, 12, 22, 18, 16],
+              "AsQuestions": {
+                "values": [1, 2, 3, 4, 5]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "快樂國小四年級學生喜歡的科目人數統計表",
+              "rows": [
+                ["國語", "數學", "體育", "美術", "音樂"],
+                [18, 12, 22, 18, 16]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是大米國小全校學生最喜歡的夜市小吃統計表，將統計表的資料畫成長條圖：",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 5,
+              "Y": 13,
+              "Title": "大米國小全校學生最喜歡的夜市小吃長條圖",
+              "Axis": {
+                "X": "種類",
+                "Y": "人數(人)"
+              },
+              "XItems": ["鹹酥雞", "章魚燒", "蚵仔煎", "臭豆腐", "蔥油餅"],
+              "YTicks": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26],
+              "Values": [26, 10, 20, 12, 18],
+              "AsQuestions": {
+                "values": [1, 2, 3, 4, 5]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "大米國小全校學生最喜歡的夜市小吃統計表",
+              "rows": [
+                ["鹹酥雞", "章魚燒", "蚵仔煎", "臭豆腐", "蔥油餅"],
+                [26, 10, 20, 12, 18]
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "Questions": [
+          {
+            "Description": "下面是光光國小四年A班學生上學方式統計表，根據製作長條圖的步驟完成長條圖。",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 4,
+              "Y": 10,
+              "Title": "光光國小四年一班學生上學方式長條圖",
+              "Axis": {
+                "X": "上學方式",
+                "Y": "人數(人)"
+              },
+              "XItems": ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+              "YTicks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              "Values": [9, 5, 6, 3],
+              "AsQuestions": {
+                "title": true,
+                "axis": true,
+                "xItems": [2],
+                "yTicks": [6, 7, 8, 9, 10],
+                "values": [1, 3]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "光光國小四年一班學生上學方式統計表",
+              "rows": [
+                ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+                [9, 5, 6, 3]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是光光國小四年A班學生上學方式統計表，根據製作長條圖的步驟完成長條圖。",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 4,
+              "Y": 10,
+              "Title": "光光國小四年一班學生上學方式長條圖",
+              "Axis": {
+                "X": "上學方式",
+                "Y": "人數(人)"
+              },
+              "XItems": ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+              "YTicks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              "Values": [6, 2, 7, 1],
+              "AsQuestions": {
+                "title": true,
+                "axis": true,
+                "xItems": [2],
+                "yTicks": [6, 7, 8, 9, 10],
+                "values": [1, 3]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "光光國小四年一班學生上學方式統計表",
+              "rows": [
+                ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+                [6, 2, 7, 1]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是光光國小四年A班學生上學方式統計表，根據製作長條圖的步驟完成長條圖。",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 4,
+              "Y": 10,
+              "Title": "光光國小四年一班學生上學方式長條圖",
+              "Axis": {
+                "X": "上學方式",
+                "Y": "人數(人)"
+              },
+              "XItems": ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+              "YTicks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              "Values": [8, 4, 4, 3],
+              "AsQuestions": {
+                "title": true,
+                "axis": true,
+                "xItems": [2],
+                "yTicks": [6, 7, 8, 9, 10],
+                "values": [1, 3]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "光光國小四年一班學生上學方式統計表",
+              "rows": [
+                ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+                [8, 4, 4, 3]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是光光國小四年A班學生上學方式統計表，根據製作長條圖的步驟完成長條圖。",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 4,
+              "Y": 10,
+              "Title": "光光國小四年一班學生上學方式長條圖",
+              "Axis": {
+                "X": "上學方式",
+                "Y": "人數(人)"
+              },
+              "XItems": ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+              "YTicks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              "Values": [7, 2, 5, 4],
+              "AsQuestions": {
+                "title": true,
+                "axis": true,
+                "xItems": [2],
+                "yTicks": [6, 7, 8, 9, 10],
+                "values": [1, 3]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "光光國小四年一班學生上學方式統計表",
+              "rows": [
+                ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+                [7, 2, 5, 4]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "Questions": [
+          {
+            "Description": "下面是光光國小四年A班學生上學方式統計表，根據製作長條圖的步驟完成長條圖。",
+            "ChartType": "DynamicBarChart",
+            "ChartData": {
+              "X": 4,
+              "Y": 10,
+              "Title": "光光國小四年一班學生上學方式長條圖",
+              "Axis": {
+                "X": "上學方式",
+                "Y": "人數(人)"
+              },
+              "XItems": ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+              "YTicks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+              "Values": [3, 1, 5, 6],
+              "AsQuestions": {
+                "title": true,
+                "axis": true,
+                "xItems": [2],
+                "yTicks": [6, 7, 8, 9, 10],
+                "values": [1, 3]
+              }
+            },
+            "QuestionType": "Table",
+            "QuestionData": {
+              "title": "光光國小四年一班學生上學方式統計表",
+              "rows": [
+                ["騎腳踏車", "大眾運輸", "家人接送", "走路"],
+                [3, 1, 5, 6]
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  ]
+}
