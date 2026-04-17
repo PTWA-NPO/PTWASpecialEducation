@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "把做法和答案記下來"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

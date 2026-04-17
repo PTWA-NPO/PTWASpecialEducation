@@ -24,7 +24,7 @@
       </div>
       <div class="QuestionArea">
         <p class="Title">答案區</p>
-        <div v-for="(pair, index) in gameData.Pairs" :key="index" class="Pair">
+        <div v-for="(pair, index) in gamePairs" :key="index" class="Pair">
           <div class="Answer" :class="{ False: FalseOption[index] === true }">
             <draggable
               :list="AnswersNew[index]"
@@ -73,6 +73,7 @@ export default {
     ElectronicClock: defineAsyncComponent(
       () => import("@/components/ElectronicClock.vue")
     ),
+    MarkdownRenderer: getComponents("MarkdownRenderer"),
   },
   props: {
     gameData: {
@@ -89,15 +90,17 @@ export default {
     return {
       Selections: [],
       Question: [],
+      gamePairs: [],
       AnswersOld: [],
       AnswersNew: [],
       FalseOption: [],
     };
   },
   created() {
+    this.gamePairs = this.shuffle([...this.gameData.Pairs]);
     this.Selections = this.gameData.Properties;
-    this.Question = this.gameData.Pairs.map((pair) => pair.Question);
-    for (let i = 0; i < this.gameData.Pairs.length; i++) {
+    this.Question = this.gamePairs.map((pair) => pair.Question);
+    for (let i = 0; i < this.gamePairs.length; i++) {
       this.AnswersNew.push([]);
       this.AnswersOld.push([]);
     }
@@ -107,6 +110,13 @@ export default {
     emitter.off("submitAnswer", this.CheckAnswer);
   },
   methods: {
+    shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    },
     PoplastAdd(index) {
       const Tar = this.AnswersOld[index][0];
       this.FalseOption[index] = false;
@@ -131,28 +141,20 @@ export default {
       for (let i = 0; i < this.FalseOption.length; i++) {
         this.FalseOption[i] = false;
       }
-      for (let j = 0; j < this.gameData.Pairs.length; j++) {
-        if (this.gameData.Pairs[j].Answer !== this.AnswersNew[j][0].Tag) {
+      for (let j = 0; j < this.gamePairs.length; j++) {
+        if (this.gamePairs[j].Answer !== this.AnswersNew[j][0].Tag) {
           AnswerCheck = false;
           this.FalseOption[j] = true;
         }
       }
       if (AnswerCheck) {
         this.$emit("play-effect", "CorrectSound");
-        this.$emit("add-record", [
-          this.gameData.Pairs,
-          this.AnswersNew,
-          "正確",
-        ]);
+        this.$emit("add-record", [this.gamePairs, this.AnswersNew, "正確"]);
         this.$emit("next-question");
       } else {
         console.log("Wrong");
         this.$emit("play-effect", "WrongSound");
-        this.$emit("add-record", [
-          this.gameData.Pairs,
-          this.AnswersNew,
-          "錯誤",
-        ]);
+        this.$emit("add-record", [this.gamePairs, this.AnswersNew, "錯誤"]);
       }
     },
   },
@@ -219,6 +221,7 @@ export default {
         // grid-template-rows: 1fr;
         gap: 0.5rem;
         width: 100%;
+        padding: 0 0.5rem;
         .dragable {
           flex: 1;
           max-height: 100px;
@@ -227,6 +230,7 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 0 0.25rem;
         }
       }
     }

@@ -22,8 +22,8 @@ const templateLoaders = {
     import("@/features/game-templates/fillin-blank/FillinBlank.vue"),
   PairingGame: () =>
     import("@/features/game-templates/pairing-game/PairingGame.vue"),
-  NumberLock: () =>
-    import("@/features/game-templates/number-lock/NumberLock.vue"),
+  DualZoneContainer: () =>
+    import("@/features/game-templates/dual-zone-container/DualZoneContainer.vue"),
   RacingCar: () => import("@/features/game-templates/racing-car/RacingCar.vue"),
   WhackaMole: () =>
     import("@/features/game-templates/whacka-mole/WhackaMole.vue"),

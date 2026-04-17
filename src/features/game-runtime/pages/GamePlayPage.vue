@@ -141,7 +141,8 @@
     />
     <TechModal
       v-if="showMediaModal"
-      :media-data="GameData.introvideo"
+      :media-data="currentMediaData"
+      :modal-purpose="modalPurpose"
       :game-id="gameID"
       @close="closeMediaModal"
     />
@@ -155,7 +156,6 @@ import GameStart from "@/features/game-runtime/components/GameStart.vue";
 import GameOver from "@/features/game-runtime/components/GameOver.vue";
 import GameHeader from "@/features/game-runtime/components/GameHeader.vue";
 import LevelAndTime from "@/features/game-runtime/components/LevelAndTime.vue";
-import MediaModal from "@/features/game-runtime/components/MediaModal.vue";
 import hintbutton from "@/features/game-runtime/components/hintbutton.vue";
 import * as ImportUrl from "@/lib/get-assets.js";
 import { defineAsyncComponent } from "vue";
@@ -177,7 +177,6 @@ export default {
     GameOver,
     GameHeader,
     LevelAndTime,
-    MediaModal,
     EffectWindow,
     SideBar: defineAsyncComponent(
       () => import("@/features/game-runtime/components/SideBar.vue")
@@ -224,6 +223,7 @@ export default {
       questionOrder: [],
       questionCopy: [],
       showMediaModal: false,
+      modalPurpose: "intro",
       // SentData2ChildComponent: {},
     };
   },
@@ -254,6 +254,18 @@ export default {
         WrongTimes: this.WrongTimes,
         MaxWrongTimes: this.MaxWrongTimes,
       };
+    },
+    currentMediaData() {
+      if (this.modalPurpose === 'intro') {
+        return this.GameData.introvideo;
+      } else if (this.modalPurpose === 'hint') {
+        const currentQuestion = this.GameData.Questions[this.Nowlevel - 1];
+        return currentQuestion?.hint || this.GameData.introvideo;
+      } else if (this.modalPurpose === 'passMedia') {
+        const currentQuestion = this.GameData.Questions[this.Nowlevel - 1];
+        return currentQuestion?.passMedia;
+      }
+      return undefined;
     },
     // 自動判斷是否需要送出答案按鈕
     shouldShowSubmitButton() {
@@ -357,11 +369,20 @@ export default {
       this.GameData.Questions = question;
       this.questionOrder = this.gameCode;
     },
-    openMediaModal() {
+    openMediaModal(mediaType) {
+      if (mediaType === "hint") {
+        this.modalPurpose = "hint";
+      } else {
+        this.modalPurpose = "intro";
+      }
       this.showMediaModal = true;
     },
     closeMediaModal() {
       this.showMediaModal = false;
+      if (this.modalPurpose === "passMedia") {
+        this.proceedToNextQuestion();
+        this.modalPurpose = "intro";
+      }
     },
     changeGameStatus(status) {
       this.GameStatus = status;
@@ -415,7 +436,7 @@ export default {
         this.isPassLevel.push(false);
       });
     },
-    nextQuestion() {
+    proceedToNextQuestion() {
       this.isPassLevel[this.Nowlevel - 1] = true;
       this.resetWrongTimes();
       if (this.checkUnansweredQuestions()) {
@@ -427,6 +448,16 @@ export default {
       this.pauseTimer();
       this.resetTimer();
       this.startTimer();
+    },
+    nextQuestion() {
+      const currentQuestion = this.GameData.Questions[this.Nowlevel - 1];
+      if (currentQuestion?.passMedia) {
+        this.modalPurpose = "passMedia";
+        this.showMediaModal = true;
+        this.pauseTimer(); // 顯示說明時暫停計時
+      } else {
+        this.proceedToNextQuestion();
+      }
     },
     checkUnansweredQuestions() {
       const totalQuestions = this.GameData.Questions.length;

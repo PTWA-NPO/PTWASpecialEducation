@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "口裡的數是多少?填填看"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

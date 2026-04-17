@@ -1,0 +1,467 @@
+{
+  "id": "MA4014",
+  "GameType": "PairingGame",
+  "IntroText": {
+    "Type": "PlainText",
+    "Content": "將電子鐘與正確的時間配對"
+  },
+  "GameConfig": {},
+  "Questions": [
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__1__2380" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "45__1__98" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "3__1__009" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "887__1__2" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "1個萬", "Answer": "1" },
+          { "Question": "1個百", "Answer": "2" },
+          { "Question": "1個千", "Answer": "3" },
+          { "Question": "1個十", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__2__4771" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "345__2__0" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "66__2__38" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "1001__2__" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "2個萬", "Answer": "1" },
+          { "Question": "2個十", "Answer": "2" },
+          { "Question": "2個百", "Answer": "3" },
+          { "Question": "2個一", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__3__7820" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "9__3__125" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "10__3__00" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "6672__3__" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "3個萬", "Answer": "1" },
+          { "Question": "3個千", "Answer": "2" },
+          { "Question": "3個百", "Answer": "3" },
+          { "Question": "3個一", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__4__9008" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "12__4__87" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "2__4__013" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "663__4__0" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "4個萬", "Answer": "1" },
+          { "Question": "4個百", "Answer": "2" },
+          { "Question": "4個千", "Answer": "3" },
+          { "Question": "4個十", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__5__6732" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "9845__5__" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "11__5__62" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "6673__5__" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "5個萬", "Answer": "1" },
+          { "Question": "5個十", "Answer": "2" },
+          { "Question": "5個百", "Answer": "3" },
+          { "Question": "5個一", "Answer": "4" }
+        ]
+      }
+    ],
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__1__0096" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "45__1__23" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "9082__1__" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "782__1__3" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "10000", "Answer": "1" },
+          { "Question": "100", "Answer": "2" },
+          { "Question": "1", "Answer": "3" },
+          { "Question": "10", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__2__8976" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "36__2__90" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "334__2__8" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "6__2__100" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "20000", "Answer": "1" },
+          { "Question": "200", "Answer": "2" },
+          { "Question": "20", "Answer": "3" },
+          { "Question": "2000", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__3__9086" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "12__3__45" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "7765__3__" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "564__3__1" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "30000", "Answer": "1" },
+          { "Question": "300", "Answer": "2" },
+          { "Question": "3", "Answer": "3" },
+          { "Question": "30", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__4__9088" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "23__4__61" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "3__4__617" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "7826__4__" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "40000", "Answer": "1" },
+          { "Question": "400", "Answer": "2" },
+          { "Question": "4000", "Answer": "3" },
+          { "Question": "4", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__5__9023" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "1400__5__" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "2__5__766" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "13__5__79" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "50000", "Answer": "1" },
+          { "Question": "5", "Answer": "2" },
+          { "Question": "5000", "Answer": "3" },
+          { "Question": "500", "Answer": "4" }
+        ]
+      }
+    ],
+    [
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__1__3765" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "29__1__00" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "3045__1__" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "772__1__8" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "1個萬", "Answer": "1" },
+          { "Question": "100", "Answer": "2" },
+          { "Question": "1個一", "Answer": "3" },
+          { "Question": "10", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__2__5700" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "3__2__198" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "67__2__33" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "198__2__7" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "20000", "Answer": "1" },
+          { "Question": "2個千", "Answer": "2" },
+          { "Question": "2個百", "Answer": "3" },
+          { "Question": "20", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__3__9007" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "4__3__676" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "2900__3__" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "677__3__1" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "3個萬", "Answer": "1" },
+          { "Question": "3000", "Answer": "2" },
+          { "Question": "3個一", "Answer": "3" },
+          { "Question": "30", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__4__6223" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "193__4__8" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "20__4__08" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "6__4__321" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "40000", "Answer": "1" },
+          { "Question": "4個十", "Answer": "2" },
+          { "Question": "4個百", "Answer": "3" },
+          { "Question": "4000", "Answer": "4" }
+        ]
+      },
+      {
+        "Properties": [
+          {
+            "Tag": "1",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "__5__7002" }
+          },
+          {
+            "Tag": "2",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "23__5__89" }
+          },
+          {
+            "Tag": "3",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "1__5__098" }
+          },
+          {
+            "Tag": "4",
+            "Name": "MarkdownRenderer",
+            "Data": { "Render": "672__5__9" }
+          }
+        ],
+        "Pairs": [
+          { "Question": "5個萬", "Answer": "1" },
+          { "Question": "500", "Answer": "2" },
+          { "Question": "5000", "Answer": "3" },
+          { "Question": "5個十", "Answer": "4" }
+        ]
+      }
+    ]
+  ]
+}

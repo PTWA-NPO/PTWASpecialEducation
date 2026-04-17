@@ -1,0 +1,306 @@
+<template>
+  <div class="outter-container" :style="containerStyle">
+    <div class="left-column" :style="columnStyle">
+      <div v-if="gameData.questionText" class="text-area question-text">
+        {{ gameData.questionText }}
+      </div>
+      <div
+        class="game-components-wrapper"
+        :class="{ 'is-row': gameConfig?.layout?.direction === 'row' }"
+      >
+        <div
+          v-if="gameConfig.layout.top"
+          class="game-area--top game-area"
+          :style="topStyle"
+        >
+          <component
+            :is="gameData.topComponent.Name"
+            :component-config="gameData.topComponent.Data"
+            :game-id="gameId"
+            @reply-answer="topReply"
+          ></component>
+        </div>
+        <div v-if="gameData.middleText" class="text-area middle-text">
+          {{ gameData.middleText }}
+        </div>
+        <div
+          v-if="gameConfig.layout.down"
+          class="game-area--down game-area"
+          :style="downStyle"
+        >
+          <component
+            :is="gameData.downComponent.Name"
+            :component-config="gameData.downComponent.Data"
+            :game-id="gameId"
+            @reply-answer="downReply"
+          ></component>
+        </div>
+      </div>
+    </div>
+    {{ NowSelect }}
+  </div>
+</template>
+
+<script>
+import { subComponentsVerifyAnswer as emitter } from "@/lib/mitt.js";
+import { basicComponents } from "@/lib/basicComponentsRegistry.js";
+
+export default {
+  name: "NumberLock",
+  components: {
+    ...basicComponents
+  },
+  props: {
+    gameData: {
+      type: Object,
+      required: true,
+    },
+    gameConfig: {
+      type: Object,
+      required: true,
+    },
+    gameId: {
+      type: String,
+      required: true,
+    },
+  },
+  emits: ["play-effect", "add-record", "next-question"],
+  data() {
+    return {
+      NowSelect: null,
+      ShowPad: false,
+      topComponentsAnswer: false,
+      downComponentsAnswer: false,
+    };
+  },
+  computed: {
+    topStyle() {
+      const style = {};
+      if (this.gameConfig?.layout?.topRatio !== undefined) {
+        style.flex = this.gameConfig.layout.topRatio;
+        style.flexShrink = 1;
+      } else if (this.gameConfig?.layout?.downRatio !== undefined) {
+        style.flex = "0 0 auto";
+        style.flexShrink = 0;
+      }
+
+      if (this.gameConfig?.layout?.direction === "row") {
+        style.minWidth = 0;
+      } else {
+        style.minHeight = 0;
+      }
+      return style;
+    },
+    downStyle() {
+      const style = {};
+      if (this.gameConfig?.layout?.downRatio !== undefined) {
+        style.flex = this.gameConfig.layout.downRatio;
+        style.flexShrink = 1;
+      } else if (this.gameConfig?.layout?.topRatio !== undefined) {
+        style.flex = "0 0 auto";
+        style.flexShrink = 0;
+      }
+
+      if (this.gameConfig?.layout?.direction === "row") {
+        style.minWidth = 0;
+      } else {
+        style.minHeight = 0;
+      }
+      return style;
+    },
+    containerStyle() {
+      if (
+        this.gameConfig?.layout?.topRatio !== undefined ||
+        this.gameConfig?.layout?.downRatio !== undefined
+      ) {
+        return { height: "79vh" };
+      }
+      return {};
+    },
+    columnStyle() {
+      if (
+        this.gameConfig?.layout?.topRatio !== undefined ||
+        this.gameConfig?.layout?.downRatio !== undefined
+      ) {
+        return { height: "100%" };
+      }
+      return {};
+    },
+  },
+  created() {
+    const NewArr = [];
+    let cnt = 0;
+    for (const i in this.gameData.Data) {
+      NewArr.push(this.gameData.Data[i]);
+      // Initial the ComponentAnswer
+      if (this.gameData.Data[i].Blank === true) {
+        this.ComponentsAnswers[cnt] = false;
+      }
+      cnt++;
+      if (i !== this.gameData.Data.length - 1) {
+        NewArr.push({
+          Arrow: true,
+        });
+        cnt++;
+      }
+    }
+    this.FinalData = NewArr;
+    emitter.on("submitAnswer", this.CheckAnswer);
+  },
+  mounted() {
+    if (this.gameConfig.NumberPadAutoDisappear === false) {
+      this.SlidAnimation("in");
+      this.ShowPad = true;
+    }
+    document.addEventListener("click", this.NowClick);
+  },
+  beforeUnmount() {
+    emitter.off("submitAnswer", this.CheckAnswer);
+  },
+  methods: {
+    downReply(result) {
+      console.log(result);
+      this.downComponentsAnswer = result;
+    },
+    topReply(result) {
+      console.log(result);
+      this.topComponentsAnswer = result;
+    },
+    NowClick() {
+      if (this.gameConfig.layout.pad === false) return;
+      if (document.activeElement.tagName === "INPUT") {
+        this.SlidAnimation("in");
+        this.ShowPad = true;
+        this.NowSelect = document.activeElement;
+      } else if (document.activeElement.tagName === "BUTTON") {
+        this.NowSelect.focus();
+        this.ShowPad = true;
+      } else {
+        if (this.gameConfig.NumberPadAutoDisappear !== false) {
+          this.ShowPad = false;
+          this.SlidAnimation("out");
+        }
+      }
+    },
+    SlidAnimation(action) {
+      if (this.gameConfig.layout.pad === false) return;
+      if (this.gameConfig.NumberPadAutoDisappear !== false) {
+        const OutterContainer =
+          document.getElementsByClassName("OutterContainer")[0];
+        const GameWindows = document.getElementsByClassName("GameWindows")[0];
+        if (action === "in") {
+          OutterContainer.style.gridTemplateColumns = "4fr 1f";
+          GameWindows.style.gridColumn = "1/2";
+        } else {
+          OutterContainer.style.gridTemplateColumns = "1fr";
+          GameWindows.style.gridColumn = "1/2";
+        }
+      }
+    },
+    CheckAnswer() {
+      console.log(this.topComponentsAnswer, this.downComponentsAnswer);
+      if (
+        this.gameConfig.layout.top === false ||
+        this.gameConfig.checkAnswer.top === false
+      ) {
+        this.topComponentsAnswer = true;
+      }
+      if (
+        this.gameConfig.layout.down === false ||
+        this.gameConfig.checkAnswer.down === false
+      ) {
+        this.downComponentsAnswer = true;
+      }
+
+      const ans = this.topComponentsAnswer && this.downComponentsAnswer;
+
+      if (ans === true) {
+        this.$emit("play-effect", "CorrectSound");
+        this.$emit("add-record", ["不支援顯示", "不支援顯示", `正確`]);
+        this.$emit("next-question");
+      } else {
+        this.$emit("play-effect", "WrongSound");
+        this.$emit("add-record", ["不支援顯示", "不支援顯示", `錯誤`]);
+        emitter.emit("checkAnswer");
+      }
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+/* Your component-specific styles go here */
+.outter-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid;
+  max-height: 79vh;
+}
+.left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $gap--small;
+  max-height: 100%;
+  overflow-y: auto;
+
+  .text-area {
+    flex-shrink: 0;
+    padding: $gap--tiny;
+    background-color: #dfdfdf;
+    border-radius: $border-radius;
+    font-size: $text-medium;
+    white-space: pre-wrap;
+  }
+
+  .game-components-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $gap--small;
+    flex: 1;
+    min-height: 0;
+
+    &.is-row {
+      flex-direction: row;
+      align-items: stretch;
+
+      .game-area {
+        min-width: 0;
+        height: 100%;
+        align-self: stretch;
+        &--top {
+          flex: 1; /* In row mode, if no ratio is set, we typically want equal width */
+        }
+        &--down {
+          flex: 1;
+        }
+      }
+
+      .middle-text {
+        align-self: center;
+      }
+    }
+  }
+
+  .game-area {
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius;
+    background-color: #f0f0f0;
+
+    &--top {
+      flex-shrink: 0;
+    }
+
+    &--down {
+      flex: 1;
+      min-height: 0;
+    }
+  }
+}
+</style>

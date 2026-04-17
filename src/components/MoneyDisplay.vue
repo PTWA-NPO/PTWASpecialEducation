@@ -33,18 +33,17 @@ export default {
 <style scoped lang="scss">
 .image-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   width: 100%;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .monay-image {
-  width: 100%;
-  height: 100%;
   object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
 }
 </style>
-
-
-

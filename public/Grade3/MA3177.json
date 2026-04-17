@@ -4,7 +4,7 @@
     "Type": "PlainText",
     "Content": "用算式記記看"
   },
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

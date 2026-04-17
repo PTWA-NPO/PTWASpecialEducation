@@ -6,7 +6,7 @@
   },
   "introvideo": "MA3062.mp4",
   "TotalLevel": 5,
-  "GameType": "NumberLock",
+  "GameType": "DualZoneContainer",
   "GameConfig": {
     "NumberPadAutoDisappear": false,
     "layout": {

@@ -8,9 +8,22 @@
     }"
   >
     <div
+      v-if="paperMoneyGroups['10000'].length > 0"
+      :key="containerRef"
+      class="MoneyContainer papaer-money"
+      :style="{ gridTemplateColumns: 'repeat(' + paperMoneyCols + ', 1fr)' }"
+    >
+      <MoneyDisplay
+        v-for="(item, index) in paperMoneyGroups['10000']"
+        :key="`10000-${index}`"
+        :component-config="{ denomination: item }"
+      />
+    </div>
+    <div
       v-if="paperMoneyGroups['1000'].length > 0"
       :key="containerRef"
       class="MoneyContainer papaer-money"
+      :style="{ gridTemplateColumns: 'repeat(' + paperMoneyCols + ', 1fr)' }"
     >
       <MoneyDisplay
         v-for="(item, index) in paperMoneyGroups['1000']"
@@ -22,6 +35,7 @@
       v-if="paperMoneyGroups['500'].length > 0"
       :key="containerRef"
       class="MoneyContainer papaer-money"
+      :style="{ gridTemplateColumns: 'repeat(' + paperMoneyCols + ', 1fr)' }"
     >
       <MoneyDisplay
         v-for="(item, index) in paperMoneyGroups['500']"
@@ -33,6 +47,7 @@
       v-if="paperMoneyGroups['100'].length > 0"
       :key="containerRef"
       class="MoneyContainer papaer-money"
+      :style="{ gridTemplateColumns: 'repeat(' + paperMoneyCols + ', 1fr)' }"
     >
       <MoneyDisplay
         v-for="(item, index) in paperMoneyGroups['100']"
@@ -70,6 +85,7 @@ const props = defineProps({
 });
 
 const paperMoneyGroups = ref({
+  10000: [],
   1000: [],
   500: [],
   100: [],
@@ -80,6 +96,8 @@ const containerSize = ref(false);
 const containerRef = ref(0);
 const Container = ref(null);
 
+const paperMoneyCols = ref(5);
+
 const processCoins = (amount, denomination) => {
   let remaining = amount;
   while (remaining > 0) {
@@ -88,9 +106,7 @@ const processCoins = (amount, denomination) => {
     for (let i = 0; i < count; i++) {
       TempContainer.push(denomination);
     }
-    while (TempContainer.length < 10) {
-      TempContainer.push("");
-    }
+    // Remove fixed padding here to allow dynamic resizing later
     coinContainer.value.push(TempContainer);
     remaining -= count;
   }
@@ -104,6 +120,9 @@ const processPaperMoney = (amount, denomination) => {
 
 const loadData = () => {
   // 處理紙鈔
+  if (componentConfig.value.TenThousands) {
+    processPaperMoney(componentConfig.value.TenThousands, "10000");
+  }
   if (componentConfig.value.Thousands) {
     processPaperMoney(componentConfig.value.Thousands, "1000");
   }
@@ -113,6 +132,15 @@ const loadData = () => {
   if (componentConfig.value.Hundreds) {
     processPaperMoney(componentConfig.value.Hundreds, "100");
   }
+
+  // Calculate paper money columns
+  const maxPaperCount = Math.max(
+    paperMoneyGroups.value["10000"].length,
+    paperMoneyGroups.value["1000"].length,
+    paperMoneyGroups.value["500"].length,
+    paperMoneyGroups.value["100"].length
+  );
+  paperMoneyCols.value = maxPaperCount > 0 ? Math.min(maxPaperCount, 5) : 5;
 
   // 處理硬幣
   const coinTypes = {
@@ -127,6 +155,18 @@ const loadData = () => {
       processCoins(componentConfig.value[key], value);
     }
   });
+
+  // Post-process coins to pad to the maximum length found
+  if (coinContainer.value.length > 0) {
+    const maxCoinLen = Math.max(
+      ...coinContainer.value.map((row) => row.length)
+    );
+    coinContainer.value.forEach((row) => {
+      while (row.length < maxCoinLen) {
+        row.push("");
+      }
+    });
+  }
 };
 function updateContainerSize() {
   if (Container.value) {
@@ -153,26 +193,23 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* grid-template-columns: 1fr;
-    grid-template-rows: repeat(4,1fr); */
   gap: 8px;
 }
 .papaer-money {
-  img {
-    height: 70px;
-  }
+  flex: 0 1 auto;
+  min-height: 0;
 }
 .MoneyContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(auto-fill, 1fr);
+  // grid-template-columns is handled by inline style
+  grid-auto-rows: 1fr;
   gap: 10px;
 }
 .CoinContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-height: 40px;
+  max-height: 48px;
   img {
     width: 100%;
     height: 100%;

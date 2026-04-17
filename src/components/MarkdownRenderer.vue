@@ -343,7 +343,9 @@ input {
   width: 100%;
   height: 100%;
   span,
-  p {
+  p,
+  b,
+  u {
     font-size: $text-medium;
     margin: 0;
     padding: 0;
